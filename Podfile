@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'HYN' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for HYN
+pod 'SDWebImage'
+
+  target 'HYNTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'HYNUITests' do
+    # Pods for testing
+  end
+
+
+end
