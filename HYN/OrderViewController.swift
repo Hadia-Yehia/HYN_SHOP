@@ -14,6 +14,7 @@ class OrderViewController: UIViewController ,UITableViewDataSource, UITableViewD
     @IBOutlet weak var orderTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        orderTable.register(UINib(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "cellOrder")
         orderTable.dataSource = self
         orderTable.delegate = self
         // Do any additional setup after loading the view.

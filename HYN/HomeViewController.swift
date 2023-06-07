@@ -7,7 +7,9 @@
 
 import UIKit
 
-class HomeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+class HomeViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
+
+    
    
     
     @IBOutlet weak var controlMedia: UIPageControl!
@@ -19,24 +21,26 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     var photoCell = [UIImage(named: "photo1.jpeg"),UIImage(named: "photo1.jpeg"),UIImage(named: "photo1.jpeg"),UIImage(named: "photo1.jpeg")]
     override func viewDidLoad() {
         super.viewDidLoad()
-
+     
+        brandsCollection.register(UINib(nibName: "MadiaCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "mediaCell")
         // Do any additional setup after loading the view.
         print("nada")
-        mediaCollection.dataSource = self
+       mediaCollection.dataSource = self
         mediaCollection.delegate = self
         brandsCollection.dataSource = self
         brandsCollection.delegate = self
+        mediaCollection.register(UINib(nibName: "MadiaCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "mediaCell")
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photoCell.count
     }
-    
+ 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch(collectionView) {
+       switch(collectionView) {
            case mediaCollection:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mediaCell", for: indexPath) as! MadiaCollectionViewCell
             cell.mediaView.layer.cornerRadius = 40
@@ -45,7 +49,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
             return cell
             
           default :
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "fristCell", for: indexPath) as! MadiaCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mediaCell", for: indexPath) as! MadiaCollectionViewCell
             cell.mediaView.layer.cornerRadius = 40
             cell.layer.masksToBounds = true
             cell.photoView.image = photoCell[indexPath.row]

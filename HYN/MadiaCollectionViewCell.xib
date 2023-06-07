@@ -47,11 +47,6 @@
             </connections>
             <point key="canvasLocation" x="7.6335877862595414" y="20.422535211267608"/>
         </collectionViewCell>
-        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="Kos-aO-LYn">
-            <rect key="frame" x="0.0" y="0.0" width="150" height="4"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <point key="canvasLocation" x="-29" y="-27"/>
-        </progressView>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
