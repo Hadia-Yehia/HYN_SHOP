@@ -18,6 +18,15 @@
 		0E55EEB82A2C85BE004A7357 /* HYNUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E55EEB72A2C85BE004A7357 /* HYNUITests.swift */; };
 		0E55EEBA2A2C85BE004A7357 /* HYNUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E55EEB92A2C85BE004A7357 /* HYNUITestsLaunchTests.swift */; };
 		0E8A84BEB2DBB3BB48AA2E3D /* Pods_HYNTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7828C3DC3295B86EF2CD4F /* Pods_HYNTests.framework */; };
+		8F86B9762A30B86100B1D8C9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86B9742A30B86100B1D8C9 /* HomeViewController.swift */; };
+		8F86B9772A30B86100B1D8C9 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F86B9752A30B86100B1D8C9 /* HomeViewController.xib */; };
+		8F86B9802A30C70500B1D8C9 /* MadiaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86B97E2A30C70500B1D8C9 /* MadiaCollectionViewCell.swift */; };
+		8F86B9812A30C70500B1D8C9 /* MadiaCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F86B97F2A30C70500B1D8C9 /* MadiaCollectionViewCell.xib */; };
+		8F86B9842A30C9E400B1D8C9 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86B9822A30C9E400B1D8C9 /* OrderViewController.swift */; };
+		8F86B9852A30C9E400B1D8C9 /* OrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F86B9832A30C9E400B1D8C9 /* OrderViewController.xib */; };
+		8F86B9882A30CAE400B1D8C9 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86B9862A30CAE400B1D8C9 /* OrderTableViewCell.swift */; };
+		8F86B9892A30CAE400B1D8C9 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F86B9872A30CAE400B1D8C9 /* OrderTableViewCell.xib */; };
+		8F86B98B2A30E96400B1D8C9 /* photo1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8F86B98A2A30E96400B1D8C9 /* photo1.jpeg */; };
 		A5FD2B6B8414504AC15C6963 /* Pods_HYN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5450FA30BEA12F7DB4976121 /* Pods_HYN.framework */; };
 		BF7CE737DB7D9642FD67D216 /* Pods_HYN_HYNUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3A1CA3D366A0C30058C4874 /* Pods_HYN_HYNUITests.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +67,15 @@
 		73A1CF7B3CC5105BFD19B4BD /* Pods-HYNTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYNTests.debug.xcconfig"; path = "Target Support Files/Pods-HYNTests/Pods-HYNTests.debug.xcconfig"; sourceTree = "<group>"; };
 		73AD2DFC3A98417A626B74CB /* Pods-HYN-HYNUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYN-HYNUITests.release.xcconfig"; path = "Target Support Files/Pods-HYN-HYNUITests/Pods-HYN-HYNUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8F7828C3DC3295B86EF2CD4F /* Pods_HYNTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HYNTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F86B9742A30B86100B1D8C9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8F86B9752A30B86100B1D8C9 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		8F86B97E2A30C70500B1D8C9 /* MadiaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadiaCollectionViewCell.swift; sourceTree = "<group>"; };
+		8F86B97F2A30C70500B1D8C9 /* MadiaCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MadiaCollectionViewCell.xib; sourceTree = "<group>"; };
+		8F86B9822A30C9E400B1D8C9 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
+		8F86B9832A30C9E400B1D8C9 /* OrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderViewController.xib; sourceTree = "<group>"; };
+		8F86B9862A30CAE400B1D8C9 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		8F86B9872A30CAE400B1D8C9 /* OrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
+		8F86B98A2A30E96400B1D8C9 /* photo1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo1.jpeg; sourceTree = "<group>"; };
 		98080D1695F512A74D41BEA6 /* Pods-HYN-HYNUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYN-HYNUITests.debug.xcconfig"; path = "Target Support Files/Pods-HYN-HYNUITests/Pods-HYN-HYNUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DFFB84845BCF28E75D67FA71 /* Pods-HYN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYN.debug.xcconfig"; path = "Target Support Files/Pods-HYN/Pods-HYN.debug.xcconfig"; sourceTree = "<group>"; };
 		E3A1CA3D366A0C30058C4874 /* Pods_HYN_HYNUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HYN_HYNUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +136,7 @@
 		0E55EE922A2C85BC004A7357 /* HYN */ = {
 			isa = PBXGroup;
 			children = (
+				8F86B98A2A30E96400B1D8C9 /* photo1.jpeg */,
 				0E55EE932A2C85BC004A7357 /* AppDelegate.swift */,
 				0E55EE952A2C85BC004A7357 /* SceneDelegate.swift */,
 				0E55EE972A2C85BC004A7357 /* ViewController.swift */,
@@ -126,6 +145,14 @@
 				0E55EEA12A2C85BE004A7357 /* LaunchScreen.storyboard */,
 				0E55EEA42A2C85BE004A7357 /* Info.plist */,
 				0E55EE9C2A2C85BD004A7357 /* HYN.xcdatamodeld */,
+				8F86B9742A30B86100B1D8C9 /* HomeViewController.swift */,
+				8F86B9752A30B86100B1D8C9 /* HomeViewController.xib */,
+				8F86B97E2A30C70500B1D8C9 /* MadiaCollectionViewCell.swift */,
+				8F86B97F2A30C70500B1D8C9 /* MadiaCollectionViewCell.xib */,
+				8F86B9822A30C9E400B1D8C9 /* OrderViewController.swift */,
+				8F86B9832A30C9E400B1D8C9 /* OrderViewController.xib */,
+				8F86B9862A30CAE400B1D8C9 /* OrderTableViewCell.swift */,
+				8F86B9872A30CAE400B1D8C9 /* OrderTableViewCell.xib */,
 			);
 			path = HYN;
 			sourceTree = "<group>";
@@ -167,7 +194,6 @@
 				73A1CF7B3CC5105BFD19B4BD /* Pods-HYNTests.debug.xcconfig */,
 				F79ACE5FB7E7409BEC3F0B27 /* Pods-HYNTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -281,8 +307,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E55EEA32A2C85BE004A7357 /* LaunchScreen.storyboard in Resources */,
+				8F86B9852A30C9E400B1D8C9 /* OrderViewController.xib in Resources */,
+				8F86B98B2A30E96400B1D8C9 /* photo1.jpeg in Resources */,
+				8F86B9812A30C70500B1D8C9 /* MadiaCollectionViewCell.xib in Resources */,
 				0E55EEA02A2C85BE004A7357 /* Assets.xcassets in Resources */,
 				0E55EE9B2A2C85BD004A7357 /* Main.storyboard in Resources */,
+				8F86B9892A30CAE400B1D8C9 /* OrderTableViewCell.xib in Resources */,
+				8F86B9772A30B86100B1D8C9 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,7 +441,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F86B9802A30C70500B1D8C9 /* MadiaCollectionViewCell.swift in Sources */,
+				8F86B9762A30B86100B1D8C9 /* HomeViewController.swift in Sources */,
+				8F86B9882A30CAE400B1D8C9 /* OrderTableViewCell.swift in Sources */,
 				0E55EE982A2C85BC004A7357 /* ViewController.swift in Sources */,
+				8F86B9842A30C9E400B1D8C9 /* OrderViewController.swift in Sources */,
 				0E55EE942A2C85BC004A7357 /* AppDelegate.swift in Sources */,
 				0E55EE962A2C85BC004A7357 /* SceneDelegate.swift in Sources */,
 				0E55EE9E2A2C85BD004A7357 /* HYN.xcdatamodeld in Sources */,
@@ -594,7 +629,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HYN/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -622,7 +657,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HYN/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
