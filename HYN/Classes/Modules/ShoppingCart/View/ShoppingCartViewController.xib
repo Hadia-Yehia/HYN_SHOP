@@ -23,14 +23,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Bvn-C8-dYS">
-                    <rect key="frame" x="0.0" y="98" width="393" height="591.66666666666663"/>
+                    <rect key="frame" x="0.0" y="105" width="393" height="642"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eka-MW-eIj">
-                    <rect key="frame" x="0.0" y="697.66666666666663" width="393" height="90"/>
+                    <rect key="frame" x="0.0" y="755" width="393" height="97"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTF-qD-4cM">
-                            <rect key="frame" x="184.66666666666663" y="16.999999999999996" width="181.33333333333337" height="43.666666666666657"/>
+                            <rect key="frame" x="184.66666666666663" y="19" width="181.33333333333337" height="47"/>
                             <color key="backgroundColor" systemColor="systemYellowColor"/>
                             <color key="tintColor" systemColor="systemBackgroundColor"/>
                             <state key="normal" title="Button"/>
@@ -40,23 +40,23 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDF-CP-uYw">
-                            <rect key="frame" x="89" y="9" width="39" height="22"/>
+                            <rect key="frame" x="89" y="12.666666666666629" width="39" height="22"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EGP 234,56" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFH-f6-70c">
-                            <rect key="frame" x="65" y="34.333333333333371" width="91.333333333333314" height="21"/>
+                            <rect key="frame" x="65" y="38" width="91.333333333333314" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEA-zq-Hm3">
-                            <rect key="frame" x="8" y="19" width="24" height="14"/>
+                            <rect key="frame" x="8" y="19" width="24" height="21"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain"/>
                             <connections>
-                                <action selector="moreDetailsButton:" destination="-1" eventType="touchUpInside" id="WI3-ry-Ixx"/>
+                                <action selector="moreDetailsButton:" destination="-1" eventType="touchUpInside" id="Lsr-OV-3Id"/>
                             </connections>
                         </button>
                     </subviews>
@@ -76,7 +76,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hyj-s4-QDy">
-                    <rect key="frame" x="0.0" y="547.66666666666663" width="393" height="150"/>
+                    <rect key="frame" x="0.0" y="593" width="393" height="162"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subtotal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Y5-nP-4xn">
                             <rect key="frame" x="29" y="26" width="64" height="21"/>

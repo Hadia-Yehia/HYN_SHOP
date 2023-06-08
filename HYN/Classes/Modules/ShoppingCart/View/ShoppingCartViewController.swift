@@ -9,6 +9,21 @@ import UIKit
 
 class ShoppingCartViewController: UIViewController {
     var isArrowUp = false
+    @IBAction func moreDetailsButton(_ sender: UIButton) {
+        isArrowUp.toggle()
+        let imageName = isArrowUp ? "chevron.up" : "chevron.down"
+        UIView.animate(withDuration: 0.25) {
+            self.moreDetailsButton.transform = CGAffineTransform(rotationAngle: self.isArrowUp ? .pi : 0)
+            self.moreDetailsButton.setImage(UIImage(systemName: imageName), for: .normal)
+        }
+        
+        // Animate the reveal view
+        UIView.animate(withDuration: 0.25) {
+            self.checkoutDetailsView.isHidden = !self.isArrowUp
+            self.checkoutDetailsView.frame.origin.y = self.isArrowUp ? self.view.bounds.height - self.checkoutDetailsView.bounds.height : self.view.bounds.height
+        }
+        
+    }
     @IBOutlet weak var moreDetailsButton: UIButton!
     @IBOutlet weak var checkoutDetailsView: UIView!
     @IBAction func checkoutButton(_ sender: UIButton) {
@@ -38,24 +53,13 @@ class ShoppingCartViewController: UIViewController {
     
        moreDetailsButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
         moreDetailsButton.tintColor = .black
-        moreDetailsButton.addTarget(self, action: #selector(arrowButtonTapped), for: .touchUpInside)
+      //  moreDetailsButton.addTarget(self, action: #selector(arrowButtonTapped), for: .touchUpInside)
         checkoutDetailsView.isHidden = true
       
     }
     @objc func arrowButtonTapped() {
         // Toggle the arrow direction and animate the arrow button
-        isArrowUp.toggle()
-        let imageName = isArrowUp ? "chevron.up" : "chevron.down"
-        UIView.animate(withDuration: 0.25) {
-            self.moreDetailsButton.transform = CGAffineTransform(rotationAngle: self.isArrowUp ? .pi : 0)
-            self.moreDetailsButton.setImage(UIImage(systemName: imageName), for: .normal)
-        }
-        
-        // Animate the reveal view
-        UIView.animate(withDuration: 0.25) {
-            self.checkoutDetailsView.isHidden = !self.isArrowUp
-            self.checkoutDetailsView.frame.origin.y = self.isArrowUp ? self.view.bounds.height - self.checkoutDetailsView.bounds.height : self.view.bounds.height
-        }
+
     }
 
 }
