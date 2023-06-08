@@ -9,6 +9,9 @@ import UIKit
 
 class FavouritesViewController: UIViewController {
 
+    @IBAction func startExploringBtn(_ sender: UIButton) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

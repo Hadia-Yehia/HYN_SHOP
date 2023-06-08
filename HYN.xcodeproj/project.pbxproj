@@ -23,18 +23,9 @@
 		0E55EEB82A2C85BE004A7357 /* HYNUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E55EEB72A2C85BE004A7357 /* HYNUITests.swift */; };
 		0E55EEBA2A2C85BE004A7357 /* HYNUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E55EEB92A2C85BE004A7357 /* HYNUITestsLaunchTests.swift */; };
 		0E8A84BEB2DBB3BB48AA2E3D /* Pods_HYNTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7828C3DC3295B86EF2CD4F /* Pods_HYNTests.framework */; };
-		8F86B9762A30B86100B1D8C9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86B9742A30B86100B1D8C9 /* HomeViewController.swift */; };
-		8F86B9772A30B86100B1D8C9 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F86B9752A30B86100B1D8C9 /* HomeViewController.xib */; };
-		8F86B9802A30C70500B1D8C9 /* MadiaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86B97E2A30C70500B1D8C9 /* MadiaCollectionViewCell.swift */; };
-		8F86B9812A30C70500B1D8C9 /* MadiaCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F86B97F2A30C70500B1D8C9 /* MadiaCollectionViewCell.xib */; };
-		8F86B9842A30C9E400B1D8C9 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86B9822A30C9E400B1D8C9 /* OrderViewController.swift */; };
-		8F86B9852A30C9E400B1D8C9 /* OrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F86B9832A30C9E400B1D8C9 /* OrderViewController.xib */; };
-		8F86B9882A30CAE400B1D8C9 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86B9862A30CAE400B1D8C9 /* OrderTableViewCell.swift */; };
-		8F86B9892A30CAE400B1D8C9 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F86B9872A30CAE400B1D8C9 /* OrderTableViewCell.xib */; };
-		8F86B98B2A30E96400B1D8C9 /* photo1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8F86B98A2A30E96400B1D8C9 /* photo1.jpeg */; };
+		0E9943612A31CA5E00F81FF8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9943602A31CA5E00F81FF8 /* NetworkService.swift */; };
 		0EEAA9A02A308D4A00913310 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA99E2A308D4A00913310 /* ReviewTableViewCell.swift */; };
 		0EEAA9A12A308D4A00913310 /* ReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EEAA99F2A308D4A00913310 /* ReviewTableViewCell.xib */; };
-		0EEAA9A92A30A66100913310 /* ReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA9A72A30A66100913310 /* ReviewsViewController.swift */; };
 		0EEAA9AA2A30A66100913310 /* ReviewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EEAA9A82A30A66100913310 /* ReviewsViewController.xib */; };
 		0EEAA9AF2A30BA3900913310 /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA9AE2A30BA3900913310 /* FavouritesViewModel.swift */; };
 		0EEAA9B82A30BA9D00913310 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA9B62A30BA9D00913310 /* FavouritesViewController.swift */; };
@@ -44,6 +35,15 @@
 		0EEAA9C02A30BBA800913310 /* FavouritesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EEAA9BE2A30BBA800913310 /* FavouritesTableViewCell.xib */; };
 		0EEAA9C52A30CBA300913310 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA9C32A30CBA300913310 /* LoginViewController.swift */; };
 		0EEAA9C62A30CBA300913310 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EEAA9C42A30CBA300913310 /* LoginViewController.xib */; };
+		8F86B9762A30B86100B1D8C9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86B9742A30B86100B1D8C9 /* HomeViewController.swift */; };
+		8F86B9772A30B86100B1D8C9 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F86B9752A30B86100B1D8C9 /* HomeViewController.xib */; };
+		8F86B9802A30C70500B1D8C9 /* MadiaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86B97E2A30C70500B1D8C9 /* MadiaCollectionViewCell.swift */; };
+		8F86B9812A30C70500B1D8C9 /* MadiaCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F86B97F2A30C70500B1D8C9 /* MadiaCollectionViewCell.xib */; };
+		8F86B9842A30C9E400B1D8C9 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86B9822A30C9E400B1D8C9 /* OrderViewController.swift */; };
+		8F86B9852A30C9E400B1D8C9 /* OrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F86B9832A30C9E400B1D8C9 /* OrderViewController.xib */; };
+		8F86B9882A30CAE400B1D8C9 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86B9862A30CAE400B1D8C9 /* OrderTableViewCell.swift */; };
+		8F86B9892A30CAE400B1D8C9 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F86B9872A30CAE400B1D8C9 /* OrderTableViewCell.xib */; };
+		8F86B98B2A30E96400B1D8C9 /* photo1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8F86B98A2A30E96400B1D8C9 /* photo1.jpeg */; };
 		A5FD2B6B8414504AC15C6963 /* Pods_HYN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5450FA30BEA12F7DB4976121 /* Pods_HYN.framework */; };
 		BC38A3DE2A30B26E00492F76 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38A3DC2A30B26E00492F76 /* SettingsViewController.swift */; };
 		BC38A3DF2A30B26E00492F76 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC38A3DD2A30B26E00492F76 /* SettingsViewController.xib */; };
@@ -97,6 +97,7 @@
 		0E55EEB32A2C85BE004A7357 /* HYNUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HYNUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E55EEB72A2C85BE004A7357 /* HYNUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYNUITests.swift; sourceTree = "<group>"; };
 		0E55EEB92A2C85BE004A7357 /* HYNUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYNUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0E9943602A31CA5E00F81FF8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0EEAA99E2A308D4A00913310 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		0EEAA99F2A308D4A00913310 /* ReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewTableViewCell.xib; sourceTree = "<group>"; };
 		0EEAA9A72A30A66100913310 /* ReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +244,7 @@
 		0E55EE922A2C85BC004A7357 /* HYN */ = {
 			isa = PBXGroup;
 			children = (
+				0E99435D2A31CA2A00F81FF8 /* Service */,
 				8F86B98A2A30E96400B1D8C9 /* photo1.jpeg */,
 				0EEAA9C12A30CB7F00913310 /* Login */,
 				0EEAA9AB2A30BA0F00913310 /* Favourites */,
@@ -282,6 +284,30 @@
 				0E55EEB92A2C85BE004A7357 /* HYNUITestsLaunchTests.swift */,
 			);
 			path = HYNUITests;
+			sourceTree = "<group>";
+		};
+		0E99435D2A31CA2A00F81FF8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0E99435F2A31CA3E00F81FF8 /* Caching */,
+				0E99435E2A31CA3300F81FF8 /* Networking */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		0E99435E2A31CA3300F81FF8 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				0E9943602A31CA5E00F81FF8 /* NetworkService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		0E99435F2A31CA3E00F81FF8 /* Caching */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Caching;
 			sourceTree = "<group>";
 		};
 		0EEAA99D2A308D1A00913310 /* ReviewTableCell */ = {
@@ -621,7 +647,6 @@
 				0E5477952A2F8AA50048B7AD /* ProductInfoCollectionViewCell.xib in Resources */,
 				0EEAA9C02A30BBA800913310 /* FavouritesTableViewCell.xib in Resources */,
 				0EEAA9B92A30BA9D00913310 /* FavouritesViewController.xib in Resources */,
-				0E55EE9B2A2C85BD004A7357 /* Main.storyboard in Resources */,
 				8F86B9892A30CAE400B1D8C9 /* OrderTableViewCell.xib in Resources */,
 				8F86B9772A30B86100B1D8C9 /* HomeViewController.xib in Resources */,
 				0EEAA9AA2A30A66100913310 /* ReviewsViewController.xib in Resources */,
@@ -762,12 +787,12 @@
 				8F86B9882A30CAE400B1D8C9 /* OrderTableViewCell.swift in Sources */,
 				0EEAA9AF2A30BA3900913310 /* FavouritesViewModel.swift in Sources */,
 				0E5477992A2F8C910048B7AD /* ProductInfoViewController.swift in Sources */,
+				0E9943612A31CA5E00F81FF8 /* NetworkService.swift in Sources */,
 				0EEAA9BC2A30BAF200913310 /* ProductInfoViewModel.swift in Sources */,
 				0EEAA9C52A30CBA300913310 /* LoginViewController.swift in Sources */,
 				0E54779D2A2F98E60048B7AD /* JStarRatingView.swift in Sources */,
 				0E5477942A2F8AA50048B7AD /* ProductInfoCollectionViewCell.swift in Sources */,
 				0EEAA9B82A30BA9D00913310 /* FavouritesViewController.swift in Sources */,
-				0E55EE982A2C85BC004A7357 /* ViewController.swift in Sources */,
 				8F86B9842A30C9E400B1D8C9 /* OrderViewController.swift in Sources */,
 				0EEAA9BF2A30BBA800913310 /* FavouritesTableViewCell.swift in Sources */,
 				0E54779F2A2F98ED0048B7AD /* StarRatingStackView.swift in Sources */,
