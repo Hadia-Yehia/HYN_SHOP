@@ -19,24 +19,191 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUh-k5-p65">
-                    <rect key="frame" x="273" y="75" width="78" height="35"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUh-k5-p65">
+                    <rect key="frame" x="265.66666666666669" y="703.66666666666663" width="77.333333333333314" height="34.333333333333371"/>
                     <color key="backgroundColor" name="yellow"/>
                     <color key="tintColor" systemColor="systemBackgroundColor"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Logout"/>
                 </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="AP6-f9-TxH">
+                    <rect key="frame" x="8" y="109" width="377" height="404"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKp-GO-bwo">
+                            <rect key="frame" x="0.0" y="0.0" width="377" height="83"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4XK-Qq-Zk5">
+                                    <rect key="frame" x="320.33333333333331" y="24.333333333333346" width="39.666666666666686" height="34.333333333333343"/>
+                                    <color key="tintColor" systemColor="labelColor"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                                    <connections>
+                                        <action selector="addressesButton:" destination="-1" eventType="touchUpInside" id="E7h-Ai-ybj"/>
+                                    </connections>
+                                </button>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="house.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="xIp-Qt-B7L">
+                                    <rect key="frame" x="18" y="26.333333333333318" width="30" height="29.333333333333339"/>
+                                    <color key="tintColor" name="yellow"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="5dZ-bc-dpc"/>
+                                        <constraint firstAttribute="width" constant="30" id="CKo-8D-5t5"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sR-gJ-edb">
+                                    <rect key="frame" x="136.33333333333334" y="31.333333333333343" width="62.666666666666657" height="20.333333333333329"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="8sR-gJ-edb" firstAttribute="centerX" secondItem="UKp-GO-bwo" secondAttribute="centerX" constant="-21" id="8dB-FV-bM0"/>
+                                <constraint firstItem="8sR-gJ-edb" firstAttribute="centerY" secondItem="UKp-GO-bwo" secondAttribute="centerY" id="QbT-qT-ROe"/>
+                                <constraint firstItem="4XK-Qq-Zk5" firstAttribute="centerY" secondItem="UKp-GO-bwo" secondAttribute="centerY" id="cIV-fc-Jpz"/>
+                                <constraint firstAttribute="trailing" secondItem="4XK-Qq-Zk5" secondAttribute="trailing" constant="17" id="gIJ-K2-SDZ"/>
+                                <constraint firstItem="xIp-Qt-B7L" firstAttribute="leading" secondItem="UKp-GO-bwo" secondAttribute="leading" constant="18" id="jsa-rV-34w"/>
+                                <constraint firstItem="xIp-Qt-B7L" firstAttribute="centerY" secondItem="UKp-GO-bwo" secondAttribute="centerY" id="rTe-cd-nir"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Od-Al-Toa">
+                            <rect key="frame" x="0.0" y="101" width="377" height="83"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Tq-LD-I9n">
+                                    <rect key="frame" x="320.33333333333331" y="24.333333333333346" width="39.666666666666686" height="34.333333333333343"/>
+                                    <color key="tintColor" systemColor="labelColor"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                                </button>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollarsign" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Fby-Ew-y8x">
+                                    <rect key="frame" x="18" y="26.333333333333325" width="30" height="30.666666666666661"/>
+                                    <color key="tintColor" name="yellow"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="SjK-qf-bFb"/>
+                                        <constraint firstAttribute="width" constant="30" id="ZFd-Zz-7B5"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xlx-gj-3kB">
+                                    <rect key="frame" x="136" y="31.333333333333343" width="70" height="20.333333333333329"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="Fby-Ew-y8x" firstAttribute="leading" secondItem="1Od-Al-Toa" secondAttribute="leading" constant="18" id="Aid-N9-ji8"/>
+                                <constraint firstAttribute="trailing" secondItem="2Tq-LD-I9n" secondAttribute="trailing" constant="17" id="GtP-Ry-YPg"/>
+                                <constraint firstItem="Xlx-gj-3kB" firstAttribute="centerY" secondItem="1Od-Al-Toa" secondAttribute="centerY" id="USQ-Ck-hfb"/>
+                                <constraint firstItem="Xlx-gj-3kB" firstAttribute="centerX" secondItem="1Od-Al-Toa" secondAttribute="centerX" constant="-17.5" id="baj-TI-8DC"/>
+                                <constraint firstItem="2Tq-LD-I9n" firstAttribute="centerY" secondItem="1Od-Al-Toa" secondAttribute="centerY" id="eoO-53-yh3"/>
+                                <constraint firstItem="Fby-Ew-y8x" firstAttribute="centerY" secondItem="1Od-Al-Toa" secondAttribute="centerY" id="pWH-nJ-KRo"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Vw-aQ-ByB">
+                            <rect key="frame" x="0.0" y="202" width="377" height="83"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VC1-nO-pMS">
+                                    <rect key="frame" x="320.33333333333331" y="24.333333333333318" width="39.666666666666686" height="34.333333333333343"/>
+                                    <color key="tintColor" systemColor="labelColor"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                                </button>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="b53-2z-GlN">
+                                    <rect key="frame" x="18" y="28.000000000000014" width="30" height="27.666666666666671"/>
+                                    <color key="tintColor" name="yellow"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="POh-N4-9gU"/>
+                                        <constraint firstAttribute="height" constant="30" id="qi6-Sy-dTY"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgO-Qi-ZcX">
+                                    <rect key="frame" x="165.66666666666666" y="31.333333333333314" width="46" height="20.333333333333329"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="b53-2z-GlN" firstAttribute="centerY" secondItem="2Vw-aQ-ByB" secondAttribute="centerY" id="Tzg-60-dy4"/>
+                                <constraint firstAttribute="trailing" secondItem="VC1-nO-pMS" secondAttribute="trailing" constant="17" id="arq-U5-b1b"/>
+                                <constraint firstItem="LgO-Qi-ZcX" firstAttribute="centerY" secondItem="2Vw-aQ-ByB" secondAttribute="centerY" id="ewK-jX-ysO"/>
+                                <constraint firstItem="VC1-nO-pMS" firstAttribute="centerY" secondItem="2Vw-aQ-ByB" secondAttribute="centerY" id="fRd-Ls-yjb"/>
+                                <constraint firstItem="LgO-Qi-ZcX" firstAttribute="centerX" secondItem="2Vw-aQ-ByB" secondAttribute="centerX" id="oCz-tc-unC"/>
+                                <constraint firstItem="b53-2z-GlN" firstAttribute="leading" secondItem="2Vw-aQ-ByB" secondAttribute="leading" constant="18" id="rpG-DH-h5r"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ygc-Yb-DcR">
+                            <rect key="frame" x="0.0" y="303" width="377" height="101"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8b-0l-WtZ">
+                                    <rect key="frame" x="320.33333333333331" y="33.333333333333314" width="39.666666666666686" height="34.333333333333343"/>
+                                    <color key="tintColor" systemColor="labelColor"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                                </button>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XB5-tI-m3K">
+                                    <rect key="frame" x="18" y="38.000000000000014" width="30" height="26"/>
+                                    <color key="tintColor" name="yellow"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="JMf-3M-FMh"/>
+                                        <constraint firstAttribute="height" constant="30" id="d4R-33-Vqh"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact us" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBq-Fi-5hz">
+                                    <rect key="frame" x="147" y="40.333333333333314" width="83" height="20.333333333333329"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="i8b-0l-WtZ" firstAttribute="centerY" secondItem="Ygc-Yb-DcR" secondAttribute="centerY" id="1j8-MQ-ewq"/>
+                                <constraint firstItem="PBq-Fi-5hz" firstAttribute="centerY" secondItem="Ygc-Yb-DcR" secondAttribute="centerY" id="4KN-XY-zVq"/>
+                                <constraint firstAttribute="trailing" secondItem="i8b-0l-WtZ" secondAttribute="trailing" constant="17" id="6kr-Nm-zOh"/>
+                                <constraint firstItem="XB5-tI-m3K" firstAttribute="centerY" secondItem="Ygc-Yb-DcR" secondAttribute="centerY" id="7JE-vg-6wd"/>
+                                <constraint firstItem="XB5-tI-m3K" firstAttribute="leading" secondItem="Ygc-Yb-DcR" secondAttribute="leading" constant="18" id="7VX-d6-qBy"/>
+                                <constraint firstItem="PBq-Fi-5hz" firstAttribute="centerX" secondItem="Ygc-Yb-DcR" secondAttribute="centerX" id="Uef-Za-j4W"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="1Od-Al-Toa" firstAttribute="top" secondItem="AP6-f9-TxH" secondAttribute="top" constant="101" id="JHu-Td-U79"/>
+                        <constraint firstItem="2Vw-aQ-ByB" firstAttribute="top" secondItem="AP6-f9-TxH" secondAttribute="top" constant="202" id="gSk-Dd-gy7"/>
+                        <constraint firstItem="Ygc-Yb-DcR" firstAttribute="top" secondItem="AP6-f9-TxH" secondAttribute="top" constant="303" id="y2F-z3-ee7"/>
+                    </constraints>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="132" y="-11"/>
+            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="AP6-f9-TxH" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.959288" id="4wx-qM-8NM"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lUh-k5-p65" secondAttribute="bottom" constant="80" id="aOL-CS-Nq2"/>
+                <constraint firstItem="AP6-f9-TxH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="fKc-Ka-t1c"/>
+                <constraint firstItem="AP6-f9-TxH" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="m6M-GT-V1Z"/>
+                <constraint firstItem="AP6-f9-TxH" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.474178" id="swb-sn-Wmt"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lUh-k5-p65" secondAttribute="trailing" constant="50" id="xvb-P5-Ssc"/>
+            </constraints>
+            <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
+        <image name="dollarsign" catalog="system" width="89" height="128"/>
+        <image name="envelope.fill" catalog="system" width="128" height="93"/>
+        <image name="exclamationmark" catalog="system" width="47" height="128"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
         <namedColor name="yellow">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -11,11 +11,14 @@ class TabBar: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .systemBackground
-           UITabBar.appearance().barTintColor = .white
+        self.tabBar.barTintColor = UIColor(named: "yellow")
+        self.tabBar.tintColor = UIColor(named: "yellow")
+      //  self.tabBar.isCustomizing = true
+     //   self.tabBar.isTranslucent  = false
+        //view.backgroundColor = .white
+          // UITabBar.appearance().barTintColor = .white
            setupVCs()
-            setTabBarCornerRadius()
+          //  setTabBarCornerRadius()
         ChangeHeightOfTabbar()
        // tabBar.layer.borderWidth = 2
         tabBar.layer.borderColor = UIColor.lightGray.cgColor
@@ -32,7 +35,7 @@ class TabBar: UITabBarController {
            let navController = UINavigationController(rootViewController: rootViewController)
            navController.tabBarItem.title = title
            navController.tabBarItem.image = image
-           navController.navigationBar.prefersLargeTitles = true
+           navController.navigationBar.prefersLargeTitles = false
            rootViewController.navigationItem.title = title
            return navController
        }
@@ -60,7 +63,7 @@ class TabBar: UITabBarController {
   
       if UIDevice().userInterfaceIdiom == .phone {
           var tabFrame            = tabBar.frame
-          tabFrame.size.height    = 80
+          tabFrame.size.height    = 30
           tabFrame.origin.y       = view.frame.size.height - 100
           tabBar.frame            = tabFrame
       }
@@ -70,7 +73,8 @@ class TabBar: UITabBarController {
     func setupTabBarColors(){
       //  tabBar.layer.borderWidth = 2
       //  tabBar.layer.borderColor = UIColor.lightGray.cgColor
-        tabBar.unselectedItemTintColor = UIColor(red: 83/255, green: 83/255, blue: 83/255, alpha: 1)
+        tabBar.unselectedItemTintColor = UIColor(named: "grey")
+        tabBar.selectedImageTintColor = UIColor(named: "yellow")
         /*tabBar.selectedItem?.standardAppearance?.selectionIndicatorTintColor = UIColor(red:217/255 , green: 150/255, blue: 81/255, alpha: 1)
         tabBar.selectedItem?.scrollEdgeAppearance?.selectionIndicatorTintColor = UIColor(red:217/255 , green: 150/255, blue: 81/255, alpha: 1)*/
        /* let tabBarItemSize = CGSize(width: tabBar.frame.width / 2, height: tabBar.frame.height)

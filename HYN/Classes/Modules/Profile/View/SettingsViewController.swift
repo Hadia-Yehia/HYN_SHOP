@@ -9,6 +9,11 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBAction func addressesButton(_ sender: UIButton) {
+        let destinationViewController = AddressesViewController()
+        navigationController?.pushViewController(destinationViewController, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
