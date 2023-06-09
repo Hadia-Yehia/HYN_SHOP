@@ -7,7 +7,7 @@ target 'HYN' do
   use_frameworks!
 
   # Pods for HYN
-pod 'SDWebImage'
+
 pod 'Alamofire'
 
 

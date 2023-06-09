@@ -7,7 +7,7 @@
 
 import Foundation
 class ProductInfoViewModel{
-    var isLoading : Observable<Bool> = Observable(value: false)
+    var isLoading : Observable<Bool> = Observable(false)
     var productId : Int
     var product  : ProductInfo = ProductInfo(name: "no data", price: "no data", description: "no data", rate: 0.0 , imgs: Array(), size: "no data")
     init(productId: Int) {
