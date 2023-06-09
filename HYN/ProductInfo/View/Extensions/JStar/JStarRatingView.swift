@@ -24,7 +24,7 @@ class JStarRatingView: UIView {
             setStarsFor(rating: rating)
         }
     }
-    @IBInspectable var starColor: UIColor = UIColor.systemOrange {
+    @IBInspectable var starColor: UIColor = UIColor.systemYellow {
         didSet {
             for starImageView in [hstack?.star1ImageView, hstack?.star2ImageView, hstack?.star3ImageView, hstack?.star4ImageView, hstack?.star5ImageView] {
                 starImageView?.tintColor = starColor
