@@ -19,7 +19,7 @@ class ProductInfoViewController: UIViewController {
         super.viewDidLoad()
         setupCollectionView()
         bindViewModel()
-       // viewModel.getProductInfo()
+        viewModel.getProductInfo()
     }
     func bindViewModel(){
         viewModel.isLoading.bind{[weak self] isLoading in
