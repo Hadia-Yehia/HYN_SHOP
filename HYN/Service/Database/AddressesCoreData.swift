@@ -113,11 +113,11 @@ class AddressesCoreData{
   
     func deleteData(address:Address)
     {
-        let fetchReq = NSFetchRequest<NSManagedObject>(entityName: "FavoriteTeams")
+        let fetchReq = NSFetchRequest<NSManagedObject>(entityName: "Addresses")
         
         
         do{
-            let myPredicate = NSPredicate(format: "address == %addres", address.phone)
+            let myPredicate = NSPredicate(format: "phone == %@", address.phone)
             fetchReq.predicate = myPredicate
          let addresses =   try context.fetch(fetchReq)
             for address in addresses
@@ -130,6 +130,34 @@ class AddressesCoreData{
         }catch let error as NSError
         {
             print(error.localizedDescription)
+        }
+    }
+    
+    func updateAddress(address: Address) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Addresses")
+        fetchRequest.predicate = NSPredicate(format: "phone == %@", address.phone)
+        fetchRequest.fetchLimit = 1
+
+        do {
+            let results = try context.fetch(fetchRequest)
+            if results.count > 0 {
+                let managedObject = results[0] as! NSManagedObject
+                managedObject.setValue(address.name, forKey: "name")
+                managedObject.setValue(address.surename, forKey: "surename")
+                managedObject.setValue(address.phone, forKey: "phone")
+                managedObject.setValue(address.country, forKey: "country")
+                managedObject.setValue(address.city, forKey: "city")
+                managedObject.setValue(address.street, forKey: "street")
+                managedObject.setValue(address.area, forKey: "area")
+                managedObject.setValue(address.apartment, forKey: "apartment")
+                managedObject.setValue(address.floor, forKey: "floor")
+                self.saveContext()
+                print("Address updated successfully")
+            } else {
+                print("Address not found")
+            }
+        } catch let error as NSError {
+            print("Could not update: \(error), \(error.userInfo)")
         }
     }
     

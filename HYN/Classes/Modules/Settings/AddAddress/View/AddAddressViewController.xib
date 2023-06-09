@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddAddressViewController" customModule="HYN" customModuleProvider="target">
             <connections>
+                <outlet property="addButton" destination="SJ4-8B-evV" id="rnG-jf-eJg"/>
                 <outlet property="apartementField" destination="3oo-kD-MOz" id="CI2-Q3-aED"/>
                 <outlet property="areaField" destination="5f8-hO-iE9" id="Ncc-ok-KtV"/>
                 <outlet property="cityField" destination="n2j-MW-Kj5" id="vCQ-m6-ZbZ"/>

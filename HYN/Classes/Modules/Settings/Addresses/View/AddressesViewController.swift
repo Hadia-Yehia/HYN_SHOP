@@ -17,10 +17,48 @@ class AddressesViewController: UIViewController {
         super.viewDidLoad()
         setupTable()
         addUIBarButtonItem()
+        checkAddressesTableIfEmpty()
+    }
+    func checkAddressesTableIfEmpty()
+    {
+        if viewModel.isAddressesTableEmpty()
+        {
+            noAddressesView.isHidden = false
+            tableView.isHidden = true
+        }
+        else
+        {
+            
+            noAddressesView.isHidden = true
+            tableView.isHidden = false
+        }
     }
     
+    
+    func bindingViewModel()
+    {
+        viewModel.observable.bind {
+            [weak self]
+            result in
+            guard let self = self ,  let isLoading = result
+                    else
+            {
+                return
+            }
+
+            DispatchQueue.main.async {
+                if isLoading
+                {
+                    self.tableView.reloadData()
+                }
+            }
+
+        }
+    }
     override func viewWillAppear(_ animated: Bool) {
+        bindingViewModel()
         viewModel.getAddresses()
+        checkAddressesTableIfEmpty()
     }
 
     func addUIBarButtonItem()
@@ -46,18 +84,3 @@ class AddressesViewController: UIViewController {
 
 
 
-extension AddressesViewController : UITableViewDelegate , UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.getAddressesArrayCount()
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! AddressTableViewCell
-        cell.configureCell(address: viewModel.getAddress(index: indexPath.row))
-        return cell
-    }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-    
-}

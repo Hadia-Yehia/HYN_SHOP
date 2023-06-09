@@ -17,7 +17,8 @@ class AddAddressViewController: UIViewController {
     @IBOutlet weak var streetField: UITextField!
     @IBOutlet weak var apartementField: UITextField!
     @IBOutlet weak var floorField: UITextField!
-    let viewModel = AddAddressViewModel()
+    var viewModel = AddAddressViewModel()
+    @IBOutlet weak var addButton: UIButton!
     @IBAction func addButton(_ sender: UIButton) {
         let textFields = [nameField, surnameField, phoneNumberField, countryField, cityField, areaField, streetField, apartementField,floorField]
 
@@ -47,10 +48,29 @@ class AddAddressViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+      checkDestination()
     
     }
 
-
+func checkDestination()
+    {
+       if viewModel.checkIfAddressIsNotNil() == true
+        {
+           nameField.text = viewModel.addressToBeEdited?.name
+           surnameField.text = viewModel.addressToBeEdited?.surename
+           phoneNumberField.text = viewModel.addressToBeEdited?.phone
+          countryField.text = viewModel.addressToBeEdited?.country
+           cityField.text = viewModel.addressToBeEdited?.city
+           areaField.text = viewModel.addressToBeEdited?.area
+          streetField.text = viewModel.addressToBeEdited?.street
+           floorField.text = viewModel.addressToBeEdited?.floor
+          apartementField.text = viewModel.addressToBeEdited?.apartment
+           
+           self.title = "Edit Address"
+           self.addButton.setTitle("Edit", for:.normal )
+           
+       }
+    }
 
 
 }
