@@ -18,6 +18,10 @@ class ProfileViewController: UIViewController {
     @IBAction func wishListButton(_ sender: UIButton) {
     }
     @IBAction func settingsButton(_ sender: UIButton) {
+        let destinationViewController = SettingsViewController()
+        navigationController?.pushViewController(destinationViewController, animated: true)
+        //destinationViewController.myProperty = "some value"
+       // present(destinationViewController, animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
