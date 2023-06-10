@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productCell" id="gTV-IL-0wX" customClass="ProductCollectionViewCell" customModule="HYN" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="145" height="158"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="145" height="158"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VYw-db-vfb">
+                        <rect key="frame" x="0.0" y="0.0" width="145" height="158"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8fb-Yv-vIn">
+                                <rect key="frame" x="8" y="5" width="129" height="110.66666666666667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEp-PW-Jin">
+                                <rect key="frame" x="10" y="125.66666666666667" width="65" height="22.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptF-iK-FnZ">
+                                <rect key="frame" x="91.666666666666671" y="125.66666666666667" width="43.333333333333329" height="22.333333333333329"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="star" catalog="system">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="favBtn:" destination="gTV-IL-0wX" eventType="touchUpInside" id="wb1-8T-SgF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="WEp-PW-Jin" secondAttribute="bottom" constant="10" id="648-i3-FrS"/>
+                            <constraint firstItem="8fb-Yv-vIn" firstAttribute="top" secondItem="VYw-db-vfb" secondAttribute="top" constant="5" id="CMN-Wh-M7n"/>
+                            <constraint firstItem="8fb-Yv-vIn" firstAttribute="leading" secondItem="VYw-db-vfb" secondAttribute="leading" constant="8" id="I0K-lO-so5"/>
+                            <constraint firstItem="ptF-iK-FnZ" firstAttribute="top" secondItem="8fb-Yv-vIn" secondAttribute="bottom" constant="10" id="NNb-v0-hV2"/>
+                            <constraint firstItem="8fb-Yv-vIn" firstAttribute="height" secondItem="VYw-db-vfb" secondAttribute="height" multiplier="0.7" id="UCt-vu-bWV"/>
+                            <constraint firstItem="WEp-PW-Jin" firstAttribute="leading" secondItem="VYw-db-vfb" secondAttribute="leading" constant="10" id="ZCm-ls-rrh"/>
+                            <constraint firstAttribute="trailing" secondItem="WEp-PW-Jin" secondAttribute="trailing" constant="70" id="c6H-1n-FOR"/>
+                            <constraint firstItem="ptF-iK-FnZ" firstAttribute="width" secondItem="VYw-db-vfb" secondAttribute="width" multiplier="0.3" id="hps-gk-ULt"/>
+                            <constraint firstAttribute="trailing" secondItem="ptF-iK-FnZ" secondAttribute="trailing" constant="10" id="jjg-Cr-Eqj"/>
+                            <constraint firstAttribute="trailing" secondItem="8fb-Yv-vIn" secondAttribute="trailing" constant="8" id="luh-lQ-e1n"/>
+                            <constraint firstAttribute="bottom" secondItem="ptF-iK-FnZ" secondAttribute="bottom" constant="10" id="qGS-YH-RYE"/>
+                            <constraint firstItem="WEp-PW-Jin" firstAttribute="top" secondItem="8fb-Yv-vIn" secondAttribute="bottom" constant="10" id="ysA-RD-Gc6"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="VYw-db-vfb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9ru-fU-8aO"/>
+                <constraint firstAttribute="bottom" secondItem="VYw-db-vfb" secondAttribute="bottom" id="lwj-GJ-UPx"/>
+                <constraint firstAttribute="trailing" secondItem="VYw-db-vfb" secondAttribute="trailing" id="tKr-mD-xEg"/>
+                <constraint firstItem="VYw-db-vfb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="vy9-Qe-bCA"/>
+            </constraints>
+            <size key="customSize" width="145" height="158"/>
+            <connections>
+                <outlet property="productImage" destination="8fb-Yv-vIn" id="Z9F-gq-hM2"/>
+                <outlet property="productLabel" destination="WEp-PW-Jin" id="qo3-2H-B4b"/>
+                <outlet property="productView" destination="VYw-db-vfb" id="lAg-BW-lBM"/>
+            </connections>
+            <point key="canvasLocation" x="80.152671755725194" y="58.450704225352112"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
