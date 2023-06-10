@@ -16,5 +16,9 @@ class MadiaCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    func configCell(img : String){
+        let url = URL(string: img)
+        photoView.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"))
+    }
 
 }

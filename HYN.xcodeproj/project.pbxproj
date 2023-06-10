@@ -60,6 +60,8 @@
 		8F86B9852A30C9E400B1D8C9 /* OrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F86B9832A30C9E400B1D8C9 /* OrderViewController.xib */; };
 		8F86B9882A30CAE400B1D8C9 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86B9862A30CAE400B1D8C9 /* OrderTableViewCell.swift */; };
 		8F86B9892A30CAE400B1D8C9 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F86B9872A30CAE400B1D8C9 /* OrderTableViewCell.xib */; };
+		8F9ABD182A34D55000F72468 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9ABD172A34D55000F72468 /* HomeViewModel.swift */; };
+		8F9ABD1A2A34D71D00F72468 /* ViewStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9ABD192A34D71D00F72468 /* ViewStruct.swift */; };
 		A5FD2B6B8414504AC15C6963 /* Pods_HYN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5450FA30BEA12F7DB4976121 /* Pods_HYN.framework */; };
 		BC38A3DE2A30B26E00492F76 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38A3DC2A30B26E00492F76 /* SettingsViewController.swift */; };
 		BC38A3DF2A30B26E00492F76 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC38A3DD2A30B26E00492F76 /* SettingsViewController.xib */; };
@@ -169,6 +171,8 @@
 		8F86B9832A30C9E400B1D8C9 /* OrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderViewController.xib; sourceTree = "<group>"; };
 		8F86B9862A30CAE400B1D8C9 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		8F86B9872A30CAE400B1D8C9 /* OrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
+		8F9ABD172A34D55000F72468 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		8F9ABD192A34D71D00F72468 /* ViewStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStruct.swift; sourceTree = "<group>"; };
 		98080D1695F512A74D41BEA6 /* Pods-HYN-HYNUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYN-HYNUITests.debug.xcconfig"; path = "Target Support Files/Pods-HYN-HYNUITests/Pods-HYN-HYNUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC38A3DC2A30B26E00492F76 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = HYN/Classes/Modules/Profile/View/SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
 		BC38A3DD2A30B26E00492F76 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = HYN/Classes/Modules/Profile/View/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -251,6 +255,7 @@
 		0E3B816E2A34860200822540 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				8F9ABD162A34D53E00F72468 /* ViewModel */,
 				0E3B81722A34883E00822540 /* VIew */,
 			);
 			path = Home;
@@ -278,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				8F68D8A92A32AB1400C4AFA7 /* SmartCollections.swift */,
+				8F9ABD192A34D71D00F72468 /* ViewStruct.swift */,
 			);
 			path = BrandResponse;
 			sourceTree = "<group>";
@@ -654,6 +660,14 @@
 				0EFFCD972A33C8550012E3A5 /* ProductResponse */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8F9ABD162A34D53E00F72468 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8F9ABD172A34D55000F72468 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BC38A3DA2A30B25200492F76 /* Settings */ = {
@@ -1129,6 +1143,7 @@
 				8F86B9802A30C70500B1D8C9 /* MadiaCollectionViewCell.swift in Sources */,
 				8F68D8AA2A32AB1400C4AFA7 /* SmartCollections.swift in Sources */,
 				8F86B9762A30B86100B1D8C9 /* HomeViewController.swift in Sources */,
+				8F9ABD1A2A34D71D00F72468 /* ViewStruct.swift in Sources */,
 				0EFFCDB52A33CEDA0012E3A5 /* ProductInfoCollectionViewCell.swift in Sources */,
 				8F86B9882A30CAE400B1D8C9 /* OrderTableViewCell.swift in Sources */,
 				0EFFCD932A33C7630012E3A5 /* NetworkConstants.swift in Sources */,
@@ -1160,6 +1175,7 @@
 				BCBB370A2A335B9300B32DE1 /* AddAddressViewModel.swift in Sources */,
 				0EFFCDA72A33C9410012E3A5 /* ViewStructs.swift in Sources */,
 				BCE903472A2F4C2100570672 /* Coomon.swift in Sources */,
+				8F9ABD182A34D55000F72468 /* HomeViewModel.swift in Sources */,
 				BC7600C32A31EBF700733710 /* AddressesViewController.swift in Sources */,
 				BC78A60C2A30E5A400AB88A1 /* PaymentOptionsViewController.swift in Sources */,
 				BC7600D42A320BBE00733710 /* AddressesCoreData.swift in Sources */,
