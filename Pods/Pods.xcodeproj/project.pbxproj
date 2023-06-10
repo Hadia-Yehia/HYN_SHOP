@@ -274,7 +274,7 @@
 		217DF3099BF0F8C4923BDE9A1CE3A7DA /* SDAnimatedImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDAnimatedImage.h; path = SDWebImage/Core/SDAnimatedImage.h; sourceTree = "<group>"; };
 		2231142C0581485004AF086132B63E99 /* OperationQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "OperationQueue+Alamofire.swift"; path = "Source/OperationQueue+Alamofire.swift"; sourceTree = "<group>"; };
 		236E352B012B24E02CCAE1FBFBF5132A /* SDFileAttributeHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDFileAttributeHelper.m; path = SDWebImage/Private/SDFileAttributeHelper.m; sourceTree = "<group>"; };
-		23BA96B7D5B3A385400B571651B83A2C /* Pods-HYN */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-HYN"; path = Pods_HYN.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		23BA96B7D5B3A385400B571651B83A2C /* Pods_HYN.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HYN.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F110810AD42928F83170636588FE90 /* SDWebImageCacheSerializer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCacheSerializer.h; path = SDWebImage/Core/SDWebImageCacheSerializer.h; sourceTree = "<group>"; };
 		250E4D2C90932BB45844EBE940DA1900 /* Pods-HYN-HYNUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-HYN-HYNUITests"; path = Pods_HYN_HYNUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		25ACA4AB44FD9D6BB795DED80A1CE05B /* HTTPHeaders.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HTTPHeaders.swift; path = Source/HTTPHeaders.swift; sourceTree = "<group>"; };
@@ -397,7 +397,7 @@
 		9A6A4154DBBBA18F0787B3939A3F91C2 /* NSButton+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSButton+WebCache.h"; path = "SDWebImage/Core/NSButton+WebCache.h"; sourceTree = "<group>"; };
 		9CD45E1B9E44FC1DEBE5F6B9A125C5EA /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		9D7D7B34C85528A64D0040A9CBAA67A2 /* NSButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSButton+WebCache.m"; path = "SDWebImage/Core/NSButton+WebCache.m"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E2DD1A09C9C7F6DFA4F3C4001F256E5 /* SDInternalMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDInternalMacros.h; path = SDWebImage/Private/SDInternalMacros.h; sourceTree = "<group>"; };
 		A113EE290F5C8F31877758CA26863B62 /* SDWebImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloader.m; path = SDWebImage/Core/SDWebImageDownloader.m; sourceTree = "<group>"; };
 		A3EC1ABFFDA59564A18A383B75479FC5 /* AlamofireExtended.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlamofireExtended.swift; path = Source/AlamofireExtended.swift; sourceTree = "<group>"; };
@@ -736,7 +736,6 @@
 				2CA3AC4240121E55850B99D7408CA45D /* Core */,
 				F3F845B0769A0317E617627FBF19D978 /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -799,7 +798,7 @@
 			isa = PBXGroup;
 			children = (
 				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */,
-				23BA96B7D5B3A385400B571651B83A2C /* Pods-HYN */,
+				23BA96B7D5B3A385400B571651B83A2C /* Pods_HYN.framework */,
 				250E4D2C90932BB45844EBE940DA1900 /* Pods-HYN-HYNUITests */,
 				47438727F32474393A80922988D3A7B7 /* Pods-HYNTests */,
 				B0B214D775196BA7CA8E17E53048A493 /* SDWebImage */,
@@ -849,7 +848,6 @@
 				A6CAF3BA7A1819D41C55EECB34E5809D /* Validation.swift */,
 				107D7B15F2B0A4AC4550E742DF01BFFC /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -1090,7 +1088,7 @@
 			);
 			name = "Pods-HYN";
 			productName = Pods_HYN;
-			productReference = 23BA96B7D5B3A385400B571651B83A2C /* Pods-HYN */;
+			productReference = 23BA96B7D5B3A385400B571651B83A2C /* Pods_HYN.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */

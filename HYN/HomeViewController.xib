@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="NEP-16-09Q">
-                    <rect key="frame" x="0.0" y="59" width="393" height="55"/>
+                    <rect key="frame" x="0.0" y="59" width="393" height="55.333333333333343"/>
                     <color key="barTintColor" systemColor="systemYellowColor"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
@@ -33,7 +33,7 @@
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="1tT-RG-EvU">
                     <rect key="frame" x="25" y="144.33333333333334" width="343" height="213.00000000000003"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OA0-Rn-dkS">
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OA0-Rn-dkS">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>

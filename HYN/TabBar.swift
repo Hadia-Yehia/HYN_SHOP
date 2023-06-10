@@ -43,8 +43,8 @@ class TabBar: UITabBarController {
     func setupVCs() {
            viewControllers = [
             createNavController(for:HomeViewController(nibName: "HomeViewController", bundle: nil)  ,title: NSLocalizedString("", comment: ""), image:UIImage(systemName: "house.fill")!),
+            createNavController(for: CategoryViewController(nibName: "CategoryViewController", bundle: nil)  ,title: NSLocalizedString("", comment: ""), image:UIImage(systemName: "command.square.fill")!),
             createNavController(for: ShoppingCartViewController(nibName: "ShoppingCartViewController", bundle: nil)  ,title: NSLocalizedString("", comment: ""), image:UIImage(systemName: "cart.fill")!),
-//            createNavController(for: ShoppingCartViewController(nibName: "ShoppingCartViewController", bundle: nil)  ,title: NSLocalizedString("", comment: ""), image:UIImage(systemName: "cart.fill")!)
             createNavController(for: FavouritesViewController(nibName: "FavouritesViewController", bundle: nil)  ,title: NSLocalizedString("", comment: ""), image:UIImage(systemName: "heart.fill")!),
             createNavController(for: ProfileViewController(nibName: "ProfileViewController", bundle: nil)  ,title: NSLocalizedString("", comment: ""), image:UIImage(systemName: "person.crop.circle.fill")!)
            
