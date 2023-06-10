@@ -61,6 +61,11 @@
 		8F86B9882A30CAE400B1D8C9 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86B9862A30CAE400B1D8C9 /* OrderTableViewCell.swift */; };
 		8F86B9892A30CAE400B1D8C9 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F86B9872A30CAE400B1D8C9 /* OrderTableViewCell.xib */; };
 		A5FD2B6B8414504AC15C6963 /* Pods_HYN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5450FA30BEA12F7DB4976121 /* Pods_HYN.framework */; };
+		BC063AB42A34E5C90045DBD6 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC063AB22A34E5C90045DBD6 /* CurrencyViewController.swift */; };
+		BC063AB52A34E5C90045DBD6 /* CurrencyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC063AB32A34E5C90045DBD6 /* CurrencyViewController.xib */; };
+		BC063AB72A34F56D0045DBD6 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC063AB62A34F56D0045DBD6 /* Currency.swift */; };
+		BC063ABA2A34F7310045DBD6 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC063AB92A34F7310045DBD6 /* CurrencyViewModel.swift */; };
+		BC063ABE2A3512640045DBD6 /* CurrencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC063ABD2A3512640045DBD6 /* CurrencyManager.swift */; };
 		BC38A3DE2A30B26E00492F76 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38A3DC2A30B26E00492F76 /* SettingsViewController.swift */; };
 		BC38A3DF2A30B26E00492F76 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC38A3DD2A30B26E00492F76 /* SettingsViewController.xib */; };
 		BC38A3E12A30C33000492F76 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38A3E02A30C33000492F76 /* TabBar.swift */; };
@@ -170,6 +175,11 @@
 		8F86B9862A30CAE400B1D8C9 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		8F86B9872A30CAE400B1D8C9 /* OrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
 		98080D1695F512A74D41BEA6 /* Pods-HYN-HYNUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYN-HYNUITests.debug.xcconfig"; path = "Target Support Files/Pods-HYN-HYNUITests/Pods-HYN-HYNUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BC063AB22A34E5C90045DBD6 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
+		BC063AB32A34E5C90045DBD6 /* CurrencyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyViewController.xib; sourceTree = "<group>"; };
+		BC063AB62A34F56D0045DBD6 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		BC063AB92A34F7310045DBD6 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
+		BC063ABD2A3512640045DBD6 /* CurrencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyManager.swift; sourceTree = "<group>"; };
 		BC38A3DC2A30B26E00492F76 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = HYN/Classes/Modules/Profile/View/SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
 		BC38A3DD2A30B26E00492F76 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = HYN/Classes/Modules/Profile/View/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
 		BC38A3E02A30C33000492F76 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
@@ -453,6 +463,7 @@
 				BCE903382A2F3E0A00570672 /* Classes */,
 				0E55EEA42A2C85BE004A7357 /* Info.plist */,
 				0E55EE9C2A2C85BD004A7357 /* HYN.xcdatamodeld */,
+				BC063ABD2A3512640045DBD6 /* CurrencyManager.swift */,
 			);
 			path = HYN;
 			sourceTree = "<group>";
@@ -652,13 +663,41 @@
 			children = (
 				0E3B81712A34880A00822540 /* BrandResponse */,
 				0EFFCD972A33C8550012E3A5 /* ProductResponse */,
+				BC063AB62A34F56D0045DBD6 /* Currency.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BC063AAF2A34E5960045DBD6 /* Currency */ = {
+			isa = PBXGroup;
+			children = (
+				BC063AB82A34F7160045DBD6 /* ViewModel */,
+				BC063AB02A34E5A10045DBD6 /* View */,
+			);
+			path = Currency;
+			sourceTree = "<group>";
+		};
+		BC063AB02A34E5A10045DBD6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC063AB22A34E5C90045DBD6 /* CurrencyViewController.swift */,
+				BC063AB32A34E5C90045DBD6 /* CurrencyViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BC063AB82A34F7160045DBD6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BC063AB92A34F7310045DBD6 /* CurrencyViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BC38A3DA2A30B25200492F76 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				BC063AAF2A34E5960045DBD6 /* Currency */,
 				BC7600CC2A31F0F000733710 /* AddAddress */,
 				BC7600BF2A31EBB800733710 /* Addresses */,
 				BC38A3DB2A30B25900492F76 /* View */,
@@ -985,6 +1024,7 @@
 				0EEAA9C62A30CBA300913310 /* LoginViewController.xib in Resources */,
 				BC74FFDD2A30890B00227951 /* ProfileViewController.xib in Resources */,
 				0E55EEA02A2C85BE004A7357 /* Assets.xcassets in Resources */,
+				BC063AB52A34E5C90045DBD6 /* CurrencyViewController.xib in Resources */,
 				0EEAA9A12A308D4A00913310 /* ReviewTableViewCell.xib in Resources */,
 				8F85F20D2A33EFB8000CEE43 /* ProductCollectionViewCell.xib in Resources */,
 				0EEAA9C02A30BBA800913310 /* FavouritesTableViewCell.xib in Resources */,
@@ -1134,8 +1174,10 @@
 				0EFFCD932A33C7630012E3A5 /* NetworkConstants.swift in Sources */,
 				0EEAA9AF2A30BA3900913310 /* FavouritesViewModel.swift in Sources */,
 				8F85F20C2A33EFB8000CEE43 /* ProductCollectionViewCell.swift in Sources */,
+				BC063AB72A34F56D0045DBD6 /* Currency.swift in Sources */,
 				0E9943612A31CA5E00F81FF8 /* NetworkService.swift in Sources */,
 				BC7600CA2A31F02C00733710 /* AddressTableViewCell.swift in Sources */,
+				BC063AB42A34E5C90045DBD6 /* CurrencyViewController.swift in Sources */,
 				0EEAA9BC2A30BAF200913310 /* ProductInfoViewModel.swift in Sources */,
 				0EFFCDA32A33C8A50012E3A5 /* Variants.swift in Sources */,
 				BC7600D92A32126400733710 /* CoreDataWrapper.swift in Sources */,
@@ -1148,9 +1190,11 @@
 				0EEAA9BF2A30BBA800913310 /* FavouritesTableViewCell.swift in Sources */,
 				8F85F2082A33EA33000CEE43 /* TypeCategoryCollectionViewCell.swift in Sources */,
 				0E54779F2A2F98ED0048B7AD /* StarRatingStackView.swift in Sources */,
+				BC063ABA2A34F7310045DBD6 /* CurrencyViewModel.swift in Sources */,
 				BC38A3E12A30C33000492F76 /* TabBar.swift in Sources */,
 				0EFFCD992A33C8890012E3A5 /* Image.swift in Sources */,
 				8F85F2022A33DE0F000CEE43 /* CategoryViewController.swift in Sources */,
+				BC063ABE2A3512640045DBD6 /* CurrencyManager.swift in Sources */,
 				0E55EE942A2C85BC004A7357 /* AppDelegate.swift in Sources */,
 				BCE903422A2F409D00570672 /* ShoppingCartViewController.swift in Sources */,
 				0E55EE962A2C85BC004A7357 /* SceneDelegate.swift in Sources */,

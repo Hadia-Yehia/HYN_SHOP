@@ -74,6 +74,9 @@
                                     <color key="tintColor" systemColor="labelColor"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                                    <connections>
+                                        <action selector="currencyButton:" destination="-1" eventType="touchUpInside" id="lZR-8I-HLu"/>
+                                    </connections>
                                 </button>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollarsign" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Fby-Ew-y8x">
                                     <rect key="frame" x="18" y="26.333333333333325" width="30" height="30.666666666666661"/>

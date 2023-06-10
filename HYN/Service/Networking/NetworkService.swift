@@ -36,6 +36,30 @@ class NetworkService:NetworkServiceProtocol{
             
         }
     }
+    
+    func getCurrencyExchange( completionHandler: @escaping (Result<Currency, NetworkError>) -> Void)
+    {
+        AF.request(NetworkConstants.shared.currencyUrl)
+        .response{response in
+            switch response.result{
+            case .success(let data): do {
+                print("success")
+                let jsonData = try JSONDecoder().decode(Currency.self, from: data!)
+                completionHandler(.success(jsonData))
+            }
+                catch{
+                    print("fail parse")
+                    print(error.localizedDescription)
+                    completionHandler(.failure(.canNotParseData))
+                }
+            case .failure(let error):
+                print("fail url")
+                print(error.localizedDescription)
+                completionHandler(.failure(.urlError))
+            }
+            
+        }
+    }
 }
 enum NetworkError : Error{
     case urlError
