@@ -56,6 +56,16 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             return CGSize(width:collectionView.bounds.width/2, height: collectionView.bounds.height/2)
         }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView{
+        case productCollection:
+            let detailsVC = ProductInfoViewController(nibName: "ProductInfoViewController", bundle: nil)
+            navigationController?.pushViewController(detailsVC, animated: true)
+            break
+        default:
+            break
+        }
+    }
 
     /*
     // MARK: - Navigation

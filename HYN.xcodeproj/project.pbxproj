@@ -363,6 +363,14 @@
 			path = Screen;
 			sourceTree = "<group>";
 		};
+		0E3B817B2A34893700822540 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0E55EE9F2A2C85BE004A7357 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		0E54778F2A2F89440048B7AD /* ProductInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,13 +444,13 @@
 		0E55EE922A2C85BC004A7357 /* HYN */ = {
 			isa = PBXGroup;
 			children = (
+				0E3B817B2A34893700822540 /* Resources */,
 				0E3B816D2A3485E700822540 /* View */,
 				0E3B816C2A3485D000822540 /* Application */,
 				BC7DF3A82A323A0300408038 /* Utilities */,
 				8F68D8A82A32AAF900C4AFA7 /* Model */,
 				0E99435D2A31CA2A00F81FF8 /* Service */,
 				BCE903382A2F3E0A00570672 /* Classes */,
-				0E55EE9F2A2C85BE004A7357 /* Assets.xcassets */,
 				0E55EEA42A2C85BE004A7357 /* Info.plist */,
 				0E55EE9C2A2C85BD004A7357 /* HYN.xcdatamodeld */,
 			);
