@@ -1,7 +1,7 @@
 
 import Foundation
 
-struct Image: Codable {
+struct ImageH: Codable {
 
   var id                : Int?      = nil
   var productId         : Int?      = nil

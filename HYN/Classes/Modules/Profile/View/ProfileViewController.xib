@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="HYN" customModuleProvider="target">
             <connections>
+                <outlet property="ordersBtn" destination="arq-ot-d5R" id="ffv-4M-eBY"/>
                 <outlet property="ordersTableView" destination="nze-qs-wp4" id="fcq-Tc-De1"/>
                 <outlet property="username" destination="VB0-nh-RZp" id="tIG-8B-sbL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

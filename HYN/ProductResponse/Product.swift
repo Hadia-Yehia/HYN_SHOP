@@ -20,7 +20,7 @@ struct Product: Codable {
   var variants          : [Variants]? = []
   var options           : [Options]?  = []
   var images            : [Images]?   = []
-  var image             : Image?      = Image()
+  var image             : ImageH?      = ImageH()
 
   enum CodingKeys: String, CodingKey {
 
@@ -65,7 +65,7 @@ struct Product: Codable {
     variants          = try values.decodeIfPresent([Variants].self , forKey: .variants          )
     options           = try values.decodeIfPresent([Options].self  , forKey: .options           )
     images            = try values.decodeIfPresent([Images].self   , forKey: .images            )
-    image             = try values.decodeIfPresent(Image.self      , forKey: .image             )
+    image             = try values.decodeIfPresent(ImageH.self      , forKey: .image             )
  
   }
 

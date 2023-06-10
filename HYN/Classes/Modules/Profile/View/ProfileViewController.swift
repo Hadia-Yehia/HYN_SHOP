@@ -10,9 +10,12 @@ import UIKit
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var welcomeView: UIView!
+    @IBOutlet weak var ordersBtn: UIButton!
     @IBOutlet weak var wishListTableView: UITableView!
     @IBOutlet weak var ordersTableView: UITableView!
     @IBAction func ordersButton(_ sender: UIButton) {
+        let orderVC = OrderViewController(nibName: "OrderViewController", bundle: nil)
+        navigationController?.pushViewController(orderVC, animated: true)
     }
     @IBOutlet weak var username: UILabel!
     @IBAction func wishListButton(_ sender: UIButton) {
