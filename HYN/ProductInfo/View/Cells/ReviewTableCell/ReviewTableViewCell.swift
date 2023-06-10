@@ -13,11 +13,19 @@ class ReviewTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    @IBOutlet weak var reviewContent: UILabel!
+    @IBOutlet weak var reviewRating: JStarRatingView!
+    
+    @IBOutlet weak var reviewName: UILabel!
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    func configCell(review : ReviewItem){
+        reviewContent.text = review.content
+        reviewName.text = review.name
+        reviewRating.rating = review.rating
     }
     
 }
