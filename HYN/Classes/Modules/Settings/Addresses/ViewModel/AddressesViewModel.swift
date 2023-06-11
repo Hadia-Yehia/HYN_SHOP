@@ -42,9 +42,15 @@ class AddressesViewModel {
     
     func deleteAddress(index:Int)
     {
+        observable.value = false
        // AddressesCoreData.shared.deleteData(address: addressesArray[index])
-        self.addressesArray.remove(at: index)
-        observable.value = true
+        NetworkService.sharedInstance.deleteAddressFromServer(addressId:addressesArray[index].id ?? 0)
+        {
+            result in
+            self.addressesArray.remove(at: index)
+            self.observable.value = true
+        }
+      
     }
     
     func isAddressesTableEmpty()-> Bool

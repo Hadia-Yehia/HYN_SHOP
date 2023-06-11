@@ -56,3 +56,5 @@ struct CustomerAddress:Encodable,Decodable{
 struct CustomerAddresses:Decodable{
     var addresses:[Address]
 }
+
+struct EmptyResponse: Decodable {}

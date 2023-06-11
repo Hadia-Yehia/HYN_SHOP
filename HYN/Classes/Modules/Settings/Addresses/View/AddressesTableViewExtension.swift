@@ -31,7 +31,7 @@ extension AddressesViewController : UITableViewDelegate , UITableViewDataSource{
       
            let confirmAction = UIAlertAction(title: "Yes", style: .default) { _ in
                self.viewModel.deleteAddress(index: indexPath.row)
-               self.tableView.deleteRows(at: [indexPath], with: .fade)
+              // self.tableView.deleteRows(at: [indexPath], with: .fade)
                self.checkAddressesTableIfEmpty()
          
            }

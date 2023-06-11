@@ -105,7 +105,7 @@ class NetworkService:NetworkServiceProtocol{
     {
        // let customerId =
         let url = "https://mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/customers/7122889146678/addresses.json"
-    
+      
         
         AF.request(url,headers: NetworkConstants.shared.accessToken)
             .response{response in
@@ -126,6 +126,30 @@ class NetworkService:NetworkServiceProtocol{
                     completionHandler(.failure(.urlError))
                 }
                 
+            }
+    }
+    
+
+
+
+
+    func deleteAddressFromServer(addressId:Int,completionHandler: @escaping (Result<EmptyResponse, NetworkError>) -> Void) {
+        let url = "https://mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/customers/7122889146678/addresses/\(addressId).json"
+        let headers: HTTPHeaders = NetworkConstants.shared.accessToken
+
+        AF.request(url,
+                   method: .delete,
+                   headers: headers)
+            .validate()
+            .responseDecodable(of: EmptyResponse.self) { response in
+                switch response.result {
+                case .success:
+                    print("Data deleted successfully")
+                    completionHandler(.success(EmptyResponse()))
+                case .failure(let error):
+                    print("Error deleting data: \(error)")
+                    completionHandler(.failure(.urlError))
+                }
             }
     }
     }
