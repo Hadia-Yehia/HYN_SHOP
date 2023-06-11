@@ -9,12 +9,12 @@ import UIKit
 
 class AddressesViewModel {
     var observable: Observable <Bool> = Observable(false)
-    var addressesArray:[testAddress] = []
+    var addressesArray:[Address] = []
 
     func getAddresses()
     {
         observable.value = false
-      addressesArray =  AddressesCoreData.shared.getAddresses()
+     // addressesArray =  AddressesCoreData.shared.getAddresses()
         observable.value = true
     }
     
@@ -23,14 +23,14 @@ class AddressesViewModel {
         addressesArray.count
     }
     
-    func getAddress(index:Int)->testAddress
+    func getAddress(index:Int)->Address
     {
         addressesArray[index]
     }
     
     func deleteAddress(index:Int)
     {
-        AddressesCoreData.shared.deleteData(address: addressesArray[index])
+       // AddressesCoreData.shared.deleteData(address: addressesArray[index])
         self.addressesArray.remove(at: index)
         observable.value = true
     }

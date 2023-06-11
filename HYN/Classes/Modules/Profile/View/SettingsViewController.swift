@@ -28,7 +28,7 @@ class SettingsViewController: UIViewController {
 //        NetworkService.sharedInstance.createNewAddress(address: address)
 //        {
 //            result in
-//    
+//
 //            print("lotfy: \(result)")
 //        }
     }

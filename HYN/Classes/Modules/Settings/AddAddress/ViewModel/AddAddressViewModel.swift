@@ -17,9 +17,9 @@ import UIKit
 import UIKit
 
 class AddAddressViewModel {
-    var addressToBeEdited:testAddress?
+    var addressToBeEdited:Address?
     
-    init(address:testAddress)
+    init(address:Address)
     {
         self.addressToBeEdited = address
     }
@@ -27,33 +27,37 @@ class AddAddressViewModel {
     {
         
     }
-
-    
-    var name: String?
-      var surname: String?
+      var firstName: String?
+      var lastName: String?
+      var fullName: String?
       var phoneNumber: String?
       var country: String?
       var city: String?
-      var area: String?
-      var street: String?
-      var apartment: String?
-      var floor: String?
-    
-    func insertAddressInCoreData(address:testAddress)
-    {
-        
-        AddressesCoreData.shared.InsertAddress(address:address)
-    }
-    
-    func getAddressesFromCoreData()->[testAddress]
-    {
-        return AddressesCoreData.shared.getAddresses()
-    }
+      var address: String?
+      var zipCode: String?
+   
+
+
+//    func insertAddressInCoreData(address:testAddress)
+//    {
+//
+//        AddressesCoreData.shared.InsertAddress(address:address)
+//    }
+//
+//    func getAddressesFromCoreData()->[testAddress]
+//    {
+//        return AddressesCoreData.shared.getAddresses()
+//    }
     
     func saveAddress()
     {
-        let fullAddress = testAddress(name: name!, surname: surname!, phone: phoneNumber!, country: country!, city: city!, area: area!, street: street!, apartment: apartment!, floor: floor!)
-        self.insertAddressInCoreData(address: fullAddress)
+        let fullAddress = Address(address1: address!, first_name: firstName!, last_name: lastName!, name: firstName!+lastName!, city: city!, country: country!, phone: phoneNumber!, zip: zipCode!)
+        NetworkService.sharedInstance.createNewAddress(address:fullAddress)
+        {
+            result in
+            print("el 7a2e2a: \(result)")
+        }
+      //  self.insertAddressInCoreData(address: fullAddress)
     }
     
     func checkIfAddressIsNotNil()->Bool

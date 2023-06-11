@@ -14,7 +14,7 @@ extension AddressesViewController : UITableViewDelegate , UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! AddressTableViewCell
-        cell.configureCell(address: viewModel.getAddress(index: indexPath.row))
+       // cell.configureCell(address: viewModel.getAddress(index: indexPath.row))
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
