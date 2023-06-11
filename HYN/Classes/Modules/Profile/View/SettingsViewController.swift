@@ -31,5 +31,7 @@ class SettingsViewController: UIViewController {
 //
 //            print("lotfy: \(result)")
 //        }
+        
+   
     }
 }

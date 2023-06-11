@@ -48,7 +48,7 @@ class AddAddressViewModel {
 //    {
 //        return AddressesCoreData.shared.getAddresses()
 //    }
-    
+//    
     func saveAddress()
     {
         let fullAddress = Address(address1: address!, first_name: firstName!, last_name: lastName!, name: firstName!+lastName!, city: city!, country: country!, phone: phoneNumber!, zip: zipCode!)

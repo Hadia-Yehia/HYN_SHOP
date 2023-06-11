@@ -14,8 +14,20 @@ class AddressesViewModel {
     func getAddresses()
     {
         observable.value = false
+        NetworkService.sharedInstance.getCustomerAddresses()
+        {
+            result in
+            do {
+                self.addressesArray = try result.get().addresses
+                print("\(try result.get().addresses.count)")
+                self.observable.value = true
+            } catch {
+                print("Error caught: \(error)")
+            }
+           
+        }
      // addressesArray =  AddressesCoreData.shared.getAddresses()
-        observable.value = true
+       
     }
     
     func getAddressesArrayCount()->Int

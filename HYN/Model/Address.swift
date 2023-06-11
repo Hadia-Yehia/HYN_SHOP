@@ -8,6 +8,7 @@
 import Foundation
 struct Address: Encodable,Decodable {
 
+    var id:Int?
     var address1: String
     var address2: String?
     var first_name: String
@@ -24,7 +25,7 @@ struct Address: Encodable,Decodable {
     var country_name: String?
     var `default`: Bool?
     
-    init(address1: String, address2: String? = nil, first_name: String, last_name: String, name: String,
+    init(id:Int? = nil,address1: String, address2: String? = nil, first_name: String, last_name: String, name: String,
          city: String, country: String, company: String? = nil, province: String? = nil, phone: String,
          zip: String, province_code: String? = nil, country_code: String? = nil, country_name: String? = nil, default: Bool? = false) {
         self.address1 = address1
@@ -50,4 +51,8 @@ struct CustomerAddress:Encodable,Decodable{
     {
         self.customer_address = address
     }
+  
+}
+struct CustomerAddresses:Decodable{
+    var addresses:[Address]
 }

@@ -49,6 +49,7 @@ class AddressesViewController: UIViewController {
             DispatchQueue.main.async {
                 if isLoading
                 {
+                    self.checkAddressesTableIfEmpty()
                     self.tableView.reloadData()
                 }
             }
@@ -58,7 +59,8 @@ class AddressesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         bindingViewModel()
         viewModel.getAddresses()
-        checkAddressesTableIfEmpty()
+      
+  
     }
 
     func addUIBarButtonItem()
