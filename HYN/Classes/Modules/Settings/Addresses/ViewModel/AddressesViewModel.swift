@@ -13,14 +13,14 @@ class AddressesViewModel {
 
     func getAddresses()
     {
-        observable.value = false
+        observable.value = true
         NetworkService.sharedInstance.getCustomerAddresses()
         {
             result in
             do {
                 self.addressesArray = try result.get().addresses
                 print("\(try result.get().addresses.count)")
-                self.observable.value = true
+                self.observable.value = false
             } catch {
                 print("Error caught: \(error)")
             }
@@ -37,18 +37,19 @@ class AddressesViewModel {
     
     func getAddress(index:Int)->Address
     {
+        
         addressesArray[index]
     }
     
     func deleteAddress(index:Int)
     {
-        observable.value = false
+        observable.value = true
        // AddressesCoreData.shared.deleteData(address: addressesArray[index])
         NetworkService.sharedInstance.deleteAddressFromServer(addressId:addressesArray[index].id ?? 0)
         {
             result in
             self.addressesArray.remove(at: index)
-            self.observable.value = true
+            self.observable.value = false
         }
       
     }

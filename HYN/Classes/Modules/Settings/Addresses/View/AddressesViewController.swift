@@ -47,7 +47,7 @@ class AddressesViewController: UIViewController {
             }
 
             DispatchQueue.main.async {
-                if isLoading
+                if !isLoading
                 {
                     self.checkAddressesTableIfEmpty()
                     self.tableView.reloadData()
@@ -56,9 +56,10 @@ class AddressesViewController: UIViewController {
 
         }
     }
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         bindingViewModel()
         viewModel.getAddresses()
+    
       
   
     }

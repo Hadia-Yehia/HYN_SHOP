@@ -63,7 +63,7 @@ class NetworkService:NetworkServiceProtocol{
     
     //MARK: Customer Addresses
     func createNewAddress(address:Address, completionHandler: @escaping (Result<CustomerAddress, NetworkError>) -> Void) {
-        let customerId = 7123084443958
+        let customerId = 7122889146678
         let url = "https://mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/customers/\(customerId)/addresses.json"
         
         let headers: HTTPHeaders = [
@@ -71,7 +71,7 @@ class NetworkService:NetworkServiceProtocol{
             "Content-Type": "application/json"
         ]
         
-  
+        
         
         let customerAddress = CustomerAddress(address: address)
         let encoder = JSONEncoder()
@@ -103,9 +103,9 @@ class NetworkService:NetworkServiceProtocol{
     
     func getCustomerAddresses(completionHandler: @escaping (Result<CustomerAddresses, NetworkError>) -> Void)
     {
-       // let customerId =
+        // let customerId =
         let url = "https://mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/customers/7122889146678/addresses.json"
-      
+        
         
         AF.request(url,headers: NetworkConstants.shared.accessToken)
             .response{response in
@@ -129,30 +129,72 @@ class NetworkService:NetworkServiceProtocol{
             }
     }
     
-
-
-
-
+    
+    
+    
+    
     func deleteAddressFromServer(addressId:Int,completionHandler: @escaping (Result<EmptyResponse, NetworkError>) -> Void) {
         let url = "https://mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/customers/7122889146678/addresses/\(addressId).json"
         let headers: HTTPHeaders = NetworkConstants.shared.accessToken
-
+        
         AF.request(url,
                    method: .delete,
                    headers: headers)
-            .validate()
-            .responseDecodable(of: EmptyResponse.self) { response in
-                switch response.result {
-                case .success:
-                    print("Data deleted successfully")
-                    completionHandler(.success(EmptyResponse()))
-                case .failure(let error):
-                    print("Error deleting data: \(error)")
-                    completionHandler(.failure(.urlError))
-                }
+        .validate()
+        .responseDecodable(of: EmptyResponse.self) { response in
+            switch response.result {
+            case .success:
+                print("Data deleted successfully")
+                completionHandler(.success(EmptyResponse()))
+            case .failure(let error):
+                print("Error deleting data: \(error)")
+                completionHandler(.failure(.urlError))
             }
+        }
     }
+    
+    
+    
+    //MARK: Customer Addresses
+    func updateCustomerAddress(addressId: Int, address: Address, completionHandler: @escaping (Result<CustomerAddress, NetworkError>) -> Void) {
+        let url = "https://mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/customers/7122889146678/addresses/\(addressId).json"
+        //  let customerId = 7123084443958
+        
+        
+        let headers: HTTPHeaders = [
+            "X-Shopify-Access-Token": "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",
+            "Content-Type": "application/json"
+        ]
+        
+        let customerAddress = CustomerAddress(address: address)
+        let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        guard let jsonData = try? encoder.encode(customerAddress) else {
+            print("Error encoding JSON")
+            return
+        }
+        
+        AF.upload(
+            jsonData,
+            to: url,
+            method: .put,
+            headers: headers
+        )
+        .validate()
+        .responseDecodable(of: CustomerAddress.self) { response in
+            // Handle the response
+            switch response.result {
+            case .success(let value):
+                print("Address updated: \(value)")
+                completionHandler(.success(value))
+            case .failure(let error):
+                print("Error updating address: \(error)")
+                completionHandler(.failure(.urlError))
+            }
+        }
+        
     }
+}
     enum NetworkError : Error{
         case urlError
         case canNotParseData

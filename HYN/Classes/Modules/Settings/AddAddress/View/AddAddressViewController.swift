@@ -46,6 +46,8 @@ class AddAddressViewController: UIViewController {
         viewModel.address = addressField.text
         viewModel.saveAddress()
     }
+    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -64,7 +66,7 @@ func checkDestination()
            cityField.text = viewModel.addressToBeEdited?.city
            addressField.text = viewModel.addressToBeEdited?.address1
            zipCodeField.text = viewModel.addressToBeEdited?.zip
-           
+          // self.viewModel.editAddress()
            self.title = "Edit Address"
            self.addButton.setTitle("Edit", for:.normal )
            

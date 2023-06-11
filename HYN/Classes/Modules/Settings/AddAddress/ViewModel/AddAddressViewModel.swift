@@ -17,6 +17,7 @@ import UIKit
 import UIKit
 
 class AddAddressViewModel {
+
     var addressToBeEdited:Address?
     
     init(address:Address)
@@ -51,14 +52,41 @@ class AddAddressViewModel {
 //    
     func saveAddress()
     {
+       
         let fullAddress = Address(address1: address!, first_name: firstName!, last_name: lastName!, name: firstName!+lastName!, city: city!, country: country!, phone: phoneNumber!, zip: zipCode!)
-        NetworkService.sharedInstance.createNewAddress(address:fullAddress)
+        if checkIfAddressIsNotNil() == true {
+         
+            NetworkService.sharedInstance.updateCustomerAddress(addressId: addressToBeEdited?.id ?? 0, address: fullAddress)
+            {
+                reslt in
+    
+                print("loooky:\(self.addressToBeEdited?.id ?? 0)")
+                
+            }
+        }
+        else
         {
-            result in
-            print("el 7a2e2a: \(result)")
+            NetworkService.sharedInstance.createNewAddress(address:fullAddress)
+            {
+                result in
+        
+                print("el 7a2e2a: \(result)")
+            }
         }
       //  self.insertAddressInCoreData(address: fullAddress)
     }
+    
+//    func editAddress()
+//    {
+//
+//        NetworkService.sharedInstance.updateCustomerAddress(addressId: addressToBeEdited?.id ?? 0, address: addressToBeEdited!)
+//        {
+//            reslt in
+//            print("loooky:\(self.addressToBeEdited?.id ?? 0)")
+//            
+//        }
+//        
+//    }
     
     func checkIfAddressIsNotNil()->Bool
     {
@@ -71,6 +99,11 @@ class AddAddressViewModel {
         {
             return true
         }
+    }
+    
+    func refreshAddresses()->AddressesViewModel
+    {
+        return AddressesViewModel()
     }
 }
 
