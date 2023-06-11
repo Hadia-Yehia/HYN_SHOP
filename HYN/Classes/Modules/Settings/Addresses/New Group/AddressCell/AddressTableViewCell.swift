@@ -25,7 +25,7 @@ class AddressTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(address:Address)
+    func configureCell(address:testAddress)
     {
         fullName.text = "\(address.name) \(address.surename)"
         fullAddress.text = "\(address.apartment) \(address.street) \(address.area)"

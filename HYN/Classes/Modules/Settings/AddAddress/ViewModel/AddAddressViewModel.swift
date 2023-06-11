@@ -17,9 +17,9 @@ import UIKit
 import UIKit
 
 class AddAddressViewModel {
-    var addressToBeEdited:Address?
+    var addressToBeEdited:testAddress?
     
-    init(address:Address)
+    init(address:testAddress)
     {
         self.addressToBeEdited = address
     }
@@ -39,20 +39,20 @@ class AddAddressViewModel {
       var apartment: String?
       var floor: String?
     
-    func insertAddressInCoreData(address:Address)
+    func insertAddressInCoreData(address:testAddress)
     {
         
         AddressesCoreData.shared.InsertAddress(address:address)
     }
     
-    func getAddressesFromCoreData()->[Address]
+    func getAddressesFromCoreData()->[testAddress]
     {
         return AddressesCoreData.shared.getAddresses()
     }
     
     func saveAddress()
     {
-        let fullAddress = Address(name: name!, surname: surname!, phone: phoneNumber!, country: country!, city: city!, area: area!, street: street!, apartment: apartment!, floor: floor!)
+        let fullAddress = testAddress(name: name!, surname: surname!, phone: phoneNumber!, country: country!, city: city!, area: area!, street: street!, apartment: apartment!, floor: floor!)
         self.insertAddressInCoreData(address: fullAddress)
     }
     

@@ -54,10 +54,10 @@ class AddressesCoreData{
     }
     
     
-   func getAddresses()->[Address]
+   func getAddresses()->[testAddress]
     {
         let result = `_`()
-        var addressesArray:[Address] = []
+        var addressesArray:[testAddress] = []
         for item in result {
             let name = item.value(forKey: "name") as! String
             let surename = item.value(forKey: "surename") as! String
@@ -69,7 +69,7 @@ class AddressesCoreData{
             let apartment = item.value(forKey: "apartment") as! String
             let floor = item.value(forKey: "floor") as! String
          
-            let newAddress = Address(name: name, surname: surename, phone: phone, country: country, city: city, area: area, street: street, apartment: apartment, floor: floor)
+            let newAddress = testAddress(name: name, surname: surename, phone: phone, country: country, city: city, area: area, street: street, apartment: apartment, floor: floor)
    addressesArray.append(newAddress)
  
 
@@ -78,7 +78,7 @@ class AddressesCoreData{
     }
     
     
-    func InsertAddress(address: Address) {
+    func InsertAddress(address: testAddress) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Addresses")
         fetchRequest.predicate = NSPredicate(format: "phone == %@", address.phone)
         fetchRequest.fetchLimit = 1
@@ -111,7 +111,7 @@ class AddressesCoreData{
     }
     
   
-    func deleteData(address:Address)
+    func deleteData(address:testAddress)
     {
         let fetchReq = NSFetchRequest<NSManagedObject>(entityName: "Addresses")
         
@@ -133,7 +133,7 @@ class AddressesCoreData{
         }
     }
     
-    func updateAddress(address: Address) {
+    func updateAddress(address: testAddress) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Addresses")
         fetchRequest.predicate = NSPredicate(format: "phone == %@", address.phone)
         fetchRequest.fetchLimit = 1

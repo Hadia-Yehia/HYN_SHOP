@@ -9,7 +9,7 @@ import UIKit
 
 class AddressesViewModel {
     var observable: Observable <Bool> = Observable(false)
-    var addressesArray:[Address] = []
+    var addressesArray:[testAddress] = []
 
     func getAddresses()
     {
@@ -23,7 +23,7 @@ class AddressesViewModel {
         addressesArray.count
     }
     
-    func getAddress(index:Int)->Address
+    func getAddress(index:Int)->testAddress
     {
         addressesArray[index]
     }

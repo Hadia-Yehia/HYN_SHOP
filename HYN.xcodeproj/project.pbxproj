@@ -66,6 +66,8 @@
 		BC063AB72A34F56D0045DBD6 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC063AB62A34F56D0045DBD6 /* Currency.swift */; };
 		BC063ABA2A34F7310045DBD6 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC063AB92A34F7310045DBD6 /* CurrencyViewModel.swift */; };
 		BC063ABE2A3512640045DBD6 /* CurrencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC063ABD2A3512640045DBD6 /* CurrencyManager.swift */; };
+		BC2DBA882A35B73900C2021F /* CustomerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2DBA872A35B73900C2021F /* CustomerTest.swift */; };
+		BC2DBA8A2A35C38F00C2021F /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2DBA892A35C38F00C2021F /* Address.swift */; };
 		BC38A3DE2A30B26E00492F76 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38A3DC2A30B26E00492F76 /* SettingsViewController.swift */; };
 		BC38A3DF2A30B26E00492F76 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC38A3DD2A30B26E00492F76 /* SettingsViewController.xib */; };
 		BC38A3E12A30C33000492F76 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38A3E02A30C33000492F76 /* TabBar.swift */; };
@@ -79,7 +81,7 @@
 		BC7600D12A31F12600733710 /* AddAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7600CF2A31F12600733710 /* AddAddressViewController.xib */; };
 		BC7600D42A320BBE00733710 /* AddressesCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7600D32A320BBE00733710 /* AddressesCoreData.swift */; };
 		BC7600D92A32126400733710 /* CoreDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7600D82A32126400733710 /* CoreDataWrapper.swift */; };
-		BC7600DC2A3213FF00733710 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7600DB2A3213FF00733710 /* Address.swift */; };
+		BC7600DC2A3213FF00733710 /* testAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7600DB2A3213FF00733710 /* testAddress.swift */; };
 		BC78A60C2A30E5A400AB88A1 /* PaymentOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC78A60A2A30E5A400AB88A1 /* PaymentOptionsViewController.swift */; };
 		BC78A60D2A30E5A400AB88A1 /* PaymentOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC78A60B2A30E5A400AB88A1 /* PaymentOptionsViewController.xib */; };
 		BC7DF3AA2A323A1E00408038 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7DF3A92A323A1E00408038 /* Alerts.swift */; };
@@ -180,6 +182,8 @@
 		BC063AB62A34F56D0045DBD6 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		BC063AB92A34F7310045DBD6 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
 		BC063ABD2A3512640045DBD6 /* CurrencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyManager.swift; sourceTree = "<group>"; };
+		BC2DBA872A35B73900C2021F /* CustomerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTest.swift; sourceTree = "<group>"; };
+		BC2DBA892A35C38F00C2021F /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		BC38A3DC2A30B26E00492F76 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = HYN/Classes/Modules/Profile/View/SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
 		BC38A3DD2A30B26E00492F76 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = HYN/Classes/Modules/Profile/View/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
 		BC38A3E02A30C33000492F76 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
@@ -193,7 +197,7 @@
 		BC7600CF2A31F12600733710 /* AddAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAddressViewController.xib; sourceTree = "<group>"; };
 		BC7600D32A320BBE00733710 /* AddressesCoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressesCoreData.swift; sourceTree = "<group>"; };
 		BC7600D82A32126400733710 /* CoreDataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataWrapper.swift; sourceTree = "<group>"; };
-		BC7600DB2A3213FF00733710 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Address.swift; path = HYN/Service/Database/Address.swift; sourceTree = SOURCE_ROOT; };
+		BC7600DB2A3213FF00733710 /* testAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = testAddress.swift; path = HYN/Service/Database/testAddress.swift; sourceTree = SOURCE_ROOT; };
 		BC78A60A2A30E5A400AB88A1 /* PaymentOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentOptionsViewController.swift; sourceTree = "<group>"; };
 		BC78A60B2A30E5A400AB88A1 /* PaymentOptionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentOptionsViewController.xib; sourceTree = "<group>"; };
 		BC7DF3A92A323A1E00408038 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
@@ -464,6 +468,7 @@
 				0E55EEA42A2C85BE004A7357 /* Info.plist */,
 				0E55EE9C2A2C85BD004A7357 /* HYN.xcdatamodeld */,
 				BC063ABD2A3512640045DBD6 /* CurrencyManager.swift */,
+				BC2DBA872A35B73900C2021F /* CustomerTest.swift */,
 			);
 			path = HYN;
 			sourceTree = "<group>";
@@ -488,7 +493,7 @@
 		0E57C08B2A347080005C07E0 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				BC7600DB2A3213FF00733710 /* Address.swift */,
+				BC7600DB2A3213FF00733710 /* testAddress.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -664,6 +669,7 @@
 				0E3B81712A34880A00822540 /* BrandResponse */,
 				0EFFCD972A33C8550012E3A5 /* ProductResponse */,
 				BC063AB62A34F56D0045DBD6 /* Currency.swift */,
+				BC2DBA892A35C38F00C2021F /* Address.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1172,11 +1178,13 @@
 				0EFFCDB52A33CEDA0012E3A5 /* ProductInfoCollectionViewCell.swift in Sources */,
 				8F86B9882A30CAE400B1D8C9 /* OrderTableViewCell.swift in Sources */,
 				0EFFCD932A33C7630012E3A5 /* NetworkConstants.swift in Sources */,
+				BC2DBA8A2A35C38F00C2021F /* Address.swift in Sources */,
 				0EEAA9AF2A30BA3900913310 /* FavouritesViewModel.swift in Sources */,
 				8F85F20C2A33EFB8000CEE43 /* ProductCollectionViewCell.swift in Sources */,
 				BC063AB72A34F56D0045DBD6 /* Currency.swift in Sources */,
 				0E9943612A31CA5E00F81FF8 /* NetworkService.swift in Sources */,
 				BC7600CA2A31F02C00733710 /* AddressTableViewCell.swift in Sources */,
+				BC2DBA882A35B73900C2021F /* CustomerTest.swift in Sources */,
 				BC063AB42A34E5C90045DBD6 /* CurrencyViewController.swift in Sources */,
 				0EEAA9BC2A30BAF200913310 /* ProductInfoViewModel.swift in Sources */,
 				0EFFCDA32A33C8A50012E3A5 /* Variants.swift in Sources */,
@@ -1207,7 +1215,7 @@
 				BC7600C32A31EBF700733710 /* AddressesViewController.swift in Sources */,
 				BC78A60C2A30E5A400AB88A1 /* PaymentOptionsViewController.swift in Sources */,
 				BC7600D42A320BBE00733710 /* AddressesCoreData.swift in Sources */,
-				BC7600DC2A3213FF00733710 /* Address.swift in Sources */,
+				BC7600DC2A3213FF00733710 /* testAddress.swift in Sources */,
 				0E55EE9E2A2C85BD004A7357 /* HYN.xcdatamodeld in Sources */,
 				BC74FFDC2A30890B00227951 /* ProfileViewController.swift in Sources */,
 				BCBB37042A33064500B32DE1 /* Observable.swift in Sources */,
