@@ -23,6 +23,12 @@ class NetworkConstants{
             
         }
     }
+    public var contentType : HTTPHeaders {
+        get{
+            return["Content-Type": "application/json"]
+            
+        }
+    }
     public var productDetailsEndPoint : String{
         get{
             return "products/8348491710749.json"
