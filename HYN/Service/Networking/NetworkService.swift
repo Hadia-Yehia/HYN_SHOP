@@ -37,7 +37,7 @@ class NetworkService:NetworkServiceProtocol{
         }
     }
     func getBrandData(completionHandler: @escaping (Result<SmartCollectionsResult, NetworkError>) -> Void) {
-        AF.request("https://3ec4212c45d4957fa3a49ab23d83ff1b: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@mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/smart_collections.json")
+        AF.request("https://d097bbce1fd2720f1d64ced55f0e485b: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@mad43-alex-ios-team4.myshopify.com/admin/api/2023-04/smart_collections.json")
         .response{response in
             switch response.result{
             case .success(let data): do {
@@ -58,6 +58,82 @@ class NetworkService:NetworkServiceProtocol{
             
         }
     }
+    
+    func getProductsData(completionHandler: @escaping (Result<ProductsResult, NetworkError>) -> Void) {
+        AF.request("https://d097bbce1fd2720f1d64ced55f0e485b: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@mad43-alex-ios-team4.myshopify.com/admin/api/2023-04/products.json")
+        .response{response in
+            switch response.result{
+            case .success(let data): do {
+                print("success")
+                let jsonData = try JSONDecoder().decode(ProductsResult.self, from: data!)
+                completionHandler(.success(jsonData))
+            }
+                catch{
+                    print("fail parse")
+                    print(error.localizedDescription)
+                    completionHandler(.failure(.canNotParseData))
+                }
+            case .failure(let error):
+                print("fail url")
+                print(error.localizedDescription)
+                completionHandler(.failure(.urlError))
+            }
+            
+        }
+    }
+    
+    func getProductsType(completionHandler: @escaping (Result<CustomCollectionsResult, NetworkError>) -> Void) {
+        AF.request("https://3ec4212c45d4957fa3a49ab23d83ff1b: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@mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/custom_collections.json")
+        .response{response in
+            switch response.result{
+            case .success(let data): do {
+                print("success")
+                let jsonData = try JSONDecoder().decode(CustomCollectionsResult.self, from: data!)
+                completionHandler(.success(jsonData))
+            }
+                catch{
+                    print("fail parse")
+                    print(error.localizedDescription)
+                    completionHandler(.failure(.canNotParseData))
+                }
+            case .failure(let error):
+                print("fail url")
+                print(error.localizedDescription)
+                completionHandler(.failure(.urlError))
+            }
+            
+        }
+    }
+    
+    func getBrandProductsData(brand_id: Int,completionHandler: @escaping (Result<ProductsResult, NetworkError>) -> Void) {
+        print("in items \(brand_id)")
+        AF.request("https://d097bbce1fd2720f1d64ced55f0e485b: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@mad43-alex-ios-team4.myshopify.com/admin/api/2023-04/products.json?collection_id=\(brand_id)")
+        .response{response in
+            switch response.result{
+            case .success(let data): do {
+                print(data)
+                print("success in brand product data method")
+                let jsonData = try JSONDecoder().decode(ProductsResult.self, from: data!)
+                print("data after hiting\(jsonData.products?.count)")
+                completionHandler(.success(jsonData))
+            }
+                catch{
+                    print("fail parse")
+                    print(error.localizedDescription)
+                    completionHandler(.failure(.canNotParseData))
+                }
+            case .failure(let error):
+                print("fail url")
+                print(error.localizedDescription)
+                completionHandler(.failure(.urlError))
+            }
+            
+        }
+    }
+    
+    
+    
+    
 //    func getBrandData(){
 //                var urlTeam =
 //                    "https://3ec4212c45d4957fa3a49ab23d83ff1b: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@mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/smart_collections.json"

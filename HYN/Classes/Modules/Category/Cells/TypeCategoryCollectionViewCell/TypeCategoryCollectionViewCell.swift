@@ -18,5 +18,10 @@ class TypeCategoryCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    func configCell(img : String,title:String){
+        let url = URL(string: img)
+        typeImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"))
+        typeLabel.text = title
+    }
 
 }

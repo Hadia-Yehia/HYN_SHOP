@@ -9,36 +9,89 @@ import UIKit
 
 class CategoryViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
 
-    
-
     @IBOutlet weak var productCollection: UICollectionView!
     @IBOutlet weak var typeCollection: UICollectionView!
-    var photoCell = [UIImage(named: "media3.jpg"),UIImage(named: "media1.jpg"),UIImage(named: "media2.jpg"),UIImage(named: "media.jpg")]
+    var viewModel = CategoryViewModel()
+    var photoCell : [CollectionStruct] =  Array()
+    
+    var object1 = CollectionStruct(id: 448684294429, title: "KID", img:  "media3.jpg")
+    var object2 = CollectionStruct(id: 448684196125, title: " MEN", img:  "media3.jpg")
+    var object3 = CollectionStruct(id: 448684327197, title: "SALE", img:  "media3.jpg")
+    var object4 = CollectionStruct(id: 448684261661, title: "WOMEN", img:  "media3.jpg")
+   // var photoCell = [UIImage(named: "media3.jpg"),UIImage(named: "media1.jpg"),UIImage(named: "media2.jpg"),UIImage(named: "media.jpg")]
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.bindViewModel()
+        //self.bindViewModelTwo()
+        photoCell.append(object1)
+        photoCell.append(object2)
+        photoCell.append(object3)
+        photoCell.append(object4)
         productCollection.register(UINib(nibName: "ProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "productCell")
         typeCollection.register(UINib(nibName: "TypeCategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "typeCell")
         productCollection.dataSource = self
         productCollection.delegate = self
         typeCollection.dataSource = self
         typeCollection.delegate = self
+        viewModel.getProductData()
+        //viewModel.getCollectionData()
+        
         // Do any additional setup after loading the view.
     }
+    func bindViewModel(){
+        viewModel.isLoading.bind{[weak self] isLoading in
+            guard let self = self , let isLoading = isLoading
+            else{return}
+            DispatchQueue.main.async {
+                if isLoading{
+                    
+                }else{
+                    self.productCollection.reloadData()
+                 
+                }
+            }
+        }
+    }
+    /*func bindViewModelTwo(){
+        viewModel.isLoadingTwo.bind{[weak self] isLoading in
+            guard let self = self , let isLoading = isLoading
+            else{return}
+            DispatchQueue.main.async {
+                if isLoading{
+                    
+                }else{
+                    
+                    self.typeCollection.reloadData()
+                }
+            }
+        }
+    }*/
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photoCell.count
+        switch(collectionView){
+        case typeCollection:
+            return 4
+         default:
+            return viewModel.getProductsCount()
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+
         switch(collectionView) {
             case typeCollection:
              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "typeCell", for: indexPath) as! TypeCategoryCollectionViewCell
+            print("nadaaaaa")
              cell.typeView.layer.cornerRadius = 40
              cell.layer.masksToBounds = true
-            cell.typeImage.image = photoCell[indexPath.row]
-            cell.typeLabel.text = "nada"
+            //print("in type\(viewModel.getCellTitleTypeData(index: indexPath.row))")
+            cell.typeImage.image = UIImage(named: photoCell[indexPath.row].img)
+            cell.typeLabel.text = photoCell[indexPath.row].title
+            /*cell.configCell(img: viewModel.getCellImgTypeData(index: indexPath.row), title: viewModel.getCellTitleTypeData(index: indexPath.row))*/
            
              return cell
              
@@ -46,9 +99,7 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCollectionViewCell
              cell.productView.layer.cornerRadius = 40
              cell.layer.masksToBounds = true
-             cell.productImage.image = photoCell[indexPath.row]
-             cell.productLabel.text = "youssef"
-         
+            cell.configCell(img: viewModel.getCellImgData(index: indexPath.row), price: viewModel.getCellPriceData(index: indexPath.row))
              return cell
          }
     }

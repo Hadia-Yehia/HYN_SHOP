@@ -9,6 +9,7 @@ import Foundation
 class HomeViewModel{
     var isLoading : Observable<Bool> = Observable(false)
     var brandArr : [BrandStruct] = Array()
+   // var testArray:[SmartCollections]?
     func getbrandData(){
         if isLoading.value ?? true{
             return
@@ -22,29 +23,14 @@ class HomeViewModel{
             case .success(let data):
                 print("success\(data.smart_collections?.count)")
                 self?.getData(data: data.smart_collections!)
+               // self?.testArray = data.smart_collections
                 break
             case .failure(let error):
                 break
                 
             }
         })
-//        NetworkService.getInstance().fetchingProductDetails(product_id: productId, completionHandler: {[weak self]
-//            result in
-//            self?.isLoading.value = false
-//            switch result{
-//            case .success(let data):
-//               // self?.result = data.product
-//                print("hadia debug " + String(self?.result?.images?.count ?? 0))
-//                self?.getData(result: data.product)
-//
-//
-//                break
-//            case .failure(let error):
-//                print("error\(error.localizedDescription)")
-//                break
-//            }
-//
-//        })
+
     }
     func getBrandsCount() -> Int{
         return brandArr.count
@@ -58,5 +44,17 @@ class HomeViewModel{
     func getCellData(index : Int)->String{
         return brandArr[index].img
     }
+    
+    func navigateToBrandView(index :Int) ->BrandViewModel
+    {
+        let brandId = brandArr[index].id
+        return BrandViewModel(brandId: brandId)
+    }
+   /* func navigateToBrandView(index :Int) ->Int
+     {
+       
+         return self.testArray?[index].id ?? 0
+     }*/
+    
 }
 

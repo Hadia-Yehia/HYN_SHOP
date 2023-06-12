@@ -66,6 +66,20 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
        
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView{
+        case brandsCollection:
+            
+            let detailsVC = BrandViewController(nibName: "BrandViewController", bundle: nil)
+           let id = self.viewModel.navigateToBrandView(index: indexPath.row)
+            detailsVC.viewModel = self.viewModel.navigateToBrandView(index: indexPath.row)
+            navigationController?.pushViewController(detailsVC, animated: true)
+            break
+        default:
+            break
+        }
+    }
+    
     /*func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             return CGSize(width:collectionView.bounds.width, height: collectionView.bounds.height)
         }*/
