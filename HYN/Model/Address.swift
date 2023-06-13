@@ -45,6 +45,7 @@ struct Address: Encodable,Decodable {
         self.`default` = `default`
     }
 }
+
 struct CustomerAddress:Encodable,Decodable{
     var customer_address:Address
     init (address:Address)

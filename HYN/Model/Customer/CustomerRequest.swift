@@ -59,24 +59,24 @@ struct Customer : Codable{
         return dictionary as NSDictionary
     }
 }
-struct CustomerAddress : Encodable{
-    var address1 : String
-    var city : String
-    var province : String
-    var phone : String
-    var zip : String
-    var first_name : String
-    var last_name : String
-    var country : String
-    init(address1: String, city: String, province: String, phone: String, zip: String, first_name: String, last_name: String, country: String) {
-        self.address1 = address1
-        self.city = city
-        self.province = province
-        self.phone = phone
-        self.zip = zip
-        self.first_name = first_name
-        self.last_name = last_name
-        self.country = country
-    }
-}
+//struct CustomerAddress : Encodable{
+//    var address1 : String
+//    var city : String
+//    var province : String
+//    var phone : String
+//    var zip : String
+//    var first_name : String
+//    var last_name : String
+//    var country : String
+//    init(address1: String, city: String, province: String, phone: String, zip: String, first_name: String, last_name: String, country: String) {
+//        self.address1 = address1
+//        self.city = city
+//        self.province = province
+//        self.phone = phone
+//        self.zip = zip
+//        self.first_name = first_name
+//        self.last_name = last_name
+//        self.country = country
+//    }
+//}
 

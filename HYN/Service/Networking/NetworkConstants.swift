@@ -42,12 +42,7 @@ class NetworkConstants{
             return "https://open.er-api.com/v6/latest/USD"
         }
     }
-    public var contentType : HTTPHeaders {
-        get{
-            return["Content-Type": "application/json"]
-            
-        }
-    }
+   
     
  
 }
