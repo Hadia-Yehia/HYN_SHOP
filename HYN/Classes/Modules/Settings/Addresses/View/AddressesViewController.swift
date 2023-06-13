@@ -47,24 +47,22 @@ class AddressesViewController: UIViewController {
             }
 
             DispatchQueue.main.async {
-                if isLoading
+                if !isLoading
                 {
+                    self.checkAddressesTableIfEmpty()
                     self.tableView.reloadData()
                 }
             }
 
         }
     }
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         bindingViewModel()
         viewModel.getAddresses()
-        checkAddressesTableIfEmpty()
     }
 
     func addUIBarButtonItem()
     {
-
-        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .done, target: self, action: #selector(navigateToAddAddressView))
     }
     
@@ -73,6 +71,7 @@ class AddressesViewController: UIViewController {
         let destinationViewController = AddAddressViewController()
         navigationController?.pushViewController(destinationViewController, animated: true)
     }
+    
     func setupTable()
     {
         tableView.delegate = self

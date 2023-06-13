@@ -12,7 +12,7 @@ import Firebase
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+let defaultCurrency = "USD"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }*/
         FirebaseApp.configure()
+        
+        UserDefaults.standard.register(defaults: ["currencyCode": defaultCurrency])
         return true
     }
 

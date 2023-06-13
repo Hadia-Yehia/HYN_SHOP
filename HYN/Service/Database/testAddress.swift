@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class Address  {
+class testAddress  {
     var name:String
     var surename:String
     var phone:String

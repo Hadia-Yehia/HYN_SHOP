@@ -31,7 +31,7 @@ extension AddressesViewController : UITableViewDelegate , UITableViewDataSource{
       
            let confirmAction = UIAlertAction(title: "Yes", style: .default) { _ in
                self.viewModel.deleteAddress(index: indexPath.row)
-               self.tableView.deleteRows(at: [indexPath], with: .fade)
+        //self.tableView.deleteRows(at: [indexPath], with: .fade)
                self.checkAddressesTableIfEmpty()
          
            }
@@ -41,8 +41,6 @@ extension AddressesViewController : UITableViewDelegate , UITableViewDataSource{
            
            alertController.addAction(confirmAction)
            alertController.addAction(cancelationAction)
-               
-           
            if let topController = UIApplication.shared.keyWindow?.rootViewController {
                topController.present(alertController, animated: true, completion: nil)
            }

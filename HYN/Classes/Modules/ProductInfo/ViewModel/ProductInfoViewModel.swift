@@ -59,9 +59,31 @@ class ProductInfoViewModel{
         return product.name
     }
     func getProductPrice()->String{
-        return "EGP\(product.price)"
+       return checkCurrency()
     }
     func getProductDescription()-> String{
         return product.description
+    }
+    func checkCurrency()->String
+    {
+        let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
+        let productPrice = Double(product.price) ?? 0
+        switch currencyCode
+        {
+        case "EGP":
+          
+            return "EGP\(productPrice * CurrencyManager.exchangePrice(to: "EGP"))"
+        case "EUR":
+            return "EUR\(productPrice * CurrencyManager.exchangePrice(to: "EUR"))"
+        case "AMD":
+            return "AMD\(productPrice * CurrencyManager.exchangePrice(to: "AMD"))"
+        case "AED":
+            return "AED\(productPrice * CurrencyManager.exchangePrice(to: "AED"))"
+            
+            
+        default:
+            return "USD\(product.price)"
+        }
+      
     }
 }
