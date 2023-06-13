@@ -8,6 +8,7 @@
 import UIKit
 
 class AddAddressViewController: UIViewController {
+    let countryPickerView = UIPickerView()
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var surnameField: UITextField!
     @IBOutlet weak var phoneNumberField: UITextField!
@@ -22,6 +23,7 @@ class AddAddressViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBAction func addButton(_ sender: UIButton) {
         let textFields = [nameField, surnameField, phoneNumberField, countryField, cityField, zipCodeField,addressField]
+        
 
         let allFieldsNonEmpty = !textFields.reduce(false) { $0 || ($1?.text?.isEmpty ?? true) }
 
@@ -52,7 +54,14 @@ class AddAddressViewController: UIViewController {
         super.viewDidLoad()
 
       checkDestination()
+        setupCountriesPickerView()
+        countryField.inputView = countryPickerView
     
+    }
+    func setupCountriesPickerView()
+    {
+        countryPickerView.delegate = self
+        countryPickerView.dataSource = self
     }
 
 func checkDestination()
@@ -72,6 +81,16 @@ func checkDestination()
            
        }
     }
-
+func test()
+    {
+        let allCountries = Locale.isoRegionCodes.map { (code) -> String in
+            let identifier = Locale.identifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
+            return Locale(identifier: "en_US_POSIX").localizedString(forIdentifier: identifier) ?? "Unknown"
+        }
+        for it in allCountries
+        {
+            print("contry: \(it)")
+        }
+    }
 
 }

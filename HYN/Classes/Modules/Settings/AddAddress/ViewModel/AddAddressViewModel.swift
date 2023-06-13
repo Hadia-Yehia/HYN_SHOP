@@ -17,7 +17,23 @@ import UIKit
 import UIKit
 
 class AddAddressViewModel {
-
+  
+    let allCountries = Locale.isoRegionCodes.map { (code) -> String in
+        let identifier = Locale.identifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
+        return Locale(identifier: "en_US_POSIX").localizedString(forIdentifier: identifier) ?? "Unknown"
+    }
+    
+    
+    
+    func getNuberOfCountries()->Int{
+        print("look: \(allCountries.count)")
+     return   allCountries.count
+    }
+    
+    func getCountry(index:Int)->String
+    {
+        allCountries[index]
+    }
     var addressToBeEdited:Address?
     
     init(address:Address)
@@ -69,30 +85,16 @@ class AddAddressViewModel {
             NetworkService.sharedInstance.createNewAddress(address:fullAddress)
             {
                 result in
-        
-                print("el 7a2e2a: \(result)")
             }
         }
       //  self.insertAddressInCoreData(address: fullAddress)
     }
-    
-//    func editAddress()
-//    {
-//
-//        NetworkService.sharedInstance.updateCustomerAddress(addressId: addressToBeEdited?.id ?? 0, address: addressToBeEdited!)
-//        {
-//            reslt in
-//            print("loooky:\(self.addressToBeEdited?.id ?? 0)")
-//            
-//        }
-//        
-//    }
+
     
     func checkIfAddressIsNotNil()->Bool
     {
         if addressToBeEdited == nil
         {
-            print("")
             return false
         }
         else
@@ -101,9 +103,9 @@ class AddAddressViewModel {
         }
     }
     
-    func refreshAddresses()->AddressesViewModel
-    {
-        return AddressesViewModel()
-    }
+//    func refreshAddresses()->AddressesViewModel
+//    {
+//        return AddressesViewModel()
+//    }
 }
 

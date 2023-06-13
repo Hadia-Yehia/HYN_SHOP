@@ -28,7 +28,7 @@ class AddressTableViewCell: UITableViewCell {
     func configureCell(address:Address)
     {
         print("el idyyyy :\(address.id)")
-        fullName.text = "\(address.first_name) \(address.last_name)"
+        fullName.text = address.name
         fullAddress.text = address.address1
         nationality.text = "\(address.city) \(address.country)"
         phone.text = "\(address.phone)"

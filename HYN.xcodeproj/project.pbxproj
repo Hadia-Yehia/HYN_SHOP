@@ -61,6 +61,7 @@
 		8F86B9882A30CAE400B1D8C9 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F86B9862A30CAE400B1D8C9 /* OrderTableViewCell.swift */; };
 		8F86B9892A30CAE400B1D8C9 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F86B9872A30CAE400B1D8C9 /* OrderTableViewCell.xib */; };
 		A5FD2B6B8414504AC15C6963 /* Pods_HYN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5450FA30BEA12F7DB4976121 /* Pods_HYN.framework */; };
+		BC04DBB92A387DFB00789A17 /* CountryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC04DBB82A387DFB00789A17 /* CountryPickerViewController.swift */; };
 		BC063AB42A34E5C90045DBD6 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC063AB22A34E5C90045DBD6 /* CurrencyViewController.swift */; };
 		BC063AB52A34E5C90045DBD6 /* CurrencyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC063AB32A34E5C90045DBD6 /* CurrencyViewController.xib */; };
 		BC063AB72A34F56D0045DBD6 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC063AB62A34F56D0045DBD6 /* Currency.swift */; };
@@ -177,6 +178,7 @@
 		8F86B9862A30CAE400B1D8C9 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		8F86B9872A30CAE400B1D8C9 /* OrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
 		98080D1695F512A74D41BEA6 /* Pods-HYN-HYNUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYN-HYNUITests.debug.xcconfig"; path = "Target Support Files/Pods-HYN-HYNUITests/Pods-HYN-HYNUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BC04DBB82A387DFB00789A17 /* CountryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerViewController.swift; sourceTree = "<group>"; };
 		BC063AB22A34E5C90045DBD6 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		BC063AB32A34E5C90045DBD6 /* CurrencyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyViewController.xib; sourceTree = "<group>"; };
 		BC063AB62A34F56D0045DBD6 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
@@ -770,6 +772,7 @@
 			children = (
 				BC7600CE2A31F12600733710 /* AddAddressViewController.swift */,
 				BC7600CF2A31F12600733710 /* AddAddressViewController.xib */,
+				BC04DBB82A387DFB00789A17 /* CountryPickerViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1176,6 +1179,7 @@
 				8F68D8AA2A32AB1400C4AFA7 /* SmartCollections.swift in Sources */,
 				8F86B9762A30B86100B1D8C9 /* HomeViewController.swift in Sources */,
 				0EFFCDB52A33CEDA0012E3A5 /* ProductInfoCollectionViewCell.swift in Sources */,
+				BC04DBB92A387DFB00789A17 /* CountryPickerViewController.swift in Sources */,
 				8F86B9882A30CAE400B1D8C9 /* OrderTableViewCell.swift in Sources */,
 				0EFFCD932A33C7630012E3A5 /* NetworkConstants.swift in Sources */,
 				BC2DBA8A2A35C38F00C2021F /* Address.swift in Sources */,

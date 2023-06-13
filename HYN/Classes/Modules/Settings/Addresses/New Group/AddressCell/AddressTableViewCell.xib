@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -49,21 +48,11 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0aL-f7-lBC">
-                                <rect key="frame" x="229.66666666666669" y="7" width="41.333333333333314" height="34.333333333333336"/>
-                                <color key="tintColor" systemColor="labelColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="pencil" catalog="system" imagePadding="0.0">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="default"/>
-                                </buttonConfiguration>
-                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Oy8-J4-GR6" firstAttribute="centerY" secondItem="e7V-tx-y8s" secondAttribute="centerY" id="3x3-9n-3Sb"/>
                             <constraint firstItem="Oy8-J4-GR6" firstAttribute="centerX" secondItem="e7V-tx-y8s" secondAttribute="centerX" multiplier="0.7" id="Lfu-YP-RqZ"/>
-                            <constraint firstAttribute="trailing" secondItem="0aL-f7-lBC" secondAttribute="trailing" constant="8" id="Noe-Bm-EGY"/>
                             <constraint firstItem="Oy8-J4-GR6" firstAttribute="height" secondItem="e7V-tx-y8s" secondAttribute="height" multiplier="0.9" id="PT2-RW-7oA"/>
-                            <constraint firstItem="0aL-f7-lBC" firstAttribute="top" secondItem="e7V-tx-y8s" secondAttribute="top" constant="7" id="axt-fW-Av9"/>
                             <constraint firstItem="Oy8-J4-GR6" firstAttribute="width" secondItem="e7V-tx-y8s" secondAttribute="width" multiplier="0.6" id="xeT-hf-8RH"/>
                         </constraints>
                     </view>
@@ -86,10 +75,4 @@
             <point key="canvasLocation" x="3.8167938931297707" y="42.95774647887324"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="pencil" catalog="system" width="128" height="113"/>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>
