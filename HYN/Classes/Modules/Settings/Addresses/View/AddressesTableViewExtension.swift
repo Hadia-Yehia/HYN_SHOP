@@ -41,8 +41,6 @@ extension AddressesViewController : UITableViewDelegate , UITableViewDataSource{
            
            alertController.addAction(confirmAction)
            alertController.addAction(cancelationAction)
-               
-           
            if let topController = UIApplication.shared.keyWindow?.rootViewController {
                topController.present(alertController, animated: true, completion: nil)
            }

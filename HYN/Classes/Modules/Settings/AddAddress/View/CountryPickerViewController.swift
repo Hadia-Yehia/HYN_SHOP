@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-extension AddAddressViewController: UIPickerViewDelegate, UIPickerViewDataSource
+extension AddAddressViewController: UIPickerViewDelegate, UIPickerViewDataSource,UITextFieldDelegate
 {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
@@ -22,5 +22,8 @@ extension AddAddressViewController: UIPickerViewDelegate, UIPickerViewDataSource
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         countryField.text = viewModel.getCountry(index: row)
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }

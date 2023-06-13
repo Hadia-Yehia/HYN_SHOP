@@ -22,12 +22,10 @@ class AddressTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     
-    func configureCell(address:Address)
-    {
-        print("el idyyyy :\(address.id)")
+    func configureCell(address:Address){
+    
         fullName.text = address.name
         fullAddress.text = address.address1
         nationality.text = "\(address.city) \(address.country)"

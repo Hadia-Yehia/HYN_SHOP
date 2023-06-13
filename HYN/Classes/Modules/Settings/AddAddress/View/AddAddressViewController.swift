@@ -23,8 +23,6 @@ class AddAddressViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBAction func addButton(_ sender: UIButton) {
         let textFields = [nameField, surnameField, phoneNumberField, countryField, cityField, zipCodeField,addressField]
-        
-
         let allFieldsNonEmpty = !textFields.reduce(false) { $0 || ($1?.text?.isEmpty ?? true) }
 
         if allFieldsNonEmpty {
@@ -37,7 +35,6 @@ class AddAddressViewController: UIViewController {
     
     func getDataFromTextFields()
     {
- 
         viewModel.fullName = "\(nameField.text ?? "noName") \(String(describing: surnameField.text))"
         viewModel.lastName = surnameField.text
         viewModel.firstName = nameField.text
@@ -52,12 +49,12 @@ class AddAddressViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-
-      checkDestination()
+       checkDestination()
         setupCountriesPickerView()
         countryField.inputView = countryPickerView
     
     }
+    
     func setupCountriesPickerView()
     {
         countryPickerView.delegate = self
@@ -80,17 +77,6 @@ func checkDestination()
            self.addButton.setTitle("Edit", for:.normal )
            
        }
-    }
-func test()
-    {
-        let allCountries = Locale.isoRegionCodes.map { (code) -> String in
-            let identifier = Locale.identifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
-            return Locale(identifier: "en_US_POSIX").localizedString(forIdentifier: identifier) ?? "Unknown"
-        }
-        for it in allCountries
-        {
-            print("contry: \(it)")
-        }
     }
 
 }

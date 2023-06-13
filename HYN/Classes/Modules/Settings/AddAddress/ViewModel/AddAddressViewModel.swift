@@ -22,18 +22,15 @@ class AddAddressViewModel {
         let identifier = Locale.identifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
         return Locale(identifier: "en_US_POSIX").localizedString(forIdentifier: identifier) ?? "Unknown"
     }
+    var firstName: String?
+    var lastName: String?
+    var fullName: String?
+    var phoneNumber: String?
+    var country: String?
+    var city: String?
+    var address: String?
+    var zipCode: String?
     
-    
-    
-    func getNuberOfCountries()->Int{
-        print("look: \(allCountries.count)")
-     return   allCountries.count
-    }
-    
-    func getCountry(index:Int)->String
-    {
-        allCountries[index]
-    }
     var addressToBeEdited:Address?
     
     init(address:Address)
@@ -44,14 +41,7 @@ class AddAddressViewModel {
     {
         
     }
-      var firstName: String?
-      var lastName: String?
-      var fullName: String?
-      var phoneNumber: String?
-      var country: String?
-      var city: String?
-      var address: String?
-      var zipCode: String?
+  
    
 
 
@@ -103,9 +93,15 @@ class AddAddressViewModel {
         }
     }
     
-//    func refreshAddresses()->AddressesViewModel
-//    {
-//        return AddressesViewModel()
-//    }
+//MARK: Countries Picker View
+    
+    func getNuberOfCountries()->Int{
+     return   allCountries.count
+    }
+    
+    func getCountry(index:Int)->String
+    {
+        allCountries[index]
+    }
 }
 

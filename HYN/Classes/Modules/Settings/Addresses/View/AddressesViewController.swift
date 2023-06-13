@@ -59,15 +59,10 @@ class AddressesViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         bindingViewModel()
         viewModel.getAddresses()
-    
-      
-  
     }
 
     func addUIBarButtonItem()
     {
-
-        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .done, target: self, action: #selector(navigateToAddAddressView))
     }
     
@@ -76,6 +71,7 @@ class AddressesViewController: UIViewController {
         let destinationViewController = AddAddressViewController()
         navigationController?.pushViewController(destinationViewController, animated: true)
     }
+    
     func setupTable()
     {
         tableView.delegate = self
