@@ -46,11 +46,8 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
             else{return}
             DispatchQueue.main.async {
                 if isLoading{
-                   print("if ya eslammm")
                 }else{
-                    print("else ya eslammm")
                     self.productCollection.reloadData()
-                 
                 }
             }
         }
