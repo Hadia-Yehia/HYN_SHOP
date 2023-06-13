@@ -34,6 +34,11 @@ class NetworkConstants{
             return "products/8348491710749.json"
         }
     }
+    public var brandEndPoint : String{
+        get{
+            return "smart_collections.json"
+        }
+    }
     
     public var currencyUrl: String
     {

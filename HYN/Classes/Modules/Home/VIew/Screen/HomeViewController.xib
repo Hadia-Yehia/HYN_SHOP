@@ -31,7 +31,7 @@
                     </connections>
                 </searchBar>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="1tT-RG-EvU">
-                    <rect key="frame" x="25" y="144.33333333333334" width="343" height="213.00000000000003"/>
+                    <rect key="frame" x="25" y="134.33333333333334" width="343" height="213.00000000000003"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OA0-Rn-dkS">
                         <size key="itemSize" width="128" height="128"/>
@@ -41,10 +41,10 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ex8-oV-tZa">
-                    <rect key="frame" x="40" y="397.33333333333331" width="313" height="74"/>
+                    <rect key="frame" x="40" y="362.33333333333331" width="313" height="59.666666666666686"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brands" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4q-91-Q9o">
-                            <rect key="frame" x="25" y="18" width="263" height="39"/>
+                            <rect key="frame" x="25" y="12" width="263" height="39"/>
                             <fontDescription key="fontDescription" type="system" pointSize="32"/>
                             <color key="textColor" systemColor="systemBackgroundColor"/>
                             <nil key="highlightedColor"/>
@@ -52,13 +52,13 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemYellowColor"/>
                     <constraints>
-                        <constraint firstItem="J4q-91-Q9o" firstAttribute="top" secondItem="Ex8-oV-tZa" secondAttribute="top" constant="18" id="8qX-H8-83i"/>
+                        <constraint firstItem="J4q-91-Q9o" firstAttribute="top" secondItem="Ex8-oV-tZa" secondAttribute="top" constant="12" id="8qX-H8-83i"/>
                         <constraint firstItem="J4q-91-Q9o" firstAttribute="leading" secondItem="Ex8-oV-tZa" secondAttribute="leading" constant="25" id="WMg-EU-S2G"/>
                         <constraint firstAttribute="trailing" secondItem="J4q-91-Q9o" secondAttribute="trailing" constant="25" id="XzS-Oc-CU1"/>
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="XcW-7N-PBa">
-                    <rect key="frame" x="25" y="511.33333333333331" width="343" height="255.6666666666668"/>
+                    <rect key="frame" x="25" y="462.00000000000006" width="343" height="255.66666666666669"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Y7H-0F-lUd">
                         <size key="itemSize" width="128" height="128"/>
@@ -79,14 +79,14 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XcW-7N-PBa" secondAttribute="trailing" constant="25" id="3DJ-Rl-Uqa"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="T0f-eL-J1f" secondAttribute="trailing" constant="60" id="5ka-bC-O2r"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1tT-RG-EvU" secondAttribute="trailing" constant="25" id="Anu-zv-EOT"/>
-                <constraint firstItem="1tT-RG-EvU" firstAttribute="top" secondItem="NEP-16-09Q" secondAttribute="bottom" constant="30" id="DNC-27-q6I"/>
+                <constraint firstItem="1tT-RG-EvU" firstAttribute="top" secondItem="NEP-16-09Q" secondAttribute="bottom" constant="20" id="DNC-27-q6I"/>
                 <constraint firstItem="Ex8-oV-tZa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="G5K-4P-AIv"/>
                 <constraint firstItem="NEP-16-09Q" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="HtM-dl-LWt"/>
                 <constraint firstItem="XcW-7N-PBa" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.3" id="I4M-Re-U8J"/>
-                <constraint firstItem="Ex8-oV-tZa" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.0868545" id="LtC-2M-vpy"/>
+                <constraint firstItem="Ex8-oV-tZa" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.07" id="LtC-2M-vpy"/>
                 <constraint firstItem="NEP-16-09Q" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="SBA-qY-ol5"/>
                 <constraint firstItem="NEP-16-09Q" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.065" id="SLS-vT-WOa"/>
-                <constraint firstItem="Ex8-oV-tZa" firstAttribute="top" secondItem="1tT-RG-EvU" secondAttribute="bottom" constant="40" id="c3t-Ln-iX7"/>
+                <constraint firstItem="Ex8-oV-tZa" firstAttribute="top" secondItem="1tT-RG-EvU" secondAttribute="bottom" constant="15" id="c3t-Ln-iX7"/>
                 <constraint firstItem="1tT-RG-EvU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="chK-SX-dJ0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ex8-oV-tZa" secondAttribute="trailing" constant="40" id="cwv-uQ-oPr"/>
                 <constraint firstItem="XcW-7N-PBa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="dIs-md-mBt"/>
