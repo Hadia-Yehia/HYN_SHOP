@@ -35,35 +35,35 @@ class NetworkService:NetworkServiceProtocol{
                 }
             }
     }
-//    func postingNewCustomer(customer : CustomerRequest, completionHandler : @escaping(Result<CustomerResponse, NetworkError>)->Void){
-//        let endpoint = "https://mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/customers.json"
-//        let headers: HTTPHeaders = [
-//            "Content-Type": "application/json",
-//            "X-Shopify-Access-Token": "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"
-//        ]
-//
-//
-//
-//        AF.request(endpoint, method: .post, parameters: convertToParameters(customer: customer), encoding: JSONEncoding.default, headers: headers)
-//            .responseJSON { response in
-//                switch response.result {
-//                case .success(let value): do {
-//                    print("success")
-//                    let jsonData = try JSONDecoder().decode(CustomerResponse.self, from: JSONSerialization.data(withJSONObject: value,options: .prettyPrinted))
-//                   // print("ya 3zizy\(jsonData.customer.id)")
-//                    completionHandler(.success(jsonData))
-//                }
-//                    catch{
-//                        print("fail parse")
-//                        print(error.localizedDescription)
-//                        completionHandler(.failure(.canNotParseData))
-//                    }
-//                    print(value)
-//                case .failure(let error):
-//                    // Handle the error
-//                    print(error)
-//                }
-//            }
+    func postingNewCustomer(customer : CustomerRequest, completionHandler : @escaping(Result<CustomerResponse, NetworkError>)->Void){
+        let endpoint = "https://mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/customers.json"
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/json",
+            "X-Shopify-Access-Token": "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"
+        ]
+
+
+
+        AF.request(endpoint, method: .post, parameters: convertToParameters(customer: customer), encoding: JSONEncoding.default, headers: headers)
+            .responseJSON { response in
+                switch response.result {
+                case .success(let value): do {
+                    print("success")
+                    let jsonData = try JSONDecoder().decode(CustomerResponse.self, from: JSONSerialization.data(withJSONObject: value,options: .prettyPrinted))
+                   // print("ya 3zizy\(jsonData.customer.id)")
+                    completionHandler(.success(jsonData))
+                }
+                    catch{
+                        print("fail parse")
+                        print(error.localizedDescription)
+                        completionHandler(.failure(.canNotParseData))
+                    }
+                    print(value)
+                case .failure(let error):
+                    // Handle the error
+                    print(error)
+                }
+            }
         
         
 
@@ -86,7 +86,7 @@ class NetworkService:NetworkServiceProtocol{
                 return parameters
             }
     
-//}
+}
 enum NetworkError : Error{
     case urlError
     case canNotParseData
