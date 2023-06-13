@@ -8,10 +8,33 @@
 import Foundation
 class CategoryViewModel{
     var isLoading : Observable<Bool> = Observable(false)
-    var isLoadingTwo : Observable<Bool> = Observable(false)
+    //var isLoadingTwo : Observable<Bool> = Observable(false)
+    //var isLoadingThree : Observable<Bool> = Observable(false)
 
     var productArr : [ProductsStruct] = Array()
     var collectionArr : [CollectionStruct] = Array()
+    //var productForSecArr : [ProductsStruct] = Array()
+    //var brandId : Int = 0
+    func getProductsForSecData(brandId: Int){
+        if isLoading.value ?? true{
+            return
+        }
+        isLoading.value = true
+        NetworkService.getInstance().getBrandProductsData(brand_id: brandId, completionHandler: {
+            [weak self]
+            result in
+            self?.isLoading.value = false
+            switch result{
+            case .success(let data):
+                print("success the count is \(data.products?.count)")
+                self?.getData(data: data.products!)
+                break
+            case .failure(let error):
+                break
+                
+            }
+        })
+    }
     func getProductData(){
         if isLoading.value ?? true{
             return
@@ -34,7 +57,7 @@ class CategoryViewModel{
    
     }
     
-    func getCollectionData(){
+    /*func getCollectionData(){
         if isLoadingTwo.value ?? true{
             return
         }
@@ -56,7 +79,7 @@ class CategoryViewModel{
         })
         
    
-    }
+    }*/
     
     func getTypeData(data : [CustomCollections]){
         for i in 1..<data.count-1{
@@ -72,6 +95,7 @@ class CategoryViewModel{
         return productArr.count
     }
     func getData(data : [Product]){
+        productArr = [ProductsStruct]()
         for i in 0..<data.count{
             let products = ProductsStruct(id: data[i].id!, price: (data[i].variants?.first?.price)!, img: (data[i].image?.src!)!)
             

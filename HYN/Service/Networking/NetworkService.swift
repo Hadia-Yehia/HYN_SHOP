@@ -38,6 +38,7 @@ class NetworkService:NetworkServiceProtocol{
     }
     func getBrandData(completionHandler: @escaping (Result<SmartCollectionsResult, NetworkError>) -> Void) {
         AF.request("https://d097bbce1fd2720f1d64ced55f0e485b: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@mad43-alex-ios-team4.myshopify.com/admin/api/2023-04/smart_collections.json")
+   
         .response{response in
             switch response.result{
             case .success(let data): do {
