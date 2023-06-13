@@ -25,6 +25,26 @@ struct Address: Encodable,Decodable {
     var country_name: String?
     var `default`: Bool?
     
+//    enum CodingKeys: String, CodingKey {
+//            case id = "id"
+//            case address1 = "address1"
+//            case address2 = "address2"
+//            case firstName = "first_name"
+//            case lastName = "last_name"
+//            case name = "name"
+//            case city = "city"
+//            case country = "country"
+//            case company = "company"
+//            case province = "province"
+//            case phone = "phone"
+//            case zip = "zip"
+//            case provinceCode = "province_code"
+//            case countryCode = "country_code"
+//            case countryName = "country_name"
+//            case `default` = "default"
+//        }
+
+    
     init(id:Int? = nil,address1: String, address2: String? = nil, first_name: String, last_name: String, name: String,
          city: String, country: String, company: String? = nil, province: String? = nil, phone: String,
          zip: String, province_code: String? = nil, country_code: String? = nil, country_name: String? = nil, default: Bool? = false) {
