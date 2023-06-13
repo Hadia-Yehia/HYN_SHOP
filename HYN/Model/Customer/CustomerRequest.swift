@@ -12,13 +12,13 @@ struct CustomerRequest : Codable{
     init(customer: Customer) {
         self.customer = customer
     }
-    var dictionary: [String: Any] {
-        return ["customer":customer.nsDictionary
-        ]
-    }
-    var nsDictionary: NSDictionary {
-        return dictionary as NSDictionary
-    }
+//    var dictionary: [String: Any] {
+//        return ["customer":customer.nsDictionary
+//        ]
+//    }
+//    var nsDictionary: NSDictionary {
+//        return dictionary as NSDictionary
+//    }
 }
 
 
@@ -41,23 +41,22 @@ struct Customer : Codable{
         self.password = password
         self.password_confirmation = password_confirmation
         self.send_email_welcome = send_email_welcome
-
     }
 
-    var dictionary: [String: Any] {
-        return ["first_name": first_name,
-                "last_name": last_name,
-                "email": email,
-                "phone": phone,
-                "verified_email":verified_email,
-                "password":password,
-                "password_confirmation":password_confirmation,
-                "send_email_welcome":send_email_welcome
-        ]
-    }
-    var nsDictionary: NSDictionary {
-        return dictionary as NSDictionary
-    }
+//    var dictionary: [String: Any] {
+//        return ["first_name": first_name,
+//                "last_name": last_name,
+//                "email": email,
+//                "phone": phone,
+//                "verified_email":verified_email,
+//                "password":password,
+//                "password_confirmation":password_confirmation,
+//                "send_email_welcome":send_email_welcome
+//        ]
+//    }
+//    var nsDictionary: NSDictionary {
+//        return dictionary as NSDictionary
+//    }
 }
 //struct CustomerAddress : Encodable{
 //    var address1 : String

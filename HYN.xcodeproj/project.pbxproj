@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		0E35A4362A351E3F00E887D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E35A4352A351E3E00E887D2 /* GoogleService-Info.plist */; };
 		0E454E922A365E0C00D1816F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E454E912A365E0C00D1816F /* SignUpViewModel.swift */; };
+		0E4676D12A38C6C800ED8DC3 /* DraftOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4676D02A38C6C800ED8DC3 /* DraftOrder.swift */; };
+		0E4676D32A38C6D200ED8DC3 /* DraftOrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4676D22A38C6D200ED8DC3 /* DraftOrderRequest.swift */; };
+		0E4676D52A38C6D900ED8DC3 /* LineItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4676D42A38C6D900ED8DC3 /* LineItems.swift */; };
+		0E4676DB2A38C89E00ED8DC3 /* DraftOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4676DA2A38C89E00ED8DC3 /* DraftOrderResponse.swift */; };
+		0E4676DD2A38C93200ED8DC3 /* DraftOrderResponsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4676DC2A38C93200ED8DC3 /* DraftOrderResponsed.swift */; };
+		0E4676F32A38DAE600ED8DC3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4676F22A38DAE600ED8DC3 /* NetworkService.swift */; };
 		0E5471252A38732000FC1DD2 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5471242A38732000FC1DD2 /* Customer.swift */; };
 		0E54712A2A389B0500FC1DD2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0E5471292A389B0500FC1DD2 /* FirebaseAuth */; };
 		0E54712C2A389B0500FC1DD2 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0E54712B2A389B0500FC1DD2 /* FirebaseDatabase */; };
@@ -28,7 +34,6 @@
 		0E8A84BEB2DBB3BB48AA2E3D /* Pods_HYNTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7828C3DC3295B86EF2CD4F /* Pods_HYNTests.framework */; };
 		0E8C2B6E2A34D03F005B092F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8C2B6C2A34D03F005B092F /* SignUpViewController.swift */; };
 		0E8C2B6F2A34D03F005B092F /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8C2B6D2A34D03F005B092F /* SignUpViewController.xib */; };
-		0E9943612A31CA5E00F81FF8 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9943602A31CA5E00F81FF8 /* NetworkService.swift */; };
 		0EEAA9A02A308D4A00913310 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEAA99E2A308D4A00913310 /* ReviewTableViewCell.swift */; };
 		0EEAA9A12A308D4A00913310 /* ReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EEAA99F2A308D4A00913310 /* ReviewTableViewCell.xib */; };
 		0EEAA9AA2A30A66100913310 /* ReviewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EEAA9A82A30A66100913310 /* ReviewsViewController.xib */; };
@@ -127,6 +132,12 @@
 /* Begin PBXFileReference section */
 		0E35A4352A351E3E00E887D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0E454E912A365E0C00D1816F /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		0E4676D02A38C6C800ED8DC3 /* DraftOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftOrder.swift; sourceTree = "<group>"; };
+		0E4676D22A38C6D200ED8DC3 /* DraftOrderRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftOrderRequest.swift; sourceTree = "<group>"; };
+		0E4676D42A38C6D900ED8DC3 /* LineItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineItems.swift; sourceTree = "<group>"; };
+		0E4676DA2A38C89E00ED8DC3 /* DraftOrderResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftOrderResponse.swift; sourceTree = "<group>"; };
+		0E4676DC2A38C93200ED8DC3 /* DraftOrderResponsed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftOrderResponsed.swift; sourceTree = "<group>"; };
+		0E4676F22A38DAE600ED8DC3 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0E5471242A38732000FC1DD2 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		0E54779C2A2F98E60048B7AD /* JStarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JStarRatingView.swift; sourceTree = "<group>"; };
 		0E54779E2A2F98ED0048B7AD /* StarRatingStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingStackView.swift; sourceTree = "<group>"; };
@@ -147,7 +158,6 @@
 		0E83DA352A362B7F007FE3FF /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		0E8C2B6C2A34D03F005B092F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0E8C2B6D2A34D03F005B092F /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
-		0E9943602A31CA5E00F81FF8 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0EEAA99E2A308D4A00913310 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		0EEAA99F2A308D4A00913310 /* ReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewTableViewCell.xib; sourceTree = "<group>"; };
 		0EEAA9A72A30A66100913310 /* ReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
@@ -405,6 +415,34 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		0E4676CF2A38C6B600ED8DC3 /* DraftOrder */ = {
+			isa = PBXGroup;
+			children = (
+				0E4676D92A38C88B00ED8DC3 /* DraftOrderResponse */,
+				0E4676D82A38C83200ED8DC3 /* DraftOrderRequest */,
+			);
+			path = DraftOrder;
+			sourceTree = "<group>";
+		};
+		0E4676D82A38C83200ED8DC3 /* DraftOrderRequest */ = {
+			isa = PBXGroup;
+			children = (
+				0E4676D22A38C6D200ED8DC3 /* DraftOrderRequest.swift */,
+				0E4676D02A38C6C800ED8DC3 /* DraftOrder.swift */,
+				0E4676D42A38C6D900ED8DC3 /* LineItems.swift */,
+			);
+			path = DraftOrderRequest;
+			sourceTree = "<group>";
+		};
+		0E4676D92A38C88B00ED8DC3 /* DraftOrderResponse */ = {
+			isa = PBXGroup;
+			children = (
+				0E4676DA2A38C89E00ED8DC3 /* DraftOrderResponse.swift */,
+				0E4676DC2A38C93200ED8DC3 /* DraftOrderResponsed.swift */,
+			);
+			path = DraftOrderResponse;
+			sourceTree = "<group>";
+		};
 		0E5471222A3872E100FC1DD2 /* Customer */ = {
 			isa = PBXGroup;
 			children = (
@@ -558,7 +596,7 @@
 		0E99435E2A31CA3300F81FF8 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				0E9943602A31CA5E00F81FF8 /* NetworkService.swift */,
+				0E4676F22A38DAE600ED8DC3 /* NetworkService.swift */,
 				0EFFCD922A33C7630012E3A5 /* NetworkConstants.swift */,
 				0EFFCD942A33C7980012E3A5 /* NetworkServiceProtocol.swift */,
 			);
@@ -714,6 +752,7 @@
 		8F68D8A82A32AAF900C4AFA7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0E4676CF2A38C6B600ED8DC3 /* DraftOrder */,
 				0E5471222A3872E100FC1DD2 /* Customer */,
 				0E3B81712A34880A00822540 /* BrandResponse */,
 				0EFFCD972A33C8550012E3A5 /* ProductResponse */,
@@ -1233,6 +1272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E4676DD2A38C93200ED8DC3 /* DraftOrderResponsed.swift in Sources */,
 				8F86B9802A30C70500B1D8C9 /* MadiaCollectionViewCell.swift in Sources */,
 				8F68D8AA2A32AB1400C4AFA7 /* SmartCollections.swift in Sources */,
 				8F86B9762A30B86100B1D8C9 /* HomeViewController.swift in Sources */,
@@ -1244,7 +1284,6 @@
 				0EEAA9AF2A30BA3900913310 /* FavouritesViewModel.swift in Sources */,
 				8F85F20C2A33EFB8000CEE43 /* ProductCollectionViewCell.swift in Sources */,
 				BC063AB72A34F56D0045DBD6 /* Currency.swift in Sources */,
-				0E9943612A31CA5E00F81FF8 /* NetworkService.swift in Sources */,
 				BC7600CA2A31F02C00733710 /* AddressTableViewCell.swift in Sources */,
 				BC2DBA882A35B73900C2021F /* CustomerTest.swift in Sources */,
 				BC063AB42A34E5C90045DBD6 /* CurrencyViewController.swift in Sources */,
@@ -1257,6 +1296,7 @@
 				0EFFCD952A33C7980012E3A5 /* NetworkServiceProtocol.swift in Sources */,
 				0E83DA362A362B7F007FE3FF /* Toast.swift in Sources */,
 				0EEAA9B82A30BA9D00913310 /* FavouritesViewController.swift in Sources */,
+				0E4676D32A38C6D200ED8DC3 /* DraftOrderRequest.swift in Sources */,
 				8F86B9842A30C9E400B1D8C9 /* OrderViewController.swift in Sources */,
 				0EEAA9BF2A30BBA800913310 /* FavouritesTableViewCell.swift in Sources */,
 				8F85F2082A33EA33000CEE43 /* TypeCategoryCollectionViewCell.swift in Sources */,
@@ -1280,6 +1320,7 @@
 				BC78A60C2A30E5A400AB88A1 /* PaymentOptionsViewController.swift in Sources */,
 				BC7600D42A320BBE00733710 /* AddressesCoreData.swift in Sources */,
 				0E454E922A365E0C00D1816F /* SignUpViewModel.swift in Sources */,
+				0E4676F32A38DAE600ED8DC3 /* NetworkService.swift in Sources */,
 				BC7600DC2A3213FF00733710 /* testAddress.swift in Sources */,
 				0E55EE9E2A2C85BD004A7357 /* HYN.xcdatamodeld in Sources */,
 				0E8C2B6E2A34D03F005B092F /* SignUpViewController.swift in Sources */,
@@ -1290,7 +1331,10 @@
 				0EFFCD9B2A33C8900012E3A5 /* Images.swift in Sources */,
 				0EFFCDAD2A33CA510012E3A5 /* ProductInfoViewController+CollectionVIew.swift in Sources */,
 				BCBB37062A330A2B00B32DE1 /* AddressesTableViewExtension.swift in Sources */,
+				0E4676D12A38C6C800ED8DC3 /* DraftOrder.swift in Sources */,
+				0E4676D52A38C6D900ED8DC3 /* LineItems.swift in Sources */,
 				BC7600D02A31F12600733710 /* AddAddressViewController.swift in Sources */,
+				0E4676DB2A38C89E00ED8DC3 /* DraftOrderResponse.swift in Sources */,
 				0E5471252A38732000FC1DD2 /* Customer.swift in Sources */,
 				0EFFCDA12A33C8A10012E3A5 /* ProductResponse.swift in Sources */,
 				0EFFCD9F2A33C89C0012E3A5 /* Product.swift in Sources */,

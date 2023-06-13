@@ -42,9 +42,7 @@ class NetworkService:NetworkServiceProtocol{
                 "Content-Type": "application/json",
                 "X-Shopify-Access-Token": "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"
             ]
-
-
-
+       
             AF.request(endpoint, method: .post, parameters: convertToParameters(customer: customer), encoding: JSONEncoding.default, headers: headers)
                 .responseJSON { response in
                     switch response.result {
@@ -65,9 +63,67 @@ class NetworkService:NetworkServiceProtocol{
                         print(error)
                     }
                 }
-            
-            
     }
+
+    func postingNewDraftOrder(completionHandler : @escaping(Result<DraftOrderResponse, NetworkError>)->Void){
+      
+     var draftOrder = DraftOrder()
+        draftOrder.lineItems = [LineItems(title: "base", price: "0", quantity: 1)]
+       // draftOrder.lineItems?.append(LineItems(title: "base2", price: "0", quantity: 0))
+        let draftOrderRequest = DraftOrderRequest(draft_order: draftOrder)
+ 
+            let endpoint = "https://mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/draft_orders.json"
+            let headers: HTTPHeaders = [
+                "Content-Type": "application/json",
+                "X-Shopify-Access-Token": "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"
+            ]
+        print ("aywaaa\(convertDraftOrderRequestToParameter(draftOrderRequest: draftOrderRequest))")
+            AF.request(endpoint, method: .post, parameters: convertDraftOrderRequestToParameter(draftOrderRequest: draftOrderRequest), encoding: JSONEncoding.default, headers: headers)
+                .responseJSON { response in
+                    switch response.result {
+                    case .success(let value): do {
+                        print("success")
+                        let jsonData = try JSONDecoder().decode(DraftOrderResponse.self, from: JSONSerialization.data(withJSONObject: value,options: .prettyPrinted))
+                        print("ya 3zizy\(jsonData.draftOrder?.id)")
+                        completionHandler(.success(jsonData))
+                    }
+                        catch{
+                            print("fail parse")
+                            print(error.localizedDescription)
+                            completionHandler(.failure(.canNotParseData))
+                        }
+                        print(value)
+                    case .failure(let error):
+                        // Handle the error
+                        print("aywa shkk fe m7lo\(error)")
+                    }
+                }
+    }
+    func convertDraftOrderRequestToParameter(draftOrderRequest : DraftOrderRequest) -> [String : Any]{
+        var parameters : [String : Any] = [:]
+        parameters["draft_order"] = convertDraftOrderToParameters(draftOrder: draftOrderRequest.draft_order)
+        return parameters
+    }
+    func convertDraftOrderToParameters(draftOrder : DraftOrder)->[String:Any]{
+        var parameters : [String:Any] = [:]
+        var arr = Array<[String:Any]>()
+        for i in 0..<(draftOrder.lineItems?.count ?? 0){
+            arr.append(convertLineItemsToParameters(lineItems: draftOrder.lineItems?[i] ?? LineItems(title: "base", price: "0", quantity: 0)))
+        }
+        parameters["line_items"] = arr
+        return parameters
+    
+    }
+    func convertLineItemsToParameters(lineItems:LineItems)->[String:Any]{
+        var parameters : [String:Any] = [:]
+    
+        parameters["title"] = lineItems.title
+        parameters["price"] = lineItems.price
+        parameters["quantity"] = lineItems.quantity
+        return parameters
+    }
+    
+    
     //MARK: Currency Exchange
     func getCurrencyExchange( completionHandler: @escaping (Result<Currency, NetworkError>) -> Void)
     {
@@ -163,13 +219,13 @@ class NetworkService:NetworkServiceProtocol{
                }
        }
     
-            func convertToParameters(customer : CustomerRequest) -> [String: Any] {
+    func convertToParameters(customer : CustomerRequest) -> [String: Any] {
                 var parameters: [String: Any] = [:]
                 parameters["customer"] = convertCustomerTOParameters(customer: customer.customer)
                 return parameters
             }
     
-            func convertCustomerTOParameters(customer:Customer)->[String:Any]{
+    func convertCustomerTOParameters(customer:Customer)->[String:Any]{
                 var parameters : [String:Any] = [:]
                 parameters["first_name"] = customer.first_name
                 parameters["last_name"] = customer.last_name
@@ -179,8 +235,11 @@ class NetworkService:NetworkServiceProtocol{
                 parameters["password"] = customer.password
                 parameters["password_confirmation"] = customer.password_confirmation
                 parameters["send_email_welcome"] = customer.send_email_welcome
+
                 return parameters
             }
+    
+
     
 
     
