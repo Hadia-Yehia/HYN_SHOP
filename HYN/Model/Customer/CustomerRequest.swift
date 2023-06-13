@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct CustomerRequest : Codable{
     var customer : Customer
     init(customer: Customer) {
@@ -19,6 +20,8 @@ struct CustomerRequest : Codable{
         return dictionary as NSDictionary
     }
 }
+
+
 struct Customer : Codable{
     var first_name : String
     var last_name : String
@@ -28,7 +31,7 @@ struct Customer : Codable{
     var password : String
     var password_confirmation : String
     var send_email_welcome : Bool
-    
+
     init(first_name: String, last_name: String, email: String, phone: String, verified_email: Bool, password: String, password_confirmation: String, send_email_welcome: Bool) {
         self.first_name = first_name
         self.last_name = last_name
@@ -38,9 +41,9 @@ struct Customer : Codable{
         self.password = password
         self.password_confirmation = password_confirmation
         self.send_email_welcome = send_email_welcome
-        
+
     }
-    
+
     var dictionary: [String: Any] {
         return ["first_name": first_name,
                 "last_name": last_name,
@@ -76,3 +79,4 @@ struct CustomerAddress : Encodable{
         self.country = country
     }
 }
+

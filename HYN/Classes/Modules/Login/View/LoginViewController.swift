@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Firebase
+//import Firebase
 
 class LoginViewController: UIViewController {
 
@@ -25,30 +25,30 @@ class LoginViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    @IBAction func forgotPassBtn(_ sender: UIButton) {
-    }
-    @IBAction func skipBtn(_ sender: UIButton) {
-        let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
-        navigationController?.pushViewController(homeVC, animated: true)
-    }
-    @IBAction func signupBtn(_ sender: UIButton) {
-        let signupVC = SignUpViewController(nibName: "SignUpViewController", bundle: nil)
-        navigationController?.pushViewController(signupVC, animated: true)
-        
-    }
-    @IBAction func signinBtn(_ sender: UIButton) {
-        if let email = emailTF.text , let password = passwordTF.text{
-            Auth.auth().signIn(withEmail: email, password: password){[weak self] authResult , error in
-                guard let self = self else {return}
-                if let e = error {
-                    Toast.show(message: e.localizedDescription, controller: self)
-                }
-                else{
-                    let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
-                    self.navigationController?.pushViewController(homeVC, animated: true)
-                }
-            }
-        }
-    }
+//    @IBAction func forgotPassBtn(_ sender: UIButton) {
+//    }
+//    @IBAction func skipBtn(_ sender: UIButton) {
+//        let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
+//        navigationController?.pushViewController(homeVC, animated: true)
+//    }
+//    @IBAction func signupBtn(_ sender: UIButton) {
+//        let signupVC = SignUpViewController(nibName: "SignUpViewController", bundle: nil)
+//        navigationController?.pushViewController(signupVC, animated: true)
+//        
+//    }
+//    @IBAction func signinBtn(_ sender: UIButton) {
+//        if let email = emailTF.text , let password = passwordTF.text{
+//            Auth.auth().signIn(withEmail: email, password: password){[weak self] authResult , error in
+//                guard let self = self else {return}
+//                if let e = error {
+//                    Toast.show(message: e.localizedDescription, controller: self)
+//                }
+//                else{
+//                    let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
+//                    self.navigationController?.pushViewController(homeVC, animated: true)
+//                }
+//            }
+//        }
+//    }
 
 }

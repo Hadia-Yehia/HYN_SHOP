@@ -7,7 +7,7 @@
 
 import UIKit
 import CoreData
-import Firebase
+//import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 window.makeKeyAndVisible()
             }
         }*/
-        FirebaseApp.configure()
+      //  FirebaseApp.configure()
         return true
     }
 
