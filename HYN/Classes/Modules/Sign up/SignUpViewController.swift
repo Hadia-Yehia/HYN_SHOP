@@ -21,7 +21,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = false
-
+        //bindViewModel()
         // Do any additional setup after loading the view.
     }
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -41,16 +41,29 @@ class SignUpViewController: UIViewController {
         if let firstName = firstNameTF.text, let lastName = lastNameTF.text, let phone = phoneTF.text , let email = emailTF.text , let password = passwordTF.text , let confirmPassword = confirmPassTF.text{
             if password == confirmPassword{
                 let customer = Customer(first_name: firstName, last_name: lastName, email: email, phone: phone, verified_email: false, password: password, password_confirmation: confirmPassword, send_email_welcome: true)
-                let result = viewModel.rigesterNewCustomer(customer: customer)
-                switch result {
-                case "success":
-                    let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
-                    self.navigationController?.pushViewController(homeVC, animated: true)
-                    break
-                default:
-                    Toast.show(message: result, controller: self)
-                    break
+                viewModel.rigesterNewCustomer(customer: customer)
+                viewModel.isLoading.bind{[weak self] isLoading in
+                    guard let self = self , let isLoading = isLoading
+                    else{return}
+                    
+                    DispatchQueue.main.async {
+                        if isLoading{
+                            
+                        }else{
+                            let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
+                            self.navigationController?.pushViewController(homeVC, animated: true)
+                        }
+                    }
                 }
+//                switch result {
+//                case "success":
+//                    let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
+//                    self.navigationController?.pushViewController(homeVC, animated: true)
+//                    break
+//                default:
+//                    Toast.show(message: result, controller: self)
+//                    break
+//                }
             }else{
                 Toast.show(message: "Password doesn't match", controller: self)
             }
@@ -58,6 +71,9 @@ class SignUpViewController: UIViewController {
         }else {
             Toast.show(message: "All fields must be filled", controller: self)
         }
+    }
+    func bindViewModel(){
+        
     }
     
     @IBAction func signInBtn(_ sender: UIButton) {

@@ -50,6 +50,7 @@ class HomeViewModel{
         let brandId = brandArr[index].id
         return BrandViewModel(brandId: brandId)
     }
+  
    /* func navigateToBrandView(index :Int) ->Int
      {
        

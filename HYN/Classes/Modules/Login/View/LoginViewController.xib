@@ -64,6 +64,9 @@
                     <buttonConfiguration key="configuration" style="plain" title="Sign Up">
                         <color key="baseForegroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="signupBtn:" destination="-1" eventType="touchUpInside" id="ztZ-WR-Ff9"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IdN-RA-Tw0">
                     <rect key="frame" x="320" y="783" width="57" height="35"/>

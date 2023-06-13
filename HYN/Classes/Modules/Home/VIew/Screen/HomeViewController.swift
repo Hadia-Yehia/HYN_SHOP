@@ -23,6 +23,7 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bindViewModel()
+
         brandsCollection.register(UINib(nibName: "MadiaCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "mediaCell")
         // Do any additional setup after loading the view.
         print("nada")

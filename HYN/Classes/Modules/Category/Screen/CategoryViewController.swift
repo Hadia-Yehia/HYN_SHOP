@@ -126,6 +126,7 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
         switch collectionView{
         case productCollection:
             let detailsVC = ProductInfoViewController(nibName: "ProductInfoViewController", bundle: nil)
+            detailsVC.viewModel = viewModel.navigateToDetails(index: indexPath.row)
             navigationController?.pushViewController(detailsVC, animated: true)
             break
         default:

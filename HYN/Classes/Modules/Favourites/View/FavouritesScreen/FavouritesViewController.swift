@@ -17,6 +17,7 @@ class FavouritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = false
+     
         // Do any additional setup after loading the view.
     }
 

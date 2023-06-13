@@ -56,6 +56,9 @@ class CategoryViewModel{
         })
    
     }
+    func navigateToDetails(index : Int) -> ProductInfoViewModel{
+        return ProductInfoViewModel(productId: productArr[index].id)
+    }
     
     /*func getCollectionData(){
         if isLoadingTwo.value ?? true{

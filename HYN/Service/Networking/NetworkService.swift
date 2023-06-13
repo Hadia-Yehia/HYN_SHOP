@@ -15,7 +15,7 @@ class NetworkService:NetworkServiceProtocol{
     }
     
     func fetchingProductDetails(product_id: Int, completionHandler: @escaping (Result<ProductResponse, NetworkError>) -> Void) {
-        AF.request(NetworkConstants.shared.baseUrl+NetworkConstants.shared.productDetailsEndPoint)
+        AF.request(NetworkConstants.shared.baseUrl+"products/\(product_id).json")
             .response{response in
                 switch response.result{
                 case .success(let data): do {

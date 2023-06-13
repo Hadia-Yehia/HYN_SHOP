@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = false
+        
     }
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -28,7 +29,7 @@ class LoginViewController: UIViewController {
     @IBAction func forgotPassBtn(_ sender: UIButton) {
     }
     @IBAction func skipBtn(_ sender: UIButton) {
-        let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
+        let homeVC = TabBar()
         navigationController?.pushViewController(homeVC, animated: true)
     }
     @IBAction func signupBtn(_ sender: UIButton) {
@@ -44,7 +45,7 @@ class LoginViewController: UIViewController {
                     Toast.show(message: e.localizedDescription, controller: self)
                 }
                 else{
-                    let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
+                    let homeVC = TabBar()
                     self.navigationController?.pushViewController(homeVC, animated: true)
                 }
             }

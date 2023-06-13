@@ -17,8 +17,8 @@ extension ProductInfoViewController: UICollectionViewDelegate,UICollectionViewDa
         imgsCollectionView.showsHorizontalScrollIndicator = false
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        print (viewModel.getImgsCount())
-        return viewModel.getImgsCount()
+        print (viewModel?.getImgsCount())
+        return viewModel?.getImgsCount() ?? 0
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
@@ -26,7 +26,7 @@ extension ProductInfoViewController: UICollectionViewDelegate,UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = imgsCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductInfoCollectionViewCell", for: indexPath) as! ProductInfoCollectionViewCell
-        cell.configCell(imgSRC: viewModel.getCellImg(index: indexPath.row))
+        cell.configCell(imgSRC: viewModel?.getCellImg(index: indexPath.row) ?? "placeholder")
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
