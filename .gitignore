@@ -89,3 +89,8 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+HYN/TabBar_BASE_4758.swift
+HYN/TabBar_LOCAL_4758.swift
+HYN/TabBar_REMOTE_4758.swift
+HYN.xcodeproj/project.pbxproj.orig
+HYN.xcworkspace/xcshareddata/swiftpm/Package.resolved
