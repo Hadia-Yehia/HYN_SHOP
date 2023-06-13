@@ -9,6 +9,11 @@ import UIKit
 
 class PaymentOptionsViewController: UIViewController {
 
+    @IBAction func confirmCheckotButton(_ sender: UIButton) {
+    }
+    @IBOutlet weak var couponField: UITextField!
+    @IBOutlet weak var cashButton: UIButton!
+    @IBOutlet weak var applePatButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 

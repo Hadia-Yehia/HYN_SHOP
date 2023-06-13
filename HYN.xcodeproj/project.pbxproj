@@ -103,7 +103,7 @@
 		BCE9033F2A2F407E00570672 /* shoppingCartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE9033D2A2F407E00570672 /* shoppingCartCell.xib */; };
 		BCE903422A2F409D00570672 /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE903402A2F409D00570672 /* ShoppingCartViewController.swift */; };
 		BCE903432A2F409D00570672 /* ShoppingCartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE903412A2F409D00570672 /* ShoppingCartViewController.xib */; };
-		BCE903472A2F4C2100570672 /* Coomon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE903462A2F4C2100570672 /* Coomon.swift */; };
+		BCE903472A2F4C2100570672 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE903462A2F4C2100570672 /* Common.swift */; };
 		BF7CE737DB7D9642FD67D216 /* Pods_HYN_HYNUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3A1CA3D366A0C30058C4874 /* Pods_HYN_HYNUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -227,7 +227,7 @@
 		BCE9033D2A2F407E00570672 /* shoppingCartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = shoppingCartCell.xib; sourceTree = "<group>"; };
 		BCE903402A2F409D00570672 /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
 		BCE903412A2F409D00570672 /* ShoppingCartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingCartViewController.xib; sourceTree = "<group>"; };
-		BCE903462A2F4C2100570672 /* Coomon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coomon.swift; sourceTree = "<group>"; };
+		BCE903462A2F4C2100570672 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		DFFB84845BCF28E75D67FA71 /* Pods-HYN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYN.debug.xcconfig"; path = "Target Support Files/Pods-HYN/Pods-HYN.debug.xcconfig"; sourceTree = "<group>"; };
 		E3A1CA3D366A0C30058C4874 /* Pods_HYN_HYNUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HYN_HYNUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E778BD48CB4F4801BD034651 /* Pods-HYN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYN.release.xcconfig"; path = "Target Support Files/Pods-HYN/Pods-HYN.release.xcconfig"; sourceTree = "<group>"; };
@@ -880,6 +880,7 @@
 		BC7DF3A82A323A0300408038 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				BCE903462A2F4C2100570672 /* Common.swift */,
 				BCBB37032A33064500B32DE1 /* Observable.swift */,
 				BC7DF3A92A323A1E00408038 /* Alerts.swift */,
 				0E83DA352A362B7F007FE3FF /* Toast.swift */,
@@ -924,7 +925,6 @@
 		BCE9033B2A2F3E2700570672 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BCE903452A2F4C0500570672 /* Common */,
 				BCE903442A2F40A200570672 /* ShoppingCartCell */,
 				BCE903402A2F409D00570672 /* ShoppingCartViewController.swift */,
 				BCE903412A2F409D00570672 /* ShoppingCartViewController.xib */,
@@ -939,14 +939,6 @@
 				BCE9033D2A2F407E00570672 /* shoppingCartCell.xib */,
 			);
 			path = ShoppingCartCell;
-			sourceTree = "<group>";
-		};
-		BCE903452A2F4C0500570672 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				BCE903462A2F4C2100570672 /* Coomon.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		CAF16F085908D31EC2E2A93A /* Pods */ = {
@@ -1274,7 +1266,7 @@
 				BC7DF3AC2A326A6000408038 /* AddressesViewModel.swift in Sources */,
 				BCBB370A2A335B9300B32DE1 /* AddAddressViewModel.swift in Sources */,
 				0EFFCDA72A33C9410012E3A5 /* ViewStructs.swift in Sources */,
-				BCE903472A2F4C2100570672 /* Coomon.swift in Sources */,
+				BCE903472A2F4C2100570672 /* Common.swift in Sources */,
 				BC7600C32A31EBF700733710 /* AddressesViewController.swift in Sources */,
 				0E83DA342A35FF06007FE3FF /* CustomerRequest.swift in Sources */,
 				BC78A60C2A30E5A400AB88A1 /* PaymentOptionsViewController.swift in Sources */,

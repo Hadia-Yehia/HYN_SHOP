@@ -27,6 +27,7 @@ class ShoppingCartViewController: UIViewController {
     @IBOutlet weak var moreDetailsButton: UIButton!
     @IBOutlet weak var checkoutDetailsView: UIView!
     @IBAction func checkoutButton(_ sender: UIButton) {
+        navigationController?.pushViewController(PaymentOptionsViewController(), animated: true)
     }
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var checkoutButton: UIButton!
