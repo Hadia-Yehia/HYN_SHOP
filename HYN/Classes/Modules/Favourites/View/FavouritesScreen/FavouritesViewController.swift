@@ -10,8 +10,7 @@ import UIKit
 class FavouritesViewController: UIViewController {
 
     @IBAction func startExploringBtn(_ sender: UIButton) {
-        let signupVC = SignUpViewController(nibName: "SignUpViewController", bundle: nil)
-        navigationController?.pushViewController(signupVC, animated: true)
+     
         
     }
     override func viewDidLoad() {
