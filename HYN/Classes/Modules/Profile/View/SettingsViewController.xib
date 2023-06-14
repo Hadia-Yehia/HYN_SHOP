@@ -25,6 +25,9 @@
                     <color key="tintColor" systemColor="systemBackgroundColor"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Logout"/>
+                    <connections>
+                        <action selector="logoutButton:" destination="-1" eventType="touchUpInside" id="VUd-nW-X1Y"/>
+                    </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="AP6-f9-TxH">
                     <rect key="frame" x="8" y="109" width="377" height="404"/>

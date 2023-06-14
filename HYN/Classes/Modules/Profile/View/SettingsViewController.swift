@@ -9,6 +9,9 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    @IBAction func logoutButton(_ sender: UIButton) {
+        
+    }
     @IBAction func addressesButton(_ sender: UIButton) {
         let destinationViewController = AddressesViewController()
         navigationController?.pushViewController(destinationViewController, animated: true)

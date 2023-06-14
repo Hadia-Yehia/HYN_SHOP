@@ -34,7 +34,7 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func skipBtn(_ sender: UIButton) {
-        let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
+        let homeVC = TabBar()
         navigationController?.pushViewController(homeVC, animated: true)
     }
     @IBAction func signUpBtn(_ sender: UIButton) {
@@ -50,7 +50,7 @@ class SignUpViewController: UIViewController {
                         if isLoading{
                             
                         }else{
-                            let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
+                            let homeVC = TabBar()
                             self.navigationController?.pushViewController(homeVC, animated: true)
                         }
                     }

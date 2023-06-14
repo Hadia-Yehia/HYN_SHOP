@@ -9,38 +9,47 @@ import Foundation
 class CurrencyManager
 {
     static var requiredCurrency:Double?
- 
     
-    static func exchangePrice(to currency:String)->Double
+    
+    static func exchangePrice(to currency:String, completionHandler: @escaping (Double) -> Void)
     {
-                NetworkService.sharedInstance.getCurrencyExchange()
+        NetworkService.sharedInstance.getCurrencyExchange()
+        {
+            result in
+            switch result{
+            case .success(let data):
+                switch currency
                 {
-                    result in
-                    switch result{
-                    case .success(let data):
-                        switch currency
-                         {
-                          case "EGP":
-                              requiredCurrency = data.rates.EGP
-                          case "EUR":
-                              requiredCurrency = data.rates.EUR
-                          case "AMD":
-                              requiredCurrency = data.rates.AMD
-                          case "AED":
-                              requiredCurrency = data.rates.AED
-                          default:
-                              requiredCurrency = 1
-}
-                        break
-                    case .failure(let error):
-                        print("error\(error.localizedDescription)")
-                      print("cann't exchange price")
-                        break
-                    }
-        
+                case "EGP":
+                    requiredCurrency = data.rates.EGP
+                    completionHandler(requiredCurrency ?? 1.0)
+                    
+                case "EUR":
+                    requiredCurrency = data.rates.EUR
+                    completionHandler(requiredCurrency ?? 1.0)
+                    
+                case "AMD":
+                    requiredCurrency = data.rates.AMD
+                    completionHandler(requiredCurrency ?? 1.0)
+                    
+                case "AED":
+                    requiredCurrency = data.rates.AED
+                    completionHandler(requiredCurrency ?? 1.0)
+                    
+                default:
+                    requiredCurrency = 1
+                    completionHandler(requiredCurrency ?? 1.0)
+                    break
                 }
-        return requiredCurrency ?? 1
+                case .failure(let error):
+                    print("error\(error.localizedDescription)")
+                    print("cann't exchange price")
+                    break
+                }
+                
+            }
             
-    }
-   
+        }
+        
+    
 }

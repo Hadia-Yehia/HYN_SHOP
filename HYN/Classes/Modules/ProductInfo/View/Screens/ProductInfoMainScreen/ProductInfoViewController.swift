@@ -34,6 +34,7 @@ class ProductInfoViewController: UIViewController {
         bindViewModel()
         setupDescLabel()
         viewModel?.getProductInfo()
+        //viewModel?.checkCurrency()
         
     }
     func setupDescLabel(){
