@@ -12,7 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BrandViewController" customModule="HYN" customModuleProvider="target">
             <connections>
                 <outlet property="brandCollectionItems" destination="e6e-fk-LQh" id="PYw-9v-2Je"/>
-                <outlet property="filterBrand" destination="Gwq-P5-gWu" id="agr-s9-7Bq"/>
                 <outlet property="searchBrand" destination="Khm-hW-uUA" id="fK1-xe-9aV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -30,8 +29,14 @@
                         <outlet property="delegate" destination="-1" id="tyM-1X-gvB"/>
                     </connections>
                 </searchBar>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Gwq-P5-gWu">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="0.0" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="Gwq-P5-gWu">
                     <rect key="frame" x="13" y="135" width="367" height="31"/>
+                    <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="maximumTrackTintColor" name="AccentColor"/>
+                    <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <action selector="filterPrice:" destination="-1" eventType="valueChanged" id="OS5-Wi-CtV"/>
+                    </connections>
                 </slider>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="e6e-fk-LQh">
                     <rect key="frame" x="5" y="188" width="383" height="630"/>
@@ -64,6 +69,9 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="yellow">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

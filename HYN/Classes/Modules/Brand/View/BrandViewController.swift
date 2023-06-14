@@ -8,14 +8,18 @@
 import UIKit
 
 class BrandViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
-    @IBOutlet weak var filterBrand: UISlider!
+  
     var viewModel : BrandViewModel?
     @IBOutlet weak var brandCollectionItems: UICollectionView!
     @IBOutlet weak var searchBrand: UISearchBar!
     var photoCell = [UIImage(named: "media3.jpg"),UIImage(named: "media1.jpg"),UIImage(named: "media2.jpg"),UIImage(named: "media.jpg")]
+   // var brandArr : [ProductsStruct] = Array()
+   // var collectionViewData: [ProductsStruct] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bindViewModel()
+     //   collectionViewData = viewModel!.productArr
         brandCollectionItems.register(UINib(nibName: "ProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "productCell")
         brandCollectionItems.dataSource = self
         brandCollectionItems.delegate = self
@@ -28,29 +32,51 @@ class BrandViewController: UIViewController,UICollectionViewDataSource,UICollect
             guard let self = self , let isLoading = isLoading
             else{return}
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 if isLoading{
                     
                 }else{
+                    //self.collectionViewData = self.viewModel!.productArr
                     self.brandCollectionItems.reloadData()
                 }
             }
         }
     }
+    
+    @IBAction func filterPrice(_ sender: UISlider) {
+        viewModel?.isFiltering = true
+        viewModel?.filterArr = (viewModel?.productArr.filter { Float($0.price)! <= sender.value })!
+         // collectionViewData = filteredItems
+         // viewModel?.productArr = filteredItems!
+            brandCollectionItems.reloadData()
+        
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (viewModel?.getBrandsCount())!
+        if ((viewModel?.isFiltering) == true){
+            return (viewModel?.filterArr.count)!
+        }else{
+            return (viewModel?.getBrandsCount())!
 
+        }
+      //  return collectionViewData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCollectionViewCell
         cell.productView.layer.cornerRadius = 40
         cell.layer.masksToBounds = true
-        cell.configCell(img: viewModel!.getCellImgData(index: indexPath.row), price: viewModel!.getCellPriceData(index: indexPath.row))
-    
+        if ((viewModel?.isFiltering) == true){
+            cell.configCell(img: (viewModel?.filterArr[indexPath.row].img)!, price: (viewModel?.filterArr[indexPath.row].price)!)
+        }
+        else{
+            cell.configCell(img: viewModel!.getCellImgData(index: indexPath.row), price: viewModel!.getCellPriceData(index: indexPath.row))
+        }
+       
+       // cell.configCell(img: collectionViewData[indexPath.row].img, price: collectionViewData[indexPath.row].price)
         return cell
     }
 
