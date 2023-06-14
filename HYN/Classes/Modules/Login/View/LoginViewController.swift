@@ -7,16 +7,17 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class LoginViewController: UIViewController {
-
+    
     
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
+    let viewModel = LoginViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = false
-        
     }
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -39,17 +40,17 @@ class LoginViewController: UIViewController {
     }
     @IBAction func signinBtn(_ sender: UIButton) {
         if let email = emailTF.text , let password = passwordTF.text{
-            Auth.auth().signIn(withEmail: email, password: password){[weak self] authResult , error in
-                guard let self = self else {return}
-                if let e = error {
-                    Toast.show(message: e.localizedDescription, controller: self)
+            viewModel.signIn(email: email, password: password, completionHandler: {result in
+                switch result{
+                case .success(_):
+                     let homeVC = TabBar()
+                     self.navigationController?.pushViewController(homeVC, animated: true)
+                    break
+                case .failure(let error):
+                    Toast.show(message: error.localizedDescription, controller: self)
+                    break
                 }
-                else{
-                    let homeVC = TabBar()
-                    self.navigationController?.pushViewController(homeVC, animated: true)
-                }
-            }
+            })
         }
     }
-
 }

@@ -10,6 +10,7 @@ class ProductInfoViewModel{
     var isLoading : Observable<Bool> = Observable(false)
     var productId : Int
     var result : Product?
+    var favDataSource : [Fav]?
     var product  : ProductInfo = ProductInfo(name: "no data", price: "no data", description: "no data", rate: 0.0 , imgs: Array(), size: "no data")
     init(productId: Int) {
         self.productId = productId
@@ -85,5 +86,20 @@ class ProductInfoViewModel{
             return "USD\(product.price)"
         }
       
+    }
+    func checkValidity()-> Bool{
+        favDataSource = FavCoreData.fetchItems()
+        for i in 0..<(favDataSource?.count ?? 0){
+            if favDataSource?[i].id == productId{
+                return false
+            }
+        }
+        return true
+        
+    }
+    
+    func saveItemToDatabase(){
+        let item = Fav(title: product.name, price: checkCurrency(), img: product.imgs.first ?? "placeholder", id: productId)
+        FavCoreData.saveItemToDataBase(favItem: item)
     }
 }

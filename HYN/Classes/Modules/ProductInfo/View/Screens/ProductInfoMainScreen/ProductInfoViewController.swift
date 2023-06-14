@@ -14,10 +14,12 @@ class ProductInfoViewController: UIViewController {
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productDesc: UILabel!
     @IBOutlet weak var imgsPageControl: UIPageControl!
+    var valid : Bool = true
     let starRatingView = JStarRatingView(frame: CGRect(origin: .zero, size: CGSize(width: 250, height: 50)), rating: 3.5, color: UIColor.systemOrange, starRounding: .roundToHalfStar)
     let reviewArray = [ReviewItem(name: "Hadia Yehia", content: "I had a wonderful experience and I would highly recommend this business to others.", rating: 3.5),ReviewItem(name: "Nada Elshafy", content: "I bought a bag from here. The quality is remarkable. It's well worth the money for their high-quality products, I highly recommended!", rating: 4.5)]
-   // let viewModel = ProductInfoViewModel(productId: 8348491710749)
+
     var viewModel : ProductInfoViewModel?
+    @IBOutlet weak var favBtnOutlet: UIBarButtonItem!
     var descSeeMoreFlag = false
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -31,10 +33,25 @@ class ProductInfoViewController: UIViewController {
         super.viewDidLoad()
         setupCollectionView()
         setupTable()
-        bindViewModel()
-        setupDescLabel()
-        viewModel?.getProductInfo()
         
+        setupDescLabel()
+        
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("validity\(valid)")
+        bindViewModel()
+        viewModel?.getProductInfo()
+        guard let  validity = viewModel?.checkValidity() else{return}
+        valid = validity
+        if valid {
+            favBtnOutlet.image = UIImage(systemName: "heart")
+            //favBtnOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
+        }else{
+            favBtnOutlet.image = UIImage(systemName: "heart.fill")
+          //  favBtnOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        }
     }
     func setupDescLabel(){
         productDesc.numberOfLines = 2
@@ -67,20 +84,34 @@ class ProductInfoViewController: UIViewController {
         case false:
             productDesc.numberOfLines = 0
             productDesc.sizeToFit()
-            expandDescBtn.titleLabel?.text = "see less"
+            expandDescBtn.setTitle("see less", for: .normal)
             descSeeMoreFlag = true
             
             break
         case true:
             productDesc.numberOfLines = 2
             productDesc.sizeToFit()
-            expandDescBtn.titleLabel?.text = "see more"
+            expandDescBtn.setTitle("see more", for: .normal)
             descSeeMoreFlag = false
         }
         
     }
     
-}
+    @IBAction func addToFavFromInfo(_ sender: UIBarButtonItem) {
+        if valid{
+            viewModel?.saveItemToDatabase()
+            favBtnOutlet.image = UIImage(systemName: "heart.fill")
+        }
+        else {
+            let alert = UIAlertController(title: "DataBase message", message: "Already existed", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+    }
+        
+    }
+
 
 extension ProductInfoViewController : UITableViewDelegate,UITableViewDataSource{
     

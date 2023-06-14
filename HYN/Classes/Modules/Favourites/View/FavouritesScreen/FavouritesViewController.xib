@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavouritesViewController" customModule="HYN" customModuleProvider="target">
             <connections>
+                <outlet property="favTable" destination="1ZT-R0-t4d" id="m7K-we-vLQ"/>
+                <outlet property="noFavView" destination="0gE-6H-AI2" id="941-YV-woD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
