@@ -121,6 +121,10 @@
 		BCE903422A2F409D00570672 /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE903402A2F409D00570672 /* ShoppingCartViewController.swift */; };
 		BCE903432A2F409D00570672 /* ShoppingCartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCE903412A2F409D00570672 /* ShoppingCartViewController.xib */; };
 		BCE903472A2F4C2100570672 /* Coomon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE903462A2F4C2100570672 /* Coomon.swift */; };
+		BCFC339C2A398CC5006CA631 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFC339A2A398CC5006CA631 /* PaymentViewController.swift */; };
+		BCFC339D2A398CC5006CA631 /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCFC339B2A398CC5006CA631 /* PaymentViewController.xib */; };
+		BCFC33A12A3990F5006CA631 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFC33A02A3990F5006CA631 /* PaymentViewModel.swift */; };
+		BCFC33A42A399112006CA631 /* PaymentOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFC33A32A399112006CA631 /* PaymentOptionsViewModel.swift */; };
 		BF7CE737DB7D9642FD67D216 /* Pods_HYN_HYNUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3A1CA3D366A0C30058C4874 /* Pods_HYN_HYNUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -262,6 +266,10 @@
 		BCE903402A2F409D00570672 /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
 		BCE903412A2F409D00570672 /* ShoppingCartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingCartViewController.xib; sourceTree = "<group>"; };
 		BCE903462A2F4C2100570672 /* Coomon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coomon.swift; sourceTree = "<group>"; };
+		BCFC339A2A398CC5006CA631 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		BCFC339B2A398CC5006CA631 /* PaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentViewController.xib; sourceTree = "<group>"; };
+		BCFC33A02A3990F5006CA631 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
+		BCFC33A32A399112006CA631 /* PaymentOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentOptionsViewModel.swift; sourceTree = "<group>"; };
 		DFFB84845BCF28E75D67FA71 /* Pods-HYN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYN.debug.xcconfig"; path = "Target Support Files/Pods-HYN/Pods-HYN.debug.xcconfig"; sourceTree = "<group>"; };
 		E3A1CA3D366A0C30058C4874 /* Pods_HYN_HYNUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HYN_HYNUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E778BD48CB4F4801BD034651 /* Pods-HYN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HYN.release.xcconfig"; path = "Target Support Files/Pods-HYN/Pods-HYN.release.xcconfig"; sourceTree = "<group>"; };
@@ -993,6 +1001,7 @@
 		BC78A6082A30E58400AB88A1 /* PaymentOptions */ = {
 			isa = PBXGroup;
 			children = (
+				BCFC33A22A3990FB006CA631 /* ViewModel */,
 				BC78A6092A30E58D00AB88A1 /* View */,
 			);
 			path = PaymentOptions;
@@ -1036,6 +1045,7 @@
 				0EEAA9C12A30CB7F00913310 /* Login */,
 				0EEAA9AB2A30BA0F00913310 /* Favourites */,
 				0E54778F2A2F89440048B7AD /* ProductInfo */,
+				BCFC33992A398C9B006CA631 /* Payment */,
 				BC78A6082A30E58400AB88A1 /* PaymentOptions */,
 				BC38A3DA2A30B25200492F76 /* Settings */,
 				BC55FE872A2F79EC0082F0D0 /* Profile */,
@@ -1078,6 +1088,40 @@
 				BCE903462A2F4C2100570672 /* Coomon.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		BCFC33992A398C9B006CA631 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				BCFC339F2A3990E5006CA631 /* ViewModel */,
+				BCFC339E2A3990CD006CA631 /* View */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		BCFC339E2A3990CD006CA631 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BCFC339A2A398CC5006CA631 /* PaymentViewController.swift */,
+				BCFC339B2A398CC5006CA631 /* PaymentViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BCFC339F2A3990E5006CA631 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BCFC33A02A3990F5006CA631 /* PaymentViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BCFC33A22A3990FB006CA631 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BCFC33A32A399112006CA631 /* PaymentOptionsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		CAF16F085908D31EC2E2A93A /* Pods */ = {
@@ -1232,6 +1276,7 @@
 				0EEAA9AA2A30A66100913310 /* ReviewsViewController.xib in Resources */,
 				8F3AB9FB2A3650E500B18F95 /* BrandViewController.xib in Resources */,
 				0EFFCDB12A33CCAE0012E3A5 /* ProductInfoViewController.xib in Resources */,
+				BCFC339D2A398CC5006CA631 /* PaymentViewController.xib in Resources */,
 				0EFFCDB42A33CEDA0012E3A5 /* ProductInfoCollectionViewCell.xib in Resources */,
 				BCE9033F2A2F407E00570672 /* shoppingCartCell.xib in Resources */,
 				BC78A60D2A30E5A400AB88A1 /* PaymentOptionsViewController.xib in Resources */,
@@ -1376,6 +1421,7 @@
 				8F3AB9FD2A3680C900B18F95 /* ProductsResult.swift in Sources */,
 				0EFFCD932A33C7630012E3A5 /* NetworkConstants.swift in Sources */,
 				BC2DBA8A2A35C38F00C2021F /* Address.swift in Sources */,
+				BCFC33A12A3990F5006CA631 /* PaymentViewModel.swift in Sources */,
 				0EEAA9AF2A30BA3900913310 /* FavouritesViewModel.swift in Sources */,
 				8F85F20C2A33EFB8000CEE43 /* ProductCollectionViewCell.swift in Sources */,
 				BC063AB72A34F56D0045DBD6 /* Currency.swift in Sources */,
@@ -1389,12 +1435,14 @@
 				0EEAA9C52A30CBA300913310 /* LoginViewController.swift in Sources */,
 				0EFFCD9D2A33C8950012E3A5 /* Options.swift in Sources */,
 				0E54779D2A2F98E60048B7AD /* JStarRatingView.swift in Sources */,
+				BCFC339C2A398CC5006CA631 /* PaymentViewController.swift in Sources */,
 				0EFFCD952A33C7980012E3A5 /* NetworkServiceProtocol.swift in Sources */,
 				0E83DA362A362B7F007FE3FF /* Toast.swift in Sources */,
 				0EEAA9B82A30BA9D00913310 /* FavouritesViewController.swift in Sources */,
 				0E4676D32A38C6D200ED8DC3 /* DraftOrderRequest.swift in Sources */,
 				8F86B9842A30C9E400B1D8C9 /* OrderViewController.swift in Sources */,
 				0EEAA9BF2A30BBA800913310 /* FavouritesTableViewCell.swift in Sources */,
+				BCFC33A42A399112006CA631 /* PaymentOptionsViewModel.swift in Sources */,
 				8F85F2082A33EA33000CEE43 /* TypeCategoryCollectionViewCell.swift in Sources */,
 				0E54779F2A2F98ED0048B7AD /* StarRatingStackView.swift in Sources */,
 				BC063ABA2A34F7310045DBD6 /* CurrencyViewModel.swift in Sources */,

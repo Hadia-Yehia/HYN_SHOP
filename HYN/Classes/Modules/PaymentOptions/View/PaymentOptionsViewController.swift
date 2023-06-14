@@ -9,6 +9,15 @@ import UIKit
 
 class PaymentOptionsViewController: UIViewController {
 
+    let viewModel = PaymentOptionsViewModel()
+    @IBAction func ConfirmCheckoutButton(_ sender: UIButton) {
+        let paymentViewController = PaymentViewController()
+        paymentViewController.viewModel = self.viewModel.navigateToPayment(coupon: couponField.text ?? "1")
+        navigationController?.pushViewController(paymentViewController, animated: true)
+    }
+    @IBOutlet weak var couponField: UITextField!
+    @IBOutlet weak var cashButton: UIButton!
+    @IBOutlet weak var applePayButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 

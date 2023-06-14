@@ -1,22 +1,123 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentOptionsViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentOptionsViewController" customModule="HYN" customModuleProvider="target">
             <connections>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="applePayButton" destination="x1N-g7-jmf" id="5lE-hy-rdl"/>
+                <outlet property="cashButton" destination="M68-l1-PoL" id="9Ob-mY-gvv"/>
+                <outlet property="couponField" destination="brs-Dp-olb" id="XHA-kg-rxG"/>
+                <outlet property="view" destination="PyZ-xt-oR4" id="typ-8N-ZtI"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="PyZ-xt-oR4">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="payment" translatesAutoresizingMaskIntoConstraints="NO" id="6oo-Lw-TJq">
+                    <rect key="frame" x="41.666666666666657" y="79" width="310" height="245"/>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="4tj-Dr-lFO">
+                    <rect key="frame" x="29.999999999999993" y="388.33333333333331" width="126.33333333333331" height="100.66666666666669"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Apple pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5A5-2Q-mMg">
+                            <rect key="frame" x="0.0" y="0.0" width="126.33333333333333" height="20.333333333333332"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cash on delivery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUw-Zl-DVc">
+                            <rect key="frame" x="0.0" y="80.333333333333371" width="126.33333333333333" height="20.333333333333329"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="S0q-zc-VL9">
+                    <rect key="frame" x="302" y="389.33333333333331" width="49.666666666666686" height="98.666666666666686"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1N-g7-jmf">
+                            <rect key="frame" x="0.0" y="0.0" width="49.666666666666664" height="34.333333333333336"/>
+                            <color key="tintColor" name="yellow"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M68-l1-PoL">
+                            <rect key="frame" x="0.0" y="64.333333333333371" width="49.666666666666664" height="34.333333333333343"/>
+                            <color key="tintColor" name="yellow"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system"/>
+                        </button>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oaf-sc-8xe">
+                    <rect key="frame" x="113.33333333333333" y="709.33333333333337" width="166.66666666666669" height="34.333333333333371"/>
+                    <color key="backgroundColor" name="yellow"/>
+                    <color key="tintColor" systemColor="systemBackgroundColor"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Confirm Checkout "/>
+                    <connections>
+                        <action selector="ConfirmCheckoutButton:" destination="-1" eventType="touchUpInside" id="8Hw-mY-7II"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="JjV-2A-33b">
+                    <rect key="frame" x="30" y="548" width="314.33333333333331" height="34"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coupon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvj-3n-QfX">
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="brs-Dp-olb">
+                            <rect key="frame" x="120.00000000000001" y="0.0" width="194.33333333333337" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                        </textField>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="1Tt-Jd-KjT"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="1Tt-Jd-KjT" firstAttribute="bottom" secondItem="oaf-sc-8xe" secondAttribute="bottom" multiplier="1.1" id="EgP-r4-tck"/>
+                <constraint firstItem="6oo-Lw-TJq" firstAttribute="top" secondItem="1Tt-Jd-KjT" secondAttribute="top" constant="20" id="GHS-Mv-vPj"/>
+                <constraint firstItem="4tj-Dr-lFO" firstAttribute="width" secondItem="PyZ-xt-oR4" secondAttribute="width" multiplier="0.321459" id="Hhy-yY-1R6"/>
+                <constraint firstItem="6oo-Lw-TJq" firstAttribute="height" secondItem="PyZ-xt-oR4" secondAttribute="height" multiplier="0.287559" id="Jim-nA-zrJ"/>
+                <constraint firstItem="oaf-sc-8xe" firstAttribute="centerX" secondItem="1Tt-Jd-KjT" secondAttribute="centerX" id="KWb-0V-8U9"/>
+                <constraint firstItem="1Tt-Jd-KjT" firstAttribute="trailing" secondItem="S0q-zc-VL9" secondAttribute="trailing" constant="41.333333333333314" id="RHM-to-nzx"/>
+                <constraint firstItem="S0q-zc-VL9" firstAttribute="centerY" secondItem="1Tt-Jd-KjT" secondAttribute="centerY" id="XFf-CK-tfz"/>
+                <constraint firstItem="S0q-zc-VL9" firstAttribute="height" secondItem="PyZ-xt-oR4" secondAttribute="height" multiplier="0.115806" id="bX2-Kg-ICX"/>
+                <constraint firstItem="JjV-2A-33b" firstAttribute="top" secondItem="4tj-Dr-lFO" secondAttribute="bottom" constant="59.000000000000057" id="be5-My-ZBS"/>
+                <constraint firstItem="6oo-Lw-TJq" firstAttribute="centerX" secondItem="1Tt-Jd-KjT" secondAttribute="centerX" id="d4M-50-I8I"/>
+                <constraint firstItem="4tj-Dr-lFO" firstAttribute="leading" secondItem="1Tt-Jd-KjT" secondAttribute="leading" constant="30" id="gCx-wV-Kk3"/>
+                <constraint firstItem="6oo-Lw-TJq" firstAttribute="width" secondItem="PyZ-xt-oR4" secondAttribute="width" multiplier="0.788804" id="lnP-6M-ife"/>
+                <constraint firstItem="4tj-Dr-lFO" firstAttribute="centerY" secondItem="1Tt-Jd-KjT" secondAttribute="centerY" id="qLg-mn-509"/>
+                <constraint firstItem="4tj-Dr-lFO" firstAttribute="height" secondItem="PyZ-xt-oR4" secondAttribute="height" multiplier="0.118153" id="rB0-zS-7AI"/>
+                <constraint firstItem="JjV-2A-33b" firstAttribute="width" secondItem="PyZ-xt-oR4" secondAttribute="width" multiplier="0.8" id="uLe-bb-U5k"/>
+                <constraint firstItem="S0q-zc-VL9" firstAttribute="width" secondItem="PyZ-xt-oR4" secondAttribute="width" multiplier="0.126378" id="wSU-eF-n2k"/>
+                <constraint firstItem="JjV-2A-33b" firstAttribute="leading" secondItem="1Tt-Jd-KjT" secondAttribute="leading" constant="30" id="xJi-lg-iRz"/>
+            </constraints>
+            <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
     </objects>
+    <resources>
+        <image name="circle" catalog="system" width="128" height="123"/>
+        <image name="payment" width="564" height="564"/>
+        <namedColor name="yellow">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
