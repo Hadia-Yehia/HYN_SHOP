@@ -97,6 +97,7 @@
 		BC38A3DE2A30B26E00492F76 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38A3DC2A30B26E00492F76 /* SettingsViewController.swift */; };
 		BC38A3DF2A30B26E00492F76 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC38A3DD2A30B26E00492F76 /* SettingsViewController.xib */; };
 		BC38A3E12A30C33000492F76 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38A3E02A30C33000492F76 /* TabBar.swift */; };
+		BC48FCFE2A397F0300828DCE /* Advertisement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC48FCFD2A397F0300828DCE /* Advertisement.swift */; };
 		BC74FFDC2A30890B00227951 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC74FFDA2A30890B00227951 /* ProfileViewController.swift */; };
 		BC74FFDD2A30890B00227951 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC74FFDB2A30890B00227951 /* ProfileViewController.xib */; };
 		BC7600C32A31EBF700733710 /* AddressesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7600C12A31EBF700733710 /* AddressesViewController.swift */; };
@@ -237,6 +238,7 @@
 		BC38A3DC2A30B26E00492F76 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = HYN/Classes/Modules/Profile/View/SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
 		BC38A3DD2A30B26E00492F76 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = HYN/Classes/Modules/Profile/View/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
 		BC38A3E02A30C33000492F76 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		BC48FCFD2A397F0300828DCE /* Advertisement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advertisement.swift; sourceTree = "<group>"; };
 		BC74FFDA2A30890B00227951 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BC74FFDB2A30890B00227951 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		BC7600C12A31EBF700733710 /* AddressesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesViewController.swift; sourceTree = "<group>"; };
@@ -838,6 +840,7 @@
 				BC063AB62A34F56D0045DBD6 /* Currency.swift */,
 				BC2DBA892A35C38F00C2021F /* Address.swift */,
 				8F607C7C2A376A3B0064A8C7 /* TestModel.swift */,
+				BC48FCFD2A397F0300828DCE /* Advertisement.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1415,6 +1418,7 @@
 				BC7600C32A31EBF700733710 /* AddressesViewController.swift in Sources */,
 				0E83DA342A35FF06007FE3FF /* CustomerRequest.swift in Sources */,
 				BC78A60C2A30E5A400AB88A1 /* PaymentOptionsViewController.swift in Sources */,
+				BC48FCFE2A397F0300828DCE /* Advertisement.swift in Sources */,
 				BC7600D42A320BBE00733710 /* AddressesCoreData.swift in Sources */,
 				0E454E922A365E0C00D1816F /* SignUpViewModel.swift in Sources */,
 				0E4676F32A38DAE600ED8DC3 /* NetworkService.swift in Sources */,

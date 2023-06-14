@@ -9,6 +9,8 @@ import Foundation
 class HomeViewModel{
     var isLoading : Observable<Bool> = Observable(false)
     var brandArr : [BrandStruct] = Array()
+    let adsArray = [Advertisement(image: "ad1", coupon: "7t65dehbj874"),Advertisement(image: "ad2", coupon: "rfrkj893nmn4"),Advertisement(image: "ad3", coupon: "498ojf84jw3s"),Advertisement(image: "ad4", coupon: "tj99484r87u1")]
+
    // var testArray:[SmartCollections]?
     func getbrandData(){
         if isLoading.value ?? true{
@@ -56,6 +58,14 @@ class HomeViewModel{
        
          return self.testArray?[index].id ?? 0
      }*/
-    
+    //MARK: Ads collection
+    func getAdsArrayCount()->Int
+    {
+        adsArray.count
+    }
+    func getAd(index:Int)-> Advertisement
+    {
+        adsArray[index]
+    }
 }
 

@@ -9,7 +9,8 @@ import UIKit
 import SDWebImage
 class HomeViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
 
-    
+    var timer : Timer?
+    var currentAdIndex = 0
    
     
     @IBOutlet weak var controlMedia: UIPageControl!
@@ -34,9 +35,30 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
         mediaCollection.register(UINib(nibName: "MadiaCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "mediaCell")
         
         viewModel.getbrandData()
+        controlMedia.numberOfPages = viewModel.getAdsArrayCount()
+        startTimer()
         
 
       
+    }
+    func startTimer()
+    {
+        timer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(moveToNextIndex), userInfo: nil, repeats: true)
+       
+    }
+    @objc func moveToNextIndex()
+    {
+        if currentAdIndex < viewModel.getAdsArrayCount() - 1
+        {
+            currentAdIndex += 1
+     
+        }else
+        {
+            currentAdIndex = 0
+        }
+        mediaCollection.scrollToItem(at: IndexPath(item: currentAdIndex, section: 0), at: .centeredHorizontally, animated: true)
+        controlMedia.currentPage = currentAdIndex
+   
     }
     func bindViewModel(){
         viewModel.isLoading.bind{[weak self] isLoading in
@@ -60,7 +82,8 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch(collectionView){
         case mediaCollection:
-            return photoCell.count
+          //  return photoCell.count
+            return viewModel.getAdsArrayCount()
          default:
             return viewModel.getBrandsCount()
         }
@@ -75,6 +98,11 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
            let id = self.viewModel.navigateToBrandView(index: indexPath.row)
             detailsVC.viewModel = self.viewModel.navigateToBrandView(index: indexPath.row)
             navigationController?.pushViewController(detailsVC, animated: true)
+            break
+            
+        case mediaCollection:
+     UIPasteboard.general.string =  viewModel.getAd(index: indexPath.row).coupon
+            Toast.show(message: "Congrates! Coupon copied to clipboard successfully", controller: self)
             break
         default:
             break
@@ -93,8 +121,8 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mediaCell", for: indexPath) as! MadiaCollectionViewCell
             cell.mediaView.layer.cornerRadius = 40
             cell.layer.masksToBounds = true
-           cell.photoView.image = photoCell[indexPath.row]
-           
+           cell.photoView.image = UIImage(named: viewModel.getAd(index: indexPath.row).image)
+           cell.mediaView.contentMode = .scaleAspectFill
            //if(brandArray[indexPath.row] != nil){
               // let url = URL(string: brandArray[indexPath.row])
               // cell.photoView?.sd_setImage(with: url,completed: nil)
@@ -111,6 +139,25 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
             cell.layer.masksToBounds = true
            cell.configCell(img: viewModel.getCellData(index: indexPath.row))
             return cell
+        }
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        switch collectionView{
+        case mediaCollection:
+            return CGSize(width: mediaCollection.frame.width, height: mediaCollection.frame.height)
+        default:
+            return CGSize(width: mediaCollection.frame.width/2 - mediaCollection.frame.width/2*0.1, height: mediaCollection.frame.height/3)
+        }
+
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        switch collectionView
+        {
+        case mediaCollection:
+            return 0
+        default:
+            return 50
+            
         }
     }
 

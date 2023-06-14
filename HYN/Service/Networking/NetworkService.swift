@@ -151,7 +151,7 @@ class NetworkService:NetworkServiceProtocol{
     
     //MARK: Customer Addresses
     func createNewAddress(address:Address, completionHandler: @escaping (Result<CustomerAddress, NetworkError>) -> Void) {
-            let customerId = 7125022015798
+            let customerId = 7125716238646
             let url = "https://mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/customers/\(customerId)/addresses.json"
             
             let headers: HTTPHeaders = [
@@ -194,7 +194,7 @@ class NetworkService:NetworkServiceProtocol{
     func getCustomerAddresses(completionHandler: @escaping (Result<CustomerAddresses, NetworkError>) -> Void)
        {
            // let customerId =
-           let url = "https://mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/customers/7125022015798/addresses.json"
+           let url = "https://mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/customers/7125716238646/addresses.json"
            
            
            AF.request(url,headers: NetworkConstants.shared.accessToken)
@@ -248,7 +248,7 @@ class NetworkService:NetworkServiceProtocol{
     
     
     func deleteAddressFromServer(addressId:Int,completionHandler: @escaping (Result<EmptyResponse, NetworkError>) -> Void) {
-        let url = "https://mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/customers/7125022015798/addresses/\(addressId).json"
+        let url = "https://mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/customers/7125716238646/addresses/\(addressId).json"
         let headers: HTTPHeaders = NetworkConstants.shared.accessToken
         
         AF.request(url,
@@ -272,7 +272,7 @@ class NetworkService:NetworkServiceProtocol{
     //MARK: Customer Addresses
     
     func updateCustomerAddress(addressId: Int, address: Address, completionHandler: @escaping (Result<CustomerAddress, NetworkError>) -> Void) {
-           let url = "https://mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/customers/7125022015798/addresses/\(addressId).json"
+           let url = "https://mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/customers/7125716238646/addresses/\(addressId).json"
            //  let customerId = 7123084443958
            
            
