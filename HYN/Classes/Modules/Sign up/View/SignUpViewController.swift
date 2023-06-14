@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 
 class SignUpViewController: UIViewController {
-
+    let defaults = UserDefaults.standard
     @IBOutlet weak var confirmPassTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
@@ -36,6 +36,7 @@ class SignUpViewController: UIViewController {
     @IBAction func skipBtn(_ sender: UIButton) {
         let homeVC = TabBar()
         navigationController?.pushViewController(homeVC, animated: true)
+
     }
     @IBAction func signUpBtn(_ sender: UIButton) {
         if let firstName = firstNameTF.text, let lastName = lastNameTF.text, let phone = phoneTF.text , let email = emailTF.text , let password = passwordTF.text , let confirmPassword = confirmPassTF.text{
@@ -50,6 +51,14 @@ class SignUpViewController: UIViewController {
                         if isLoading{
                             
                         }else{
+
+                            self.defaults.setValue(true, forKey: "logged in")
+                            self.defaults.removeObject(forKey: "userName")
+                            self.defaults.removeObject(forKey: "userId")
+                            self.defaults.removeObject(forKey: "favId")
+                            self.defaults.removeObject(forKey: "cartId")
+                            print(self.defaults.bool(forKey: "logged in"))
+
                             let homeVC = TabBar()
                             self.navigationController?.pushViewController(homeVC, animated: true)
                         }
@@ -72,20 +81,10 @@ class SignUpViewController: UIViewController {
             Toast.show(message: "All fields must be filled", controller: self)
         }
     }
-    func bindViewModel(){
-        
-    }
     
     @IBAction func signInBtn(_ sender: UIButton) {
+        let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        navigationController?.pushViewController(loginVC, animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+ 
 }

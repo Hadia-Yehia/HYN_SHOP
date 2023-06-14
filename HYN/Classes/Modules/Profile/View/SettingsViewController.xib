@@ -26,7 +26,11 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Logout"/>
                     <connections>
+<<<<<<< HEAD
                         <action selector="logoutButton:" destination="-1" eventType="touchUpInside" id="VUd-nW-X1Y"/>
+=======
+                        <action selector="logoutBtn:" destination="-1" eventType="touchUpInside" id="XxO-wn-trR"/>
+>>>>>>> Favourites
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="AP6-f9-TxH">
