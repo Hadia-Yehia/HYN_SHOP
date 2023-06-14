@@ -10,6 +10,8 @@ class BrandViewModel{
     var isLoading : Observable<Bool> = Observable(false)
     var productArr : [ProductsStruct] = Array()
     var brandIdFromHome:Int
+    var isFiltering = false
+    var filterArr : [ProductsStruct] = Array()
     init(brandId:Int)
     {
         self.brandIdFromHome = brandId
