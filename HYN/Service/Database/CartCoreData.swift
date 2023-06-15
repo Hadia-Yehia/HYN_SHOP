@@ -150,16 +150,15 @@ class CartCoreData{
                     managedObject.setValue(cartItem.defaultPrice*Float(cartItem.quantity+1), forKey: "price")
                     
                 case "dec":
-                    managedObject.setValue(cartItem.quantity-1, forKey: "quantity")
-                    managedObject.setValue(cartItem.defaultPrice*Float(cartItem.quantity-1), forKey: "price")
+                    if cartItem.quantity > 1
+                    {
+                        managedObject.setValue(cartItem.quantity-1, forKey: "quantity")
+                        managedObject.setValue(cartItem.defaultPrice*Float(cartItem.quantity-1), forKey: "price")
+                    }
                     
                 default:
                     return
-                    
                 }
-            
-  
-               
                 self.saveContext()
                 print("Item updated successfully")
             } else {
@@ -170,6 +169,7 @@ class CartCoreData{
         }
     }
     
+
    
 }
 

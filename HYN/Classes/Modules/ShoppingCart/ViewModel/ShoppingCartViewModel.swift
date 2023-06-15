@@ -8,7 +8,9 @@
 import Foundation
 class ShoppingCartViewModel{
     var observable: Observable<Bool> = Observable(false)
+    var observable2: Observable<Bool> = Observable(false)
     
+    var totalPrice:Float = 0.0
     var cartItemsArray:[CartItem] = []
     
     func getCartItemArrayCount()->Int
@@ -18,10 +20,24 @@ class ShoppingCartViewModel{
 
     func getCartItemsFromCoreData()
     {
-    
+        totalPrice = 0.0
         cartItemsArray = CartCoreData.shared.getCartItems()
+        for item in cartItemsArray
+                {
+                    totalPrice = (totalPrice ) + item.price
+               }
         observable.value = true
     }
+    
+//    func getTotalPrice()
+//    {
+//        for item in cartItemsArray
+//        {
+//            totalPrice = (totalPrice ?? 0.0) + item.price
+//        }
+//        observable2.value = true
+//    }
+
     func getCartItem(index:Int)->CartItem
     {
         cartItemsArray[index]
@@ -62,5 +78,16 @@ class ShoppingCartViewModel{
         print("dec index: \(index)")
     }
         
-        
+//func getTotalPrice()-> Float
+//    {
+//        var totalPrice:Float = 0.0
+//        for item in cartItemsArray
+//        {
+//            totalPrice = totalPrice + item.price
+//            print("ooooooooooo:\(item.price)")
+//        }
+//        observable.value = true
+//        return totalPrice
+//    }
+    
     }

@@ -11,6 +11,7 @@ class ShoppingCartViewController: UIViewController {
     var isArrowUp = false
     let viewModel = ShoppingCartViewModel()
     @IBOutlet weak var noItemsView: UIView!
+    @IBOutlet weak var totalPrice: UILabel!
     @IBAction func moreDetailsButton(_ sender: UIButton) {
         isArrowUp.toggle()
         let imageName = isArrowUp ? "chevron.up" : "chevron.down"
@@ -42,6 +43,7 @@ class ShoppingCartViewController: UIViewController {
         setupTableView()
         checkCartTableIfEmpty()
         self.title = "Shopping Cart"
+       
     }
     override func viewWillAppear(_ animated: Bool) {
         bindingViewModel()
@@ -70,6 +72,7 @@ func setupTableView()
                 {
                     self.checkCartTableIfEmpty()
                     self.tableView.reloadData()
+                    self.totalPrice.text = String(self.viewModel.totalPrice)
                 }
             }
 
