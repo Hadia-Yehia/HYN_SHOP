@@ -18,7 +18,7 @@ class SignUpViewModel{
     var cartId : Int?
     var userName : String = ""
     var email = "unregistered_email"
-    var ref: DatabaseReference = Database.database().reference().child("usersInfo")
+    //var ref: DatabaseReference = Database.database().reference().child("usersInfo")
     var res = ""
     var draftOrder = DraftOrder()
     
@@ -41,35 +41,56 @@ class SignUpViewModel{
                         self.userId = data.customer.id
                         self.userName = "\(String(describing: data.customer.firstName)) \(String(describing: data.customer.lastName))"
                         self.res = "success"
-//                        NetworkService.getInstance().postingNewDraftOrder(draftOrder: self.draftOrder , completionHandler: {result in
-//                            switch result{
-//                            case .success(let data):
-//                                self.favId = data.draftOrder?.id
-//                                self.res = "success"
-//                                NetworkService.getInstance().postingNewDraftOrder(draftOrder: self.draftOrder ,completionHandler: {result in
-//                                    switch result{
-//                                    case .success(let data):
-//                                        self.cartId = data.draftOrder?.id
-//                                        self.res = "success"
+
                                         self.isLoading.value = false
                         FireBaseSingleTone.getInstance().child(Auth.auth().currentUser!.uid).setValue(["userId": self.userId,"userName":self.userName,"favId":0,"cartId":0])
-                        self.defaults.setValue(self.userName, forKey: "userName")
-                        self.defaults.setValue(self.userId, forKey: "userId")
-                        print("from signup \(self.userId)")
-                        self.defaults.setValue(Auth.auth().currentUser?.uid, forKey: "firUserId")
-                        print("nfs el ref ?\(self.defaults.object(forKey: "firUserId"))")
-                        print("nfs el user ?\(self.defaults.object(forKey: "userId"))")
-//                                        break
-//                                    case .failure(let error):
-//                                        self.res = "error in cart creation : \(error.localizedDescription)"
-////                                        break
-//                                    }
-//                                })
-//                                break
-//                            case .failure(let error):
-//                                self.res = "error in fav creation : \(error.localizedDescription)"
-//                                break
-//                            }})
+                        //username
+                        FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/userName").getData(completion:  { error, snapshot in
+                            guard error == nil else {
+                                print("firebase error\(error!.localizedDescription)")
+                                return
+                            }
+                            let userName = snapshot?.value as? String ?? "Unknown"
+                            self.defaults.setValue(userName, forKey: "userName")
+                        })
+                        //userid
+                            FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/userId").getData(completion:  { error, snapshot in
+                              guard error == nil else {
+                                print("firebase error\(error!.localizedDescription)")
+                                return
+                              }
+                               let userId = snapshot?.value as? Int ?? -1
+                           self.defaults.setValue(userId, forKey: "userId")
+                       //firebaseuserid
+                            self.defaults.setValue(Auth.auth().currentUser?.uid, forKey: "firUserId")
+                        })
+                        //favId
+                        
+                            FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/favId").getData(completion:  { error, snapshot in
+                              guard error == nil else {
+                                print("firebase error\(error!.localizedDescription)")
+                                return
+                              }
+                               let favId = snapshot?.value as? Int ?? -1
+                           self.defaults.setValue(favId, forKey: "favId")
+                        })
+                        //cartId
+                        
+                            FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/cartId").getData(completion:  { error, snapshot in
+                              guard error == nil else {
+                                print("firebase error\(error!.localizedDescription)")
+                                return
+                              }
+                               let cartId = snapshot?.value as? Int ?? -1
+                           self.defaults.setValue(cartId, forKey: "cartId")
+                        })
+                        
+                        
+                        self.defaults.setValue(true, forKey: "logged in")
+                        print(self.defaults.bool(forKey: "logged in"))
+                 
+                    
+
                         break
                     case .failure(let error):
                         self.res = error.localizedDescription
@@ -78,62 +99,5 @@ class SignUpViewModel{
                 })}}
        
     }
-//    func rigesterNewCustomer(customer : Customer)->String{
-//        myCustomer = customer
-//        var res = ""
-//        NetworkService.getInstance().postingNewDraftOrder(completionHandler: {result in
-//            switch result{
-//            case .success(let data):
-//                self.favId = data.draftOrder?.id
-//               // customer.tags = data.draftOrder?.id
-//                self.myCustomer.tags = "\(self.favId)*"
-//                print("7war el tags\(self.favId)")
-//                res = "success"
-//                NetworkService.getInstance().postingNewDraftOrder(completionHandler: {result in
-//                    switch result{
-//                    case .success(let data):
-//                        self.cartId = data.draftOrder?.id
-//                        res = "success"
-//                        self.myCustomer.tags.append("\(self.cartId)")
-//                        print("7war el tags\(self.cartId)")
-////                        Auth.auth().createUser(withEmail: customer.email, password: customer.password){ authResult , error in
-////                            if let e = error{
-////                                print(e)
-////                                res = e.localizedDescription
-////                            }else {
-////
-////                                NetworkService.getInstance().postingNewCustomer(customer: CustomerRequest(customer: self.myCustomer), completionHandler: {result in
-////                                    print("7war eltags m3 elcustomer\(self.myCustomer.tags)")
-////                                    switch result{
-////                                    case .success(let data):
-////                                        print("7war eltags m3 elcustomer elly rage3\(data.customer.tags)")
-////                                        self.userId = data.customer.id
-////                                        if let email = data.customer.email{
-////                                            self.email = email}
-////                                        self.ref.child(Auth.auth().currentUser!.uid).setValue(["userId": self.userId])
-////                                        res = "success"
-////                                        break
-////                                    case .failure(let error):
-////                                        res = error.localizedDescription
-////                                        break
-////                                    }
-////                                })
-////                            }
-//                       // }
-//                        break
-//                    case .failure(let error):
-//                        res = "error in cart creation : \(error.localizedDescription)"
-//                        break
-//                    }
-//
-//                })
-//                break
-//            case .failure(let error):
-//                res = "error in fav creation : \(error.localizedDescription)"
-//                break
-//            }
-//
-//        })
-//        return res
-//    }
+
 }

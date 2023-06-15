@@ -15,10 +15,8 @@ class NetworkService:NetworkServiceProtocol{
     }
     
     func fetchingProductDetails(product_id: Int, completionHandler: @escaping (Result<ProductResponse, NetworkError>) -> Void) {
-        let defaults = UserDefaults.standard
-        print("nfs el user from network?\(defaults.object(forKey: "userId"))")
-        print("nfs el user from network?\(defaults.object(forKey: "firUserId"))")
-        AF.request(NetworkConstants.shared.baseUrl+"products/\(product_id).json")
+      
+        AF.request("https://d097bbce1fd2720f1d64ced55f0e485b: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@mad43-alex-ios-team4.myshopify.com/admin/api/2023-04/products/\(product_id).json")
             .response{response in
                 switch response.result{
                 case .success(let data): do {

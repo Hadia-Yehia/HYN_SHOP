@@ -24,6 +24,7 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bindViewModel()
+       
         searchBar.delegate = self
 
         brandsCollection.register(UINib(nibName: "MadiaCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "mediaCell")
