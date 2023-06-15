@@ -57,12 +57,12 @@ class CategoryViewModel{
    
     }
     
-    /*func getProductsForSecData(type: String){
+    func getCategoryForSecData(type: String){
         if isLoading.value ?? true{
             return
         }
         isLoading.value = true
-        NetworkService.getInstance().getBrandProductsData(brand_id: brandId, completionHandler: {
+        NetworkService.getInstance().getCategoryTypeData(type: type, completionHandler: {
             [weak self]
             result in
             self?.isLoading.value = false
@@ -76,7 +76,7 @@ class CategoryViewModel{
                 
             }
         })
-    }*/
+    }
     func navigateToDetails(index : Int) -> ProductInfoViewModel{
         return ProductInfoViewModel(productId: productArr[index].id)
     }

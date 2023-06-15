@@ -119,15 +119,21 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
     }
     @objc private func filterAcc(){
         print("acc")
+        self.viewModel.getCategoryForSecData(type: "ACCESSORIES")
+
     }
     @objc private func filteShose(){
         print("shose")
+        self.viewModel.getCategoryForSecData(type: "SHOES")
+
     }
     @objc private func filterTshirt(){
         print("tshirt")
+        self.viewModel.getCategoryForSecData(type: "T-SHIRTS")
     }
     @objc private func noFilter(){
         print("no filter")
+        self.viewModel.getProductData()
     }
     func bindViewModel(){
         viewModel.isLoading.bind{[weak self] isLoading in
