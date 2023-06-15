@@ -16,7 +16,7 @@ class SettingsViewModel{
     var favId: Int?
 //    var ref: DatabaseReference = Database.database().reference().child("usersInfo")
     func logout(completionHandler :@escaping(Result<Any,NetworkError>)->Void) {
-        print("nfs el ref ?\(self.defaults.object(forKey: "firUserId"))")
+
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()

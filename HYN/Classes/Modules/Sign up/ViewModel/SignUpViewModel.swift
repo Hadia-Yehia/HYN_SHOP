@@ -55,7 +55,10 @@ class SignUpViewModel{
                         FireBaseSingleTone.getInstance().child(Auth.auth().currentUser!.uid).setValue(["userId": self.userId,"userName":self.userName,"favId":0,"cartId":0])
                         self.defaults.setValue(self.userName, forKey: "userName")
                         self.defaults.setValue(self.userId, forKey: "userId")
+                        print("from signup \(self.userId)")
                         self.defaults.setValue(Auth.auth().currentUser?.uid, forKey: "firUserId")
+                        print("nfs el ref ?\(self.defaults.object(forKey: "firUserId"))")
+                        print("nfs el user ?\(self.defaults.object(forKey: "userId"))")
 //                                        break
 //                                    case .failure(let error):
 //                                        self.res = "error in cart creation : \(error.localizedDescription)"
