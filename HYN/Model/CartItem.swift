@@ -8,13 +8,13 @@
 import Foundation
 struct CartItem
 {
-    var id : Int
+    var id : Int64
     var title: String
     var quantity:Int
     var image:String
     var price:Float
     var defaultPrice:Float
-    init(id: Int, title: String, quantity: Int, image: String, price: Float,defaultPrice:Float) {
+    init(id: Int64, title: String, quantity: Int, image: String, price: Float,defaultPrice:Float) {
             self.id = id
             self.title = title
             self.quantity = quantity

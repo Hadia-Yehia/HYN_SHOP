@@ -43,6 +43,54 @@ class LoginViewModel{
             
         }
     }
+    //MARK: getting cart items  from server
+    func getDraftCartItems(draftOrderId:Int64)
+    {
+        NetworkService.sharedInstance.getCustomerDraftOrder(draftOrderId: draftOrderId)
+        {
+            result in
+            do{
+                let array:[LineItems] = try  (result.get().draftOrder?.lineItems)!
+                for item in array
+                {
+                    let data = "Yousra*Mamdouh*Ali"
+                    let dataComponents:[String] = data.split(separator: "*").map { String($0) }
+                    let price = Float(item.price)
+                    let defaultPrice = (price ?? 0.0) / Float(item.quantity)
+                    let cartItem =   CartItem(id: Int64(dataComponents[0]) ?? 0, title: dataComponents[1], quantity: item.quantity, image: dataComponents[2], price: price ?? 0.0, defaultPrice: defaultPrice)
+                    CartCoreData.shared.InsertCartItem(cartItem)
+        
+                }
+            }
+            catch
+            {
+                print("can't get cart items from server")
+            }
+        }
+    }
+    
+    //MARK: getting favorite items  from server
+    func getDraftFavoriteItems(draftOrderId:Int64)
+    {
+        NetworkService.sharedInstance.getCustomerDraftOrder(draftOrderId: draftOrderId)
+        {
+            result in
+            do{
+                let array:[LineItems] = try  (result.get().draftOrder?.lineItems)!
+                for item in array
+                {
+                    let data = "Yousra*Mamdouh*Ali"
+                    let dataComponents:[String] = data.split(separator: "*").map { String($0) }
+                    let favoriteItem  = Fav(title: dataComponents[1], price:item.price, img:  dataComponents[2], id: Int(dataComponents[0]) ?? 0)
+                    FavCoreData.saveItemToDataBase(favItem: favoriteItem)
+                }
+            }
+            catch
+            {
+                print("can't get favorite items from server")
+            }
+        }
+    }
 
     }
 

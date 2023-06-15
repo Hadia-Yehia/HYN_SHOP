@@ -43,6 +43,7 @@ class ShoppingCartViewController: UIViewController {
         setupTableView()
         checkCartTableIfEmpty()
         self.title = "Shopping Cart"
+    
        
     }
     override func viewWillAppear(_ animated: Bool) {

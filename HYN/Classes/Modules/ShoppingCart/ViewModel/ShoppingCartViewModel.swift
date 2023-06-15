@@ -26,6 +26,7 @@ class ShoppingCartViewModel{
         for item in cartItemsArray
                 {
                     totalPrice = (totalPrice ) + item.price
+            print(item.id)
                }
         checkCurrency()
         observable.value = true
@@ -79,6 +80,8 @@ class ShoppingCartViewModel{
         }
 
     }
+    
+  
 
     
     }

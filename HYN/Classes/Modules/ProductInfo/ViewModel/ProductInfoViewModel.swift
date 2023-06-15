@@ -17,6 +17,7 @@ class ProductInfoViewModel{
     var product  : ProductInfo = ProductInfo(name: "no data", price: "no data", description: "no data", rate: 0.0 , imgs: Array(), size: "no data")
     init(productId: Int) {
         self.productId = productId
+
     }
     
     func getProductInfo(){
@@ -50,6 +51,7 @@ class ProductInfoViewModel{
             product.imgs.append(result?.images?[i].src ?? "placeholder")
             print("debuuug" + product.imgs[i] )
         }
+
     }
     func getImgsCount()-> Int{
 
@@ -105,7 +107,7 @@ class ProductInfoViewModel{
     func insertProductInCoreData()
     {
         let productPrice = Float(product.price) ?? 0
-        let cartItem = CartItem(id: productId, title: product.name, quantity: 1, image: product.imgs.first ?? "placeholder", price:productPrice,defaultPrice: productPrice)
+        let cartItem = CartItem(id: Int64(productId), title: product.name, quantity: 1, image: product.imgs.first ?? "placeholder", price:productPrice,defaultPrice: productPrice)
         CartCoreData.shared.InsertCartItem(cartItem)
     }
 

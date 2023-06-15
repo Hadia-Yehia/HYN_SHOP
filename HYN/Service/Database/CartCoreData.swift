@@ -63,7 +63,7 @@ class CartCoreData{
             let title = item.value(forKey: "title") as! String
             let price = item.value(forKey: "price") as! Float
             let image = item.value(forKey: "image") as! String
-            let id = item.value(forKey: "id") as! Int
+            let id = item.value(forKey: "id") as! Int64
             let quantity = item.value(forKey: "quantity") as! Int
             let defaultPrice = item.value(forKey: "defaultPrice") as! Float
             let cartItem = CartItem(id: id, title: title, quantity: quantity, image: image, price: price,defaultPrice: defaultPrice)
@@ -71,6 +71,7 @@ class CartCoreData{
  
 
     }
+        print("rrrrrr: \(cartItemsArray.count)")
         return cartItemsArray
     }
     
@@ -130,9 +131,9 @@ class CartCoreData{
     }
     
     func updateCartItem(_ cartItem:CartItem, operation:String) {
-        var cartItem = cartItem
+//        var cartItem = cartItem
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Cart")
-        fetchRequest.predicate = NSPredicate(format: "id == %d", cartItem.id)
+        fetchRequest.predicate = NSPredicate(format: "id == %lld", cartItem.id)
         fetchRequest.fetchLimit = 1
 
         do {
