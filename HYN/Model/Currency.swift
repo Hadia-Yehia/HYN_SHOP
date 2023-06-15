@@ -15,8 +15,8 @@ var result:String
 }
 struct Rates:Decodable{
     
-    var AED:Double
-    var AMD:Double
-    var EUR:Double
-    var EGP:Double
+    var AED:Float
+    var AMD:Float
+    var EUR:Float
+    var EGP:Float
 }

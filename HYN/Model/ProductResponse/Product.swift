@@ -68,6 +68,7 @@ struct Product: Codable {
     image             = try values.decodeIfPresent(ImageH.self      , forKey: .image             )
  
   }
+   
 
   init() {
 

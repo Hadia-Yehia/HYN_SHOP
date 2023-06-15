@@ -262,6 +262,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Add to cart">
                                     <color key="baseBackgroundColor" systemColor="systemYellowColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="addToCartButton:" destination="-1" eventType="touchUpInside" id="ykD-rJ-nOt"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </items>

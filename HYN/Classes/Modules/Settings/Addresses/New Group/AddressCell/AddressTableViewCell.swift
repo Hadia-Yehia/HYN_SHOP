@@ -33,14 +33,6 @@ class AddressTableViewCell: UITableViewCell {
         
     }
     
-    func setCellStyle(view:UIView)
-       {
-           //view.layer.borderColor = UIColor(named: "#48BFBE")?.cgColor
-         // view.layer.borderColor = UIColor.red.cgColor
-           let customColor = UIColor(named: "grey")
-           view.layer.borderColor = customColor?.cgColor
-           view.layer.borderWidth = 0.7
-          view.layer.cornerRadius = 20
-       }
+  
     
 }

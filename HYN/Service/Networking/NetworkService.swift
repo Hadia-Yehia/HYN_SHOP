@@ -407,6 +407,35 @@ class NetworkService:NetworkServiceProtocol{
             
         }
     }
+    //MARK: draft orders
+    func getCustomerDraftOrder(draftOrderId:Int64,completionHandler: @escaping (Result<DraftOrderResponse, NetworkError>) -> Void)
+       {
+           // let customerId =
+           let url = "https://mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/draft_orders/\(draftOrderId).json"
+           
+           
+           AF.request(url,headers: NetworkConstants.shared.accessToken)
+               .response{response in
+                   switch response.result{
+                   case .success(let data): do {
+                       print("success")
+                       let jsonData = try JSONDecoder().decode(DraftOrderResponse.self, from: data!)
+                       completionHandler(.success(jsonData))
+                   }
+                       catch{
+                           print("fail parse")
+                           print(error.localizedDescription)
+                           completionHandler(.failure(.canNotParseData))
+                       }
+                   case .failure(let error):
+                       print("fail url")
+                       print(error.localizedDescription)
+                       completionHandler(.failure(.urlError))
+                   }
+                   
+               }
+       }
+    
 }
 enum NetworkError : Error{
     case urlError

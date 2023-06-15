@@ -7,6 +7,8 @@
 
 import Foundation
 class ProductInfoViewModel{
+    
+
     var isLoading : Observable<Bool> = Observable(false)
     var productId : Int
     var newCurrency: String?
@@ -15,6 +17,7 @@ class ProductInfoViewModel{
     var product  : ProductInfo = ProductInfo(name: "no data", price: "no data", description: "no data", rate: 0.0 , imgs: Array(), size: "no data")
     init(productId: Int) {
         self.productId = productId
+
     }
     
     func getProductInfo(){
@@ -48,6 +51,7 @@ class ProductInfoViewModel{
             product.imgs.append(result?.images?[i].src ?? "placeholder")
             print("debuuug" + product.imgs[i] )
         }
+
     }
     func getImgsCount()-> Int{
 
@@ -62,7 +66,7 @@ class ProductInfoViewModel{
         return product.name
     }
     func getProductPrice()->String {
-        return newCurrency ?? "1"
+        return newCurrency ?? ""
     }
     
     func getProductDescription()-> String{
@@ -73,16 +77,13 @@ class ProductInfoViewModel{
     func checkCurrency()
     {  isLoading.value = true
         let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
-        let productPrice = Double(product.price) ?? 0
+        let productPrice = Float(product.price) ?? 0
         CurrencyManager.exchangePrice(to: currencyCode) {
             exchangeRate in
-            // Use the exchange rate value here
-            print("The exchange rate for USD is: \(exchangeRate)")
             self.newCurrency = "\(currencyCode)\(productPrice * exchangeRate)"
             self.isLoading.value = false
            
         }
-          
         // "EGP\(productPrice * CurrencyManager.exchangePrice(to: "EGP"))"
 
     }
@@ -116,6 +117,14 @@ class ProductInfoViewModel{
         let item = Fav(title: product.name, price: newCurrency ?? "no data", img: product.imgs.first ?? "placeholder", id: productId)
         print ("save ? \(item.id) \(item.title)")
         FavCoreData.saveProductToDataBase(item: item)
+    }
+    
+//MARK: Cart
+    func insertProductInCoreData()
+    {
+        let productPrice = Float(product.price) ?? 0
+        let cartItem = CartItem(id: Int64(productId), title: product.name, quantity: 1, image: product.imgs.first ?? "placeholder", price:productPrice,defaultPrice: productPrice)
+        CartCoreData.shared.InsertCartItem(cartItem)
     }
 
 }

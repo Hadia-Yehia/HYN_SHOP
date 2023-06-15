@@ -43,8 +43,12 @@ class LoginViewController: UIViewController {
             viewModel.signIn(email: email, password: password, completionHandler: {result in
                 switch result{
                 case .success(_):
+                    //MARK: mo2akatan 
+                    self.viewModel.getDraftCartItems(draftOrderId:1120570179894 )
+                    self.viewModel.getDraftFavoriteItems(draftOrderId: 1120570179894)
                      let homeVC = TabBar()
                      self.navigationController?.pushViewController(homeVC, animated: true)
+                    
                     break
                 case .failure(let error):
                     Toast.show(message: error.localizedDescription, controller: self)
@@ -52,5 +56,6 @@ class LoginViewController: UIViewController {
                 }
             })
         }
+     
     }
 }
