@@ -57,14 +57,14 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
         button2.layer.masksToBounds = true
         view.addSubview(button2)
         
-        button3.setImage(UIImage(named: "all.jpg"), for: .normal)
+        button3.setImage(UIImage(named: "shose.png"), for: .normal)
         button3.backgroundColor = .systemYellow
         button3.isHidden = true
         button3.layer.cornerRadius = 30
         button3.layer.masksToBounds = true
         view.addSubview(button3)
         
-        button4.setImage(UIImage(named: "shose.png"), for: .normal)
+        button4.setImage(UIImage(named: "all.jpg"), for: .normal)
         button4.backgroundColor = .systemYellow
         button4.isHidden = true
         button4.layer.cornerRadius = 30
@@ -102,10 +102,10 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
         
         
         button3.frame = CGRect(x: view.frame.size.width-70, y: view.frame.size.height - 360, width: 60, height: 60)
-        button3.addTarget(self, action: #selector(noFilter), for: .touchUpInside)
+        button3.addTarget(self, action: #selector(filteShose), for: .touchUpInside)
         
-        button4.frame = CGRect(x: view.frame.size.width-70, y: view.frame.size.height - 360, width: 60, height: 60)
-        button4.addTarget(self, action: #selector(filteShose), for: .touchUpInside)
+        button4.frame = CGRect(x: view.frame.size.width-70, y: view.frame.size.height - 430, width: 60, height: 60)
+        button4.addTarget(self, action: #selector(noFilter), for: .touchUpInside)
     }
     @objc private func didTapButton(){
         button1.isHidden = !button1.isHidden
