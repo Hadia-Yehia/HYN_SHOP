@@ -43,28 +43,28 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
         super.viewDidLoad()
         view.addSubview(floatingButton)
         floatingButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
-        button1.setImage(UIImage(named: ""), for: .normal)
+        button1.setImage(UIImage(named: "tshirt.png"), for: .normal)
         button1.backgroundColor = .systemYellow
         button1.isHidden = true
         button1.layer.cornerRadius = 30
         button1.layer.masksToBounds = true
         view.addSubview(button1)
         
-        button2.setImage(UIImage(named: "plus"), for: .normal)
+        button2.setImage(UIImage(named: "acc.jpg"), for: .normal)
         button2.backgroundColor = .systemYellow
         button2.isHidden = true
         button2.layer.cornerRadius = 30
         button2.layer.masksToBounds = true
         view.addSubview(button2)
         
-        button3.setImage(UIImage(named: "plus"), for: .normal)
+        button3.setImage(UIImage(named: "all.jpg"), for: .normal)
         button3.backgroundColor = .systemYellow
         button3.isHidden = true
         button3.layer.cornerRadius = 30
         button3.layer.masksToBounds = true
         view.addSubview(button3)
         
-        button4.setImage(UIImage(named: "plus"), for: .normal)
+        button4.setImage(UIImage(named: "shose.png"), for: .normal)
         button4.backgroundColor = .systemYellow
         button4.isHidden = true
         button4.layer.cornerRadius = 30
@@ -95,17 +95,17 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
         floatingButton.frame = CGRect(x: view.frame.size.width-70, y: view.frame.size.height - 150, width: 60, height: 60)
         
         button1.frame = CGRect(x: view.frame.size.width-70, y: view.frame.size.height - 220, width: 60, height: 60)
-        button1.addTarget(self, action: #selector(filterAcc), for: .touchUpInside)
+        button1.addTarget(self, action: #selector(filterTshirt), for: .touchUpInside)
         
         button2.frame = CGRect(x: view.frame.size.width-70, y: view.frame.size.height - 290, width: 60, height: 60)
-        button2.addTarget(self, action: #selector(filteShose), for: .touchUpInside)
+        button2.addTarget(self, action: #selector(filterAcc), for: .touchUpInside)
         
         
         button3.frame = CGRect(x: view.frame.size.width-70, y: view.frame.size.height - 360, width: 60, height: 60)
-        button3.addTarget(self, action: #selector(filterTshirt), for: .touchUpInside)
+        button3.addTarget(self, action: #selector(noFilter), for: .touchUpInside)
         
         button4.frame = CGRect(x: view.frame.size.width-70, y: view.frame.size.height - 360, width: 60, height: 60)
-        button4.addTarget(self, action: #selector(noFilter), for: .touchUpInside)
+        button4.addTarget(self, action: #selector(filteShose), for: .touchUpInside)
     }
     @objc private func didTapButton(){
         button1.isHidden = !button1.isHidden
@@ -118,16 +118,16 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
         
     }
     @objc private func filterAcc(){
-        
+        print("acc")
     }
     @objc private func filteShose(){
-        
+        print("shose")
     }
     @objc private func filterTshirt(){
-        
+        print("tshirt")
     }
     @objc private func noFilter(){
-        
+        print("no filter")
     }
     func bindViewModel(){
         viewModel.isLoading.bind{[weak self] isLoading in
