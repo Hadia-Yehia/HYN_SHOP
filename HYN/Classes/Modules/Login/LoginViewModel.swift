@@ -83,7 +83,8 @@ class LoginViewModel{
                     let data = "Yousra*Mamdouh*Ali"
                     let dataComponents:[String] = data.split(separator: "*").map { String($0) }
                     let favoriteItem  = Fav(title: dataComponents[1], price:item.price, img:  dataComponents[2], id: Int(dataComponents[0]) ?? 0)
-                    FavCoreData.saveItemToDataBase(favItem: favoriteItem)
+                    FavCoreData.saveProductToDataBase(item: favoriteItem)
+              
                 }
             }
             catch

@@ -114,7 +114,7 @@ class CartCoreData{
         
         
         do{
-            let myPredicate = NSPredicate(format: "id == %d", cartItem.id)
+            let myPredicate = NSPredicate(format: "id == %lld", cartItem.id)
             fetchReq.predicate = myPredicate
          let addresses =   try context.fetch(fetchReq)
             for address in addresses
