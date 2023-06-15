@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,6 +14,7 @@
                 <outlet property="checkoutButton" destination="LTF-qD-4cM" id="lsK-VB-Obs"/>
                 <outlet property="checkoutDetailsView" destination="Hyj-s4-QDy" id="7B4-Gj-7P2"/>
                 <outlet property="moreDetailsButton" destination="bEA-zq-Hm3" id="TPQ-XN-txS"/>
+                <outlet property="noItemsView" destination="8xk-3K-qRM" id="1k6-Nw-UOk"/>
                 <outlet property="tableView" destination="Bvn-C8-dYS" id="fvl-SD-9cT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,7 +24,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Bvn-C8-dYS">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Bvn-C8-dYS">
                     <rect key="frame" x="0.0" y="142.66666666666669" width="393" height="591.66666666666652"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
@@ -121,6 +123,51 @@
                         <constraint firstItem="rlj-qW-q91" firstAttribute="top" secondItem="Zq1-PW-LA5" secondAttribute="bottom" constant="24" id="njS-jS-XRH"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xk-3K-qRM">
+                    <rect key="frame" x="0.0" y="12.666666666666686" width="393" height="852"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slash.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="J3t-Qp-WMf">
+                            <rect key="frame" x="24" y="208.66666666666669" width="345" height="222"/>
+                            <color key="tintColor" name="grey"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No items yet!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koU-mN-qOq">
+                            <rect key="frame" x="24" y="438.66666666666663" width="345" height="36"/>
+                            <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="25"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add product to your cart? save them to view later" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lye-qu-2Qd">
+                            <rect key="frame" x="24" y="496.00000000000006" width="345" height="40.666666666666686"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" systemColor="systemGrayColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLW-8u-Ryf">
+                            <rect key="frame" x="110.33333333333333" y="568.33333333333337" width="172.33333333333337" height="35"/>
+                            <color key="backgroundColor" name="yellow"/>
+                            <color key="tintColor" systemColor="systemYellowColor"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="START EXPLORING">
+                                <color key="baseBackgroundColor" name="yellow"/>
+                            </buttonConfiguration>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="koU-mN-qOq" firstAttribute="top" secondItem="J3t-Qp-WMf" secondAttribute="bottom" constant="7.6666666666668561" id="2RE-nt-gHQ"/>
+                        <constraint firstItem="Lye-qu-2Qd" firstAttribute="width" secondItem="koU-mN-qOq" secondAttribute="width" id="67C-yp-xbn"/>
+                        <constraint firstItem="koU-mN-qOq" firstAttribute="centerX" secondItem="J3t-Qp-WMf" secondAttribute="centerX" id="6GU-97-hav"/>
+                        <constraint firstItem="koU-mN-qOq" firstAttribute="width" secondItem="J3t-Qp-WMf" secondAttribute="width" id="GyE-OC-nQb"/>
+                        <constraint firstItem="Lye-qu-2Qd" firstAttribute="centerX" secondItem="koU-mN-qOq" secondAttribute="centerX" id="Kb4-OE-Iya"/>
+                        <constraint firstItem="J3t-Qp-WMf" firstAttribute="centerY" secondItem="8xk-3K-qRM" secondAttribute="centerY" multiplier="0.75" id="XdD-U5-JOs"/>
+                        <constraint firstItem="J3t-Qp-WMf" firstAttribute="width" secondItem="8xk-3K-qRM" secondAttribute="width" multiplier="0.877863" id="Xv5-Wk-kN5"/>
+                        <constraint firstItem="J3t-Qp-WMf" firstAttribute="centerX" secondItem="8xk-3K-qRM" secondAttribute="centerX" id="aBi-Pk-13s"/>
+                        <constraint firstItem="Lye-qu-2Qd" firstAttribute="top" secondItem="koU-mN-qOq" secondAttribute="bottom" constant="21.333333333333371" id="bmL-pu-D1b"/>
+                        <constraint firstItem="MLW-8u-Ryf" firstAttribute="centerX" secondItem="Lye-qu-2Qd" secondAttribute="centerX" id="qgD-ji-VcX"/>
+                        <constraint firstItem="J3t-Qp-WMf" firstAttribute="height" secondItem="8xk-3K-qRM" secondAttribute="height" multiplier="0.262128" id="rx4-3w-Sgz"/>
+                        <constraint firstItem="MLW-8u-Ryf" firstAttribute="top" secondItem="Lye-qu-2Qd" secondAttribute="bottom" constant="31.666666666666629" id="u8I-eX-6CP"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -129,9 +176,13 @@
                 <constraint firstItem="Bvn-C8-dYS" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="5Hp-oC-Js6"/>
                 <constraint firstItem="Bvn-C8-dYS" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="7Bc-cb-b97"/>
                 <constraint firstItem="eka-MW-eIj" firstAttribute="top" secondItem="Bvn-C8-dYS" secondAttribute="bottom" constant="-36.666666666666629" id="AfQ-eA-iNg"/>
+                <constraint firstItem="8xk-3K-qRM" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="BdZ-lI-vG5"/>
+                <constraint firstItem="8xk-3K-qRM" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Fbo-Xd-BMi"/>
                 <constraint firstItem="eka-MW-eIj" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Kij-BI-LBW"/>
                 <constraint firstItem="eka-MW-eIj" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.105634" id="ODE-Ex-B3N"/>
+                <constraint firstItem="8xk-3K-qRM" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="Tmo-Ba-iVk"/>
                 <constraint firstItem="Hyj-s4-QDy" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="agH-oT-SU1"/>
+                <constraint firstItem="8xk-3K-qRM" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="ccX-9W-nj5"/>
                 <constraint firstItem="Bvn-C8-dYS" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="hHG-K5-4kE"/>
                 <constraint firstItem="eka-MW-eIj" firstAttribute="top" secondItem="Hyj-s4-QDy" secondAttribute="bottom" constant="1" id="pB6-Tk-0dc"/>
                 <constraint firstItem="Hyj-s4-QDy" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.176056" id="qxn-es-QsS"/>
@@ -142,8 +193,18 @@
         </view>
     </objects>
     <resources>
+        <image name="slash.circle.fill" catalog="system" width="128" height="123"/>
+        <namedColor name="grey">
+            <color red="0.89600002765655518" green="0.89800000190734863" blue="0.91699999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="yellow">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

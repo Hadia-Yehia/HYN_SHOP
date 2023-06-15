@@ -8,6 +8,10 @@
 import UIKit
 
 class ProductInfoViewController: UIViewController {
+
+    @IBAction func addToCartButton(_ sender: UIButton) {
+        viewModel?.insertProductInCoreData()
+    }
     @IBOutlet weak var reviewTable: UITableView!
     @IBOutlet weak var imgsCollectionView: UICollectionView!
     @IBOutlet weak var productPrice: UILabel!

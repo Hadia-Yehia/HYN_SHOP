@@ -26,25 +26,16 @@ extension AddressesViewController : UITableViewDelegate , UITableViewDataSource{
        if editingStyle == .delete {
            
            
-           let alertController = UIAlertController(title: "Confirmation", message:"Are you sure you want to delete this item?", preferredStyle: .alert)
-           
-      
-           let confirmAction = UIAlertAction(title: "Yes", style: .default) { _ in
+     
+           let alertController = Alerts.showAlert(title: "Confirmation", message: "Are you sure you want to delete this item?", confirmTitle: "Yes", cancelTitle: "No", confirmHandler: {
                self.viewModel.deleteAddress(index: indexPath.row)
         //self.tableView.deleteRows(at: [indexPath], with: .fade)
                self.checkAddressesTableIfEmpty()
-         
-           }
-           let cancelationAction = UIAlertAction(title: "No", style: .default) { _ in
-               return
-           }
-           
-           alertController.addAction(confirmAction)
-           alertController.addAction(cancelationAction)
+           }, cancelHandler: nil)
+
            if let topController = UIApplication.shared.keyWindow?.rootViewController {
                topController.present(alertController, animated: true, completion: nil)
            }
-         
           
        }
    }

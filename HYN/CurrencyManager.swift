@@ -8,10 +8,10 @@
 import Foundation
 class CurrencyManager
 {
-    static var requiredCurrency:Double?
+    static var requiredCurrency:Float?
     
     
-    static func exchangePrice(to currency:String, completionHandler: @escaping (Double) -> Void)
+    static func exchangePrice(to currency:String, completionHandler: @escaping (Float) -> Void)
     {
         NetworkService.sharedInstance.getCurrencyExchange()
         {

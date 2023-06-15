@@ -7,6 +7,8 @@
 
 import Foundation
 class ProductInfoViewModel{
+    
+
     var isLoading : Observable<Bool> = Observable(false)
     var productId : Int
     var newCurrency: String?
@@ -62,7 +64,7 @@ class ProductInfoViewModel{
         return product.name
     }
     func getProductPrice()->String {
-        return newCurrency ?? "1"
+        return newCurrency ?? ""
     }
     
     func getProductDescription()-> String{
@@ -73,16 +75,13 @@ class ProductInfoViewModel{
     func checkCurrency()
     {  isLoading.value = true
         let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
-        let productPrice = Double(product.price) ?? 0
+        let productPrice = Float(product.price) ?? 0
         CurrencyManager.exchangePrice(to: currencyCode) {
             exchangeRate in
-            // Use the exchange rate value here
-            print("The exchange rate for USD is: \(exchangeRate)")
             self.newCurrency = "\(currencyCode)\(productPrice * exchangeRate)"
             self.isLoading.value = false
            
         }
-          
         // "EGP\(productPrice * CurrencyManager.exchangePrice(to: "EGP"))"
 
     }
@@ -100,6 +99,14 @@ class ProductInfoViewModel{
     func saveItemToDatabase(){
         let item = Fav(title: product.name, price: newCurrency ?? "no data", img: product.imgs.first ?? "placeholder", id: productId)
         FavCoreData.saveItemToDataBase(favItem: item)
+    }
+    
+//MARK: Cart
+    func insertProductInCoreData()
+    {
+        let productPrice = Float(product.price) ?? 0
+        let cartItem = CartItem(id: productId, title: product.name, quantity: 1, image: product.imgs.first ?? "placeholder", price:productPrice,defaultPrice: productPrice)
+        CartCoreData.shared.InsertCartItem(cartItem)
     }
 
 }
