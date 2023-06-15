@@ -11,6 +11,7 @@ class ShoppingCartViewModel{
     var observable2: Observable<Bool> = Observable(false)
     
     var totalPrice:Float = 0.0
+    var newCurrency:String = ""
     var cartItemsArray:[CartItem] = []
     
     func getCartItemArrayCount()->Int
@@ -26,17 +27,10 @@ class ShoppingCartViewModel{
                 {
                     totalPrice = (totalPrice ) + item.price
                }
+        checkCurrency()
         observable.value = true
     }
     
-//    func getTotalPrice()
-//    {
-//        for item in cartItemsArray
-//        {
-//            totalPrice = (totalPrice ?? 0.0) + item.price
-//        }
-//        observable2.value = true
-//    }
 
     func getCartItem(index:Int)->CartItem
     {
@@ -65,29 +59,26 @@ class ShoppingCartViewModel{
     func incrementCartItemQuantity(at index: Int) {
         CartCoreData.shared.updateCartItem(cartItemsArray[index],operation: "inc")
         self.getCartItemsFromCoreData()
-//        cartItems[index].quantity += 1
-        print("inc index: \(index)")
-        // ... update the corresponding CartItem object in Core Data ...
     }
     
     func decrementCartItemQuantity(at index: Int) {
         CartCoreData.shared.updateCartItem(cartItemsArray[index],operation: "dec")
         self.getCartItemsFromCoreData()
-//        cartItems[index].quantity += 1
 
-        print("dec index: \(index)")
     }
         
-//func getTotalPrice()-> Float
-//    {
-//        var totalPrice:Float = 0.0
-//        for item in cartItemsArray
-//        {
-//            totalPrice = totalPrice + item.price
-//            print("ooooooooooo:\(item.price)")
-//        }
-//        observable.value = true
-//        return totalPrice
-//    }
+    func checkCurrency()
+    {  
+        let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
+        CurrencyManager.exchangePrice(to: currencyCode) {
+            exchangeRate in
+            let floatValue: Float = self.totalPrice * exchangeRate
+            let formattedString = String(format: "%.2f", floatValue)
+            self.newCurrency = "\(currencyCode)\(formattedString)"
+            
+        }
+
+    }
+
     
     }

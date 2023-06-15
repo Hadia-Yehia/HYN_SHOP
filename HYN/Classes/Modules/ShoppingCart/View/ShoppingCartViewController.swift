@@ -72,7 +72,7 @@ func setupTableView()
                 {
                     self.checkCartTableIfEmpty()
                     self.tableView.reloadData()
-                    self.totalPrice.text = String(self.viewModel.totalPrice)
+                    self.totalPrice.text = self.viewModel.newCurrency
                 }
             }
 
@@ -148,6 +148,7 @@ extension ShoppingCartViewController:UITableViewDelegate, UITableViewDataSource
            let alertController = Alerts.showAlert(title: "Confirmation", message: "Are you sure you want to delete this item?", confirmTitle: "Yes", cancelTitle: "No", confirmHandler: {
                self.viewModel.deleteCartItem(index: indexPath.row)
                self.tableView.deleteRows(at: [indexPath], with: .fade)
+               self.viewModel.getCartItemsFromCoreData()
                self.checkCartTableIfEmpty()
            }, cancelHandler: nil)
 
