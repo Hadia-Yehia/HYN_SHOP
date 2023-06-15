@@ -24,10 +24,12 @@ class FavouritesViewController: UIViewController , UITableViewDelegate,UITableVi
         super.viewDidAppear(animated)
         viewModel.getFav()
         favTable.reloadData()
-        if viewModel.getTableCount() > 0{
-            print(viewModel.getTableCount())
-            noFavView.isHidden = true
+        noFavView.isHidden = true
+        if viewModel.getTableCount() == 0 {
+            self.noFavView.isHidden = false
         }
+        
+        
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.getTableCount()
@@ -45,7 +47,7 @@ class FavouritesViewController: UIViewController , UITableViewDelegate,UITableVi
                 self.viewModel.deleteItem(index:indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 if self.viewModel.getTableCount() == 0 {
-                    self.loadView()
+                    self.viewDidAppear(true)
                 }
             }) )
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))

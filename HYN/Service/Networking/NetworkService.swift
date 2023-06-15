@@ -37,10 +37,10 @@ class NetworkService:NetworkServiceProtocol{
             }
     }
     func postingNewCustomer(customer : CustomerRequest, completionHandler : @escaping(Result<CustomerResponse, NetworkError>)->Void){
-            let endpoint = "https://mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/customers.json"
+            let endpoint = "https://mad43-alex-ios2.myshopify.com/admin/api/2023-04/customers.json"
             let headers: HTTPHeaders = [
                 "Content-Type": "application/json",
-                "X-Shopify-Access-Token": "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"
+                "X-Shopify-Access-Token": "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"
             ]
        
             AF.request(endpoint, method: .post, parameters: convertToParameters(customer: customer), encoding: JSONEncoding.default, headers: headers)
@@ -65,17 +65,16 @@ class NetworkService:NetworkServiceProtocol{
                 }
     }
 
-    func postingNewDraftOrder(completionHandler : @escaping(Result<DraftOrderResponse, NetworkError>)->Void){
+    func postingNewDraftOrder(draftOrder : DraftOrder, completionHandler : @escaping(Result<DraftOrderResponse, NetworkError>)->Void){
       
-     var draftOrder = DraftOrder()
-        draftOrder.lineItems = [LineItems(title: "base", price: "0", quantity: 1)]
+    
        // draftOrder.lineItems?.append(LineItems(title: "base2", price: "0", quantity: 0))
         let draftOrderRequest = DraftOrderRequest(draft_order: draftOrder)
  
-            let endpoint = "https://mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/draft_orders.json"
+            let endpoint = "https://mad43-alex-ios2.myshopify.com/admin/api/2023-04/draft_orders.json"
             let headers: HTTPHeaders = [
                 "Content-Type": "application/json",
-                "X-Shopify-Access-Token": "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"
+                "X-Shopify-Access-Token": "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"
             ]
         print ("aywaaa\(convertDraftOrderRequestToParameter(draftOrderRequest: draftOrderRequest))")
             AF.request(endpoint, method: .post, parameters: convertDraftOrderRequestToParameter(draftOrderRequest: draftOrderRequest), encoding: JSONEncoding.default, headers: headers)

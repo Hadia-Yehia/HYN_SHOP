@@ -9,14 +9,14 @@ import UIKit
 import Firebase
 
 class SettingsViewController: UIViewController {
-
     
+    let viewModel = SettingsViewModel()
     @IBAction func logoutButton(_ sender: UIButton) {
         
     }
-
+    
     let defaults = UserDefaults.standard
-
+    
     @IBAction func addressesButton(_ sender: UIButton) {
         let destinationViewController = AddressesViewController()
         navigationController?.pushViewController(destinationViewController, animated: true)
@@ -36,20 +36,23 @@ class SettingsViewController: UIViewController {
     @IBAction func logoutBtn(_ sender: UIButton) {
         let alert = UIAlertController(title: "Confirmation", message: "Are you sure you want to logout?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
-            let firebaseAuth = Auth.auth()
-            do {
-                try firebaseAuth.signOut()
-                self.defaults.setValue(false, forKey: "logged in")
-                print(self.defaults.bool(forKey: "logged in"))
-                let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
-                self.navigationController?.pushViewController(loginVC, animated: true)
-            } catch let signOutError as NSError {
-                print("Error signing out: %@", signOutError)
-            }
+            self.viewModel.logout(completionHandler: {result in
+                switch result{
+                case .success(_):
+                    let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
+                    self.navigationController?.pushViewController(loginVC, animated: true)
+                    break
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    break
+                }
+            })
         }
                                      ))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         self.present(alert, animated: true, completion: nil)
         
     }
+      
+        
 }

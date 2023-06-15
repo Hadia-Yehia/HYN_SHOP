@@ -7,7 +7,7 @@
 
 import UIKit
 import SDWebImage
-class HomeViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+class HomeViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UISearchBarDelegate {
 
     var timer : Timer?
     var currentAdIndex = 0
@@ -24,6 +24,7 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bindViewModel()
+        searchBar.delegate = self
 
         brandsCollection.register(UINib(nibName: "MadiaCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "mediaCell")
         // Do any additional setup after loading the view.
@@ -159,6 +160,10 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
             return 50
             
         }
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.search(searchText: searchText)
+        brandsCollection.reloadData()
     }
 
 

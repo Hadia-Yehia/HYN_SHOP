@@ -33,6 +33,7 @@ class LoginViewModel{
                         self.defaults.setValue(userId, forKey: "userId")
                         self.defaults.setValue(favId, forKey: "favId")
                         self.defaults.setValue(cartId, forKey: "cartId")
+                        self.defaults.setValue(Auth.auth().currentUser?.uid, forKey: "firUserId")
                         
                         print(userName)
                     })

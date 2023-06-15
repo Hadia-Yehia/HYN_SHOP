@@ -11,6 +11,7 @@ import FirebaseDatabase
 
 class SignUpViewModel{
     var isLoading : Observable<Bool> = Observable(false)
+    let defaults = UserDefaults.standard
     var myCustomer : Customer = Customer(first_name: "", last_name: "", email: "", phone: "", verified_email: false, password: "", password_confirmation: "", send_email_welcome: false)
     var userId : Int?
     var favId : Int?
@@ -19,7 +20,10 @@ class SignUpViewModel{
     var email = "unregistered_email"
     var ref: DatabaseReference = Database.database().reference().child("usersInfo")
     var res = ""
+    var draftOrder = DraftOrder()
+    
     func rigesterNewCustomer(customer : Customer){
+        draftOrder.lineItems = [LineItems(title: "base", price: "0", quantity: 1)]
         if isLoading.value ?? true{
             return
         }
@@ -37,29 +41,32 @@ class SignUpViewModel{
                         self.userId = data.customer.id
                         self.userName = "\(String(describing: data.customer.firstName)) \(String(describing: data.customer.lastName))"
                         self.res = "success"
-                        NetworkService.getInstance().postingNewDraftOrder(completionHandler: {result in
-                            switch result{
-                            case .success(let data):
-                                self.favId = data.draftOrder?.id
-                                self.res = "success"
-                                NetworkService.getInstance().postingNewDraftOrder(completionHandler: {result in
-                                    switch result{
-                                    case .success(let data):
-                                        self.cartId = data.draftOrder?.id
-                                        self.res = "success"
+//                        NetworkService.getInstance().postingNewDraftOrder(draftOrder: self.draftOrder , completionHandler: {result in
+//                            switch result{
+//                            case .success(let data):
+//                                self.favId = data.draftOrder?.id
+//                                self.res = "success"
+//                                NetworkService.getInstance().postingNewDraftOrder(draftOrder: self.draftOrder ,completionHandler: {result in
+//                                    switch result{
+//                                    case .success(let data):
+//                                        self.cartId = data.draftOrder?.id
+//                                        self.res = "success"
                                         self.isLoading.value = false
-                                        self.ref.child(Auth.auth().currentUser!.uid).setValue(["userId": self.userId,"favId": self.favId,"cartId": self.cartId,"userName":self.userName])
-                                        break
-                                    case .failure(let error):
-                                        self.res = "error in cart creation : \(error.localizedDescription)"
-                                        break
-                                    }
-                                })
-                                break
-                            case .failure(let error):
-                                self.res = "error in fav creation : \(error.localizedDescription)"
-                                break
-                            }})
+                        FireBaseSingleTone.getInstance().child(Auth.auth().currentUser!.uid).setValue(["userId": self.userId,"userName":self.userName,"favId":0,"cartId":0])
+                        self.defaults.setValue(self.userName, forKey: "userName")
+                        self.defaults.setValue(self.userId, forKey: "userId")
+                        self.defaults.setValue(Auth.auth().currentUser?.uid, forKey: "firUserId")
+//                                        break
+//                                    case .failure(let error):
+//                                        self.res = "error in cart creation : \(error.localizedDescription)"
+////                                        break
+//                                    }
+//                                })
+//                                break
+//                            case .failure(let error):
+//                                self.res = "error in fav creation : \(error.localizedDescription)"
+//                                break
+//                            }})
                         break
                     case .failure(let error):
                         self.res = error.localizedDescription

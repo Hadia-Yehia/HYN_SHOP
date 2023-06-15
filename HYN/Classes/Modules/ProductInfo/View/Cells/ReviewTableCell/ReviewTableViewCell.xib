@@ -50,9 +50,11 @@
                             <constraint firstItem="FVw-aI-daT" firstAttribute="leading" secondItem="Fhm-Ia-6Ox" secondAttribute="leading" constant="18" id="Mxh-LX-lv2"/>
                             <constraint firstItem="eHs-J9-Zil" firstAttribute="top" secondItem="Fhm-Ia-6Ox" secondAttribute="top" constant="15" id="Z0U-CS-gR7"/>
                             <constraint firstItem="rtq-J5-wD1" firstAttribute="leading" secondItem="Fhm-Ia-6Ox" secondAttribute="leading" constant="18" id="i3g-RT-nOi"/>
+                            <constraint firstItem="eHs-J9-Zil" firstAttribute="leading" secondItem="FVw-aI-daT" secondAttribute="trailing" constant="25" id="n4K-tD-GRL"/>
                             <constraint firstItem="FVw-aI-daT" firstAttribute="width" secondItem="Fhm-Ia-6Ox" secondAttribute="width" multiplier="0.319347" constant="80.000136999999995" id="nAV-rE-z1T"/>
                             <constraint firstItem="rtq-J5-wD1" firstAttribute="top" secondItem="FVw-aI-daT" secondAttribute="bottom" constant="8" symbolic="YES" id="p7P-I0-jIi"/>
                             <constraint firstItem="rtq-J5-wD1" firstAttribute="height" secondItem="Fhm-Ia-6Ox" secondAttribute="height" multiplier="0.310127" constant="12.451426666666656" id="upG-dD-Ajg"/>
+                            <constraint firstItem="rtq-J5-wD1" firstAttribute="top" secondItem="eHs-J9-Zil" secondAttribute="bottom" constant="28.000000000000014" id="vap-37-Z5p"/>
                             <constraint firstItem="rtq-J5-wD1" firstAttribute="width" secondItem="Fhm-Ia-6Ox" secondAttribute="width" multiplier="0.850816" id="yi2-uF-jjF"/>
                         </constraints>
                     </view>

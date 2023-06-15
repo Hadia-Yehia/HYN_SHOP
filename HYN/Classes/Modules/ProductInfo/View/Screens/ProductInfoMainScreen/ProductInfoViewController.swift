@@ -14,7 +14,7 @@ class ProductInfoViewController: UIViewController {
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productDesc: UILabel!
     @IBOutlet weak var imgsPageControl: UIPageControl!
-    var valid : Bool = true
+    var valid : Bool?
     let starRatingView = JStarRatingView(frame: CGRect(origin: .zero, size: CGSize(width: 250, height: 50)), rating: 3.5, color: UIColor.systemOrange, starRounding: .roundToHalfStar)
     let reviewArray = [ReviewItem(name: "Hadia Yehia", content: "I had a wonderful experience and I would highly recommend this business to others.", rating: 3.5),ReviewItem(name: "Nada Elshafy", content: "I bought a bag from here. The quality is remarkable. It's well worth the money for their high-quality products, I highly recommended!", rating: 4.5)]
 
@@ -35,7 +35,7 @@ class ProductInfoViewController: UIViewController {
         setupTable()
         bindViewModel()
         setupDescLabel()
-        viewModel?.getProductInfo()
+//        viewModel?.getProductInfo()
         //viewModel?.checkCurrency()
 
         
@@ -43,12 +43,13 @@ class ProductInfoViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("validity\(valid)")
-        bindViewModel()
+        
+//        bindViewModel()
         viewModel?.getProductInfo()
         guard let  validity = viewModel?.checkValidity() else{return}
         valid = validity
-        if valid {
+        print("validity\(valid)")
+        if valid ?? false {
             favBtnOutlet.image = UIImage(systemName: "heart")
             //favBtnOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
         }else{
@@ -79,6 +80,10 @@ class ProductInfoViewController: UIViewController {
                 }
             }
         }
+//        viewModel?.checkValidity(completionHandler:{
+//            result in
+//            self.valid = result
+//        })
     }
 
     @IBOutlet weak var expandDescBtn: UIButton!
@@ -101,7 +106,7 @@ class ProductInfoViewController: UIViewController {
     }
     
     @IBAction func addToFavFromInfo(_ sender: UIBarButtonItem) {
-        if valid{
+        if valid!{
             viewModel?.saveItemToDatabase()
             favBtnOutlet.image = UIImage(systemName: "heart.fill")
         }
@@ -112,7 +117,11 @@ class ProductInfoViewController: UIViewController {
         }
         
     }
-        
+    @IBAction func revBtn(_ sender: Any) {
+        let revVC = RevViewController(nibName: "ReviewsViewController", bundle: nil)
+        navigationController?.pushViewController(revVC, animated: true)
+    }
+    
     }
 
 
@@ -132,6 +141,9 @@ extension ProductInfoViewController : UITableViewDelegate,UITableViewDataSource{
         cell.configCell(review: reviewArray[indexPath.row])
         return cell
     }
+ 
+      
+    
     
     
 }

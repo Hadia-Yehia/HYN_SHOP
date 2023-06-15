@@ -9,8 +9,10 @@ import Foundation
 struct BrandStruct{
     var img : String
     var id : Int
-    init(img: String, id: Int) {
+    var title : String
+    init(img: String, id: Int, title: String) {
         self.img = img
         self.id = id
+        self.title = title
     }
 }
