@@ -37,6 +37,8 @@ class LoginViewModel{
                               }
                                let userId = snapshot?.value as? Int ?? -1
                            self.defaults.setValue(userId, forKey: "userId")
+                              
+                                print("looky:\(userId)")
                        //firebaseuserid
                             self.defaults.setValue(Auth.auth().currentUser?.uid, forKey: "firUserId")
                         })

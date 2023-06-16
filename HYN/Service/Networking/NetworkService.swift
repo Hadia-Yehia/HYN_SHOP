@@ -189,14 +189,15 @@ class NetworkService:NetworkServiceProtocol{
 //
 //            return
 //        }
-        let defaults = UserDefaults.standard
-        let me = defaults.object(forKey: "userId") as! String
-        print("id:\(me)")
-      
-        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/\(me)/addresses.json"
+//        let defaults = UserDefaults.standard
+//        let me = defaults.object(forKey: "userId") as! String
+//        print("id:\(me)")
+        let userId = 6952818671908
+      print(userId)
+        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/6952821293348/addresses.json"
             
             let headers: HTTPHeaders = [
-                "X-Shopify-Access-Token": "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",
+                "X-Shopify-Access-Token": "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",
                 "Content-Type": "application/json"
             ]
             
@@ -235,11 +236,11 @@ class NetworkService:NetworkServiceProtocol{
     func getCustomerAddresses(completionHandler: @escaping (Result<CustomerAddresses, NetworkError>) -> Void)
        {
            // let customerId =
-           guard  let userId = UserDefaults.standard.object(forKey: "userId") as? String
-              else {
-                  return
-              }
-           let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/\(userId)/addresses.json"
+//           guard  let userId = UserDefaults.standard.object(forKey: "userId") as? String
+//              else {
+//                  return
+//              }
+           let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/6952821293348/addresses.json"
            
            
            AF.request(url,headers: NetworkConstants.shared.accessToken)
@@ -248,6 +249,7 @@ class NetworkService:NetworkServiceProtocol{
                    case .success(let data): do {
                        print("success")
                        let jsonData = try JSONDecoder().decode(CustomerAddresses.self, from: data!)
+                       print("bashhof:\(jsonData.addresses.count)")
                        completionHandler(.success(jsonData))
                    }
                        catch{
@@ -287,7 +289,7 @@ class NetworkService:NetworkServiceProtocol{
 
     
     func deleteAddressFromServer(addressId:Int,completionHandler: @escaping (Result<EmptyResponse, NetworkError>) -> Void) {
-        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/7125716238646/addresses/\(addressId).json"
+        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/6952821293348/addresses/\(addressId).json"
         let headers: HTTPHeaders = NetworkConstants.shared.accessToken
         
         AF.request(url,
@@ -312,7 +314,7 @@ class NetworkService:NetworkServiceProtocol{
            else {
                return
            }
-        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/\(userId)/addresses/\(addressId).json"
+        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/6952821293348/addresses/\(addressId).json"
            //  let customerId = 7123084443958
            
      
