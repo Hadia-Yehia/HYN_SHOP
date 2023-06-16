@@ -18,19 +18,46 @@ var viewModel = PaymentViewModel()
     @IBOutlet weak var subTotalLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-       setFinalCheckout()
+  bindingViewModel()
+        subTotalLabel.text = String(viewModel.subTotal)
      
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.checkCurrency()
     }
 
 func setFinalCheckout()
     {
     
         couponLabel.text = viewModel.setDisscountCoupon()
-        let subTotalString = subTotalLabel.text
-        lotalLabel.text = viewModel.calculateTotalPrice(subTotal: Float(subTotalString!)!)
-        disscountLabel.text = viewModel.calculateDisscount(subTotal: Float(subTotalString!)!)
+        lotalLabel.text = viewModel.totalString
+        disscountLabel.text = viewModel.disscountString
+        subTotalLabel.text = viewModel.subTotalString
+        shippingFeesLabel.text = "0.0\(UserDefaults.standard.string(forKey: "currencyCode") ?? "USD")"
 
+    }
+    
+    func bindingViewModel()
+    {
+        viewModel.observable.bind {
+            [weak self]
+            result in
+            guard let self = self ,  let isLoading = result
+                    else
+            {
+                return
+            }
+
+            DispatchQueue.main.async {
+                if isLoading
+                {
+                    self.setFinalCheckout()
+                  
+                }
+            }
+
+        }
     }
     /*
     // MARK: - Navigation

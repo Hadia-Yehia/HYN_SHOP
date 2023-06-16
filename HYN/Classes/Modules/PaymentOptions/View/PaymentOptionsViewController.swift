@@ -9,7 +9,7 @@ import UIKit
 
 class PaymentOptionsViewController: UIViewController {
 
-    let viewModel = PaymentOptionsViewModel()
+    var viewModel = PaymentOptionsViewModel()
     @IBAction func ConfirmCheckoutButton(_ sender: UIButton) {
         if (couponField.text == nil)
         {
@@ -27,6 +27,7 @@ class PaymentOptionsViewController: UIViewController {
     @IBOutlet weak var applePayButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("looooky: \(viewModel.subTotal)")
 
         // Do any additional setup after loading the view.
     }

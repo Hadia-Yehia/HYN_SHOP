@@ -30,7 +30,9 @@ class ShoppingCartViewController: UIViewController {
     @IBOutlet weak var moreDetailsButton: UIButton!
     @IBOutlet weak var checkoutDetailsView: UIView!
     @IBAction func checkoutButton(_ sender: UIButton) {
-        navigationController?.pushViewController(PaymentOptionsViewController(), animated: true)
+        let vC = PaymentOptionsViewController()
+        vC.viewModel = self.viewModel.navigateToPaymentOptionsViewModel()
+        navigationController?.pushViewController(vC, animated: true)
     }
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var checkoutButton: UIButton!
@@ -132,11 +134,13 @@ extension ShoppingCartViewController:UITableViewDelegate, UITableViewDataSource
     @objc func inrementProductQuantity(sender:UIButton)
         {
             viewModel.incrementCartItemQuantity(at: sender.tag)
+       
         }
         
         @objc func decrementProductQuantity(sender:UIButton)
         {
             viewModel.decrementCartItemQuantity(at: sender.tag)
+      
         }
  
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

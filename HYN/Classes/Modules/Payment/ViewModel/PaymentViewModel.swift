@@ -8,9 +8,21 @@
 import Foundation
 class PaymentViewModel
 {
+    var observable: Observable<Bool> = Observable(false)
     var coupon:String?
-    init(coupon: String? = "1") {
+    var subTotal:Float
+    var subTotalString:String = "USD"
+    var totalString:String = ""
+    var disscountString:String = ""
+    
+    init(coupon: String? = "1", subTotal:Float) {
         self.coupon = coupon
+        self.subTotal = subTotal
+    }
+    init()
+    {
+        self.coupon = ""
+        subTotal = 0.0
     }
     
     
@@ -32,45 +44,64 @@ class PaymentViewModel
 
         }
     }
-    func calculateTotalPrice(subTotal:Float)-> String
-    {
+    func calculateTotalPrice()->Float    {
         switch coupon
         {
         case Coupon.thirtyPercent.rawValue:
 //            let discount = subTotal * 0.3
 //               let discountedPrice = subTotal - discount
-            return String(subTotal-subTotal*0.3)
+            return subTotal-subTotal*0.3
         case Coupon.twentyPersent.rawValue:
-            return String(subTotal-subTotal*0.2)
+            return subTotal-subTotal*0.2
         case Coupon.fiftyPersent.rawValue:
-            return String(subTotal-subTotal*0.5)
+            return subTotal-subTotal*0.5
         case Coupon.fifteenPercent.rawValue:
-            return String(subTotal-subTotal*0.15)
+            return subTotal-subTotal*0.15
         default:
-            return String(subTotal*1)
+            return subTotal*1
 
 
         }
     }
-    func calculateDisscount(subTotal:Float)-> String
+    func calculateDisscount()-> Float
     {
         switch coupon
         {
         case Coupon.thirtyPercent.rawValue:
-            return String(-subTotal*0.3)
+            return -subTotal*0.3
         case Coupon.twentyPersent.rawValue:
-            return String(-subTotal*0.2)
+            return -subTotal*0.2
         case Coupon.fiftyPersent.rawValue:
-            return String(-subTotal*0.5)
+            return -subTotal*0.5
         case Coupon.fifteenPercent.rawValue:
-            return String(-subTotal*0.15)
+            return -subTotal*0.15
         default:
-            return String(-subTotal*1)
+            return -subTotal*0
 
 
         }
 
     }
+    
+    
+    
+    
+    func checkCurrency()
+    {
+        let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
+        CurrencyManager.exchangePrice(to: currencyCode) {
+            exchangeRate in
+            let floatValue: Float = self.subTotal * exchangeRate
+            let formattedString = String(format: "%.2f", floatValue)
+            self.subTotalString = "\(formattedString)\(currencyCode)"
+            self.totalString = String(format: "%.2f", self.calculateTotalPrice()*exchangeRate) + "\(currencyCode)"
+            self.disscountString = String(format: "%.2f", self.calculateDisscount()*exchangeRate) + "\(currencyCode)"
+           self.observable.value = true
+            
+        }
+
+    }
+    
     enum Coupon:String{
         case thirtyPercent = "7t65dehbj874"
         case twentyPersent = "rfrkj893nmn4"
