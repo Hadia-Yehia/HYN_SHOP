@@ -12,12 +12,13 @@ class AddressesViewController: UIViewController {
     @IBOutlet weak var noAddressesView: UIView!
     @IBOutlet weak var tableView: UITableView!
    
-    let viewModel = AddressesViewModel()
+    var viewModel = AddressesViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTable()
         addUIBarButtonItem()
         checkAddressesTableIfEmpty()
+        print("sunTotal: \(viewModel.subTotal)")
     }
     func checkAddressesTableIfEmpty()
     {

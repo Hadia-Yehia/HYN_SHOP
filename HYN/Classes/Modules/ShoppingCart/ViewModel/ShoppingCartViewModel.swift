@@ -84,9 +84,13 @@ class ShoppingCartViewModel{
     }
     
   
-func navigateToPaymentOptionsViewModel()->PaymentOptionsViewModel
+//func navigateToPaymentOptionsViewModel()->PaymentOptionsViewModel
+//    {
+//        return PaymentOptionsViewModel(subTotal: totalPrice)
+//    }
+    func navigateToAddresses()->AddressesViewModel
     {
-        return PaymentOptionsViewModel(subTotal: totalPrice)
+        return AddressesViewModel(subTotal: totalPrice)
     }
     
     }

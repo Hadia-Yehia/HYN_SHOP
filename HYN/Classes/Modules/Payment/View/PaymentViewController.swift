@@ -18,13 +18,16 @@ var viewModel = PaymentViewModel()
     @IBOutlet weak var subTotalLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-  bindingViewModel()
         subTotalLabel.text = String(viewModel.subTotal)
      
         // Do any additional setup after loading the view.
     }
+
     override func viewWillAppear(_ animated: Bool) {
+        bindingViewModel()
         viewModel.checkCurrency()
+        print("final: \(viewModel.coupon) \(viewModel.subTotal) \(viewModel.address)")
+      
     }
 
 func setFinalCheckout()
@@ -50,7 +53,7 @@ func setFinalCheckout()
             }
 
             DispatchQueue.main.async {
-                if isLoading
+                if !isLoading
                 {
                     self.setFinalCheckout()
                   

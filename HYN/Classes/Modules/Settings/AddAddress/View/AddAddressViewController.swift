@@ -29,7 +29,7 @@ class AddAddressViewController: UIViewController {
           getDataFromTextFields()
             navigationController?.popViewController(animated: true)
         } else {
-            Alerts.makeConfirmationDialogue(message: "Please enter all the fields")
+            Alerts.makeConfirmationDialogue(title: "Alert", message:  "Please enter all the fields")
         }
     }
     

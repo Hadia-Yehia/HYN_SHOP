@@ -10,7 +10,20 @@ import UIKit
 class AddressesViewModel {
     var observable: Observable <Bool> = Observable(false)
     var addressesArray:[Address] = []
+    
+     var subTotal:Float
+ 
+     init(subTotal:Float)
+     {
+         self.subTotal = subTotal
+ 
+     }
+    init()
+    {
+        subTotal = 0.0
 
+    }
+    
     func getAddresses()
     {
         observable.value = true
@@ -71,4 +84,8 @@ class AddressesViewModel {
         let address = addressesArray[index]
         return AddAddressViewModel(address: address)
     }
+    func navigateToPaymentOptionsViewModel(index:Int)->PaymentOptionsViewModel
+        {
+            return PaymentOptionsViewModel(subTotal: subTotal,address: getAddress(index: index))
+        }
 }

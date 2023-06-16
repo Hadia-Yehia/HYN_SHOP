@@ -30,8 +30,11 @@ class ShoppingCartViewController: UIViewController {
     @IBOutlet weak var moreDetailsButton: UIButton!
     @IBOutlet weak var checkoutDetailsView: UIView!
     @IBAction func checkoutButton(_ sender: UIButton) {
-        let vC = PaymentOptionsViewController()
-        vC.viewModel = self.viewModel.navigateToPaymentOptionsViewModel()
+//        let vC = PaymentOptionsViewController()
+//        vC.viewModel = self.viewModel.navigateToPaymentOptionsViewModel()
+        let vC = AddressesViewController()
+        vC.viewModel = self.viewModel.navigateToAddresses()
+        
         navigationController?.pushViewController(vC, animated: true)
     }
     @IBOutlet weak var tableView: UITableView!

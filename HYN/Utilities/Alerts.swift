@@ -8,8 +8,8 @@
 import UIKit
 
 class Alerts {
-    static func makeConfirmationDialogue(message: String) {
-        let alertController = UIAlertController(title: "Confirmation", message: message, preferredStyle: .alert)
+    static func makeConfirmationDialogue(title:String,message: String) {
+        let alertController = UIAlertController(title:title , message: message, preferredStyle: .alert)
         
         
         let confirmAction = UIAlertAction(title: "OK", style: .default) { _ in

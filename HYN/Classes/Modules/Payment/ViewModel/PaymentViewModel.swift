@@ -8,21 +8,25 @@
 import Foundation
 class PaymentViewModel
 {
+    
     var observable: Observable<Bool> = Observable(false)
-    var coupon:String?
+    var coupon:String
     var subTotal:Float
-    var subTotalString:String = "USD"
+    var address:Address?
+    var subTotalString:String = ""
     var totalString:String = ""
     var disscountString:String = ""
     
-    init(coupon: String? = "1", subTotal:Float) {
+    init(coupon: String, subTotal:Float,address:Address) {
         self.coupon = coupon
         self.subTotal = subTotal
+        self.address = address
     }
     init()
     {
         self.coupon = ""
         subTotal = 0.0
+        address = nil
     }
     
     
@@ -40,16 +44,15 @@ class PaymentViewModel
             return "15%"
         default:
             return "0%"
-
-
         }
     }
-    func calculateTotalPrice()->Float    {
+    
+    
+    func calculateTotalPrice()->Float{
         switch coupon
         {
+            
         case Coupon.thirtyPercent.rawValue:
-//            let discount = subTotal * 0.3
-//               let discountedPrice = subTotal - discount
             return subTotal-subTotal*0.3
         case Coupon.twentyPersent.rawValue:
             return subTotal-subTotal*0.2
@@ -59,10 +62,9 @@ class PaymentViewModel
             return subTotal-subTotal*0.15
         default:
             return subTotal*1
-
-
         }
     }
+    
     func calculateDisscount()-> Float
     {
         switch coupon
@@ -77,36 +79,37 @@ class PaymentViewModel
             return -subTotal*0.15
         default:
             return -subTotal*0
-
-
         }
 
     }
-    
-    
     
     
     func checkCurrency()
     {
         let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
+        self.observable.value = true
         CurrencyManager.exchangePrice(to: currencyCode) {
             exchangeRate in
-            let floatValue: Float = self.subTotal * exchangeRate
-            let formattedString = String(format: "%.2f", floatValue)
-            self.subTotalString = "\(formattedString)\(currencyCode)"
-            self.totalString = String(format: "%.2f", self.calculateTotalPrice()*exchangeRate) + "\(currencyCode)"
-            self.disscountString = String(format: "%.2f", self.calculateDisscount()*exchangeRate) + "\(currencyCode)"
-           self.observable.value = true
-            
+            self.formatePrices(exchangeRate: exchangeRate)
+            self.observable.value = false
         }
-
     }
     
-    enum Coupon:String{
-        case thirtyPercent = "7t65dehbj874"
-        case twentyPersent = "rfrkj893nmn4"
-        case fiftyPersent = "498ojf84jw3s"
-        case fifteenPercent = "tj99484r87u1"
+    func formatePrices(exchangeRate:Float)
+    
+    {
+        let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
+        self.subTotalString = String(format: "%.2f", self.subTotal * exchangeRate) + "\(currencyCode)"
+        self.totalString = String(format: "%.2f", self.calculateTotalPrice()*exchangeRate) + "\(currencyCode)"
+        self.disscountString = String(format: "%.2f", self.calculateDisscount()*exchangeRate) + "\(currencyCode)"
     }
+    
+  
 
+}
+enum Coupon:String{
+    case thirtyPercent = "7t65dehbj874"
+    case twentyPersent = "rfrkj893nmn4"
+    case fiftyPersent = "498ojf84jw3s"
+    case fifteenPercent = "tj99484r87u1"
 }
