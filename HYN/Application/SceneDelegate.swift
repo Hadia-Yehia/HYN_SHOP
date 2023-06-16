@@ -28,10 +28,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
            
                     window = UIWindow(frame: UIScreen.main.bounds)
                     let login = LoginViewController(nibName: "LoginViewController", bundle: nil)
-            let navigationController = UINavigationController(rootViewController: login)
-            navigationController.navigationBar.isHidden = true
-            
-                    self.window?.rootViewController = navigationController
+                    let navigationController = UINavigationController(rootViewController: login)
+                    navigationController.navigationBar.isHidden = true
+                     let homeVc = TabBar()
+        switch UserDefaults.standard.object(forKey: "logged in") as! Bool{
+        case false:
+            self.window?.rootViewController = navigationController
+            break
+        case true:
+            self.window?.rootViewController = homeVc
+            break
+        }
+                   
                     window?.makeKeyAndVisible()
                     window?.windowScene = windowScene
     }

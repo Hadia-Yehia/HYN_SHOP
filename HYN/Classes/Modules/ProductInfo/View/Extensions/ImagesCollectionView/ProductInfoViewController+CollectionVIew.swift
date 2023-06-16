@@ -17,7 +17,7 @@ extension ProductInfoViewController: UICollectionViewDelegate,UICollectionViewDa
         imgsCollectionView.showsHorizontalScrollIndicator = false
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        print (viewModel?.getImgsCount())
+     
         return viewModel?.getImgsCount() ?? 0
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

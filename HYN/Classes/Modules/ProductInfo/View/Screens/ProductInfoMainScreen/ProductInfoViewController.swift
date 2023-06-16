@@ -52,7 +52,6 @@ class ProductInfoViewController: UIViewController {
         viewModel?.getProductInfo()
         guard let  validity = viewModel?.checkValidity() else{return}
         valid = validity
-        print("validity\(valid)")
         if valid ?? false {
             favBtnOutlet.image = UIImage(systemName: "heart")
             //favBtnOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
@@ -84,10 +83,7 @@ class ProductInfoViewController: UIViewController {
                 }
             }
         }
-//        viewModel?.checkValidity(completionHandler:{
-//            result in
-//            self.valid = result
-//        })
+
     }
 
     @IBOutlet weak var expandDescBtn: UIButton!
@@ -110,13 +106,23 @@ class ProductInfoViewController: UIViewController {
     }
     
     @IBAction func addToFavFromInfo(_ sender: UIBarButtonItem) {
-        if valid!{
-            viewModel?.saveItemToDatabase()
-            favBtnOutlet.image = UIImage(systemName: "heart.fill")
-        }
-        else {
-            let alert = UIAlertController(title: "DataBase message", message: "Already existed", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
+        if Availability.isLoggedIn{
+            if valid!{
+                viewModel?.saveItemToDatabase()
+                favBtnOutlet.image = UIImage(systemName: "heart.fill")
+            }
+            else {
+                let alert = UIAlertController(title: "DataBase message", message: "Already existed", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }else {
+            let alert = UIAlertController(title: "Not Authorized", message: "You should login to add to your favorites?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Login", style: .default, handler: {_ in
+               let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
+                self.navigationController?.pushViewController(loginVC, animated: true)
+            }) )
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             self.present(alert, animated: true, completion: nil)
         }
         

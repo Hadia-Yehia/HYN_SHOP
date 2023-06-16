@@ -25,8 +25,14 @@ class FavouritesViewController: UIViewController , UITableViewDelegate,UITableVi
         viewModel.getFav()
         favTable.reloadData()
         noFavView.isHidden = true
-        if viewModel.getTableCount() == 0 {
-            self.noFavView.isHidden = false
+        notAuthorizedView.isHidden = true
+        if Availability.isLoggedIn{
+            if viewModel.getTableCount() == 0 {
+                self.noFavView.isHidden = false
+            }
+        }
+        else{
+            notAuthorizedView.isHidden = false
         }
         
         
@@ -35,6 +41,8 @@ class FavouritesViewController: UIViewController , UITableViewDelegate,UITableVi
         return viewModel.getTableCount()
     }
     
+  
+    @IBOutlet weak var notAuthorizedView: UIView!
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavouritesTableViewCell", for: indexPath) as! FavouritesTableViewCell
@@ -59,13 +67,24 @@ class FavouritesViewController: UIViewController , UITableViewDelegate,UITableVi
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if Availability.isConnectedToInternet{
             let productInfoVC = ProductInfoViewController(nibName: "ProductInfoViewController", bundle: nil)
             productInfoVC.viewModel = self.viewModel.navigateToDetailsScreen(index: indexPath.row)
             self.navigationController?.pushViewController(productInfoVC, animated: true)
         }
+        else{
+            let alert = UIAlertController(title: "Network issue", message: "No connection", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+        }
+         
+        }
     
 
-
+    @IBAction func loginBtn(_ sender: UIButton) {
+        let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        navigationController?.pushViewController(loginVC, animated: true)
+    }
     @IBAction func startExploringBtn(_ sender: UIButton) {
     }
 }

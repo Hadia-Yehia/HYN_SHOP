@@ -21,6 +21,7 @@
 		0E4676F62A3908EF00ED8DC3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0E4676F52A3908EF00ED8DC3 /* FirebaseAuth */; };
 		0E4676F82A3908EF00ED8DC3 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0E4676F72A3908EF00ED8DC3 /* FirebaseDatabase */; };
 		0E4739692A3B9973005AC923 /* RevViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4739682A3B9973005AC923 /* RevViewController.swift */; };
+		0E47FD4C2A3BDE3F00A457B6 /* Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47FD4B2A3BDE3F00A457B6 /* Availability.swift */; };
 		0E5471252A38732000FC1DD2 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5471242A38732000FC1DD2 /* Customer.swift */; };
 		0E54779D2A2F98E60048B7AD /* JStarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E54779C2A2F98E60048B7AD /* JStarRatingView.swift */; };
 		0E54779F2A2F98ED0048B7AD /* StarRatingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E54779E2A2F98ED0048B7AD /* StarRatingStackView.swift */; };
@@ -168,6 +169,7 @@
 		0E4676DC2A38C93200ED8DC3 /* DraftOrderResponsed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftOrderResponsed.swift; sourceTree = "<group>"; };
 		0E4676F22A38DAE600ED8DC3 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0E4739682A3B9973005AC923 /* RevViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevViewController.swift; sourceTree = "<group>"; };
+		0E47FD4B2A3BDE3F00A457B6 /* Availability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Availability.swift; sourceTree = "<group>"; };
 		0E5471242A38732000FC1DD2 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		0E54779C2A2F98E60048B7AD /* JStarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JStarRatingView.swift; sourceTree = "<group>"; };
 		0E54779E2A2F98ED0048B7AD /* StarRatingStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingStackView.swift; sourceTree = "<group>"; };
@@ -1084,6 +1086,7 @@
 				BC7DF3A92A323A1E00408038 /* Alerts.swift */,
 				0E83DA352A362B7F007FE3FF /* Toast.swift */,
 				BCE903462A2F4C2100570672 /* Common.swift */,
+				0E47FD4B2A3BDE3F00A457B6 /* Availability.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1476,6 +1479,7 @@
 				0E40AB402A3A1B9F002F14E0 /* LoginViewModel.swift in Sources */,
 				8F3AB9FD2A3680C900B18F95 /* ProductsResult.swift in Sources */,
 				0EFFCD932A33C7630012E3A5 /* NetworkConstants.swift in Sources */,
+				0E47FD4C2A3BDE3F00A457B6 /* Availability.swift in Sources */,
 				BC2DBA8A2A35C38F00C2021F /* Address.swift in Sources */,
 				BCFC33A12A3990F5006CA631 /* PaymentViewModel.swift in Sources */,
 				0EEAA9AF2A30BA3900913310 /* FavouritesViewModel.swift in Sources */,

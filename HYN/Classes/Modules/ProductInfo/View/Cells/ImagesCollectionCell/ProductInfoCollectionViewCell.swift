@@ -18,7 +18,6 @@ class ProductInfoCollectionViewCell: UICollectionViewCell {
     }
     func configCell(imgSRC : String){
         let url = URL(string: imgSRC)
-        print(imgSRC)
         productImg.sd_setImage(with: url, placeholderImage: UIImage(named:"placeholder"))
     }
 

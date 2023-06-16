@@ -99,19 +99,7 @@ class ProductInfoViewModel{
         return true
         
     }
-//    func checkValidity(completionHandler : @escaping(Bool)->Void){
-//         FavCoreData.fetchItems{result in
-//             self.favDataSource = result
-//             for i in 0..<(self.favDataSource?.count ?? 0){
-//                 if self.favDataSource?[i].id == self.productId{
-//                     completionHandler(false)
-//                 }
-//             }
-//            completionHandler(true)
-//         }
-//
-//
-//    }
+
     
     func saveItemToDatabase(){
         let item = Fav(title: product.name, price: newCurrency ?? "no data", img: product.imgs.first ?? "placeholder", id: productId)
