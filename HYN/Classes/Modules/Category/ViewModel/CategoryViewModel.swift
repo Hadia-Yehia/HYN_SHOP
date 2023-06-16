@@ -56,6 +56,27 @@ class CategoryViewModel{
         })
    
     }
+    
+    func getCategoryForSecData(type: String){
+        if isLoading.value ?? true{
+            return
+        }
+        isLoading.value = true
+        NetworkService.getInstance().getCategoryTypeData(type: type, completionHandler: {
+            [weak self]
+            result in
+            self?.isLoading.value = false
+            switch result{
+            case .success(let data):
+                print("success the count is \(data.products?.count)")
+                self?.getData(data: data.products!)
+                break
+            case .failure(let error):
+                break
+                
+            }
+        })
+    }
     func navigateToDetails(index : Int) -> ProductInfoViewModel{
         return ProductInfoViewModel(productId: productArr[index].id)
     }

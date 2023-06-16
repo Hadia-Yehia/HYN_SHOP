@@ -452,6 +452,32 @@ class NetworkService:NetworkServiceProtocol{
     }
 
     
+    
+    func getCategoryTypeData(type: String,completionHandler: @escaping (Result<ProductsResult, NetworkError>) -> Void) {
+        print("in items \(type)")
+        AF.request("https://d097bbce1fd2720f1d64ced55f0e485b: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@mad43-alex-ios-team4.myshopify.com/admin/api/2023-04/products.json?collection_id=448684196125&product_type=\(type)")
+        .response{response in
+            switch response.result{
+            case .success(let data): do {
+                print(data)
+                print("success in brand product data method")
+                let jsonData = try JSONDecoder().decode(ProductsResult.self, from: data!)
+                print("data after hiting\(jsonData.products?.count)")
+                completionHandler(.success(jsonData))
+            }
+                catch{
+                    print("fail parse")
+                    print(error.localizedDescription)
+                    completionHandler(.failure(.canNotParseData))
+                }
+            case .failure(let error):
+                print("fail url")
+                print(error.localizedDescription)
+                completionHandler(.failure(.urlError))
+            }
+            
+        }
+    }
 }
 enum NetworkError : Error{
     case urlError
