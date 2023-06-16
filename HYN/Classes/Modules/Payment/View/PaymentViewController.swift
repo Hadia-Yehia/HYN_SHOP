@@ -6,12 +6,29 @@
 //
 
 import UIKit
-
+import PassKit
 class PaymentViewController: UIViewController {
+ 
+    
 var viewModel = PaymentViewModel()
     @IBAction func placeOrderButton(_ sender: UIButton) {
+        if !(viewModel.isCashSelected ?? false)
+        {
+            viewModel.purchasesingApplePay()
+            {
+                result in
+                let paymentAuthorizationViewController = PKPaymentAuthorizationViewController(paymentRequest: result)
+                paymentAuthorizationViewController?.delegate = self
+                if let paymentAuthorizationViewController = paymentAuthorizationViewController {
+                    self.present(paymentAuthorizationViewController, animated: true, completion: nil)
+                }
+            }
+            
+         
+        }
     }
     @IBOutlet weak var lotalLabel: UILabel!
+    @IBOutlet weak var paymentMethodField: UILabel!
     @IBOutlet weak var disscountLabel: UILabel!
     @IBOutlet weak var couponLabel: UILabel!
     @IBOutlet weak var shippingFeesLabel: UILabel!
@@ -26,7 +43,8 @@ var viewModel = PaymentViewModel()
     override func viewWillAppear(_ animated: Bool) {
         bindingViewModel()
         viewModel.checkCurrency()
-        print("final: \(viewModel.coupon) \(viewModel.subTotal) \(viewModel.address)")
+        paymentMethodField.text = viewModel.isCashSelected ?? true ? "Cash" : "Apple Pay"
+     //   print("final: \(viewModel.coupon) \(viewModel.subTotal) \(viewModel.address)")
       
     }
 
@@ -62,14 +80,17 @@ func setFinalCheckout()
 
         }
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
+}
+extension PaymentViewController: PKPaymentAuthorizationViewControllerDelegate {
+    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
+        dismiss(animated: true, completion: nil)
     }
-    */
-
+    
+    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
+        print("success")
+        let result = PKPaymentAuthorizationResult(status: .success, errors: nil)
+        completion(result)
+    }
 }

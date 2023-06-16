@@ -6,27 +6,32 @@
 //
 
 import Foundation
+import PassKit
 class PaymentViewModel
 {
-    
+
+ 
     var observable: Observable<Bool> = Observable(false)
     var coupon:String
     var subTotal:Float
     var address:Address?
+    var isCashSelected:Bool?
     var subTotalString:String = ""
     var totalString:String = ""
     var disscountString:String = ""
     
-    init(coupon: String, subTotal:Float,address:Address) {
+    init(coupon: String, subTotal:Float,address:Address,isCashSelected:Bool) {
         self.coupon = coupon
         self.subTotal = subTotal
         self.address = address
+        self.isCashSelected = isCashSelected
     }
     init()
     {
         self.coupon = ""
         subTotal = 0.0
         address = nil
+        isCashSelected = nil
     }
     
     
@@ -104,7 +109,31 @@ class PaymentViewModel
         self.disscountString = String(format: "%.2f", self.calculateDisscount()*exchangeRate) + "\(currencyCode)"
     }
     
-  
+    func purchasesingApplePay(completionHandler: @escaping (PKPaymentRequest) -> Void)
+    {   let paymentRequest = PKPaymentRequest()
+        let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
+        paymentRequest.merchantIdentifier = "your_merchant_identifier"
+        paymentRequest.supportedNetworks = [.visa, .masterCard, .amex]
+        paymentRequest.merchantCapabilities = .capability3DS
+        paymentRequest.supportedCountries = ["EG" , "US"]
+        paymentRequest.countryCode =  "EG"
+        paymentRequest.currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
+        CurrencyManager.exchangePrice(to:  UserDefaults.standard.string(forKey: "currencyCode") ?? "USD")
+        {
+            exchangeRate in
+            let amount = NSDecimalNumber(value: self.calculateTotalPrice()*exchangeRate)
+            let roundedAmount = amount.rounding(accordingToBehavior: NSDecimalNumberHandler(roundingMode: .plain, scale: 2, raiseOnExactness: false, raiseOnOverflow: true, raiseOnUnderflow: true, raiseOnDivideByZero: true))
+            paymentRequest.paymentSummaryItems = [PKPaymentSummaryItem(label: "HYN SHOP", amount: roundedAmount)]
+
+            completionHandler(paymentRequest)
+            
+        }
+      
+       
+   
+
+    }
+    
 
 }
 enum Coupon:String{

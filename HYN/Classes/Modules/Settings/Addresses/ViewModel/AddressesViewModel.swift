@@ -61,8 +61,23 @@ class AddressesViewModel {
         NetworkService.sharedInstance.deleteAddressFromServer(addressId:addressesArray[index].id ?? 0)
         {
             result in
-            self.addressesArray.remove(at: index)
-            self.observable.value = false
+            switch result {
+               case .success(let response):
+                   // Handle successful response with empty response data
+                   if response == EmptyResponse() {
+                       self.addressesArray.remove(at: index)
+                       self.observable.value = false
+                   } else {
+                       // Non-empty response
+                   }
+            case .failure(let error):
+                print(error.localizedDescription)
+                break
+           
+               }
+  
+            
+            
         }
       
     }

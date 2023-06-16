@@ -6,9 +6,16 @@
 //
 
 import UIKit
+import PassKit
 
-class PaymentOptionsViewController: UIViewController {
-
+class PaymentOptionsViewController: UIViewController, PKPaymentAuthorizationViewControllerDelegate {
+    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
+        
+    }
+    
+    
+    
+    let controller = PKPaymentAuthorizationController()
     var isApplePayButtonSelected:Bool = false
     var isCashButtonSelected:Bool = false
     var viewModel = PaymentOptionsViewModel()
@@ -16,9 +23,14 @@ class PaymentOptionsViewController: UIViewController {
         if let text = couponField.text, !text.isEmpty && (isCashButtonSelected||isApplePayButtonSelected) {
             
             if Coupon(rawValue: couponField.text ?? "") != nil {
-                let paymentViewController = PaymentViewController()
-                paymentViewController.viewModel = self.viewModel.navigateToPayment(coupon: couponField.text ?? "1")
-                navigationController?.pushViewController(paymentViewController, animated: true)
+             
+              
+              
+                    let paymentViewController = PaymentViewController()
+                    paymentViewController.viewModel = self.viewModel.navigateToPayment(coupon: couponField.text ?? "1",isCashSelected: isCashButtonSelected)
+                    navigationController?.pushViewController(paymentViewController, animated: true)
+                
+               
             } else {
                 Alerts.makeConfirmationDialogue(title: "Not Valid Coupon!", message: "Please enter a valid coupon")
             }
@@ -34,7 +46,7 @@ class PaymentOptionsViewController: UIViewController {
             }, cancelHandler:
                                                         {
                 let paymentViewController = PaymentViewController()
-                paymentViewController.viewModel = self.viewModel.navigateToPayment(coupon: self.couponField.text ?? "1")
+                paymentViewController.viewModel = self.viewModel.navigateToPayment(coupon: self.couponField.text ?? "1", isCashSelected: self.isCashButtonSelected)
                 self.navigationController?.pushViewController(paymentViewController, animated: true)
             })
 
@@ -51,11 +63,12 @@ class PaymentOptionsViewController: UIViewController {
         super.viewDidLoad()
       applePayButton.addTarget(self, action: #selector(selectApplePayButton(sender:)), for: .touchUpInside)
       cashButton.addTarget(self, action: #selector(selectCashButton(sender:)), for: .touchUpInside)
-        
+       
         print("payment options sunb: \(viewModel.subTotal) country \(viewModel.address?.country)")
         // Do any additional setup after loading the view.
     }
 
+ 
     @objc func selectApplePayButton(sender: UIButton) {
         if !isApplePayButtonSelected {
             applePayButton.setImage(UIImage(systemName: "circle.fill"), for: .normal)

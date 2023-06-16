@@ -18,7 +18,10 @@ class AddressesViewController: UIViewController {
         setupTable()
         addUIBarButtonItem()
         checkAddressesTableIfEmpty()
-        print("sunTotal: \(viewModel.subTotal)")
+        if viewModel.subTotal != 0.0
+        {
+            self.title = "Choose address for purchasing "
+        }
     }
     func checkAddressesTableIfEmpty()
     {

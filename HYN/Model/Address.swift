@@ -58,4 +58,4 @@ struct CustomerAddresses:Decodable{
     var addresses:[Address]
 }
 
-struct EmptyResponse: Decodable {}
+struct EmptyResponse: Decodable, Equatable {}
