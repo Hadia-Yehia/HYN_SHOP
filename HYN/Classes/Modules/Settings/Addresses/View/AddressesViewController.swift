@@ -12,12 +12,16 @@ class AddressesViewController: UIViewController {
     @IBOutlet weak var noAddressesView: UIView!
     @IBOutlet weak var tableView: UITableView!
    
-    let viewModel = AddressesViewModel()
+    var viewModel = AddressesViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTable()
         addUIBarButtonItem()
         checkAddressesTableIfEmpty()
+        if viewModel.subTotal != 0.0
+        {
+            self.title = "Choose address for purchasing "
+        }
     }
     func checkAddressesTableIfEmpty()
     {

@@ -6,16 +6,42 @@
 //
 
 import Foundation
+import PassKit
 class PaymentOptionsViewModel{
 
    
-    
-    
+    var subTotal:Float
+    var address:Address?
 
-    func navigateToPayment(coupon:String)-> PaymentViewModel
+    init(subTotal:Float,address:Address)
     {
-        return PaymentViewModel(coupon: coupon)
+        self.subTotal = subTotal
+        self.address = address
     }
+    init()
+    {
+        subTotal = 0.0
+        address = nil
+    }
+
+    func navigateToPayment(coupon:String, isCashSelected:Bool)-> PaymentViewModel
+    {
+        return PaymentViewModel(coupon: coupon,subTotal: subTotal, address:address!,isCashSelected: isCashSelected)
+    }
+    func countryCode(for countryName: String) -> String? {
+        let locales = Locale.availableIdentifiers
+        for localeIdentifier in locales {
+            guard let country = Locale(identifier: localeIdentifier).localizedString(forRegionCode: "ZZ") else {
+                continue
+            }
+            if countryName == country {
+                return Locale(identifier: localeIdentifier).regionCode
+            }
+        }
+        return nil
+    }
+  
+   
 }
 
 

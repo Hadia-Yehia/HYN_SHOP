@@ -29,13 +29,13 @@ class AddAddressViewController: UIViewController {
           getDataFromTextFields()
             navigationController?.popViewController(animated: true)
         } else {
-            Alerts.makeConfirmationDialogue(message: "Please enter all the fields")
+            Alerts.makeConfirmationDialogue(title: "Alert", message:  "Please enter all the fields")
         }
     }
     
     func getDataFromTextFields()
     {
-        viewModel.fullName = "\(nameField.text ?? "noName") \(String(describing: surnameField.text))"
+        viewModel.fullName = "\(nameField.text ?? "noName") \( surnameField.text ?? "")"
         viewModel.lastName = surnameField.text
         viewModel.firstName = nameField.text
         viewModel.phoneNumber = phoneNumberField.text

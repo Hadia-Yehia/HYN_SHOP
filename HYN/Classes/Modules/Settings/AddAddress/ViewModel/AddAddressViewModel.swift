@@ -59,7 +59,7 @@ class AddAddressViewModel {
     func saveAddress()
     {
        
-        let fullAddress = Address(address1: address!, first_name: firstName!, last_name: lastName!, name: firstName!+lastName!, city: city!, country: country!, phone: phoneNumber!, zip: zipCode!)
+        let fullAddress = Address(address1: address!, first_name: firstName!, last_name: lastName!, name: fullName!, city: city!, country: country!, phone: phoneNumber!, zip: zipCode!)
         if checkIfAddressIsNotNil() == true {
          
             NetworkService.sharedInstance.updateCustomerAddress(addressId: addressToBeEdited?.id ?? 0, address: fullAddress)

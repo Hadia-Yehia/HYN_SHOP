@@ -104,7 +104,21 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
             
         case mediaCollection:
      UIPasteboard.general.string =  viewModel.getAd(index: indexPath.row).coupon
-            Toast.show(message: "Congrates! Coupon copied to clipboard successfully", controller: self)
+            switch indexPath.row
+            {
+            case 0 :
+                Alerts.makeConfirmationDialogue(title: "Congrates 🥳", message: "You got a 30% discount  coupon code copied to clipboard")
+            case 1:
+                Alerts.makeConfirmationDialogue(title: "Congrates 🥳", message: "You got a 20% discount coupon code copied to clipboard")
+            case 2:
+                Alerts.makeConfirmationDialogue(title: "Congrates 🥳", message: "You got a 50% discount coupon code copied to  clipboard")
+            case 3:
+                Alerts.makeConfirmationDialogue(title: "Congrates 🥳", message: "You got a 15% discount coupon code copied to clipboard")
+            default:
+                Alerts.makeConfirmationDialogue(title: "Congrates 🥳", message: "You now have a coupon code copied to clipboard")
+            }
+         
+//            Toast.show(message: "Congrates! Coupon copied to clipboard successfully", controller: self)
             break
         default:
             break

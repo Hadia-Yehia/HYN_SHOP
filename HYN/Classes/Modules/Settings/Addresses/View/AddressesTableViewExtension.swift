@@ -18,9 +18,19 @@ extension AddressesViewController : UITableViewDelegate , UITableViewDataSource{
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let addAddressViewController = AddAddressViewController()
-        addAddressViewController.viewModel = self.viewModel.editAddress(index: indexPath.row)
-        navigationController?.pushViewController(addAddressViewController, animated: true)
+        if viewModel.subTotal == 0.0
+        {
+            let addAddressViewController = AddAddressViewController()
+            addAddressViewController.viewModel = self.viewModel.editAddress(index: indexPath.row)
+            navigationController?.pushViewController(addAddressViewController, animated: true)
+        }
+        else
+        {
+           let vC = PaymentOptionsViewController()
+            vC.viewModel = self.viewModel.navigateToPaymentOptionsViewModel(index:  indexPath.row)
+            navigationController?.pushViewController(vC, animated: true)
+            
+        }
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
        if editingStyle == .delete {
@@ -29,7 +39,7 @@ extension AddressesViewController : UITableViewDelegate , UITableViewDataSource{
      
            let alertController = Alerts.showAlert(title: "Confirmation", message: "Are you sure you want to delete this item?", confirmTitle: "Yes", cancelTitle: "No", confirmHandler: {
                self.viewModel.deleteAddress(index: indexPath.row)
-        //self.tableView.deleteRows(at: [indexPath], with: .fade)
+     //   self.tableView.deleteRows(at: [indexPath], with: .fade)
                self.checkAddressesTableIfEmpty()
            }, cancelHandler: nil)
 

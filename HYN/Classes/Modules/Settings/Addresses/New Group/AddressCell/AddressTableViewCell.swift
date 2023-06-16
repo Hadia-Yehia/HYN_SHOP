@@ -31,6 +31,7 @@ class AddressTableViewCell: UITableViewCell {
         nationality.text = "\(address.city) \(address.country)"
         phone.text = "\(address.phone)"
         
+    
     }
     
   

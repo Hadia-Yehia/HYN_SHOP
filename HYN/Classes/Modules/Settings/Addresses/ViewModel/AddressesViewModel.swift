@@ -10,7 +10,20 @@ import UIKit
 class AddressesViewModel {
     var observable: Observable <Bool> = Observable(false)
     var addressesArray:[Address] = []
+    
+     var subTotal:Float
+ 
+     init(subTotal:Float)
+     {
+         self.subTotal = subTotal
+ 
+     }
+    init()
+    {
+        subTotal = 0.0
 
+    }
+    
     func getAddresses()
     {
         observable.value = true
@@ -48,8 +61,23 @@ class AddressesViewModel {
         NetworkService.sharedInstance.deleteAddressFromServer(addressId:addressesArray[index].id ?? 0)
         {
             result in
-            self.addressesArray.remove(at: index)
-            self.observable.value = false
+            switch result {
+               case .success(let response):
+                   // Handle successful response with empty response data
+                   if response == EmptyResponse() {
+                       self.addressesArray.remove(at: index)
+                       self.observable.value = false
+                   } else {
+                       // Non-empty response
+                   }
+            case .failure(let error):
+                print(error.localizedDescription)
+                break
+           
+               }
+  
+            
+            
         }
       
     }
@@ -71,4 +99,8 @@ class AddressesViewModel {
         let address = addressesArray[index]
         return AddAddressViewModel(address: address)
     }
+    func navigateToPaymentOptionsViewModel(index:Int)->PaymentOptionsViewModel
+        {
+            return PaymentOptionsViewModel(subTotal: subTotal,address: getAddress(index: index))
+        }
 }

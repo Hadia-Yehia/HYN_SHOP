@@ -8,7 +8,7 @@
 import Foundation
 class ShoppingCartViewModel{
     var observable: Observable<Bool> = Observable(false)
-    var observable2: Observable<Bool> = Observable(false)
+
     
     var totalPrice:Float = 0.0
     var newCurrency:String = ""
@@ -28,8 +28,9 @@ class ShoppingCartViewModel{
                     totalPrice = (totalPrice ) + item.price
             print(item.id)
                }
+
         checkCurrency()
-        observable.value = true
+       
     }
     
 
@@ -76,12 +77,20 @@ class ShoppingCartViewModel{
             let floatValue: Float = self.totalPrice * exchangeRate
             let formattedString = String(format: "%.2f", floatValue)
             self.newCurrency = "\(currencyCode)\(formattedString)"
+            self.observable.value = true
             
         }
 
     }
     
   
-
+//func navigateToPaymentOptionsViewModel()->PaymentOptionsViewModel
+//    {
+//        return PaymentOptionsViewModel(subTotal: totalPrice)
+//    }
+    func navigateToAddresses()->AddressesViewModel
+    {
+        return AddressesViewModel(subTotal: totalPrice)
+    }
     
     }
