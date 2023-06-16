@@ -100,6 +100,8 @@
 		BC063AB72A34F56D0045DBD6 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC063AB62A34F56D0045DBD6 /* Currency.swift */; };
 		BC063ABA2A34F7310045DBD6 /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC063AB92A34F7310045DBD6 /* CurrencyViewModel.swift */; };
 		BC063ABE2A3512640045DBD6 /* CurrencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC063ABD2A3512640045DBD6 /* CurrencyManager.swift */; };
+		BC1BA06D2A3CDB1D00093F93 /* PurchacingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1BA06B2A3CDB1D00093F93 /* PurchacingViewController.swift */; };
+		BC1BA06E2A3CDB1D00093F93 /* PurchacingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1BA06C2A3CDB1D00093F93 /* PurchacingViewController.xib */; };
 		BC2DBA882A35B73900C2021F /* CustomerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2DBA872A35B73900C2021F /* CustomerTest.swift */; };
 		BC2DBA8A2A35C38F00C2021F /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2DBA892A35C38F00C2021F /* Address.swift */; };
 		BC38A3DE2A30B26E00492F76 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38A3DC2A30B26E00492F76 /* SettingsViewController.swift */; };
@@ -256,6 +258,8 @@
 		BC063AB62A34F56D0045DBD6 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		BC063AB92A34F7310045DBD6 /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
 		BC063ABD2A3512640045DBD6 /* CurrencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyManager.swift; sourceTree = "<group>"; };
+		BC1BA06B2A3CDB1D00093F93 /* PurchacingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchacingViewController.swift; sourceTree = "<group>"; };
+		BC1BA06C2A3CDB1D00093F93 /* PurchacingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchacingViewController.xib; sourceTree = "<group>"; };
 		BC2DBA872A35B73900C2021F /* CustomerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTest.swift; sourceTree = "<group>"; };
 		BC2DBA892A35C38F00C2021F /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		BC38A3DC2A30B26E00492F76 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = HYN/Classes/Modules/Profile/View/SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -940,6 +944,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		BC1BA06A2A3CDADF00093F93 /* Purchacing */ = {
+			isa = PBXGroup;
+			children = (
+				BC1BA06B2A3CDB1D00093F93 /* PurchacingViewController.swift */,
+				BC1BA06C2A3CDB1D00093F93 /* PurchacingViewController.xib */,
+			);
+			path = Purchacing;
+			sourceTree = "<group>";
+		};
 		BC38A3DA2A30B25200492F76 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1104,6 +1117,7 @@
 		BCE903392A2F3E1200570672 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BC1BA06A2A3CDADF00093F93 /* Purchacing */,
 				0E8C2B6B2A34D023005B092F /* Sign up */,
 				8F3AB9F52A364FFE00B18F95 /* Brand */,
 				0E3B81702A3486CB00822540 /* Category */,
@@ -1314,6 +1328,7 @@
 			files = (
 				0E5477A12A2F98F50048B7AD /* StarRatingStackView.xib in Resources */,
 				0E55EEA32A2C85BE004A7357 /* LaunchScreen.storyboard in Resources */,
+				BC1BA06E2A3CDB1D00093F93 /* PurchacingViewController.xib in Resources */,
 				BC7600CB2A31F02C00733710 /* AddressTableViewCell.xib in Resources */,
 				BC7600C42A31EBF700733710 /* AddressesViewController.xib in Resources */,
 				8F86B9852A30C9E400B1D8C9 /* OrderViewController.xib in Resources */,
@@ -1470,6 +1485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E4676DD2A38C93200ED8DC3 /* DraftOrderResponsed.swift in Sources */,
+				BC1BA06D2A3CDB1D00093F93 /* PurchacingViewController.swift in Sources */,
 				8F86B9802A30C70500B1D8C9 /* MadiaCollectionViewCell.swift in Sources */,
 				8F68D8AA2A32AB1400C4AFA7 /* SmartCollections.swift in Sources */,
 				8F86B9762A30B86100B1D8C9 /* HomeViewController.swift in Sources */,

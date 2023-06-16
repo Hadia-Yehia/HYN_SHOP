@@ -26,6 +26,11 @@ var viewModel = PaymentViewModel()
             
          
         }
+        
+        else
+        {
+            navigationController?.pushViewController(PurchacingViewController(), animated: true)
+        }
     }
     @IBOutlet weak var lotalLabel: UILabel!
     @IBOutlet weak var paymentMethodField: UILabel!
@@ -89,7 +94,8 @@ extension PaymentViewController: PKPaymentAuthorizationViewControllerDelegate {
     }
     
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
-        print("success")
+       // print("success")
+        navigationController?.pushViewController(PurchacingViewController(), animated: true)
         let result = PKPaymentAuthorizationResult(status: .success, errors: nil)
         completion(result)
     }

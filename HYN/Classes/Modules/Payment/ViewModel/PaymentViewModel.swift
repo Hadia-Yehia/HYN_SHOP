@@ -124,7 +124,6 @@ class PaymentViewModel
             let amount = NSDecimalNumber(value: self.calculateTotalPrice()*exchangeRate)
             let roundedAmount = amount.rounding(accordingToBehavior: NSDecimalNumberHandler(roundingMode: .plain, scale: 2, raiseOnExactness: false, raiseOnOverflow: true, raiseOnUnderflow: true, raiseOnDivideByZero: true))
             paymentRequest.paymentSummaryItems = [PKPaymentSummaryItem(label: "HYN SHOP", amount: roundedAmount)]
-
             completionHandler(paymentRequest)
             
         }
