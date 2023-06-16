@@ -957,10 +957,10 @@
 			isa = PBXGroup;
 			children = (
 				0E61ADF22A3B6D0200E3C51F /* ViewModel */,
+				BC38A3DB2A30B25900492F76 /* View */,
 				BC063AAF2A34E5960045DBD6 /* Currency */,
 				BC7600CC2A31F0F000733710 /* AddAddress */,
 				BC7600BF2A31EBB800733710 /* Addresses */,
-				BC38A3DB2A30B25900492F76 /* View */,
 			);
 			path = Settings;
 			sourceTree = "<group>";

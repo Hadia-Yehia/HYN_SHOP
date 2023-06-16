@@ -40,7 +40,7 @@ class PaymentOptionsViewController: UIViewController, PKPaymentAuthorizationView
         }
         else
         {
-            let alertController =  Alerts.showAlert(title: "Offer", message: "Don't miss good offers! do you want to get 50% disscount?", confirmTitle: "Yes", cancelTitle: "No",confirmHandler: {
+            let alertController =  Alerts.showAlert(title: "Don't miss offer!", message: "Don't miss good offers! do you want to get 50% disscount?", confirmTitle: "Yes", cancelTitle: "No",confirmHandler: {
      
                 self.couponField.text = "498ojf84jw3s"
             }, cancelHandler:

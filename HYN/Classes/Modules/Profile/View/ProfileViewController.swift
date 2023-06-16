@@ -19,6 +19,7 @@ class ProfileViewController: UIViewController {
     }
     @IBOutlet weak var username: UILabel!
     @IBAction func wishListButton(_ sender: UIButton) {
+        navigationController?.pushViewController(ShoppingCartViewController(), animated: true)
     }
     @IBAction func settingsButton(_ sender: UIButton) {
         let destinationViewController = SettingsViewController()
