@@ -108,11 +108,18 @@ class ProductInfoViewModel{
     }
     
 //MARK: Cart
-    func insertProductInCoreData()
+    func insertProductInCoreData(completionHandler:@escaping (Bool)->Void)
     {
         let productPrice = Float(product.price) ?? 0
         let cartItem = CartItem(id: Int64(productId), title: product.name, quantity: 1, image: product.imgs.first ?? "placeholder", price:productPrice,defaultPrice: productPrice)
-        CartCoreData.shared.InsertCartItem(cartItem)
+     if   CartCoreData.shared.InsertCartItem(cartItem)
+        {
+         completionHandler(true)
+     }
+        else
+        {
+            completionHandler(false)
+        }
     }
 
 }

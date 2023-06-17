@@ -47,7 +47,26 @@ class FavouritesViewController: UIViewController , UITableViewDelegate,UITableVi
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavouritesTableViewCell", for: indexPath) as! FavouritesTableViewCell
         cell.configCell(item: viewModel.getObjectForCell(index: indexPath.row))
+        cell.addToCartButton.addTarget(self, action: #selector(addProductToCart(sender:)), for: .touchUpInside)
         return cell    }
+    
+    @objc func addProductToCart(sender:UIButton)
+        {
+            viewModel.insertProductInCoreData(at: sender.tag)
+            {
+                result in
+                if result
+                {
+                    Toast.show(message: "Product added to cart successfully", controller: self)
+                }
+                else
+                {
+                    Toast.show(message: "Product already exists in cart", controller: self)
+                }
+            }
+       
+        }
+        
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             let alert = UIAlertController(title: "Confirmation", message: "Are you sure you want to delete?", preferredStyle: .alert)
