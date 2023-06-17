@@ -33,17 +33,24 @@ class SettingsViewModel{
                 switch result{
                 case .success(let data):
                     self.favId = data.draftOrder?.id
-                    FireBaseSingleTone.getInstance().child(self.defaults.object(forKey: "firUserId") as! String).child("favId").setValue(self.favId)
+                    if self.favId == nil{
+                        FireBaseSingleTone.getInstance().child(self.defaults.object(forKey: "firUserId") as! String).child("favId").setValue(0)
+                    }else{
+                        FireBaseSingleTone.getInstance().child(self.defaults.object(forKey: "firUserId") as! String).child("favId").setValue(self.favId)}
                     FavCoreData.deleteAllFav()
                     NetworkService.getInstance().postingNewDraftOrder(draftOrder:self.cartDraftOrder , completionHandler: {result in
                         switch result{
                         case .success(let data):
                             self.cartId = data.draftOrder?.id
-                            FireBaseSingleTone.getInstance().child(self.defaults.object(forKey: "firUserId") as! String).child("cartId").setValue(self.cartId)
-                            completionHandler(.success("success"))
+                            if self.cartId == nil{
+                                FireBaseSingleTone.getInstance().child(self.defaults.object(forKey: "firUserId") as! String).child("cartId").setValue(0)
+                            }else{
+                                FireBaseSingleTone.getInstance().child(self.defaults.object(forKey: "firUserId") as! String).child("cartId").setValue(self.cartId)
+                            }
                             CartCoreData.shared.deleteALlItems()
                             self.lineItemsArray.removeAll()
                             self.cartLineItemsArray.removeAll()
+                            completionHandler(.success("success"))
                             break
                         case .failure(.urlError):
                             completionHandler(.failure(.urlError))
