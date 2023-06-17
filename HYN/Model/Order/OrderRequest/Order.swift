@@ -24,5 +24,5 @@ struct Order: Codable {
 
 struct PostCustoer:Codable{
     var id:Int?
-    var email:String?
+   // var email:String?
 }
