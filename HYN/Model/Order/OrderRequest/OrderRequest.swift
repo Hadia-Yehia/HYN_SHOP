@@ -15,3 +15,14 @@ struct OrderRequest: Codable {
 
 }
 
+
+struct OrderRESPONSE: Codable {
+    var orders : [Order]
+
+}
+
+
+
+
+
+

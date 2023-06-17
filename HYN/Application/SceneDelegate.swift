@@ -31,15 +31,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     let navigationController = UINavigationController(rootViewController: login)
                     navigationController.navigationBar.isHidden = true
                      let homeVc = TabBar()
-        /*switch UserDefaults.standard.object(forKey: "logged in") as! Bool{
+        switch UserDefaults.standard.object(forKey: "logged in") as! Bool{
         case false:
             self.window?.rootViewController = navigationController
             break
         case true:
             self.window?.rootViewController = homeVc
             break
-        }*/
-        self.window?.rootViewController = homeVc
+        }
+        //self.window?.rootViewController = homeVc
 
                     window?.makeKeyAndVisible()
                     window?.windowScene = windowScene

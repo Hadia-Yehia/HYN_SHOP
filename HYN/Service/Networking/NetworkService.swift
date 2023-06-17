@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 class NetworkService:NetworkServiceProtocol{
+   
     static let sharedInstance = NetworkService()
     private init(){}
     static func getInstance() -> NetworkService{
@@ -16,7 +17,7 @@ class NetworkService:NetworkServiceProtocol{
     
     
     //POST ORDER
-    func postingOrder(order : Order, completionHandler : @escaping(Result<OrderResponse, NetworkError>)->Void){
+   /* func postingOrder(order : Order, completionHandler : @escaping(Result<OrderResponse, NetworkError>)->Void){
       
     
        // draftOrder.lineItems?.append(LineItems(title: "base2", price: "0", quantity: 0))
@@ -27,7 +28,7 @@ class NetworkService:NetworkServiceProtocol{
                 "Content-Type": "application/json",
                 "X-Shopify-Access-Token": "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"
             ]
-        print ("aywaaa\(convertOrderRequestToParameter(orderRequest: orderRequest))")
+        print ("aywaaa order nody\(convertOrderRequestToParameter(orderRequest: orderRequest))")
             AF.request(endpoint, method: .post, parameters: convertOrderRequestToParameter(orderRequest: orderRequest), encoding: JSONEncoding.default, headers: headers)
                 .responseJSON { response in
                     switch response.result {
@@ -48,9 +49,65 @@ class NetworkService:NetworkServiceProtocol{
                         print("aywa shkk fe m7lo\(error)")
                     }
                 }
-    }
+    }*/
+    static func postingOrder(order:OrderRequest,completion: @escaping (Data?,URLResponse?,Error?)->Void){
+            let url = URL(string: "https://2a25907a86ee4c7a031ff62885c81a0b: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@mad43-alex-ios2.myshopify.com/admin/api/2023-04/orders.json")!
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            let session = URLSession.shared
+            request.httpShouldHandleCookies = false
+            
+            do {
+                let data = try JSONEncoder().encode(order)
+                let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any]
+                request.httpBody = try JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
+                print("lololololyyyy")
+            }catch let error {
+                print(error.localizedDescription)
+            }
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            session.dataTask(with: request) { (data,response,error) in
+                completion(data, response, error)
+            }.resume()
+        }
+    
+    
+    
+    static func gettingOrder(customerID:Int,completion: @escaping (Result<OrderRESPONSE,Error>)->Void){
+            let url = URL(string: "https://2a25907a86ee4c7a031ff62885c81a0b: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@mad43-alex-ios2.myshopify.com/admin/api/2023-04/customers/\(customerID)/orders.json")!
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+            let session = URLSession.shared
+            request.httpShouldHandleCookies = false
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            session.dataTask(with: request) { (data,response,error) in
+                do {
+                    let jsonData = try JSONDecoder().decode(OrderRESPONSE.self, from: data!)
+                    completion(.success(jsonData))
+                } catch {
+                    completion(.failure(error))
+                }
+            }.resume()
+        }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     func fetchingProductDetails(product_id: Int, completionHandler: @escaping (Result<ProductResponse, NetworkError>) -> Void) {
+        let d = UserDefaults.standard
+        var userId = d.object(forKey: "userId")
+        print("id from network\(d.object(forKey: "userId"))")
       
         AF.request("https://d097bbce1fd2720f1d64ced55f0e485b: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@mad43-alex-ios-team4.myshopify.com/admin/api/2023-04/products/\(product_id).json")
             .response{response in
@@ -193,8 +250,8 @@ class NetworkService:NetworkServiceProtocol{
     func convertOrderToParameters(order : Order)->[String:Any]{
         var parameters : [String:Any] = [:]
         var arr = Array<[String:Any]>()
-        for i in 0..<(order.lineItems.count ?? 0){
-            arr.append(convertLineItemsToParameters(lineItems: order.lineItems[i] ?? LineItems(title: "base", price: "0", quantity: 0)))
+        for i in 0..<(order.line_items.count ?? 0){
+            arr.append(convertLineItemsToParameters(lineItems: order.line_items[i] ?? LineItems(title: "base", price: "0", quantity: 0)))
         }
         parameters["line_items"] = arr
         return parameters
@@ -251,9 +308,14 @@ class NetworkService:NetworkServiceProtocol{
 //        let defaults = UserDefaults.standard
 //        let me = defaults.object(forKey: "userId") as! String
 //        print("id:\(me)")
-        let userId = 6952818671908
-      print(userId)
-        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/6952821293348/addresses.json"
+       
+        let userId = UserDefaults.standard.object(forKey: "userId")
+        guard let user = userId else
+        {
+            return
+        }
+    //  print(userId)
+        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/\(user)/addresses.json"
             
             let headers: HTTPHeaders = [
                 "X-Shopify-Access-Token": "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",
@@ -299,7 +361,13 @@ class NetworkService:NetworkServiceProtocol{
 //              else {
 //                  return
 //              }
-           let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/6952821293348/addresses.json"
+           let userId = UserDefaults.standard.object(forKey: "userId")
+           guard let user = userId else
+           {
+               return
+           }
+                
+           let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/\(user)/addresses.json"
            
            
            AF.request(url,headers: NetworkConstants.shared.accessToken)
@@ -348,7 +416,8 @@ class NetworkService:NetworkServiceProtocol{
 
     
     func deleteAddressFromServer(addressId:Int,completionHandler: @escaping (Result<EmptyResponse, NetworkError>) -> Void) {
-        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/6952821293348/addresses/\(addressId).json"
+        let userId = UserDefaults.standard.object(forKey: "userId") as! String
+        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/\(userId)/addresses/\(addressId).json"
         let headers: HTTPHeaders = NetworkConstants.shared.accessToken
         
         AF.request(url,
@@ -373,7 +442,8 @@ class NetworkService:NetworkServiceProtocol{
 //           else {
 //               return
 //           }
-        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/6952821293348/addresses/\(addressId).json"
+        let userId = UserDefaults.standard.object(forKey: "userId") as! String
+        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/\(userId)/addresses/\(addressId).json"
            //  let customerId = 7123084443958
            
      

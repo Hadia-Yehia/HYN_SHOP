@@ -25,7 +25,8 @@ let defaultCurrency = "USD"
         }*/
         FirebaseApp.configure()
         
-        UserDefaults.standard.register(defaults: ["currencyCode": defaultCurrency])
+        UserDefaults.standard.register(defaults: ["currencyCode": defaultCurrency,"logged in":false])
+        
         return true
     }
 

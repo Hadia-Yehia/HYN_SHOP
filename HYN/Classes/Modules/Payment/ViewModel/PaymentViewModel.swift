@@ -19,7 +19,9 @@ class PaymentViewModel
     var subTotalString:String = ""
     var totalString:String = ""
     var disscountString:String = ""
-    
+    let defaults = UserDefaults.standard
+    var linesArr = [LineItems]()
+
     init(coupon: String, subTotal:Float,address:Address,isCashSelected:Bool) {
         self.coupon = coupon
         self.subTotal = subTotal
@@ -32,6 +34,45 @@ class PaymentViewModel
         subTotal = 0.0
         address = nil
         isCashSelected = nil
+    }
+    
+    
+    //post order
+    func saveOrder()
+    {
+       let productArr = CartCoreData.shared.getCartItems()
+        /*for i in 0..<(productArr.count ?? 0){
+            linesArr[i].title = productArr[i].title
+            linesArr[i].price = String(productArr[i].price)
+            linesArr[i].quantity = productArr[i].quantity
+        }*/
+        
+        
+        for item in productArr{
+            var product = LineItems(title: "", price: "", quantity: 0)
+            product.title = item.title
+            product.price = String(item.price)
+            product.quantity = item.quantity
+            linesArr.append(product)
+            
+        }
+       // var customer = CustomerResponse(customer: CustomerResponsed())
+    
+        let id = UserDefaults.standard.object(forKey: "userId") as? Int
+        let email  = "nada_youssef@gmail.com"
+        print("ya eslam sabah el kher",id)
+        var customer = PostCustoer(id: id!,email: email)
+     //   let id = self.defaults.object(forKey: "userId")
+        print("orderssssss",linesArr)
+        let order = Order(customer:customer, lineItems: linesArr)
+       let myOrder  = OrderRequest(order: order)
+        NetworkService.postingOrder(order: myOrder){ data, response, error in
+            let response = String(data:data!,encoding: .utf8)
+                            print(response!)
+        }
+           
+        
+    
     }
     
     
