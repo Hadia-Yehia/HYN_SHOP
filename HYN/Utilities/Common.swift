@@ -25,3 +25,10 @@ extension UIView
           view.layer.cornerRadius = 20
        }
 }
+extension UITextField {
+    func containsNumbersOnly() -> Bool {
+        let numericRegex = "^[0-9\\-]+$"
+        let numericTest = NSPredicate(format: "SELF MATCHES %@", numericRegex)
+        return numericTest.evaluate(with: self.text)
+    }
+}

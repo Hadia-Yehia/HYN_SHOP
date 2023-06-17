@@ -194,7 +194,7 @@ class NetworkService:NetworkServiceProtocol{
 //        print("id:\(me)")
         let userId = 6952818671908
       print(userId)
-        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/6952821293348/addresses.json"
+        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/6954583818532/addresses.json"
             
             let headers: HTTPHeaders = [
                 "X-Shopify-Access-Token": "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",
@@ -240,7 +240,7 @@ class NetworkService:NetworkServiceProtocol{
 //              else {
 //                  return
 //              }
-           let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/6952821293348/addresses.json"
+           let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/6954583818532/addresses.json"
            
            
            AF.request(url,headers: NetworkConstants.shared.accessToken)
@@ -289,7 +289,7 @@ class NetworkService:NetworkServiceProtocol{
 
     
     func deleteAddressFromServer(addressId:Int,completionHandler: @escaping (Result<EmptyResponse, NetworkError>) -> Void) {
-        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/6952821293348/addresses/\(addressId).json"
+        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/6954583818532/addresses/\(addressId).json"
         let headers: HTTPHeaders = NetworkConstants.shared.accessToken
         
         AF.request(url,
@@ -314,7 +314,7 @@ class NetworkService:NetworkServiceProtocol{
 //           else {
 //               return
 //           }
-        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/6952821293348/addresses/\(addressId).json"
+        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/6954583818532/addresses/\(addressId).json"
            //  let customerId = 7123084443958
            
      

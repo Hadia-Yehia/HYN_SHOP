@@ -25,7 +25,7 @@ class AddAddressViewController: UIViewController {
         let textFields = [nameField, surnameField, phoneNumberField, countryField, cityField, zipCodeField,addressField]
         let allFieldsNonEmpty = !textFields.reduce(false) { $0 || ($1?.text?.isEmpty ?? true) }
 
-        if allFieldsNonEmpty {
+        if allFieldsNonEmpty && validatePhoneNumberAndZipCode(){
           getDataFromTextFields()
             navigationController?.popViewController(animated: true)
         } else {
@@ -46,12 +46,23 @@ class AddAddressViewController: UIViewController {
         viewModel.saveAddress()
     }
     
+    func validatePhoneNumberAndZipCode()->Bool
+    {
+        if phoneNumberField.containsNumbersOnly() && zipCodeField.containsNumbersOnly() {
+        return true
+        } else {
+            Alerts.makeConfirmationDialogue(title: "Alert", message: "Phone number and zip code should contain numbers only!")
+            return false
+        }
+    }
+    
   
     override func viewDidLoad() {
         super.viewDidLoad()
        checkDestination()
         setupCountriesPickerView()
         countryField.inputView = countryPickerView
+        
     
     }
     
