@@ -83,7 +83,7 @@ class LoginViewModel{
                 let array:[LineItems] = try  (result.get().draftOrder?.lineItems) ?? Array()
                 for item in array
                 {
-                    let data = "Yousra*Mamdouh*Ali"
+                    let data = item.title
                     let dataComponents:[String] = data.split(separator: "*").map { String($0) }
                     let price = Float(item.price)
                     let defaultPrice = (price ?? 0.0) / Float(item.quantity)
@@ -109,7 +109,7 @@ class LoginViewModel{
                 let array:[LineItems] = try  (result.get().draftOrder?.lineItems) ?? Array()
                 for item in array
                 {
-                    let data = "Yousra*Mamdouh*Ali"
+                    let data = item.title
                     let dataComponents:[String] = data.split(separator: "*").map { String($0) }
                     let favoriteItem  = Fav(title: dataComponents[1], price:item.price, img:  dataComponents[2], id: Int(dataComponents[0]) ?? 0)
                     FavCoreData.saveProductToDataBase(item: favoriteItem)

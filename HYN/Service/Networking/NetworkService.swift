@@ -119,12 +119,13 @@ class NetworkService:NetworkServiceProtocol{
             .response{response in
                 switch response.result{
                 case .success(let data): do {
-                    print("success")
+                   
                     let jsonData = try JSONDecoder().decode(DraftOrderResponse.self, from: data!)
+                    print("m3aya data ya yousra: \(jsonData.draftOrder?.lineItems?.count)")
                     completionHandler(.success(jsonData))
                 }
                     catch{
-                        print("fail parse")
+                        print("msh 3arf ageeb el data ya yousra ")
                         print(error.localizedDescription)
                         completionHandler(.failure(.canNotParseData))
                     }

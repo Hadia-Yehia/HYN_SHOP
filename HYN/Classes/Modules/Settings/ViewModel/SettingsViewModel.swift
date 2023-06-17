@@ -41,7 +41,7 @@ class SettingsViewModel{
                             self.cartId = data.draftOrder?.id
                             FireBaseSingleTone.getInstance().child(self.defaults.object(forKey: "firUserId") as! String).child("cartId").setValue(self.cartId)
                             completionHandler(.success("success"))
-                            CartCoreData.shared.deleteALlItems()
+                         //   CartCoreData.shared.deleteALlItems()
                             self.lineItemsArray.removeAll()
                             self.cartLineItemsArray.removeAll()
                             break
