@@ -171,7 +171,19 @@ class CartCoreData{
     }
     
 
-
+    func deleteAllCartItems() {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Cart")
+        
+        do {
+            let cartItems = try getContext().fetch(fetchRequest)
+            for cartItem in cartItems {
+                getContext().delete(cartItem)
+            }
+            self.saveContext()
+        } catch let error as NSError {
+            print("Error deleting cart items: \(error.localizedDescription)")
+        }
+    }
     
 }
 

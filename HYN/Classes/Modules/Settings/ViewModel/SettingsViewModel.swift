@@ -35,8 +35,12 @@ class SettingsViewModel{
                     self.favId = data.draftOrder?.id
                     if self.favId == nil{
                         FireBaseSingleTone.getInstance().child(self.defaults.object(forKey: "firUserId") as! String).child("favId").setValue(0)
+                        self.defaults.set(0, forKey: "favId")
                     }else{
-                        FireBaseSingleTone.getInstance().child(self.defaults.object(forKey: "firUserId") as! String).child("favId").setValue(self.favId)}
+                        FireBaseSingleTone.getInstance().child(self.defaults.object(forKey: "firUserId") as! String).child("favId").setValue(self.favId)
+                        self.defaults.set(self.favId, forKey: "favId")
+                    }
+                   
                     FavCoreData.deleteAllFav()
                     NetworkService.getInstance().postingNewDraftOrder(draftOrder:self.cartDraftOrder , completionHandler: {result in
                         switch result{
@@ -44,10 +48,12 @@ class SettingsViewModel{
                             self.cartId = data.draftOrder?.id
                             if self.cartId == nil{
                                 FireBaseSingleTone.getInstance().child(self.defaults.object(forKey: "firUserId") as! String).child("cartId").setValue(0)
+                                self.defaults.set(0, forKey: "cartId")
                             }else{
                                 FireBaseSingleTone.getInstance().child(self.defaults.object(forKey: "firUserId") as! String).child("cartId").setValue(self.cartId)
+                                self.defaults.set(self.cartId, forKey: "cartId")
                             }
-                            CartCoreData.shared.deleteALlItems()
+                           CartCoreData.shared.deleteAllCartItems()
                             self.lineItemsArray.removeAll()
                             self.cartLineItemsArray.removeAll()
                             completionHandler(.success("success"))

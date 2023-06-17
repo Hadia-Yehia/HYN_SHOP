@@ -124,3 +124,7 @@ HYN/Classes/Modules/Profile/View/SettingsViewController_BASE_27723.xib
 HYN/Classes/Modules/Profile/View/SettingsViewController_LOCAL_27723.xib
 HYN/Classes/Modules/Profile/View/SettingsViewController_REMOTE_27723.xib
 HYN/Classes/Modules/Sign up/View/SignUpViewController.swift.orig
+HYN/Classes/Modules/Settings/ViewModel/SettingsViewModel_BACKUP_12093.swift
+HYN/Classes/Modules/Settings/ViewModel/SettingsViewModel_BASE_12093.swift
+HYN/Classes/Modules/Settings/ViewModel/SettingsViewModel_LOCAL_12093.swift
+HYN/Classes/Modules/Settings/ViewModel/SettingsViewModel_REMOTE_12093.swift

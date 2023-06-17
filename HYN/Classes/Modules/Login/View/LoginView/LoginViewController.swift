@@ -46,8 +46,10 @@ class LoginViewController: UIViewController {
                 switch result{
                 case .success(_):
                     //MARK: mo2akatan 
-                    self.viewModel.getDraftCartItems(draftOrderId:UserDefaults.standard.object(forKey: "cartId") as! Int )
-                    self.viewModel.getDraftFavoriteItems(draftOrderId: UserDefaults.standard.object(forKey: "favId") as! Int)
+                  
+                    
+                    print("fav id \(UserDefaults.standard.object(forKey: "favId") as! Int)")
+                    print("cart id \(UserDefaults.standard.object(forKey: "cartId") as! Int)")
                      let homeVC = TabBar()
                      self.navigationController?.pushViewController(homeVC, animated: true)
                     

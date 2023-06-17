@@ -19,7 +19,7 @@ class LoginViewModel{
                         completionHandler(.failure(e))
                     }
                     else{
-                        completionHandler(.success("success"))
+                        
                         //username
                         FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/userName").getData(completion:  { error, snapshot in
                             guard error == nil else {
@@ -51,6 +51,8 @@ class LoginViewModel{
                               }
                                let favId = snapshot?.value as? Int ?? -1
                            self.defaults.setValue(favId, forKey: "favId")
+                                print("looky fav:\(favId)")
+                                self.getDraftFavoriteItems(draftOrderId: UserDefaults.standard.object(forKey: "favId") as! Int)
                         })
                         //cartId
                         
@@ -61,11 +63,14 @@ class LoginViewModel{
                               }
                                let cartId = snapshot?.value as? Int ?? -1
                            self.defaults.setValue(cartId, forKey: "cartId")
+                                print("looky cart:\(cartId)")
+                                self.getDraftCartItems(draftOrderId:UserDefaults.standard.object(forKey: "cartId") as! Int )
                         })
                         
                         
                         self.defaults.setValue(true, forKey: "logged in")
                         print(self.defaults.bool(forKey: "logged in"))
+                        completionHandler(.success("success"))
                  
                  
                     }
