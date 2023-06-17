@@ -16,6 +16,15 @@ class ProfileViewController: UIViewController {
     @IBAction func ordersButton(_ sender: UIButton) {
         let orderVC = OrderViewController(nibName: "OrderViewController", bundle: nil)
         navigationController?.pushViewController(orderVC, animated: true)
+        NetworkService.gettingOrder(customerID: 6954912186660) { (result : Result<OrderRESPONSE,Error>) in
+            switch(result){
+            case .success(let data):
+                print(data.orders)
+            case .failure(let error):
+                print(error)
+            }
+            
+        }
     }
     @IBOutlet weak var username: UILabel!
     @IBAction func wishListButton(_ sender: UIButton) {
@@ -29,7 +38,7 @@ class ProfileViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
         // Do any additional setup after loading the view.
     }
 

@@ -39,7 +39,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window?.rootViewController = homeVc
             break
         }
+<<<<<<< HEAD
        
+=======
+        //self.window?.rootViewController = homeVc
+>>>>>>> order_feature
 
                     window?.makeKeyAndVisible()
                     window?.windowScene = windowScene

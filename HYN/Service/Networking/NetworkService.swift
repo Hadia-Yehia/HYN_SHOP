@@ -15,6 +15,95 @@ class NetworkService:NetworkServiceProtocol{
         return sharedInstance
     }
     
+    
+    //POST ORDER
+   /* func postingOrder(order : Order, completionHandler : @escaping(Result<OrderResponse, NetworkError>)->Void){
+      
+    
+       // draftOrder.lineItems?.append(LineItems(title: "base2", price: "0", quantity: 0))
+        let orderRequest = OrderRequest(order: order)
+ 
+            let endpoint = "https://mad43-alex-ios2.myshopify.com/admin/api/2023-04/orders.json"
+            let headers: HTTPHeaders = [
+                "Content-Type": "application/json",
+                "X-Shopify-Access-Token": "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"
+            ]
+        print ("aywaaa order nody\(convertOrderRequestToParameter(orderRequest: orderRequest))")
+            AF.request(endpoint, method: .post, parameters: convertOrderRequestToParameter(orderRequest: orderRequest), encoding: JSONEncoding.default, headers: headers)
+                .responseJSON { response in
+                    switch response.result {
+                    case .success(let value): do {
+                        print("success")
+                        let jsonData = try JSONDecoder().decode(OrderResponse.self, from: JSONSerialization.data(withJSONObject: value,options: .prettyPrinted))
+                        print("ya 3zizy\(jsonData.order?.id)")
+                        completionHandler(.success(jsonData))
+                    }
+                        catch{
+                            print("fail parse")
+                            print(error.localizedDescription)
+                            completionHandler(.failure(.canNotParseData))
+                        }
+                        print(value)
+                    case .failure(let error):
+                        // Handle the error
+                        print("aywa shkk fe m7lo\(error)")
+                    }
+                }
+    }*/
+    static func postingOrder(order:OrderRequest,completion: @escaping (Data?,URLResponse?,Error?)->Void){
+            let url = URL(string: "https://2a25907a86ee4c7a031ff62885c81a0b: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@mad43-alex-ios2.myshopify.com/admin/api/2023-04/orders.json")!
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            let session = URLSession.shared
+            request.httpShouldHandleCookies = false
+            
+            do {
+                let data = try JSONEncoder().encode(order)
+                let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any]
+                request.httpBody = try JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
+                print("lololololyyyy")
+            }catch let error {
+                print(error.localizedDescription)
+            }
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            session.dataTask(with: request) { (data,response,error) in
+                completion(data, response, error)
+            }.resume()
+        }
+    
+    
+    
+    static func gettingOrder(customerID:Int,completion: @escaping (Result<OrderRESPONSE,Error>)->Void){
+            let url = URL(string: "https://2a25907a86ee4c7a031ff62885c81a0b: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@mad43-alex-ios2.myshopify.com/admin/api/2023-04/customers/\(customerID)/orders.json")!
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+            let session = URLSession.shared
+            request.httpShouldHandleCookies = false
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            session.dataTask(with: request) { (data,response,error) in
+                do {
+                    let jsonData = try JSONDecoder().decode(OrderRESPONSE.self, from: data!)
+                    completion(.success(jsonData))
+                } catch {
+                    completion(.failure(error))
+                }
+            }.resume()
+        }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     func fetchingProductDetails(product_id: Int, completionHandler: @escaping (Result<ProductResponse, NetworkError>) -> Void) {
         let defaults = UserDefaults.standard
         print("from network\(defaults.object(forKey: "userName"))")
@@ -153,6 +242,29 @@ class NetworkService:NetworkServiceProtocol{
         parameters["line_items"] = arr
         return parameters
     }
+    
+    
+    
+    func convertOrderRequestToParameter(orderRequest : OrderRequest) -> [String : Any]{
+        var parameters : [String : Any] = [:]
+        parameters["order"] = convertOrderToParameters(order: orderRequest.order)
+        return parameters
+    }
+    func convertOrderToParameters(order : Order)->[String:Any]{
+        var parameters : [String:Any] = [:]
+        var arr = Array<[String:Any]>()
+        for i in 0..<(order.line_items.count ?? 0){
+            arr.append(convertLineItemsToParameters(lineItems: order.line_items[i] ?? LineItems(title: "base", price: "0", quantity: 0)))
+        }
+        parameters["line_items"] = arr
+        return parameters
+    }
+    
+    
+    
+    
+    
+    
     
     func convertLineItemsToParameters(lineItems:LineItems)->[String:Any]{
         var parameters : [String:Any] = [:]
@@ -293,11 +405,7 @@ class NetworkService:NetworkServiceProtocol{
 
     
     func deleteAddressFromServer(addressId:Int,completionHandler: @escaping (Result<EmptyResponse, NetworkError>) -> Void) {
-        guard  let userId = UserDefaults.standard.object(forKey: "userId")
-           else {
-
-               return
-           }
+        let userId = UserDefaults.standard.object(forKey: "userId") as! String
         let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/\(userId)/addresses/\(addressId).json"
         let headers: HTTPHeaders = NetworkConstants.shared.accessToken
         
