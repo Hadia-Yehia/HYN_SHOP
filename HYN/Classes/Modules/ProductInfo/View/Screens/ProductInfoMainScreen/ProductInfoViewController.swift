@@ -11,6 +11,17 @@ class ProductInfoViewController: UIViewController {
 
     @IBAction func addToCartButton(_ sender: UIButton) {
         viewModel?.insertProductInCoreData()
+        {
+            result in
+            if result
+            {
+                Toast.show(message: "Product added to cart successfully", controller: self)
+            }
+            else
+            {
+                Toast.show(message: "Product already exists in cart", controller: self)
+            }
+        }
     }
     @IBOutlet weak var reviewTable: UITableView!
     @IBOutlet weak var imgsCollectionView: UICollectionView!

@@ -10,6 +10,7 @@ import SDWebImage
 
 class FavouritesTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var addToCartButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

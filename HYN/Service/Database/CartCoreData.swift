@@ -76,16 +76,16 @@ class CartCoreData{
     }
     
     
-    func InsertCartItem(_ cartItem:CartItem) {
+    func InsertCartItem(_ cartItem:CartItem)->Bool {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Cart")
-        fetchRequest.predicate = NSPredicate(format: "id == %d", cartItem.id)
+        fetchRequest.predicate = NSPredicate(format: "id == %lld", cartItem.id)
         fetchRequest.fetchLimit = 1
 
         do {
-            let results = try context.fetch(fetchRequest)
+            let results = try getContext().fetch(fetchRequest)
             if results.count > 0 {
                print("Product already exists in coreData")
-                return
+                return false
             }
 
             let entity = NSEntityDescription.entity(forEntityName: "Cart", in: getContext())!
@@ -96,15 +96,12 @@ class CartCoreData{
             newCartItem.setValue(cartItem.quantity, forKey: "quantity")
             newCartItem.setValue(cartItem.image, forKey: "image")
             newCartItem.setValue(cartItem.defaultPrice, forKey: "defaultPrice")
-         
-           
-
             print("Product added successfully")
-
-            try context.save()
+         saveContext()
         } catch let error as NSError {
             print("Could not fetch: \(error), \(error.userInfo)")
         }
+        return true
     }
     
   
