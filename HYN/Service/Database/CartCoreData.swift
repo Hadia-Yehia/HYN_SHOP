@@ -171,8 +171,10 @@ class CartCoreData{
     }
     
 
-    func deleteALlItems(){}
+
+    
 }
+
 
       
 
