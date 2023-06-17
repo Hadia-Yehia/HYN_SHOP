@@ -13,6 +13,7 @@ class CategoryViewModel{
 
     var productArr : [ProductsStruct] = Array()
     var collectionArr : [CollectionStruct] = Array()
+    var filteredArr : [ProductsStruct] = Array()
     //var productForSecArr : [ProductsStruct] = Array()
     //var brandId : Int = 0
     func getProductsForSecData(brandId: Int){
@@ -78,7 +79,7 @@ class CategoryViewModel{
         })
     }
     func navigateToDetails(index : Int) -> ProductInfoViewModel{
-        return ProductInfoViewModel(productId: productArr[index].id)
+        return ProductInfoViewModel(productId: filteredArr[index].id)
     }
     
     /*func getCollectionData(){
@@ -116,21 +117,22 @@ class CategoryViewModel{
         return collectionArr.count-1
     }
     func getProductsCount() -> Int{
-        return productArr.count
+        return filteredArr.count
     }
     func getData(data : [Product]){
         productArr = [ProductsStruct]()
         for i in 0..<data.count{
-            let products = ProductsStruct(id: data[i].id!, price: (data[i].variants?.first?.price)!, img: (data[i].image?.src!)!)
+            let products = ProductsStruct(id: data[i].id!, price: (data[i].variants?.first?.price)!, img: (data[i].image?.src!)!,title: data[i].title!)
             
             productArr.append(products)
         }
+        filteredArr = productArr
     }
     func getCellImgData(index : Int)->String{
-        return (productArr[index].img)
+        return (filteredArr[index].img)
     }
     func getCellPriceData(index : Int)->String{
-        return (productArr[index].price)
+        return (filteredArr[index].price)
     }
    /* func getCellImgTypeData(index : Int)->String{
         return (collectionArr[index].img)
@@ -138,6 +140,14 @@ class CategoryViewModel{
     func getCellTitleTypeData(index : Int)->String{
         return (collectionArr[index].title)
     }*/
-    
+    func search(searchText : String){
+        if searchText.isEmpty == false{
+            filteredArr = productArr.filter{$0.title.lowercased().contains(searchText.lowercased())}
+           
+               }
+        else if searchText.isEmpty{
+           filteredArr = productArr
+        }
+    }
     
 }

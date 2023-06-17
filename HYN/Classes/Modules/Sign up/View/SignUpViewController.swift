@@ -64,15 +64,6 @@ class SignUpViewController: UIViewController {
                         }
                     }
                 }
-//                switch result {
-//                case "success":
-//                    let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
-//                    self.navigationController?.pushViewController(homeVC, animated: true)
-//                    break
-//                default:
-//                    Toast.show(message: result, controller: self)
-//                    break
-//                }
             }else{
                 Toast.show(message: "Password doesn't match", controller: self)
             }

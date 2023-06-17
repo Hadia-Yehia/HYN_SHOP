@@ -15,7 +15,12 @@ class NetworkService:NetworkServiceProtocol{
     }
     
     func fetchingProductDetails(product_id: Int, completionHandler: @escaping (Result<ProductResponse, NetworkError>) -> Void) {
-      
+        let defaults = UserDefaults.standard
+        print("from network\(defaults.object(forKey: "userName"))")
+        print("from network\(defaults.object(forKey: "userId"))")
+        print("from network\(defaults.object(forKey: "favId"))")
+        print("from network\(defaults.object(forKey: "cartId"))")
+        print("from network\(defaults.object(forKey: "firUserId"))")
         AF.request("https://d097bbce1fd2720f1d64ced55f0e485b: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@mad43-alex-ios-team4.myshopify.com/admin/api/2023-04/products/\(product_id).json")
             .response{response in
                 switch response.result{

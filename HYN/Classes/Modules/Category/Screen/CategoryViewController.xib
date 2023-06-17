@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryViewController" customModule="HYN" customModuleProvider="target">
             <connections>
                 <outlet property="productCollection" destination="We7-QC-jjX" id="LHk-sv-RVC"/>
+                <outlet property="searchBar" destination="jgv-DU-lhA" id="OTZ-V7-MhI"/>
                 <outlet property="typeCollection" destination="KjL-tM-nol" id="6UK-sQ-e6C"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

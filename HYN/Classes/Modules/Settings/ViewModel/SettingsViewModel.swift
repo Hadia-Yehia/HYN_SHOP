@@ -39,7 +39,7 @@ class SettingsViewModel{
                         switch result{
                         case .success(let data):
                             self.cartId = data.draftOrder?.id
-                            FireBaseSingleTone.getInstance().child(self.defaults.object(forKey: "firUserId") as! String).child("cartId").setValue(self.favId)
+                            FireBaseSingleTone.getInstance().child(self.defaults.object(forKey: "firUserId") as! String).child("cartId").setValue(self.cartId)
                             completionHandler(.success("success"))
                             CartCoreData.shared.deleteALlItems()
                             self.lineItemsArray.removeAll()
