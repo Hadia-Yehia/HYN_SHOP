@@ -10,12 +10,13 @@ struct ProductsStruct{
     var id : Int
     var price : String
     var img : String
+    var title : String
 
-    init(id: Int, price: String,img: String) {
+    init(id: Int, price: String, img: String, title: String) {
         self.id = id
         self.price = price
         self.img = img
-   
+        self.title = title
     }
   
 }

@@ -28,6 +28,8 @@ class LoginViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     @IBAction func forgotPassBtn(_ sender: UIButton) {
+        let resetVC = ForgotPasswordViewController(nibName: "ForgotPasswordViewController", bundle: nil)
+        navigationController?.pushViewController(resetVC, animated: true)
     }
     @IBAction func skipBtn(_ sender: UIButton) {
         let homeVC = TabBar()

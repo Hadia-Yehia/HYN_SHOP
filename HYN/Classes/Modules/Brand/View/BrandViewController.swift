@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BrandViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+class BrandViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UISearchBarDelegate {
   
     var viewModel : BrandViewModel?
     @IBOutlet weak var brandCollectionItems: UICollectionView!
@@ -19,6 +19,7 @@ class BrandViewController: UIViewController,UICollectionViewDataSource,UICollect
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bindViewModel()
+        searchBrand.delegate = self
      //   collectionViewData = viewModel!.productArr
         brandCollectionItems.register(UINib(nibName: "ProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "productCell")
         brandCollectionItems.dataSource = self
@@ -83,14 +84,9 @@ class BrandViewController: UIViewController,UICollectionViewDataSource,UICollect
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             return CGSize(width:collectionView.bounds.width/2, height: collectionView.bounds.height/2)
         }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel?.search(searchText: searchText)
+        brandCollectionItems.reloadData()
     }
-    */
 
 }

@@ -9,6 +9,7 @@ import Foundation
 class BrandViewModel{
     var isLoading : Observable<Bool> = Observable(false)
     var productArr : [ProductsStruct] = Array()
+    var searchFilteredArr : [ProductsStruct] = Array()
     var brandIdFromHome:Int
     var isFiltering = false
     var filterArr : [ProductsStruct] = Array()
@@ -39,19 +40,30 @@ class BrandViewModel{
 
     }
     func getBrandsCount() -> Int{
-        return productArr.count
+        return searchFilteredArr.count
     }
     func getData(data : [Product]){
         for i in 0..<data.count{
-            let products = ProductsStruct(id: data[i].id!, price: (data[i].variants?.first?.price)!, img: (data[i].image?.src!)!)
+            let products = ProductsStruct(id: data[i].id!, price: (data[i].variants?.first?.price)!, img: (data[i].image?.src!)!,title: data[i].title!)
             productArr.append(products)
         }
+        searchFilteredArr = productArr
     }
     func getCellImgData(index : Int)->String{
-        return productArr[index].img
+        return searchFilteredArr[index].img
     }
     func getCellPriceData(index : Int)->String{
-        return productArr[index].price
+        return searchFilteredArr[index].price
     }
+    func search(searchText : String){
+        if searchText.isEmpty == false{
+            searchFilteredArr = productArr.filter{$0.title.lowercased().contains(searchText.lowercased())}
+           
+               }
+        else if searchText.isEmpty{
+          searchFilteredArr = productArr
+        }
+    }
+
 }
 

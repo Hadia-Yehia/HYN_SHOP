@@ -7,12 +7,13 @@
 
 import UIKit
 
-class CategoryViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+class CategoryViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UISearchBarDelegate {
     let button1 = UIButton()
     let button2 = UIButton()
     let button3 = UIButton()
     let button4 = UIButton()
 
+    @IBOutlet weak var searchBar: UISearchBar!
     private let floatingButton:UIButton = {
        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
         button.layer.masksToBounds = true
@@ -41,6 +42,7 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
    // var photoCell = [UIImage(named: "media3.jpg"),UIImage(named: "media1.jpg"),UIImage(named: "media2.jpg"),UIImage(named: "media.jpg")]
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
         view.addSubview(floatingButton)
         floatingButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         button1.setImage(UIImage(named: "tshirt.png"), for: .normal)
@@ -232,14 +234,9 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.search(searchText: searchText)
+        productCollection.reloadData()
     }
-    */
 
 }

@@ -34,71 +34,84 @@ class SignUpViewModel{
                 self.res = e.localizedDescription
             }else {
                 
-                NetworkService.getInstance().postingNewCustomer(customer: CustomerRequest(customer: customer), completionHandler: {result in
-                    
-                    switch result{
-                    case .success(let data):
-                        self.userId = data.customer.id
-                        self.userName = "\(String(describing: data.customer.firstName)) \(String(describing: data.customer.lastName))"
-                        self.res = "success"
-
-                                        self.isLoading.value = false
-                        FireBaseSingleTone.getInstance().child(Auth.auth().currentUser!.uid).setValue(["userId": self.userId,"userName":self.userName,"favId":0,"cartId":0])
-                        //username
-                        FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/userName").getData(completion:  { error, snapshot in
-                            guard error == nil else {
-                                print("firebase error\(error!.localizedDescription)")
-                                return
-                            }
-                            let userName = snapshot?.value as? String ?? "Unknown"
-                            self.defaults.setValue(userName, forKey: "userName")
-                        })
-                        //userid
-                            FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/userId").getData(completion:  { error, snapshot in
-                              guard error == nil else {
-                                print("firebase error\(error!.localizedDescription)")
-                                return
-                              }
-                               let userId = snapshot?.value as? Int ?? -1
+//                Auth.auth().currentUser?.sendEmailVerification {
+//                    error in
+//                    if error != nil {
+//                        Auth.auth().currentUser?.delete()
+//                    }
+//
+//                    else{
+                        if  ((Auth.auth().currentUser?.isEmailVerified) != nil){
+                            NetworkService.getInstance().postingNewCustomer(customer: CustomerRequest(customer: customer), completionHandler: {result in
                                 
-                           self.defaults.setValue(userId, forKey: "userId")
-                       //firebaseuserid
-                            self.defaults.setValue(Auth.auth().currentUser?.uid, forKey: "firUserId")
-                        })
-                        //favId
-                        
-                            FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/favId").getData(completion:  { error, snapshot in
-                              guard error == nil else {
-                                print("firebase error\(error!.localizedDescription)")
-                                return
-                              }
-                               let favId = snapshot?.value as? Int ?? -1
-                           self.defaults.setValue(favId, forKey: "favId")
-                        })
-                        //cartId
-                        
-                            FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/cartId").getData(completion:  { error, snapshot in
-                              guard error == nil else {
-                                print("firebase error\(error!.localizedDescription)")
-                                return
-                              }
-                               let cartId = snapshot?.value as? Int ?? -1
-                           self.defaults.setValue(cartId, forKey: "cartId")
-                        })
-                        
-                        
-                        self.defaults.setValue(true, forKey: "logged in")
-                        print(self.defaults.bool(forKey: "logged in"))
-                 
-                    
-
-                        break
-                    case .failure(let error):
-                        self.res = error.localizedDescription
-                        break
+                                switch result{
+                                case .success(let data):
+                                    self.userId = data.customer.id
+                                    self.userName = "\(String(describing: data.customer.firstName)) \(String(describing: data.customer.lastName))"
+                                    self.res = "success"
+                                    
+                                    self.isLoading.value = false
+                                    FireBaseSingleTone.getInstance().child(Auth.auth().currentUser!.uid).setValue(["userId": self.userId,"userName":self.userName,"favId":0,"cartId":0])
+                                    //username
+                                    FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/userName").getData(completion:  { error, snapshot in
+                                        guard error == nil else {
+                                            print("firebase error\(error!.localizedDescription)")
+                                            return
+                                        }
+                                        let userName = snapshot?.value as? String ?? "Unknown"
+                                        self.defaults.setValue(userName, forKey: "userName")
+                                    })
+                                    //userid
+                                    FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/userId").getData(completion:  { error, snapshot in
+                                        guard error == nil else {
+                                            print("firebase error\(error!.localizedDescription)")
+                                            return
+                                        }
+                                        let userId = snapshot?.value as? Int ?? -1
+                                        
+                                        self.defaults.setValue(userId, forKey: "userId")
+                                        //firebaseuserid
+                                        self.defaults.setValue(Auth.auth().currentUser?.uid, forKey: "firUserId")
+                                    })
+                                    //favId
+                                    
+                                    FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/favId").getData(completion:  { error, snapshot in
+                                        guard error == nil else {
+                                            print("firebase error\(error!.localizedDescription)")
+                                            return
+                                        }
+                                        let favId = snapshot?.value as? Int ?? -1
+                                        self.defaults.setValue(favId, forKey: "favId")
+                                    })
+                                    //cartId
+                                    
+                                    FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/cartId").getData(completion:  { error, snapshot in
+                                        guard error == nil else {
+                                            print("firebase error\(error!.localizedDescription)")
+                                            return
+                                        }
+                                        let cartId = snapshot?.value as? Int ?? -1
+                                        self.defaults.setValue(cartId, forKey: "cartId")
+                                    })
+                                    
+                                    
+                                    self.defaults.setValue(true, forKey: "logged in")
+                                    print(self.defaults.bool(forKey: "logged in"))
+                                    break
+                                case .failure(let error):
+                                    self.res = error.localizedDescription
+                                    break
+                                }
+                            }
+                            )
+                        }else{
+                            print("not verified")
+                            Auth.auth().currentUser?.delete()
+                        }
                     }
-                })}}
-       
-    }
-
-}
+                }
+            }
+        }
+//    }
+//
+//}
