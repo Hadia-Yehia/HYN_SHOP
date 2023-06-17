@@ -25,8 +25,20 @@ class AddAddressViewController: UIViewController {
         let textFields = [nameField, surnameField, phoneNumberField, countryField, cityField, zipCodeField,addressField]
         let allFieldsNonEmpty = !textFields.reduce(false) { $0 || ($1?.text?.isEmpty ?? true) }
 
-        if allFieldsNonEmpty && validatePhoneNumberAndZipCode(){
+        if allFieldsNonEmpty && validatePhoneNumberAndZipCode() && validateCountry(){
           getDataFromTextFields()
+            viewModel.saveAddress()
+            {
+                result in
+                if result.0 == "Success"
+                {
+                    Alerts.makeConfirmationDialogue(title: "Success", message: result.1)
+                }
+                else
+                {
+                    Alerts.makeConfirmationDialogue(title: "Failure", message: result.1)
+                }
+            }
             navigationController?.popViewController(animated: true)
         } else {
             Alerts.makeConfirmationDialogue(title: "Alert", message:  "Please enter all the fields")
@@ -43,7 +55,8 @@ class AddAddressViewController: UIViewController {
         viewModel.city = cityField.text
         viewModel.zipCode = zipCodeField.text
         viewModel.address = addressField.text
-        viewModel.saveAddress()
+        
+      
     }
     
     func validatePhoneNumberAndZipCode()->Bool
@@ -56,14 +69,22 @@ class AddAddressViewController: UIViewController {
         }
     }
     
+    func validateCountry()->Bool
+    {
+        if let selectedCountry = viewModel.selectedCountry, countryField.text == selectedCountry {
+                   return true
+                } else {
+                    Alerts.makeConfirmationDialogue(title: "Alert", message: "Please choose a valid country")
+                    return false
+                }
+    }
+    
   
     override func viewDidLoad() {
         super.viewDidLoad()
        checkDestination()
         setupCountriesPickerView()
         countryField.inputView = countryPickerView
-        
-    
     }
     
     func setupCountriesPickerView()

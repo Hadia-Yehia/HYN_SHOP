@@ -25,7 +25,20 @@ let defaultCurrency = "USD"
         }*/
         FirebaseApp.configure()
         
+<<<<<<< HEAD
         UserDefaults.standard.register(defaults: ["currencyCode": defaultCurrency,"logged in":false,"cartId":0,"favId":0])
+=======
+        UserDefaults.standard.register(defaults: ["currencyCode": defaultCurrency])
+        // Set the back button image for all navigation bars
+        
+        if let backImage = UIImage(systemName: "chevron.backward.circle.fill") {
+                UINavigationBar.appearance().backIndicatorImage = backImage
+                UINavigationBar.appearance().backIndicatorTransitionMaskImage = backImage
+                UINavigationBar.appearance().tintColor = UIColor(named: "yellow")
+            } else {
+                print("Error: Failed to load back button image or color")
+            }
+>>>>>>> enhancing_ui
         return true
     }
 

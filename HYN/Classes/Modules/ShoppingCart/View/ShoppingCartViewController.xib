@@ -144,7 +144,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLW-8u-Ryf">
-                            <rect key="frame" x="110.33333333333333" y="568.33333333333337" width="172.33333333333337" height="35"/>
+                            <rect key="frame" x="110.66666666666667" y="568.33333333333337" width="171.66666666666663" height="35"/>
                             <color key="backgroundColor" name="yellow"/>
                             <color key="tintColor" systemColor="systemYellowColor"/>
                             <state key="normal" title="Button"/>

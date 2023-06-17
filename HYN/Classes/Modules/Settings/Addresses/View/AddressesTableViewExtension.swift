@@ -39,6 +39,17 @@ extension AddressesViewController : UITableViewDelegate , UITableViewDataSource{
      
            let alertController = Alerts.showAlert(title: "Confirmation", message: "Are you sure you want to delete this item?", confirmTitle: "Yes", cancelTitle: "No", confirmHandler: {
                self.viewModel.deleteAddress(index: indexPath.row)
+               {
+                   result in
+                   if result.0 == "Success"
+                   {
+                       Alerts.makeConfirmationDialogue(title: result.0, message: result.1)
+                   }
+                   else
+                   {
+                       Alerts.makeConfirmationDialogue(title: result.0, message: result.1)
+                   }
+               }
      //   self.tableView.deleteRows(at: [indexPath], with: .fade)
                self.checkAddressesTableIfEmpty()
            }, cancelHandler: nil)
