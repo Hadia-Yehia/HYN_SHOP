@@ -14,6 +14,42 @@ class NetworkService:NetworkServiceProtocol{
         return sharedInstance
     }
     
+    
+    //POST ORDER
+    func postingOrder(order : Order, completionHandler : @escaping(Result<OrderResponse, NetworkError>)->Void){
+      
+    
+       // draftOrder.lineItems?.append(LineItems(title: "base2", price: "0", quantity: 0))
+        let orderRequest = OrderRequest(order: order)
+ 
+            let endpoint = "https://mad43-alex-ios2.myshopify.com/admin/api/2023-04/orders.json"
+            let headers: HTTPHeaders = [
+                "Content-Type": "application/json",
+                "X-Shopify-Access-Token": "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"
+            ]
+        print ("aywaaa\(convertOrderRequestToParameter(orderRequest: orderRequest))")
+            AF.request(endpoint, method: .post, parameters: convertOrderRequestToParameter(orderRequest: orderRequest), encoding: JSONEncoding.default, headers: headers)
+                .responseJSON { response in
+                    switch response.result {
+                    case .success(let value): do {
+                        print("success")
+                        let jsonData = try JSONDecoder().decode(OrderResponse.self, from: JSONSerialization.data(withJSONObject: value,options: .prettyPrinted))
+                        print("ya 3zizy\(jsonData.order?.id)")
+                        completionHandler(.success(jsonData))
+                    }
+                        catch{
+                            print("fail parse")
+                            print(error.localizedDescription)
+                            completionHandler(.failure(.canNotParseData))
+                        }
+                        print(value)
+                    case .failure(let error):
+                        // Handle the error
+                        print("aywa shkk fe m7lo\(error)")
+                    }
+                }
+    }
+    
     func fetchingProductDetails(product_id: Int, completionHandler: @escaping (Result<ProductResponse, NetworkError>) -> Void) {
       
         AF.request("https://d097bbce1fd2720f1d64ced55f0e485b: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@mad43-alex-ios-team4.myshopify.com/admin/api/2023-04/products/\(product_id).json")
@@ -146,6 +182,29 @@ class NetworkService:NetworkServiceProtocol{
         parameters["line_items"] = arr
         return parameters
     }
+    
+    
+    
+    func convertOrderRequestToParameter(orderRequest : OrderRequest) -> [String : Any]{
+        var parameters : [String : Any] = [:]
+        parameters["order"] = convertOrderToParameters(order: orderRequest.order)
+        return parameters
+    }
+    func convertOrderToParameters(order : Order)->[String:Any]{
+        var parameters : [String:Any] = [:]
+        var arr = Array<[String:Any]>()
+        for i in 0..<(order.lineItems.count ?? 0){
+            arr.append(convertLineItemsToParameters(lineItems: order.lineItems[i] ?? LineItems(title: "base", price: "0", quantity: 0)))
+        }
+        parameters["line_items"] = arr
+        return parameters
+    }
+    
+    
+    
+    
+    
+    
     
     func convertLineItemsToParameters(lineItems:LineItems)->[String:Any]{
         var parameters : [String:Any] = [:]

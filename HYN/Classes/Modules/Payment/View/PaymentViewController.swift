@@ -31,6 +31,7 @@ var viewModel = PaymentViewModel()
         {
             navigationController?.pushViewController(PurchacingViewController(), animated: true)
         }
+        //my code
     }
     @IBOutlet weak var lotalLabel: UILabel!
     @IBOutlet weak var paymentMethodField: UILabel!
