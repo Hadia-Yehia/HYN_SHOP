@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 class NetworkService:NetworkServiceProtocol{
+    let userId = UserDefaults.standard.object(forKey: "userId")
     static let sharedInstance = NetworkService()
     private init(){}
     static func getInstance() -> NetworkService{
@@ -108,7 +109,7 @@ class NetworkService:NetworkServiceProtocol{
                     }
                 }
     }
-  func getCustomerDraftOrder(draftOrderId:Int64,completionHandler: @escaping (Result<DraftOrderResponse, NetworkError>) -> Void)
+  func getCustomerDraftOrder(draftOrderId:Int,completionHandler: @escaping (Result<DraftOrderResponse, NetworkError>) -> Void)
     {
        
         let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/draft_orders/\(draftOrderId).json"
@@ -189,17 +190,14 @@ class NetworkService:NetworkServiceProtocol{
     
     //MARK: Customer Addresses
     func createNewAddress(address:Address, completionHandler: @escaping (Result<CustomerAddress, NetworkError>) -> Void) {
-//     guard  let userId = UserDefaults.standard.object(forKey: "userId") as? String
-//        else {
-//
-//            return
-//        }
-//        let defaults = UserDefaults.standard
-//        let me = defaults.object(forKey: "userId") as! String
-//        print("id:\(me)")
-        let userId = 6952818671908
+     guard  let userId = UserDefaults.standard.object(forKey: "userId")
+        else {
+
+            return
+        }
+        
       print(userId)
-        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/6954583818532/addresses.json"
+        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/\(userId)/addresses.json"
             
             let headers: HTTPHeaders = [
                 "X-Shopify-Access-Token": "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",
@@ -240,12 +238,12 @@ class NetworkService:NetworkServiceProtocol{
     
     func getCustomerAddresses(completionHandler: @escaping (Result<CustomerAddresses, NetworkError>) -> Void)
        {
-           // let customerId =
-//           guard  let userId = UserDefaults.standard.object(forKey: "userId") as? String
-//              else {
-//                  return
-//              }
-           let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/6954583818532/addresses.json"
+           guard  let userId = UserDefaults.standard.object(forKey: "userId")
+              else {
+
+                  return
+              }
+           let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/\(userId)/addresses.json"
            
            
            AF.request(url,headers: NetworkConstants.shared.accessToken)
@@ -294,7 +292,12 @@ class NetworkService:NetworkServiceProtocol{
 
     
     func deleteAddressFromServer(addressId:Int,completionHandler: @escaping (Result<EmptyResponse, NetworkError>) -> Void) {
-        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/6954583818532/addresses/\(addressId).json"
+        guard  let userId = UserDefaults.standard.object(forKey: "userId")
+           else {
+
+               return
+           }
+        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/\(userId)/addresses/\(addressId).json"
         let headers: HTTPHeaders = NetworkConstants.shared.accessToken
         
         AF.request(url,
@@ -315,11 +318,12 @@ class NetworkService:NetworkServiceProtocol{
     
     
     func updateCustomerAddress(addressId: Int, address: Address, completionHandler: @escaping (Result<CustomerAddress, NetworkError>) -> Void) {
-//        guard  let userId = UserDefaults.standard.object(forKey: "userId") as? String
-//           else {
-//               return
-//           }
-        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/6954583818532/addresses/\(addressId).json"
+        guard  let userId = UserDefaults.standard.object(forKey: "userId")
+           else {
+
+               return
+           }
+        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/\(userId)/addresses/\(addressId).json"
            //  let customerId = 7123084443958
            
      

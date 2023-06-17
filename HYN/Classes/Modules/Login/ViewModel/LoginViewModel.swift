@@ -73,13 +73,14 @@ class LoginViewModel{
             }
         }
     //MARK: getting cart items  from server
-    func getDraftCartItems(draftOrderId:Int64)
+    func getDraftCartItems(draftOrderId:Int)
     {
         NetworkService.sharedInstance.getCustomerDraftOrder(draftOrderId: draftOrderId)
         {
             result in
+            print(draftOrderId)
             do{
-                let array:[LineItems] = try  (result.get().draftOrder?.lineItems)!
+                let array:[LineItems] = try  (result.get().draftOrder?.lineItems) ?? Array()
                 for item in array
                 {
                     let data = "Yousra*Mamdouh*Ali"
@@ -99,13 +100,13 @@ class LoginViewModel{
     }
     
     //MARK: getting favorite items  from server
-    func getDraftFavoriteItems(draftOrderId:Int64)
+    func getDraftFavoriteItems(draftOrderId:Int)
     {
         NetworkService.sharedInstance.getCustomerDraftOrder(draftOrderId: draftOrderId)
         {
             result in
             do{
-                let array:[LineItems] = try  (result.get().draftOrder?.lineItems)!
+                let array:[LineItems] = try  (result.get().draftOrder?.lineItems) ?? Array()
                 for item in array
                 {
                     let data = "Yousra*Mamdouh*Ali"
