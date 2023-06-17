@@ -67,7 +67,14 @@ class AddressesViewController: UIViewController {
 
     func addUIBarButtonItem()
     {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .done, target: self, action: #selector(navigateToAddAddressView))
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .done, target: self, action: #selector(navigateToAddAddressView))
+
+
+        let addButtonImage = UIImage(systemName: "plus.circle.fill")
+        let addButton = UIBarButtonItem(image: addButtonImage, style: .done, target: self, action: #selector(navigateToAddAddressView))
+        let yellowColor = UIColor(named: "yellow")
+        addButton.tintColor = yellowColor
+        self.navigationItem.rightBarButtonItem = addButton
     }
     
    @objc func navigateToAddAddressView()

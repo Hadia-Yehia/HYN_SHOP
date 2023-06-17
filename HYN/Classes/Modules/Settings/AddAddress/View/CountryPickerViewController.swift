@@ -22,6 +22,8 @@ extension AddAddressViewController: UIPickerViewDelegate, UIPickerViewDataSource
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         countryField.text = viewModel.getCountry(index: row)
+        viewModel.selectedCountry = viewModel.allCountries[row]
+          
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)

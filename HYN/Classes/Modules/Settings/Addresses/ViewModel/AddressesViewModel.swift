@@ -54,7 +54,7 @@ class AddressesViewModel {
         addressesArray[index]
     }
     
-    func deleteAddress(index:Int)
+    func deleteAddress(index:Int,completionHandler: @escaping ((String,String)) -> Void)
     {
         observable.value = true
        // AddressesCoreData.shared.deleteData(address: addressesArray[index])
@@ -67,11 +67,13 @@ class AddressesViewModel {
                    if response == EmptyResponse() {
                        self.addressesArray.remove(at: index)
                        self.observable.value = false
+                       completionHandler(("Success","Item deleted successfully"))
                    } else {
                        // Non-empty response
                    }
             case .failure(let error):
                 print(error.localizedDescription)
+                completionHandler(("Failure","Can't delete default address \(error.localizedDescription)"))
                 break
            
                }

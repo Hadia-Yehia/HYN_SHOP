@@ -17,11 +17,12 @@ import UIKit
 import UIKit
 
 class AddAddressViewModel {
-  
+    var observable: Observable <Bool> = Observable(false)
     let allCountries = Locale.isoRegionCodes.map { (code) -> String in
         let identifier = Locale.identifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
         return Locale(identifier: "en_US_POSIX").localizedString(forIdentifier: identifier) ?? "Unknown"
     }
+    var selectedCountry: String?
     var firstName: String?
     var lastName: String?
     var fullName: String?
@@ -41,22 +42,7 @@ class AddAddressViewModel {
     {
         
     }
-  
-   
-
-
-//    func insertAddressInCoreData(address:testAddress)
-//    {
-//
-//        AddressesCoreData.shared.InsertAddress(address:address)
-//    }
-//
-//    func getAddressesFromCoreData()->[testAddress]
-//    {
-//        return AddressesCoreData.shared.getAddresses()
-//    }
-//    
-    func saveAddress()
+    func saveAddress(completionHandler: @escaping ((String,String)) -> Void)
     {
        
         let fullAddress = Address(address1: address!, first_name: firstName!, last_name: lastName!, name: fullName!, city: city!, country: country!, phone: phoneNumber!, zip: zipCode!)
@@ -64,10 +50,15 @@ class AddAddressViewModel {
          
             NetworkService.sharedInstance.updateCustomerAddress(addressId: addressToBeEdited?.id ?? 0, address: fullAddress)
             {
-                reslt in
-    
-                print("loooky:\(self.addressToBeEdited?.id ?? 0)")
-                
+                result in
+                switch result {
+                    case .success(let customerAddress):
+                        completionHandler(("Success","Address added Successfully"))
+                        print("New address created: \(customerAddress)")
+                    case .failure(let error):
+                    completionHandler(("Failure","\(error.localizedDescription)"))
+                        print("Error creating new address: \(error)")
+                    }
             }
         }
         else
@@ -75,9 +66,16 @@ class AddAddressViewModel {
             NetworkService.sharedInstance.createNewAddress(address:fullAddress)
             {
                 result in
+                switch result {
+                    case .success(let customerAddress):
+                    completionHandler(("Success","Address added Successfully"))
+                        print("New address created: \(customerAddress)")
+                    case .failure(let error):
+                    completionHandler(("Failure","\(error.localizedDescription)"))
+                        print("Error creating new address: \(error)")
+                    }
             }
         }
-      //  self.insertAddressInCoreData(address: fullAddress)
     }
 
     
@@ -103,5 +101,8 @@ class AddAddressViewModel {
     {
         allCountries[index]
     }
+    
+    
+  
 }
 
