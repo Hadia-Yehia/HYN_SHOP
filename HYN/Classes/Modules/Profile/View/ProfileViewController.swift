@@ -13,10 +13,12 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var ordersBtn: UIButton!
     @IBOutlet weak var wishListTableView: UITableView!
     @IBOutlet weak var ordersTableView: UITableView!
+    let defaults = UserDefaults.standard
     @IBAction func ordersButton(_ sender: UIButton) {
+        let id = UserDefaults.standard.object(forKey: "userId") as? Int
         let orderVC = OrderViewController(nibName: "OrderViewController", bundle: nil)
         navigationController?.pushViewController(orderVC, animated: true)
-        NetworkService.gettingOrder(customerID: 6954912186660) { (result : Result<OrderRESPONSE,Error>) in
+        NetworkService.gettingOrder(customerID: id!) { (result : Result<OrderRESPONSE,Error>) in
             switch(result){
             case .success(let data):
                 print(data.orders)
