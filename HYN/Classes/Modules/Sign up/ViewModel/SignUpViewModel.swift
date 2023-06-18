@@ -95,8 +95,8 @@ class SignUpViewModel{
                                     })
                                     
                                     
-                                    self.defaults.setValue(true, forKey: "logged in")
-                                    print(self.defaults.bool(forKey: "logged in"))
+//                                    self.defaults.setValue(true, forKey: "logged in")
+//                                    print(self.defaults.bool(forKey: "logged in"))
                                     break
                                 case .failure(let error):
                                     self.res = error.localizedDescription

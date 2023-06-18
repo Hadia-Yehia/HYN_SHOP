@@ -18,6 +18,7 @@ class FavouritesViewController: UIViewController , UITableViewDelegate,UITableVi
         favTable.register(UINib(nibName: "FavouritesTableViewCell", bundle: nil),forCellReuseIdentifier: "FavouritesTableViewCell")
         favTable.dataSource = self
         favTable.delegate = self
+        self.title = "Favourites"
 
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -48,6 +49,7 @@ class FavouritesViewController: UIViewController , UITableViewDelegate,UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavouritesTableViewCell", for: indexPath) as! FavouritesTableViewCell
         cell.configCell(item: viewModel.getObjectForCell(index: indexPath.row))
         cell.addToCartButton.addTarget(self, action: #selector(addProductToCart(sender:)), for: .touchUpInside)
+//        cell.removeFromFav.addTarget(self, action: #selector(removeFromFav(sender:)), for: .touchUpInside)
         return cell    }
     
     @objc func addProductToCart(sender:UIButton)
@@ -66,6 +68,20 @@ class FavouritesViewController: UIViewController , UITableViewDelegate,UITableVi
             }
        
         }
+//    @objc func removeFromFav(sender:UIButton)
+//        {
+//
+//            let alert = UIAlertController(title: "Confirmation", message: "Are you sure you want to delete?", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
+//                self.viewModel.deleteItem(index:sender.tag)
+//                self.favTable.deleteRows(at: [IndexPath(row: sender.tag, section: 0)], with: .fade)
+//                if self.viewModel.getTableCount() == 0 {
+//                    self.viewDidAppear(true)
+//                }
+//            }) )
+//            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+//            self.present(alert, animated: true, completion: nil)
+//        }
         
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{

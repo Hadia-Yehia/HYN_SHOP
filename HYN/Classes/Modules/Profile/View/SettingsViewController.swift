@@ -39,6 +39,8 @@ class SettingsViewController: UIViewController {
             self.viewModel.logout(completionHandler: {result in
                 switch result{
                 case .success(_):
+                    self.tabBarController?.tabBar.isHidden = true
+                            self.tabBarController?.hidesBottomBarWhenPushed = true
                     let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
                     self.navigationController?.pushViewController(loginVC, animated: true)
                     break

@@ -10,6 +10,7 @@ import SDWebImage
 
 class FavouritesTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var removeFromFav: UIButton!
     @IBOutlet weak var addToCartButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,8 +31,5 @@ class FavouritesTableViewCell: UITableViewCell {
         favImg.sd_setImage(with: URL(string:item.img), placeholderImage: UIImage(named: "placeholder"))
     }
     
-    @IBAction func addToCart(_ sender: UIButton) {
-    }
-    @IBAction func removeFromFav(_ sender: UIButton) {
-    }
+ 
 }

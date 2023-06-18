@@ -35,9 +35,6 @@
                                 <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system">
                                     <color key="baseForegroundColor" systemColor="systemYellowColor"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="removeFromFav:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ggH-Hz-ImO"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="EGP 674,99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9O-2b-z37">
                                 <rect key="frame" x="305" y="46.666666666666664" width="132" height="30.999999999999993"/>
@@ -91,6 +88,7 @@
                 <outlet property="favImg" destination="ism-jN-XKp" id="SyF-jq-vvV"/>
                 <outlet property="favPrice" destination="I9O-2b-z37" id="hu9-LM-e0U"/>
                 <outlet property="favTitle" destination="ME2-Gg-O5S" id="0dP-dx-Gl2"/>
+                <outlet property="removeFromFav" destination="m4k-zU-nu6" id="DNT-z2-vev"/>
             </connections>
             <point key="canvasLocation" x="196.18320610687022" y="0.0"/>
         </tableViewCell>

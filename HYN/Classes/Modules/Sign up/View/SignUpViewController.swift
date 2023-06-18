@@ -20,7 +20,7 @@ class SignUpViewController: UIViewController {
     let viewModel = SignUpViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = false
+        
         //bindViewModel()
         // Do any additional setup after loading the view.
     }
@@ -59,8 +59,10 @@ class SignUpViewController: UIViewController {
                             self.defaults.removeObject(forKey: "cartId")
                             print(self.defaults.bool(forKey: "logged in"))
 
-                            let homeVC = TabBar()
-                            self.navigationController?.pushViewController(homeVC, animated: true)
+//                            let homeVC = TabBar()
+//                            self.navigationController?.pushViewController(homeVC, animated: true)
+                            let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
+                            self.navigationController?.pushViewController(loginVC, animated: true)
                         }
                     }
                 }
