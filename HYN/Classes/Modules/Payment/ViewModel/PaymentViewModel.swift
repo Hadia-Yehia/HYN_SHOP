@@ -69,6 +69,7 @@ class PaymentViewModel
         NetworkService.postingOrder(order: myOrder){ data, response, error in
             let response = String(data:data!,encoding: .utf8)
                             print(response!)
+            CartCoreData.shared.deleteAllCartItems()
         }
            
         
