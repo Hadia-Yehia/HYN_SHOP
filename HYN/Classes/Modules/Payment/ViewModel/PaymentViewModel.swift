@@ -59,9 +59,9 @@ class PaymentViewModel
        // var customer = CustomerResponse(customer: CustomerResponsed())
     
         let id = UserDefaults.standard.object(forKey: "userId") as? Int
-        let email  = "nada_youssef@gmail.com"
-        print("ya eslam sabah el kher",id)
-        var customer = PostCustoer(id: id!,email: email)
+       // let email  = "nada_youssef@gmail.com"
+        print("sabah el kher",id)
+        var customer = PostCustoer(id: id!)
      //   let id = self.defaults.object(forKey: "userId")
         print("orderssssss",linesArr)
         let order = Order(customer:customer, lineItems: linesArr)
