@@ -28,7 +28,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOd-Bd-Wa9">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOd-Bd-Wa9">
                     <rect key="frame" x="135" y="559.66666666666663" width="123" height="35"/>
                     <color key="backgroundColor" name="yellow"/>
                     <color key="tintColor" systemColor="systemBackgroundColor"/>

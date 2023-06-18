@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="HYN" customModuleProvider="target">
             <connections>
+                <outlet property="logoutButton" destination="lUh-k5-p65" id="Bcb-KV-aCv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,11 +27,8 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Logout"/>
                     <connections>
-
-                        <action selector="logoutButton:" destination="-1" eventType="touchUpInside" id="VUd-nW-X1Y"/>
-
                         <action selector="logoutBtn:" destination="-1" eventType="touchUpInside" id="XxO-wn-trR"/>
-
+                        <action selector="logoutButton:" destination="-1" eventType="touchUpInside" id="VUd-nW-X1Y"/>
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="AP6-f9-TxH">

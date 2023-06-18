@@ -8,7 +8,8 @@
 import UIKit
 
 class CurrencyViewController: UIViewController , UIPickerViewDelegate , UIPickerViewDataSource{
-let viewModel = CurrencyViewModel()
+    @IBOutlet weak var selectCurrencyButton: UIButton!
+    let viewModel = CurrencyViewModel()
     @IBAction func selectCurrenyButton(_ sender: UIButton) {
         let selectedRow = currencyPicker.selectedRow(inComponent: 0)
         let selectedCurrency = viewModel.currenciesArray[selectedRow]
@@ -21,6 +22,7 @@ let viewModel = CurrencyViewModel()
         super.viewDidLoad()
 setupPicker()
         currencyPicker.selectRow(viewModel.selectInitialRow(), inComponent: 0, animated: false)
+        selectCurrencyButton.setRoundedCorners(radius: 10)
     }
     override func viewWillAppear(_ animated: Bool) {
         

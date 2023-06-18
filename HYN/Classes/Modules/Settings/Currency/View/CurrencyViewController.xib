@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CurrencyViewController" customModule="HYN" customModuleProvider="target">
             <connections>
                 <outlet property="currencyPicker" destination="1OH-ug-YLn" id="9bm-N9-sgq"/>
+                <outlet property="selectCurrencyButton" destination="DIM-L9-Lgi" id="CrN-3c-dug"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1OH-ug-YLn">
-                    <rect key="frame" x="0.0" y="100" width="393" height="413"/>
+                    <rect key="frame" x="0.0" y="100.33333333333331" width="393" height="412.99999999999994"/>
                 </pickerView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIM-L9-Lgi">
                     <rect key="frame" x="160.66666666666666" y="651" width="72" height="35"/>
