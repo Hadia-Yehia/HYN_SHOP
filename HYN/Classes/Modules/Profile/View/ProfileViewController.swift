@@ -7,26 +7,18 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
-
+class ProfileViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate{
+   
     @IBOutlet weak var welcomeView: UIView!
     @IBOutlet weak var ordersBtn: UIButton!
     @IBOutlet weak var wishListTableView: UITableView!
     @IBOutlet weak var ordersTableView: UITableView!
-    let defaults = UserDefaults.standard
+    var viewModel = ProfileViewModel()
+    
     @IBAction func ordersButton(_ sender: UIButton) {
-        let id = UserDefaults.standard.object(forKey: "userId") as? Int
         let orderVC = OrderViewController(nibName: "OrderViewController", bundle: nil)
         navigationController?.pushViewController(orderVC, animated: true)
-        NetworkService.gettingOrder(customerID: id!) { (result : Result<OrderRESPONSE,Error>) in
-            switch(result){
-            case .success(let data):
-                print(data.orders)
-            case .failure(let error):
-                print(error)
-            }
-            
-        }
+     
     }
     @IBOutlet weak var username: UILabel!
     @IBAction func wishListButton(_ sender: UIButton) {
@@ -42,10 +34,46 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
     
         // Do any additional setup after loading the view.
+        ordersTableView.register(UINib(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "cellOrder")
+        ordersTableView.dataSource = self
+        ordersTableView.delegate = self
+        self.bindViewModel()
+        viewModel.getOrderData()
+    }
+    func bindViewModel(){
+        viewModel.isLoading.bind{[weak self] isLoading in
+            guard let self = self , let isLoading = isLoading
+            else{return}
+            DispatchQueue.main.async {
+                if isLoading{
+                    print("loadingggg")
+                }else{
+                    print("no loadinggg")
+                    self.ordersTableView.reloadData()
+                }
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.getCellCount()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellOrder", for: indexPath) as! OrderTableViewCell
+        print("^^",viewModel.getCellId(index: indexPath.row))
+        cell.configCell(id: viewModel.getCellId(index: indexPath.row), price: viewModel.getCellPrice(index: indexPath.row), date: viewModel.getCellDate(index: indexPath.row))
+       /* cell.orderName.text = "shose"
+        cell.priceLabel.text = "800"
+        cell.dataLabel.text = "8/9/2023"*/
+        return cell
     }
     /*
     // MARK: - Navigation

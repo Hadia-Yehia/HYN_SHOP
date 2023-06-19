@@ -16,15 +16,17 @@ class OrderTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
-    @IBAction func removeBtn(_ sender: Any) {
-    }
-    
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configCell(id :Int,price : String,date:String){
+        
+        priceLabel.text = price
+        orderName.text = String(id)
+        dataLabel.text = date
     }
     
 }
