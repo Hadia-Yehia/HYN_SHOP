@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController {
         navigationController?.pushViewController(LoginViewController(), animated: true)
     }
     @IBAction func wishListButton(_ sender: UIButton) {
-        navigationController?.pushViewController(ShoppingCartViewController(), animated: true)
+        navigationController?.pushViewController(FavouritesViewController(), animated: true)
     }
     @IBAction func settingsButton(_ sender: UIButton) {
         let destinationViewController = SettingsViewController()
@@ -145,7 +145,7 @@ loginButton.setRoundedCorners(radius: 10)
 
     func setupTableView()
         {
-           wishListTableView.register(UINib(nibName: "ShoppingCartCell", bundle: nil), forCellReuseIdentifier: "Cell")
+           wishListTableView.register(UINib(nibName: "FavouritesTableViewCell", bundle: nil), forCellReuseIdentifier: "FavouritesTableViewCell")
             wishListTableView.delegate = self
             wishListTableView.dataSource = self
         }
@@ -191,17 +191,11 @@ extension ProfileViewController:UITableViewDelegate, UITableViewDataSource
         switch tableView
         {
         case wishListTableView:
-            let cell = tableView.dequeueReusableCell(withIdentifier:"Cell", for: indexPath) as! ShoppingCartCell
-            
-//            cell.configCell(viewModel.getCartItem(index: indexPath.row))
-//            cell.incrementButton.isHidden = true
-//            cell.decrementButton.isHidden = true
-//            cell.productQuantity.isHidden = true
-//            cell.productImage.contentMode = .scaleAspectFit
-    //        cell.incrementButton.tag = indexPath.row
-    //        cell.decrementButton.tag = indexPath.row
-    //        cell.incrementButton.addTarget(self, action: #selector(inrementProductQuantity(sender:)), for: .touchUpInside)
-    //        cell.decrementButton.addTarget(self, action: #selector(decrementProductQuantity(sender:)), for: .touchUpInside)
+let cell = tableView.dequeueReusableCell(withIdentifier:"FavouritesTableViewCell", for: indexPath) as! FavouritesTableViewCell
+cell.configCell(item: viewModel.getCartItem(index: indexPath.row))
+cell.addToCartButton.isHidden = true
+cell.removeFromFav.isHidden = true
+
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cellOrder", for: indexPath) as! OrderTableViewCell

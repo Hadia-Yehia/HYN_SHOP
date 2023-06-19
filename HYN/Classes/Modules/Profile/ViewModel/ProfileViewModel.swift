@@ -83,25 +83,23 @@ return (orderArr.count)
         if favItems.count >= 2
         {
             return 2
-
         }
-        else{
-            return (orderArr.count)
+        else
+        {
+            return favItems.count
         }
     }
-func checkIfCartHasItems()->Bool
-{
-if favItems.count > 0
-{
-return true
-}
-else
-{
-return false
-}
-
-}
-
-
-
+    func checkIfCartHasItems()->Bool
+    {
+        if favItems.count > 0
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
+      
+    }
+    
 }
