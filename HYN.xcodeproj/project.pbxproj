@@ -99,6 +99,8 @@
 		8F96073F2A3D3A65006C123E /* OrderResponsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F96073E2A3D3A65006C123E /* OrderResponsed.swift */; };
 		8F9ABD182A34D55000F72468 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9ABD172A34D55000F72468 /* HomeViewModel.swift */; };
 		8F9ABD1A2A34D71D00F72468 /* ViewStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9ABD192A34D71D00F72468 /* ViewStruct.swift */; };
+		8FC1DAE12A411F8B007FA225 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8FC1DAE02A411F8B007FA225 /* FirebaseAuth */; };
+		8FC1DAE32A411F8B007FA225 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 8FC1DAE22A411F8B007FA225 /* FirebaseDatabase */; };
 		A5FD2B6B8414504AC15C6963 /* Pods_HYN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5450FA30BEA12F7DB4976121 /* Pods_HYN.framework */; };
 		BC04DBB92A387DFB00789A17 /* CountryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC04DBB82A387DFB00789A17 /* CountryPickerViewController.swift */; };
 		BC063AB42A34E5C90045DBD6 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC063AB22A34E5C90045DBD6 /* CurrencyViewController.swift */; };
@@ -114,8 +116,6 @@
 		BC38A3DF2A30B26E00492F76 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC38A3DD2A30B26E00492F76 /* SettingsViewController.xib */; };
 		BC38A3E12A30C33000492F76 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38A3E02A30C33000492F76 /* TabBar.swift */; };
 		BC48FCFE2A397F0300828DCE /* Advertisement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC48FCFD2A397F0300828DCE /* Advertisement.swift */; };
-		BC6F2F272A3E204300574951 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BC6F2F262A3E204300574951 /* FirebaseAuth */; };
-		BC6F2F292A3E204300574951 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = BC6F2F282A3E204300574951 /* FirebaseDatabase */; };
 		BC726B8F2A3AD4F30000DD29 /* CartCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC726B8E2A3AD4F30000DD29 /* CartCoreData.swift */; };
 		BC726B912A3AD5CF0000DD29 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC726B902A3AD5CF0000DD29 /* CartItem.swift */; };
 		BC726B932A3ADBC20000DD29 /* ShoppingCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC726B922A3ADBC20000DD29 /* ShoppingCartViewModel.swift */; };
@@ -324,9 +324,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC6F2F292A3E204300574951 /* FirebaseDatabase in Frameworks */,
+				8FC1DAE32A411F8B007FA225 /* FirebaseDatabase in Frameworks */,
 				A5FD2B6B8414504AC15C6963 /* Pods_HYN.framework in Frameworks */,
-				BC6F2F272A3E204300574951 /* FirebaseAuth in Frameworks */,
+				8FC1DAE12A411F8B007FA225 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1317,8 +1317,8 @@
 			);
 			name = HYN;
 			packageProductDependencies = (
-				BC6F2F262A3E204300574951 /* FirebaseAuth */,
-				BC6F2F282A3E204300574951 /* FirebaseDatabase */,
+				8FC1DAE02A411F8B007FA225 /* FirebaseAuth */,
+				8FC1DAE22A411F8B007FA225 /* FirebaseDatabase */,
 			);
 			productName = HYN;
 			productReference = 0E55EE902A2C85BC004A7357 /* HYN.app */;
@@ -1396,7 +1396,7 @@
 			);
 			mainGroup = 0E55EE872A2C85BC004A7357;
 			packageReferences = (
-				BC6F2F252A3E204300574951 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				8FC1DADF2A411F8B007FA225 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 0E55EE912A2C85BC004A7357 /* Products */;
 			projectDirPath = "";
@@ -2016,7 +2016,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BC6F2F252A3E204300574951 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		8FC1DADF2A411F8B007FA225 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
@@ -2027,14 +2027,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BC6F2F262A3E204300574951 /* FirebaseAuth */ = {
+		8FC1DAE02A411F8B007FA225 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BC6F2F252A3E204300574951 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 8FC1DADF2A411F8B007FA225 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		BC6F2F282A3E204300574951 /* FirebaseDatabase */ = {
+		8FC1DAE22A411F8B007FA225 /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BC6F2F252A3E204300574951 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = 8FC1DADF2A411F8B007FA225 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
 		};
 /* End XCSwiftPackageProductDependency section */
