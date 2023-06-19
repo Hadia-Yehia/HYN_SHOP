@@ -52,7 +52,13 @@ class ProfileViewModel{
     }
     
     func getCellCount()->Int{
-        return (orderArr.count)
+        if (orderArr.count > 1) {
+            return 2
+
+        }
+        else{
+            return (orderArr.count)
+        }
     }
    
     

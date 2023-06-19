@@ -37,8 +37,9 @@ class ProfileViewController: UIViewController ,UITableViewDataSource, UITableVie
         ordersTableView.register(UINib(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "cellOrder")
         ordersTableView.dataSource = self
         ordersTableView.delegate = self
-        self.bindViewModel()
-        viewModel.getOrderData()
+        
+       // self.bindViewModel()
+        //viewModel.getOrderData()
     }
     func bindViewModel(){
         viewModel.isLoading.bind{[weak self] isLoading in
@@ -54,7 +55,18 @@ class ProfileViewController: UIViewController ,UITableViewDataSource, UITableVie
             }
         }
     }
-
+    override func viewDidAppear(_ animated: Bool) {
+     if (Availability.isConnectedToInternet){
+            self.bindViewModel()
+            viewModel.getOrderData()
+        }
+     else{
+            let alert = UIAlertController(title: "Network issue", message: "No connection", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+        }
+       
+    }
     override func viewWillAppear(_ animated: Bool) {
         
     }
@@ -64,6 +76,8 @@ class ProfileViewController: UIViewController ,UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.getCellCount()
+        print("nod",viewModel.getCellCount())
+        //return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

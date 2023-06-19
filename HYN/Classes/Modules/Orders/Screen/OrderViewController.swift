@@ -19,9 +19,19 @@ class OrderViewController: UIViewController ,UITableViewDataSource, UITableViewD
         orderTable.register(UINib(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "cellOrder")
         orderTable.dataSource = self
         orderTable.delegate = self
-        self.bindViewModel()
-        viewModel.getOrderData()
+       
         // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        if (Availability.isConnectedToInternet){
+            self.bindViewModel()
+            viewModel.getOrderData()
+           }
+        else{
+               let alert = UIAlertController(title: "Network issue", message: "No connection", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: "OK", style: .default))
+               self.present(alert, animated: true, completion: nil)
+           }
     }
     func bindViewModel(){
         viewModel.isLoading.bind{[weak self] isLoading in

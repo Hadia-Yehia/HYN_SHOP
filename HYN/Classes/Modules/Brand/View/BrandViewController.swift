@@ -18,15 +18,27 @@ class BrandViewController: UIViewController,UICollectionViewDataSource,UICollect
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.bindViewModel()
+       // self.bindViewModel()
         searchBrand.delegate = self
      //   collectionViewData = viewModel!.productArr
         brandCollectionItems.register(UINib(nibName: "ProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "productCell")
         brandCollectionItems.dataSource = self
         brandCollectionItems.delegate = self
         print("in brand view\(viewModel?.brandIdFromHome)")
-        viewModel?.getBrandProductsData()
+       // viewModel?.getBrandProductsData()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if (Availability.isConnectedToInternet){
+            self.bindViewModel()
+            viewModel?.getBrandProductsData()
+           }
+        else{
+               let alert = UIAlertController(title: "Network issue", message: "No connection", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: "OK", style: .default))
+               self.present(alert, animated: true, completion: nil)
+           }
     }
     func bindViewModel(){
         viewModel!.isLoading.bind{[weak self] isLoading in

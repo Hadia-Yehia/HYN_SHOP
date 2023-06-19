@@ -12,27 +12,35 @@ class PaymentViewController: UIViewController {
     
 var viewModel = PaymentViewModel()
     @IBAction func placeOrderButton(_ sender: UIButton) {
-        if !(viewModel.isCashSelected ?? false)
-        {
-            viewModel.purchasesingApplePay()
+        if (Availability.isConnectedToInternet){
+            if !(viewModel.isCashSelected ?? false)
             {
-                result in
-                let paymentAuthorizationViewController = PKPaymentAuthorizationViewController(paymentRequest: result)
-                paymentAuthorizationViewController?.delegate = self
-                if let paymentAuthorizationViewController = paymentAuthorizationViewController {
-                    self.present(paymentAuthorizationViewController, animated: true, completion: nil)
+                viewModel.purchasesingApplePay()
+                {
+                    result in
+                    let paymentAuthorizationViewController = PKPaymentAuthorizationViewController(paymentRequest: result)
+                    paymentAuthorizationViewController?.delegate = self
+                    if let paymentAuthorizationViewController = paymentAuthorizationViewController {
+                        self.present(paymentAuthorizationViewController, animated: true, completion: nil)
+                    }
                 }
+                
+             
             }
             
-         
-        }
-        
-        else
-        {
-            navigationController?.pushViewController(PurchacingViewController(), animated: true)
-        }
-        //my code
-        self.viewModel.saveOrder()
+            else
+            {
+                navigationController?.pushViewController(PurchacingViewController(), animated: true)
+            }
+            //my code
+            self.viewModel.saveOrder()
+
+           }
+     else{
+               let alert = UIAlertController(title: "Network issue", message: "No connection", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: "OK", style: .default))
+               self.present(alert, animated: true, completion: nil)
+           }
     }
     @IBOutlet weak var lotalLabel: UILabel!
     @IBOutlet weak var paymentMethodField: UILabel!

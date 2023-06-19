@@ -23,7 +23,7 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
     var photoCell = [UIImage(named: "media3.jpg"),UIImage(named: "media1.jpg"),UIImage(named: "media2.jpg"),UIImage(named: "media.jpg")]
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.bindViewModel()
+      //  self.bindViewModel()
        
         searchBar.delegate = self
 
@@ -36,12 +36,21 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
         brandsCollection.delegate = self
         mediaCollection.register(UINib(nibName: "MadiaCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "mediaCell")
         
-        viewModel.getbrandData()
+        //viewModel.getbrandData()
         controlMedia.numberOfPages = viewModel.getAdsArrayCount()
         startTimer()
-        
-
-      
+    
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        if (Availability.isConnectedToInternet){
+            self.bindViewModel()
+            viewModel.getbrandData()
+           }
+        else{
+               let alert = UIAlertController(title: "Network issue", message: "No connection", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: "OK", style: .default))
+               self.present(alert, animated: true, completion: nil)
+           }
     }
     func startTimer()
     {
@@ -95,11 +104,18 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView{
         case brandsCollection:
-            
-            let detailsVC = BrandViewController(nibName: "BrandViewController", bundle: nil)
-           let id = self.viewModel.navigateToBrandView(index: indexPath.row)
-            detailsVC.viewModel = self.viewModel.navigateToBrandView(index: indexPath.row)
-            navigationController?.pushViewController(detailsVC, animated: true)
+          
+            if (Availability.isConnectedToInternet){
+                let detailsVC = BrandViewController(nibName: "BrandViewController", bundle: nil)
+               let id = self.viewModel.navigateToBrandView(index: indexPath.row)
+                detailsVC.viewModel = self.viewModel.navigateToBrandView(index: indexPath.row)
+                navigationController?.pushViewController(detailsVC, animated: true)
+               }
+            else{
+                   let alert = UIAlertController(title: "Network issue", message: "No connection", preferredStyle: .alert)
+                   alert.addAction(UIAlertAction(title: "OK", style: .default))
+                   self.present(alert, animated: true, completion: nil)
+               }
             break
             
         case mediaCollection:
