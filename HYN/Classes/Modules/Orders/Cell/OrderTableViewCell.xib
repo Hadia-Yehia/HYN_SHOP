@@ -17,13 +17,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwA-90-dTV">
-                        <rect key="frame" x="20" y="20" width="109" height="25"/>
+                        <rect key="frame" x="20" y="20" width="177.66666666666666" height="25"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4w5-Lf-u0Z">
-                        <rect key="frame" x="289" y="20" width="46" height="24"/>
+                        <rect key="frame" x="195" y="20" width="140" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -36,11 +36,10 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="4w5-Lf-u0Z" firstAttribute="leading" secondItem="gwA-90-dTV" secondAttribute="trailing" constant="160" id="3Ji-9Q-5YB"/>
+                    <constraint firstItem="gwA-90-dTV" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="0Xg-bR-sK2"/>
                     <constraint firstAttribute="bottom" secondItem="4w5-Lf-u0Z" secondAttribute="bottom" constant="53" id="7kO-3F-XqC"/>
                     <constraint firstItem="yqV-Ac-fZF" firstAttribute="top" secondItem="gwA-90-dTV" secondAttribute="bottom" constant="15" id="9ft-sA-KyX"/>
                     <constraint firstItem="gwA-90-dTV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="SFF-Dy-2aL"/>
-                    <constraint firstItem="4w5-Lf-u0Z" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.13" id="TH9-fp-M3O"/>
                     <constraint firstAttribute="trailing" secondItem="4w5-Lf-u0Z" secondAttribute="trailing" constant="20" id="TlW-m9-BBh"/>
                     <constraint firstAttribute="trailing" secondItem="yqV-Ac-fZF" secondAttribute="trailing" constant="50" id="giI-pz-Ce0"/>
                     <constraint firstItem="yqV-Ac-fZF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="icY-YR-cAW"/>
@@ -48,6 +47,7 @@
                     <constraint firstItem="yqV-Ac-fZF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="60" id="n5Y-81-cAD"/>
                     <constraint firstItem="4w5-Lf-u0Z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="pof-Iw-cNj"/>
                     <constraint firstAttribute="bottom" secondItem="yqV-Ac-fZF" secondAttribute="bottom" constant="10" id="sew-mk-vua"/>
+                    <constraint firstItem="4w5-Lf-u0Z" firstAttribute="width" secondItem="yqV-Ac-fZF" secondAttribute="width" multiplier="0.5" id="t5T-rJ-M07"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
