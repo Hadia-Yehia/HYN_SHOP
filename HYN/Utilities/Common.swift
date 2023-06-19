@@ -31,4 +31,11 @@ extension UITextField {
         let numericTest = NSPredicate(format: "SELF MATCHES %@", numericRegex)
         return numericTest.evaluate(with: self.text)
     }
+    func setBoarder()
+    {
+     layer.borderWidth = 1.0
+        layer.borderColor = UIColor(named: "yellow")?.cgColor
+        layer.cornerRadius = 10.0
+       //borderStyle = .none
+    }
 }

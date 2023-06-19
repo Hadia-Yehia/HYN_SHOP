@@ -92,5 +92,8 @@ class ShoppingCartViewModel{
     {
         return AddressesViewModel(subTotal: totalPrice)
     }
+    func navigateToDetails(index : Int) -> ProductInfoViewModel{
+        return ProductInfoViewModel(productId: Int(cartItemsArray[index].id))
+        }
     
     }

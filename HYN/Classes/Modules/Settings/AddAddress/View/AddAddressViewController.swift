@@ -9,6 +9,7 @@ import UIKit
 
 class AddAddressViewController: UIViewController {
     let countryPickerView = UIPickerView()
+    @IBOutlet weak var addAddressButton: UIButton!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var surnameField: UITextField!
     @IBOutlet weak var phoneNumberField: UITextField!
@@ -68,7 +69,16 @@ class AddAddressViewController: UIViewController {
             return false
         }
     }
-    
+    func setTextFieldsStyle()
+    {
+        nameField.setBoarder()
+        surnameField.setBoarder()
+        phoneNumberField.setBoarder()
+        zipCodeField.setBoarder()
+        cityField.setBoarder()
+        countryField.setBoarder()
+        addressField.setBoarder()
+    }
     func validateCountry()->Bool
     {
         if let selectedCountry = viewModel.selectedCountry, countryField.text == selectedCountry {
@@ -85,6 +95,8 @@ class AddAddressViewController: UIViewController {
        checkDestination()
         setupCountriesPickerView()
         countryField.inputView = countryPickerView
+        addAddressButton.setRoundedCorners(radius: 10)
+        setTextFieldsStyle()
     }
     
     func setupCountriesPickerView()

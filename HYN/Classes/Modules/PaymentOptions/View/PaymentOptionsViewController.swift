@@ -19,6 +19,7 @@ class PaymentOptionsViewController: UIViewController, PKPaymentAuthorizationView
     var isApplePayButtonSelected:Bool = false
     var isCashButtonSelected:Bool = false
     var viewModel = PaymentOptionsViewModel()
+    @IBOutlet weak var confirmCheckoutButoon: UIButton!
     @IBAction func ConfirmCheckoutButton(_ sender: UIButton) {
         if let text = couponField.text, !text.isEmpty && (isCashButtonSelected||isApplePayButtonSelected) {
             
@@ -64,7 +65,8 @@ class PaymentOptionsViewController: UIViewController, PKPaymentAuthorizationView
       applePayButton.addTarget(self, action: #selector(selectApplePayButton(sender:)), for: .touchUpInside)
       cashButton.addTarget(self, action: #selector(selectCashButton(sender:)), for: .touchUpInside)
        
-        print("payment options sunb: \(viewModel.subTotal) country \(viewModel.address?.country)")
+        confirmCheckoutButoon.setRoundedCorners(radius: 5)
+        couponField.setBoarder()
         // Do any additional setup after loading the view.
     }
 

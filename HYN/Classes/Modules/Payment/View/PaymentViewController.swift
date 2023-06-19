@@ -10,7 +10,8 @@ import PassKit
 class PaymentViewController: UIViewController {
  
     
-var viewModel = PaymentViewModel()
+    @IBOutlet weak var placeOrderButton: UIButton!
+    var viewModel = PaymentViewModel()
     @IBAction func placeOrderButton(_ sender: UIButton) {
         if (Availability.isConnectedToInternet){
             if !(viewModel.isCashSelected ?? false)
@@ -51,6 +52,7 @@ var viewModel = PaymentViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         subTotalLabel.text = String(viewModel.subTotal)
+        placeOrderButton.setRoundedCorners(radius: 5)
      
         // Do any additional setup after loading the view.
     }

@@ -42,8 +42,8 @@
                                 <action selector="checkoutButton:" destination="-1" eventType="touchUpInside" id="n7w-JF-K08"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDF-CP-uYw">
-                            <rect key="frame" x="89" y="11.666666666666742" width="39" height="22"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SubTotal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDF-CP-uYw">
+                            <rect key="frame" x="89" y="11.666666666666742" width="68.666666666666686" height="22"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -75,7 +75,7 @@
                         <constraint firstItem="LTF-qD-4cM" firstAttribute="centerY" secondItem="eka-MW-eIj" secondAttribute="centerY" constant="-6.1666666666666714" id="z0j-xR-UKo"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hyj-s4-QDy">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hyj-s4-QDy">
                     <rect key="frame" x="0.0" y="546.66666666666663" width="393" height="150"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtotal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Y5-nP-4xn">
@@ -143,7 +143,7 @@
                             <color key="textColor" systemColor="systemGrayColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLW-8u-Ryf">
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLW-8u-Ryf">
                             <rect key="frame" x="110.66666666666667" y="568.33333333333337" width="171.66666666666663" height="35"/>
                             <color key="backgroundColor" name="yellow"/>
                             <color key="tintColor" systemColor="systemYellowColor"/>

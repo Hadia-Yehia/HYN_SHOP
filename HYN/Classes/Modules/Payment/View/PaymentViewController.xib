@@ -15,6 +15,7 @@
                 <outlet property="disscountLabel" destination="sOK-C8-zsi" id="fgm-pQ-9g4"/>
                 <outlet property="lotalLabel" destination="bIt-hg-p0e" id="Trw-1a-uCn"/>
                 <outlet property="paymentMethodField" destination="KGN-gZ-EqL" id="x79-ZD-hh3"/>
+                <outlet property="placeOrderButton" destination="D8b-Ly-oYc" id="G07-ld-NAY"/>
                 <outlet property="shippingFeesLabel" destination="fSM-oe-ohl" id="lCJ-OV-Fkk"/>
                 <outlet property="subTotalLabel" destination="kXP-OY-sfI" id="sef-1f-DPG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

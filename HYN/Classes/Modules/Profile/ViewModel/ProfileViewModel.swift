@@ -89,6 +89,19 @@ return (orderArr.count)
             return (orderArr.count)
         }
     }
-   
-    
+func checkIfCartHasItems()->Bool
+{
+if favItems.count > 0
+{
+return true
+}
+else
+{
+return false
+}
+
+}
+
+
+
 }

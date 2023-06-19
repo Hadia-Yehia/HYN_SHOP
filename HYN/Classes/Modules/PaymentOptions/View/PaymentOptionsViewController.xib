@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="applePayButton" destination="x1N-g7-jmf" id="5lE-hy-rdl"/>
                 <outlet property="cashButton" destination="M68-l1-PoL" id="9Ob-mY-gvv"/>
+                <outlet property="confirmCheckoutButoon" destination="oaf-sc-8xe" id="3E1-Sc-Ghe"/>
                 <outlet property="couponField" destination="brs-Dp-olb" id="XHA-kg-rxG"/>
                 <outlet property="view" destination="PyZ-xt-oR4" id="typ-8N-ZtI"/>
             </connections>

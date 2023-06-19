@@ -10,6 +10,7 @@ import Firebase
 
 class SettingsViewController: UIViewController {
     
+    @IBOutlet weak var logoutButton: UIButton!
     let viewModel = SettingsViewModel()
     @IBAction func logoutButton(_ sender: UIButton) {
         
@@ -30,6 +31,7 @@ class SettingsViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        logoutButton.setRoundedCorners(radius: 10)
         
         
     }

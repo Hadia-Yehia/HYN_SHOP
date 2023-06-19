@@ -37,7 +37,7 @@ extension AddressesViewController : UITableViewDelegate , UITableViewDataSource{
            
            
      
-           let alertController = Alerts.showAlert(title: "Confirmation", message: "Are you sure you want to delete this item?", confirmTitle: "Yes", cancelTitle: "No", confirmHandler: {
+           let alertController = Alerts.showAlert(title: "Confirmation", message: "Are you sure you want to delete this item?", confirmTitle: "Delete", cancelTitle: "Cancel", confirmHandler: {
                self.viewModel.deleteAddress(index: indexPath.row)
                {
                    result in

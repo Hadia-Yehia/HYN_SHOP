@@ -50,12 +50,15 @@ class ProductInfoViewController: UIViewController {
         setupTable()
         bindViewModel()
         setupDescLabel()
+
 //        viewModel?.getProductInfo()
         //viewModel?.checkCurrency()
 
         
         
     }
+    
+ 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -163,8 +166,10 @@ extension ProductInfoViewController : UITableViewDelegate,UITableViewDataSource{
         return cell
     }
  
-      
+   
+    }
     
     
     
-}
+
+

@@ -8,23 +8,23 @@
 import UIKit
 
 class ShoppingCartViewController: UIViewController {
-    var isArrowUp = false
+   // var isArrowUp = false
     let viewModel = ShoppingCartViewModel()
     @IBOutlet weak var noItemsView: UIView!
     @IBOutlet weak var totalPrice: UILabel!
     @IBAction func moreDetailsButton(_ sender: UIButton) {
-        isArrowUp.toggle()
-        let imageName = isArrowUp ? "chevron.up" : "chevron.down"
-        UIView.animate(withDuration: 0.25) {
-            self.moreDetailsButton.transform = CGAffineTransform(rotationAngle: self.isArrowUp ? .pi : 0)
-            self.moreDetailsButton.setImage(UIImage(systemName: imageName), for: .normal)
-        }
-        
+       // isArrowUp.toggle()
+//        let imageName = isArrowUp ? "chevron.up" : "chevron.down"
+//        UIView.animate(withDuration: 0.25) {
+//            self.moreDetailsButton.transform = CGAffineTransform(rotationAngle: self.isArrowUp ? .pi : 0)
+//            self.moreDetailsButton.setImage(UIImage(systemName: imageName), for: .normal)
+//        }
+//
         // Animate the reveal view
-        UIView.animate(withDuration: 0.25) {
-            self.checkoutDetailsView.isHidden = !self.isArrowUp
-            self.checkoutDetailsView.frame.origin.y = self.isArrowUp ? self.view.bounds.height - self.checkoutDetailsView.bounds.height : self.view.bounds.height
-        }
+//        UIView.animate(withDuration: 0.25) {
+//            self.checkoutDetailsView.isHidden = !self.isArrowUp
+//            self.checkoutDetailsView.frame.origin.y = self.isArrowUp ? self.view.bounds.height - self.checkoutDetailsView.bounds.height : self.view.bounds.height
+//        }
         
     }
     @IBOutlet weak var moreDetailsButton: UIButton!
@@ -43,8 +43,8 @@ class ShoppingCartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkoutButton.setRoundedCorners(radius: 5)
-        showMoreDetailsButton()
+        checkoutButton.setRoundedCorners(radius: 10)
+     //   showMoreDetailsButton()
         setupTableView()
         checkCartTableIfEmpty()
         self.title = "Shopping Cart"
@@ -100,16 +100,16 @@ func setupTableView()
     }
 
     
-    func showMoreDetailsButton()
-    {
-        // Create a button to represent the arrow
-    
-       moreDetailsButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
-        moreDetailsButton.tintColor = .black
-      //  moreDetailsButton.addTarget(self, action: #selector(arrowButtonTapped), for: .touchUpInside)
-        checkoutDetailsView.isHidden = true
-      
-    }
+//    func showMoreDetailsButton()
+//    {
+//        // Create a button to represent the arrow
+//
+//       moreDetailsButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+//        moreDetailsButton.tintColor = .black
+//      //  moreDetailsButton.addTarget(self, action: #selector(arrowButtonTapped), for: .touchUpInside)
+//        checkoutDetailsView.isHidden = true
+//
+//    }
     @objc func arrowButtonTapped() {
         // Toggle the arrow direction and animate the arrow button
 
@@ -149,11 +149,17 @@ extension ShoppingCartViewController:UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.height/3
     }
+   
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailsVC = ProductInfoViewController(nibName: "ProductInfoViewController", bundle: nil)
+        detailsVC.viewModel = viewModel.navigateToDetails(index: indexPath.row)
+        navigationController?.pushViewController(detailsVC, animated: true)
+    }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
        if editingStyle == .delete {
            
            
-           let alertController = Alerts.showAlert(title: "Confirmation", message: "Are you sure you want to delete this item?", confirmTitle: "Yes", cancelTitle: "No", confirmHandler: {
+           let alertController = Alerts.showAlert(title: "Confirmation", message: "Are you sure you want to delete this item?", confirmTitle: "Delete", cancelTitle: "Cancel", confirmHandler: {
                self.viewModel.deleteCartItem(index: indexPath.row)
                self.tableView.deleteRows(at: [indexPath], with: .fade)
                self.viewModel.getCartItemsFromCoreData()

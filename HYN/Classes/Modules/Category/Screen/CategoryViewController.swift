@@ -252,6 +252,9 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
              cell.productView.layer.cornerRadius = 40
              cell.layer.masksToBounds = true
             cell.configCell(img: viewModel.getCellImgData(index: indexPath.row), price: viewModel.getCellPriceData(index: indexPath.row))
+            {
+                collectionView.reloadData()
+            }
              return cell
          }
     }
