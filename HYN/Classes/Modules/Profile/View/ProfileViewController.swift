@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController {
         navigationController?.pushViewController(LoginViewController(), animated: true)
     }
     @IBAction func wishListButton(_ sender: UIButton) {
-        navigationController?.pushViewController(ShoppingCartViewController(), animated: true)
+        navigationController?.pushViewController(FavouritesViewController(), animated: true)
     }
     @IBAction func settingsButton(_ sender: UIButton) {
         let destinationViewController = SettingsViewController()
@@ -89,7 +89,7 @@ class ProfileViewController: UIViewController {
     }
     func setupTableView()
         {
-           wishListTableView.register(UINib(nibName: "ShoppingCartCell", bundle: nil), forCellReuseIdentifier: "Cell")
+           wishListTableView.register(UINib(nibName: "FavouritesTableViewCell", bundle: nil), forCellReuseIdentifier: "FavouritesTableViewCell")
             wishListTableView.delegate = self
             wishListTableView.dataSource = self
         }
@@ -123,12 +123,15 @@ extension ProfileViewController:UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier:"Cell", for: indexPath) as! ShoppingCartCell
-        cell.configCell(viewModel.getCartItem(index: indexPath.row))
-        cell.incrementButton.isHidden = true
-        cell.decrementButton.isHidden = true
-        cell.productQuantity.isHidden = true
-        cell.productImage.contentMode = .scaleAspectFit
+        let cell = tableView.dequeueReusableCell(withIdentifier:"FavouritesTableViewCell", for: indexPath) as! FavouritesTableViewCell
+        cell.configCell(item: viewModel.getCartItem(index: indexPath.row))
+        cell.addToCartButton.isHidden = true
+        cell.removeFromFav.isHidden = true
+//        cell.incrementButton.isHidden = true
+//        cell.decrementButton.isHidden = true
+//        cell.productQuantity.isHidden = true
+        cell.favImg.contentMode = .scaleAspectFit
+      //  cell.productImage.contentMode = .scaleAspectFit
 //        cell.incrementButton.tag = indexPath.row
 //        cell.decrementButton.tag = indexPath.row
 //        cell.incrementButton.addTarget(self, action: #selector(inrementProductQuantity(sender:)), for: .touchUpInside)

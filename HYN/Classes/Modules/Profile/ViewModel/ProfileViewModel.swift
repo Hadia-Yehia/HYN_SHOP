@@ -8,32 +8,32 @@
 import Foundation
 class ProfileViewModel{
   //  var observable: Observable<Bool> = Observable(false)
-    var cartItems:[CartItem] = []
+    var favItems:[Fav] = []
     
     func getCartItems()
     {
        // observable.value = true
-       cartItems =  CartCoreData.shared.getCartItems()
+        favItems =  FavCoreData.fetchProductsFromDataBase()
        // observable.value = false
     }
-    func getCartItem(index:Int)->CartItem
+    func getCartItem(index:Int)->Fav
     {
-        return cartItems[index]
+        return favItems[index]
     }
     func getCartItemsCount()->Int
     {
-        if cartItems.count >= 2
+        if favItems.count >= 2
         {
             return 2
         }
         else
         {
-            return cartItems.count
+            return favItems.count
         }
     }
     func checkIfCartHasItems()->Bool
     {
-        if cartItems.count > 0
+        if favItems.count > 0
         {
             return true
         }
