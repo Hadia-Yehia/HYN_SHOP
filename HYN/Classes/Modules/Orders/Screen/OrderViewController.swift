@@ -63,6 +63,20 @@ class OrderViewController: UIViewController ,UITableViewDataSource, UITableViewD
         cell.dataLabel.text = "8/9/2023"*/
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (Availability.isConnectedToInternet){
+            let detailsVC = OrderDetailsViewController(nibName: "OrderDetailsViewController", bundle: nil)
+            let id = self.viewModel.navigateToOrderDetailsView(index: indexPath.row)
+            detailsVC.viewModel = self.viewModel.navigateToOrderDetailsView(index: indexPath.row)
+            navigationController?.pushViewController(detailsVC, animated: true)
+           }
+        else{
+               let alert = UIAlertController(title: "Network issue", message: "No connection", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: "OK", style: .default))
+               self.present(alert, animated: true, completion: nil)
+           }
+    }
     /*
     // MARK: - Navigation
 

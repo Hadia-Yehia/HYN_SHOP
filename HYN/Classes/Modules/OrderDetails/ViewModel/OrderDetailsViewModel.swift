@@ -6,3 +6,12 @@
 //
 
 import Foundation
+class OrderDetailsViewModel{
+    
+   var orderData : OrderData
+    init(orderData:OrderData)
+    {
+       // self.brandIdFromHome = brandId
+        self.orderData = orderData
+    }
+}
