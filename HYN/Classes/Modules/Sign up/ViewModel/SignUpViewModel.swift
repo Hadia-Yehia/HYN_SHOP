@@ -33,14 +33,7 @@ class SignUpViewModel{
                 print(e)
                 self.res = e.localizedDescription
             }else {
-                
-//                Auth.auth().currentUser?.sendEmailVerification {
-//                    error in
-//                    if error != nil {
-//                        Auth.auth().currentUser?.delete()
-//                    }
-//
-//                    else{
+
                         if  ((Auth.auth().currentUser?.isEmailVerified) != nil){
                             NetworkService.getInstance().postingNewCustomer(customer: CustomerRequest(customer: customer), completionHandler: {result in
                                 
