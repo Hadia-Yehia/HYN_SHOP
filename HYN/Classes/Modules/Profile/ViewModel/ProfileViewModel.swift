@@ -53,6 +53,35 @@ class ProfileViewModel{
     
     func getCellCount()->Int{
         if (orderArr.count > 1) {
+return 2 
+}
+else
+{
+return (oderArr.count)
+}
+}
+
+
+  //  var observable: Observable<Bool> = Observable(false)
+    var favItems:[Fav] = []
+    
+    
+    
+    func getCartItems()
+    {
+       // observable.value = true
+        favItems =  FavCoreData.fetchProductsFromDataBase()
+       // observable.value = false
+    }
+    func getCartItem(index:Int)->Fav
+    {
+        print("")
+        return favItems[index]
+    }
+    func getCartItemsCount()->Int
+    {
+        if favItems.count >= 2
+        {
             return 2
 
         }
