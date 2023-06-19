@@ -73,7 +73,7 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
         button4.layer.masksToBounds = true
         view.addSubview(button4)
         
-        self.bindViewModel()
+       // self.bindViewModel()
         //self.bindViewModelTwo()
         //self.bindViewModelThree()
         photoCell.append(object1)
@@ -86,12 +86,22 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
         productCollection.delegate = self
         typeCollection.dataSource = self
         typeCollection.delegate = self
-        viewModel.getProductData()
+        //viewModel.getProductData()
         //viewModel.getCollectionData()
        // viewModel.getProductsForSecData(0)
         // Do any additional setup after loading the view.
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        if (Availability.isConnectedToInternet){
+            self.bindViewModel()
+            viewModel.getProductData()
+        }
+        else{
+               let alert = UIAlertController(title: "Network issue", message: "No connection", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: "OK", style: .default))
+               self.present(alert, animated: true, completion: nil)
+           }
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         floatingButton.frame = CGRect(x: view.frame.size.width-70, y: view.frame.size.height - 150, width: 60, height: 60)
@@ -121,21 +131,51 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
     }
     @objc private func filterAcc(){
         print("acc")
-        self.viewModel.getCategoryForSecData(type: "ACCESSORIES")
+        if (Availability.isConnectedToInternet){
+            self.viewModel.getCategoryForSecData(type: "ACCESSORIES")
+        }
+        else{
+               let alert = UIAlertController(title: "Network issue", message: "No connection", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: "OK", style: .default))
+               self.present(alert, animated: true, completion: nil)
+           }
+    
 
     }
     @objc private func filteShose(){
         print("shose")
-        self.viewModel.getCategoryForSecData(type: "SHOES")
+        if (Availability.isConnectedToInternet){
+            self.viewModel.getCategoryForSecData(type: "SHOES")
+        }
+        else{
+               let alert = UIAlertController(title: "Network issue", message: "No connection", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: "OK", style: .default))
+               self.present(alert, animated: true, completion: nil)
+           }
+  
 
     }
     @objc private func filterTshirt(){
         print("tshirt")
-        self.viewModel.getCategoryForSecData(type: "T-SHIRTS")
+        if (Availability.isConnectedToInternet){
+            self.viewModel.getCategoryForSecData(type: "T-SHIRTS")
+         }
+        else{
+               let alert = UIAlertController(title: "Network issue", message: "No connection", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: "OK", style: .default))
+               self.present(alert, animated: true, completion: nil)
+           }
     }
     @objc private func noFilter(){
         print("no filter")
-        self.viewModel.getProductData()
+        if (Availability.isConnectedToInternet){
+            self.viewModel.getProductData()
+         }
+        else{
+               let alert = UIAlertController(title: "Network issue", message: "No connection", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: "OK", style: .default))
+               self.present(alert, animated: true, completion: nil)
+           }
     }
     func bindViewModel(){
         viewModel.isLoading.bind{[weak self] isLoading in
@@ -222,12 +262,28 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView{
         case productCollection:
-            let detailsVC = ProductInfoViewController(nibName: "ProductInfoViewController", bundle: nil)
-            detailsVC.viewModel = viewModel.navigateToDetails(index: indexPath.row)
-            navigationController?.pushViewController(detailsVC, animated: true)
+            if (Availability.isConnectedToInternet){
+                let detailsVC = ProductInfoViewController(nibName: "ProductInfoViewController", bundle: nil)
+                detailsVC.viewModel = viewModel.navigateToDetails(index: indexPath.row)
+                navigationController?.pushViewController(detailsVC, animated: true)
+             }
+            else{
+                   let alert = UIAlertController(title: "Network issue", message: "No connection", preferredStyle: .alert)
+                   alert.addAction(UIAlertAction(title: "OK", style: .default))
+                   self.present(alert, animated: true, completion: nil)
+               }
+          
             break
         default:
-            self.viewModel.getProductsForSecData(brandId: photoCell[indexPath.row].id)
+            if (Availability.isConnectedToInternet){
+                self.viewModel.getProductsForSecData(brandId: photoCell[indexPath.row].id)
+
+             }
+            else{
+                   let alert = UIAlertController(title: "Network issue", message: "No connection", preferredStyle: .alert)
+                   alert.addAction(UIAlertAction(title: "OK", style: .default))
+                   self.present(alert, animated: true, completion: nil)
+               }
         //    self.productCollection.reloadData()
 
             break
