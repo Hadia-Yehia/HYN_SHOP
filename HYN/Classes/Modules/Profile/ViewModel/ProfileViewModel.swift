@@ -57,7 +57,7 @@ return 2
 }
 else
 {
-return (oderArr.count)
+return (orderArr.count)
 }
 }
 
