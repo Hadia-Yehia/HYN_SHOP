@@ -10,6 +10,8 @@ class ProfileViewModel{
   //  var observable: Observable<Bool> = Observable(false)
     var favItems:[Fav] = []
     
+    
+    
     func getCartItems()
     {
        // observable.value = true
@@ -18,6 +20,7 @@ class ProfileViewModel{
     }
     func getCartItem(index:Int)->Fav
     {
+        print("")
         return favItems[index]
     }
     func getCartItemsCount()->Int
