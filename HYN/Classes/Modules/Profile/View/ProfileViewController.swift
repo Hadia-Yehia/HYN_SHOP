@@ -114,25 +114,40 @@ loginButton.setRoundedCorners(radius: 10)
         checkIfCartHasItems()
         
     }
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
     
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return viewModel.getCellCount()
-//        print("nod",viewModel.getCellCount())
-//        //return 2
-//    }
+   /* func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cellOrder", for: indexPath) as! OrderTableViewCell
-//        print("^^",viewModel.getCellId(index: indexPath.row))
-//        cell.configCell(id: viewModel.getCellId(index: indexPath.row), price: viewModel.getCellPrice(index: indexPath.row), date: viewModel.getCellDate(index: indexPath.row))
-//       /* cell.orderName.text = "shose"
-//        cell.priceLabel.text = "800"
-//        cell.dataLabel.text = "8/9/2023"*/
-//        return cell
-//    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.getCellCount()
+        print("nod",viewModel.getCellCount())
+        //return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellOrder", for: indexPath) as! OrderTableViewCell
+        print("^^",viewModel.getCellId(index: indexPath.row))
+        cell.configCell(id: viewModel.getCellId(index: indexPath.row), price: viewModel.getCellPrice(index: indexPath.row), date: viewModel.getCellDate(index: indexPath.row))
+       /* cell.orderName.text = "shose"
+        cell.priceLabel.text = "800"
+        cell.dataLabel.text = "8/9/2023"*/
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (Availability.isConnectedToInternet){
+            let detailsVC = OrderDetailsViewController(nibName: "OrderDetailsViewController", bundle: nil)
+            let id = self.viewModel.navigateToOrderDetailsView(index: indexPath.row)
+            detailsVC.viewModel = self.viewModel.navigateToOrderDetailsView(index: indexPath.row)
+            navigationController?.pushViewController(detailsVC, animated: true)
+           }
+        else{
+               let alert = UIAlertController(title: "Network issue", message: "No connection", preferredStyle: .alert)
+               alert.addAction(UIAlertAction(title: "OK", style: .default))
+               self.present(alert, animated: true, completion: nil)
+           }
+    }*/
     /*
     // MARK: - Navigation
 
@@ -208,6 +223,30 @@ cell.removeFromFav.isHidden = true
             
         }
  
+    }
+
+
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch tableView
+        {
+        case wishListTableView:
+            break
+        default:
+           
+            if (Availability.isConnectedToInternet){
+                let detailsVC = OrderDetailsViewController(nibName: "OrderDetailsViewController", bundle: nil)
+                let id = self.viewModel.navigateToOrderDetailsView(index: indexPath.row)
+                detailsVC.viewModel = self.viewModel.navigateToOrderDetailsView(index: indexPath.row)
+                navigationController?.pushViewController(detailsVC, animated: true)
+               }
+            else{
+                   let alert = UIAlertController(title: "Network issue", message: "No connection", preferredStyle: .alert)
+                   alert.addAction(UIAlertAction(title: "OK", style: .default))
+                   self.present(alert, animated: true, completion: nil)
+               }
+        }
+       
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return wishListTableView.frame.height/2 -   wishListTableView.frame.height*0.01  }

@@ -16,14 +16,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="355" height="97"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwA-90-dTV">
-                        <rect key="frame" x="20" y="20" width="177.66666666666666" height="25"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwA-90-dTV">
+                        <rect key="frame" x="19.999999999999986" y="20" width="248.66666666666663" height="25"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4w5-Lf-u0Z">
-                        <rect key="frame" x="195" y="20" width="140" height="24"/>
+                        <rect key="frame" x="279" y="20" width="56" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -36,7 +36,7 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="gwA-90-dTV" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="0Xg-bR-sK2"/>
+                    <constraint firstItem="gwA-90-dTV" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.7" id="0Xg-bR-sK2"/>
                     <constraint firstAttribute="bottom" secondItem="4w5-Lf-u0Z" secondAttribute="bottom" constant="53" id="7kO-3F-XqC"/>
                     <constraint firstItem="yqV-Ac-fZF" firstAttribute="top" secondItem="gwA-90-dTV" secondAttribute="bottom" constant="15" id="9ft-sA-KyX"/>
                     <constraint firstItem="gwA-90-dTV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="SFF-Dy-2aL"/>
@@ -47,7 +47,7 @@
                     <constraint firstItem="yqV-Ac-fZF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="60" id="n5Y-81-cAD"/>
                     <constraint firstItem="4w5-Lf-u0Z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="pof-Iw-cNj"/>
                     <constraint firstAttribute="bottom" secondItem="yqV-Ac-fZF" secondAttribute="bottom" constant="10" id="sew-mk-vua"/>
-                    <constraint firstItem="4w5-Lf-u0Z" firstAttribute="width" secondItem="yqV-Ac-fZF" secondAttribute="width" multiplier="0.5" id="t5T-rJ-M07"/>
+                    <constraint firstItem="4w5-Lf-u0Z" firstAttribute="width" secondItem="yqV-Ac-fZF" secondAttribute="width" multiplier="0.2" id="t5T-rJ-M07"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

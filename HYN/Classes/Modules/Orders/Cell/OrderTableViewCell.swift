@@ -29,4 +29,11 @@ class OrderTableViewCell: UITableViewCell {
         dataLabel.text = date
     }
     
+    func configCellOrder(title :String,price : String,quantity:String){
+        
+        priceLabel.text = price
+        orderName.text = title
+        dataLabel.text = quantity
+    }
+    
 }

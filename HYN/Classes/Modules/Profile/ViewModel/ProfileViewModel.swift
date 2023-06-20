@@ -34,7 +34,7 @@ class ProfileViewModel{
     func getData(data : [OrderData]){
         orderArr = [OrderData]()
         for i in 0..<data.count{
-            let order = OrderData(customer: data[i].customer, lineItems: data[i].line_items, created_at: data[i].created_at, id: data[i].id, current_subtotal_price: data[i].current_subtotal_price)
+            let order = OrderData(customer: data[i].customer, lineItems: data[i].line_items, created_at: data[i].created_at, id: data[i].id, current_subtotal_price: data[i].current_subtotal_price, contact_email: data[i].contact_email)
             orderArr.append(order)
         }
          
@@ -101,5 +101,10 @@ return (orderArr.count)
         }
       
     }
-    
+func navigateToOrderDetailsView(index :Int) ->OrderDetailsViewModel
+{
+
+return OrderDetailsViewModel(orderData: orderArr[index])
+}
+
 }
