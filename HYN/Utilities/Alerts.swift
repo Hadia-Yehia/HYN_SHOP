@@ -29,7 +29,7 @@ class Alerts {
         let confirmAction = UIAlertAction(title: confirmTitle, style: .default) { _ in
             confirmHandler?()
         }
-<<<<<<< HEAD
+
         confirmAction.setValue(UIColor.red, forKey: "titleTextColor")
         
         let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel) { _ in
@@ -41,7 +41,7 @@ class Alerts {
         
         return alertController
     }
-=======
+
     static func presentTextFieldAlert(loginVC : UIViewController) -> String{
         var phone = ""
         let alertController = UIAlertController(title: "Enter Text", message: nil, preferredStyle: .alert)
@@ -73,7 +73,7 @@ class Alerts {
         return phone
     }
 
->>>>>>> signup_with_google
+
     }
     
     
