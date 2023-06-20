@@ -26,13 +26,13 @@ struct Customer : Codable{
     var first_name : String
     var last_name : String
     var email : String
-    var phone : String
+    var phone : String?
     var verified_email : Bool
     var password : String
     var password_confirmation : String
     var send_email_welcome : Bool
 
-    init(first_name: String, last_name: String, email: String, phone: String, verified_email: Bool, password: String, password_confirmation: String, send_email_welcome: Bool) {
+    init(first_name: String, last_name: String, email: String, phone: String? = nil, verified_email: Bool, password: String, password_confirmation: String, send_email_welcome: Bool) {
         self.first_name = first_name
         self.last_name = last_name
         self.email = email

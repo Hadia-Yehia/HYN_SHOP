@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
     
@@ -27,6 +28,10 @@ class LoginViewController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         hidesBottomBarWhenPushed = true
+    }
+
+    @IBAction func googleBtn(_ sender: UIButton) {
+        signInWithGoogle()
     }
     
     required init?(coder: NSCoder) {
@@ -67,4 +72,55 @@ class LoginViewController: UIViewController {
         }
      
     }
+    func signInWithGoogle(){
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
+
+        // Start the sign in flow!
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { [unowned self] result, error in
+          guard error == nil else {
+              print(error as Any)
+              return
+          }
+
+          guard let user = result?.user,
+            let idToken = user.idToken?.tokenString
+          else {
+            return
+          }
+
+          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                         accessToken: user.accessToken.tokenString)
+
+            Auth.auth().signIn(with: credential) { result, error in
+                if let name = result?.user.displayName, let email = result?.user.email, let password  = result?.user.uid  {
+                    let customer = Customer(first_name: name, last_name: "", email: email, phone: nil, verified_email: true, password: password, password_confirmation: password, send_email_welcome: true)
+                    self.viewModel.signInWithGoogle(customer: customer, completionHandler: {result in
+                        switch result{
+                        case .success(_):
+                            break
+                        case .failure(let error):
+                            print(error)
+                            break
+                        }
+                    })
+                    let homeVC = TabBar()
+                    self.navigationController?.pushViewController(homeVC, animated: true)
+                }
+                else {
+                    Toast.show(message: "missing data", controller: self)
+                }
+              
+                
+                
+            }
+                
+        }
+    }
+    
+        
+    
 }

@@ -126,7 +126,7 @@ class ProductInfoViewController: UIViewController {
                 favBtnOutlet.image = UIImage(systemName: "heart.fill")
             }
             else {
-                let alert = UIAlertController(title: "DataBase message", message: "Already existed", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Sorry!", message: "Already existed in your favourites", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(alert, animated: true, completion: nil)
             }
