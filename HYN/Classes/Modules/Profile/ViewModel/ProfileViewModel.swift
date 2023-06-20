@@ -22,7 +22,7 @@ class ProfileViewModel{
             switch(result){
             case .success(let data):
                 print(data.orders)
-                print("title of order",data.orders[0].created_at)
+            //    print("title of order",data.orders[0].created_at)
                 self.getData(data: data.orders)
             case .failure(let error):
                 print(error)
@@ -40,7 +40,7 @@ class ProfileViewModel{
          
     }
     func getCellPrice(index : Int)->String{
-        return (orderArr[index].current_subtotal_price)
+        return (orderArr[index].current_subtotal_price + " USD")
     }
     
     func getCellId(index : Int)->Int{

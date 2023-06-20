@@ -39,6 +39,7 @@ class ProfileViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+       // self.title = "Profile"
     
         // Do any additional setup after loading the view.
         ordersTableView.register(UINib(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "cellOrder")
@@ -219,6 +220,8 @@ cell.removeFromFav.isHidden = true
            /* cell.orderName.text = "shose"
             cell.priceLabel.text = "800"
             cell.dataLabel.text = "8/9/2023"*/
+          
+            
             return cell
             
         }
@@ -249,8 +252,17 @@ cell.removeFromFav.isHidden = true
        
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return wishListTableView.frame.height/2 -   wishListTableView.frame.height*0.01  }
-    
-    
+        
+        
+        switch tableView
+        {
+        case wishListTableView:
+            return wishListTableView.frame.height/2 -   wishListTableView.frame.height*0.01
+        default:
+            return wishListTableView.frame.height -   wishListTableView.frame.height*0.01
+            
+        }
+        
+    }
     
 }

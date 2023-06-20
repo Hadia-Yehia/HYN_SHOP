@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="HYN" customModuleProvider="target">
             <connections>
                 <outlet property="brandsCollection" destination="XcW-7N-PBa" id="vOs-y3-0A6"/>
+                <outlet property="brandsView" destination="Ex8-oV-tZa" id="E7n-WD-1AO"/>
                 <outlet property="controlMedia" destination="T0f-eL-J1f" id="HhK-aj-7ok"/>
                 <outlet property="mediaCollection" destination="1tT-RG-EvU" id="4d5-ce-SXL"/>
                 <outlet property="searchBar" destination="NEP-16-09Q" id="oRx-SQ-Ves"/>
@@ -24,7 +26,7 @@
             <subviews>
                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="NEP-16-09Q">
                     <rect key="frame" x="0.0" y="59" width="393" height="55.333333333333343"/>
-                    <color key="barTintColor" systemColor="systemYellowColor"/>
+                    <color key="backgroundColor" name="yellow"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="P8g-4W-0FC"/>
@@ -41,24 +43,24 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ex8-oV-tZa">
-                    <rect key="frame" x="40" y="362.33333333333331" width="313" height="59.666666666666686"/>
+                    <rect key="frame" x="40" y="362.33333333333331" width="313" height="42.666666666666686"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brands" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4q-91-Q9o">
-                            <rect key="frame" x="25" y="12" width="263" height="39"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                            <color key="textColor" systemColor="systemBackgroundColor"/>
+                            <rect key="frame" x="118.66666666666666" y="6.3333333333333712" width="76" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                            <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemYellowColor"/>
                     <constraints>
-                        <constraint firstItem="J4q-91-Q9o" firstAttribute="top" secondItem="Ex8-oV-tZa" secondAttribute="top" constant="12" id="8qX-H8-83i"/>
-                        <constraint firstItem="J4q-91-Q9o" firstAttribute="leading" secondItem="Ex8-oV-tZa" secondAttribute="leading" constant="25" id="WMg-EU-S2G"/>
-                        <constraint firstAttribute="trailing" secondItem="J4q-91-Q9o" secondAttribute="trailing" constant="25" id="XzS-Oc-CU1"/>
+                        <constraint firstItem="J4q-91-Q9o" firstAttribute="height" secondItem="Ex8-oV-tZa" secondAttribute="height" multiplier="0.703125" id="DyG-4s-4NO"/>
+                        <constraint firstItem="J4q-91-Q9o" firstAttribute="centerX" secondItem="Ex8-oV-tZa" secondAttribute="centerX" id="HwY-sA-57X"/>
+                        <constraint firstItem="J4q-91-Q9o" firstAttribute="width" secondItem="Ex8-oV-tZa" secondAttribute="width" multiplier="0.242812" id="wT5-d0-EU3"/>
+                        <constraint firstItem="J4q-91-Q9o" firstAttribute="centerY" secondItem="Ex8-oV-tZa" secondAttribute="centerY" id="zhM-y5-Awd"/>
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="XcW-7N-PBa">
-                    <rect key="frame" x="25" y="462.00000000000006" width="343" height="255.66666666666669"/>
+                    <rect key="frame" x="25" y="445.00000000000006" width="343" height="255.66666666666669"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Y7H-0F-lUd">
                         <size key="itemSize" width="128" height="128"/>
@@ -83,7 +85,7 @@
                 <constraint firstItem="Ex8-oV-tZa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="G5K-4P-AIv"/>
                 <constraint firstItem="NEP-16-09Q" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="HtM-dl-LWt"/>
                 <constraint firstItem="XcW-7N-PBa" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.3" id="I4M-Re-U8J"/>
-                <constraint firstItem="Ex8-oV-tZa" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.07" id="LtC-2M-vpy"/>
+                <constraint firstItem="Ex8-oV-tZa" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.05" id="LtC-2M-vpy"/>
                 <constraint firstItem="NEP-16-09Q" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="SBA-qY-ol5"/>
                 <constraint firstItem="NEP-16-09Q" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.065" id="SLS-vT-WOa"/>
                 <constraint firstItem="Ex8-oV-tZa" firstAttribute="top" secondItem="1tT-RG-EvU" secondAttribute="bottom" constant="15" id="c3t-Ln-iX7"/>
@@ -100,6 +102,9 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="yellow">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

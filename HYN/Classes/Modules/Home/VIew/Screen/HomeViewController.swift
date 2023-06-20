@@ -9,6 +9,7 @@ import UIKit
 import SDWebImage
 class HomeViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UISearchBarDelegate {
 
+    @IBOutlet weak var brandsView: UIView!
     var timer : Timer?
     var currentAdIndex = 0
    
@@ -24,7 +25,8 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
       //  self.bindViewModel()
-       
+        //self.title = "Home"
+        brandsView.setCellStyle(view: brandsView,color: "yellow")
         searchBar.delegate = self
 
         brandsCollection.register(UINib(nibName: "MadiaCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "mediaCell")
@@ -154,7 +156,7 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
             cell.mediaView.layer.cornerRadius = 40
             cell.layer.masksToBounds = true
            cell.photoView.image = UIImage(named: viewModel.getAd(index: indexPath.row).image)
-           cell.mediaView.contentMode = .scaleAspectFill
+          // cell.mediaView.contentMode = .scaleAspectFill
            //if(brandArray[indexPath.row] != nil){
               // let url = URL(string: brandArray[indexPath.row])
               // cell.photoView?.sd_setImage(with: url,completed: nil)
@@ -167,6 +169,7 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mediaCell", for: indexPath) as! MadiaCollectionViewCell
            cell.mediaView.layer.cornerRadius = 40
            cell.layer.masksToBounds = true
+        cell.mediaView.contentMode = .scaleAspectFit
             cell.mediaView.layer.cornerRadius = 40
             cell.layer.masksToBounds = true
            cell.configCell(img: viewModel.getCellData(index: indexPath.row))
@@ -178,7 +181,7 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
         case mediaCollection:
             return CGSize(width: mediaCollection.frame.width, height: mediaCollection.frame.height)
         default:
-            return CGSize(width: mediaCollection.frame.width/2 - mediaCollection.frame.width/2*0.1, height: mediaCollection.frame.height/3)
+            return CGSize(width: mediaCollection.frame.width/2 - mediaCollection.frame.width/2*0.1, height: mediaCollection.frame.height/2)
         }
 
     }

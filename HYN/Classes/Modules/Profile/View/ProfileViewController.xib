@@ -139,8 +139,8 @@
                             <rect key="frame" x="88.333333333333329" y="21.000000000000007" width="176.33333333333337" height="121.66666666666669"/>
                             <color key="tintColor" name="grey"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No items in cart." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLq-yq-C9V">
-                            <rect key="frame" x="114" y="153" width="125" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No items in Favourites" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLq-yq-C9V">
+                            <rect key="frame" x="88.333333333333329" y="153" width="176.33333333333337" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -154,7 +154,7 @@
                         <constraint firstItem="NLq-yq-C9V" firstAttribute="top" secondItem="J5J-oL-4Qs" secondAttribute="bottom" constant="10" id="ZNo-Fz-8QM"/>
                         <constraint firstItem="J5J-oL-4Qs" firstAttribute="top" secondItem="SCY-Qm-RC8" secondAttribute="top" constant="20" id="ZgX-71-iWJ"/>
                         <constraint firstItem="J5J-oL-4Qs" firstAttribute="centerX" secondItem="SCY-Qm-RC8" secondAttribute="centerX" id="ax5-6u-Zrg"/>
-                        <constraint firstItem="NLq-yq-C9V" firstAttribute="width" secondItem="J5J-oL-4Qs" secondAttribute="width" multiplier="0.708885" id="hI4-Mb-YCK"/>
+                        <constraint firstItem="NLq-yq-C9V" firstAttribute="width" secondItem="J5J-oL-4Qs" secondAttribute="width" id="hI4-Mb-YCK"/>
                     </constraints>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BO6-48-bxr">

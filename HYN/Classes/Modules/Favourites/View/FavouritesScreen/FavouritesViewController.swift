@@ -18,7 +18,7 @@ class FavouritesViewController: UIViewController , UITableViewDelegate,UITableVi
         favTable.register(UINib(nibName: "FavouritesTableViewCell", bundle: nil),forCellReuseIdentifier: "FavouritesTableViewCell")
         favTable.dataSource = self
         favTable.delegate = self
-        self.title = "Favourites"
+       // self.title = "Favourites"
 
     }
     override func viewDidAppear(_ animated: Bool) {

@@ -405,7 +405,11 @@ class NetworkService:NetworkServiceProtocol{
 
     
     func deleteAddressFromServer(addressId:Int,completionHandler: @escaping (Result<EmptyResponse, NetworkError>) -> Void) {
-        let userId = UserDefaults.standard.object(forKey: "userId") as! String
+        guard  let userId = UserDefaults.standard.object(forKey: "userId")
+           else {
+
+               return
+           }
         let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/\(userId)/addresses/\(addressId).json"
         let headers: HTTPHeaders = NetworkConstants.shared.accessToken
         
