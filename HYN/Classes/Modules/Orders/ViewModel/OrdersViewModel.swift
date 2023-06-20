@@ -23,7 +23,7 @@ class OrdersViewModel{
             switch(result){
             case .success(let data):
                 print(data.orders)
-                print("title of order",data.orders[0].created_at)
+              //  print("title of order",data.orders[0].created_at)
                 self.getData(data: data.orders)
             case .failure(let error):
                 print(error)

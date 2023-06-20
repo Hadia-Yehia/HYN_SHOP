@@ -107,6 +107,7 @@ class CategoryViewModel{
     }*/
     
     func getTypeData(data : [CustomCollections]){
+        collectionArr.removeAll()
         for i in 1..<data.count-1{
             let productsType = CollectionStruct(id: data[i].id!, title: data[i].title!, img: (data[i].image?.src)!)
             

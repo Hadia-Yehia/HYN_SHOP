@@ -38,6 +38,7 @@ class HomeViewModel{
         return filteredBrandArr.count
     }
     func getData(data : [SmartCollections]){
+        brandArr.removeAll()
         for i in 0..<data.count{
             let brand = BrandStruct(img: (data[i].image?.src)!, id: data[i].id! , title: data[i].title!)
             brandArr.append(brand)

@@ -43,6 +43,7 @@ class BrandViewModel{
         return searchFilteredArr.count
     }
     func getData(data : [Product]){
+        productArr.removeAll()
         for i in 0..<data.count{
             let products = ProductsStruct(id: data[i].id!, price: (data[i].variants?.first?.price)!, img: (data[i].image?.src!)!,title: data[i].title!)
             productArr.append(products)
