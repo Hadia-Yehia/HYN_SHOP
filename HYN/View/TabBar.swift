@@ -73,7 +73,7 @@ class TabBar: UITabBarController {
     func setupTabBarColors(){
       //  tabBar.layer.borderWidth = 2
       //  tabBar.layer.borderColor = UIColor.lightGray.cgColor
-        tabBar.unselectedItemTintColor = UIColor(named: "grey")
+        tabBar.unselectedItemTintColor = UIColor(named: "darkGrey")
         tabBar.selectedImageTintColor = UIColor(named: "yellow")
         /*tabBar.selectedItem?.standardAppearance?.selectionIndicatorTintColor = UIColor(red:217/255 , green: 150/255, blue: 81/255, alpha: 1)
         tabBar.selectedItem?.scrollEdgeAppearance?.selectionIndicatorTintColor = UIColor(red:217/255 , green: 150/255, blue: 81/255, alpha: 1)*/

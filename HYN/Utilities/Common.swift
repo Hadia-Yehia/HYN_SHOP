@@ -15,13 +15,13 @@ extension UIButton {
 }
 extension UIView
 {
-    func setCellStyle(view:UIView)
+    func setCellStyle(view:UIView,color:String)
        {
            //view.layer.borderColor = UIColor(named: "#48BFBE")?.cgColor
          // view.layer.borderColor = UIColor.red.cgColor
-           let customColor = UIColor(named: "grey")
+           let customColor = UIColor(named: color)
            view.layer.borderColor = customColor?.cgColor
-           view.layer.borderWidth = 0.7
+           view.layer.borderWidth = 1
           view.layer.cornerRadius = 20
        }
 }

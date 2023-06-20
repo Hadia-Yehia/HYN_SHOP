@@ -100,7 +100,7 @@ class BrandViewController: UIViewController,UICollectionViewDataSource,UICollect
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width:collectionView.bounds.width/2, height: collectionView.bounds.height/2)
+        return CGSize(width:collectionView.bounds.width/2 - collectionView.bounds.width/2 * 0.1, height: collectionView.bounds.height/2)
         }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel?.search(searchText: searchText)

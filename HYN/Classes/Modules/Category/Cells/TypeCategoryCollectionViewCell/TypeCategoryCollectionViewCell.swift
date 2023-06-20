@@ -22,6 +22,7 @@ class TypeCategoryCollectionViewCell: UICollectionViewCell {
         let url = URL(string: img)
         typeImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"))
         typeLabel.text = title
+        
     }
 
 }

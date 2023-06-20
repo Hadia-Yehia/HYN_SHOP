@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,25 +20,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="95" height="97"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dB1-4M-PlZ">
-                                <rect key="frame" x="8" y="4" width="79" height="68"/>
+                                <rect key="frame" x="14.333333333333336" y="4.0000000000000036" width="66.333333333333314" height="58.333333333333343"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Men" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ci8-kf-kIL">
-                                <rect key="frame" x="8" y="74" width="79" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="8" y="72.333333333333329" width="79" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Ci8-kf-kIL" secondAttribute="trailing" constant="8" id="3j2-FL-fj0"/>
-                            <constraint firstItem="dB1-4M-PlZ" firstAttribute="top" secondItem="pTC-Az-Fns" secondAttribute="top" constant="4" id="IgV-T6-Yfy"/>
-                            <constraint firstItem="Ci8-kf-kIL" firstAttribute="leading" secondItem="pTC-Az-Fns" secondAttribute="leading" constant="8" id="JdM-Qq-2hz"/>
-                            <constraint firstItem="dB1-4M-PlZ" firstAttribute="leading" secondItem="pTC-Az-Fns" secondAttribute="leading" constant="8" id="Vyk-FT-2o2"/>
-                            <constraint firstItem="dB1-4M-PlZ" firstAttribute="height" secondItem="pTC-Az-Fns" secondAttribute="height" multiplier="0.7" id="X8M-oG-o1n"/>
-                            <constraint firstItem="Ci8-kf-kIL" firstAttribute="top" secondItem="dB1-4M-PlZ" secondAttribute="bottom" constant="2" id="mZB-t0-7Lg"/>
-                            <constraint firstAttribute="bottom" secondItem="Ci8-kf-kIL" secondAttribute="bottom" constant="2" id="nRL-eC-NR2"/>
-                            <constraint firstAttribute="trailing" secondItem="dB1-4M-PlZ" secondAttribute="trailing" constant="8" id="ozP-Jr-NT5"/>
+                            <constraint firstItem="Ci8-kf-kIL" firstAttribute="centerX" secondItem="dB1-4M-PlZ" secondAttribute="centerX" id="9cz-cO-bQ4"/>
+                            <constraint firstItem="Ci8-kf-kIL" firstAttribute="top" secondItem="dB1-4M-PlZ" secondAttribute="bottom" constant="10" id="Dnk-Hf-WeG"/>
+                            <constraint firstItem="dB1-4M-PlZ" firstAttribute="top" secondItem="pTC-Az-Fns" secondAttribute="top" constant="4" id="EKm-JU-wjS"/>
+                            <constraint firstItem="Ci8-kf-kIL" firstAttribute="width" secondItem="dB1-4M-PlZ" secondAttribute="width" multiplier="1.19095" id="F5T-94-cDz"/>
+                            <constraint firstItem="dB1-4M-PlZ" firstAttribute="width" secondItem="pTC-Az-Fns" secondAttribute="width" multiplier="0.7" id="X5q-jz-FLG"/>
+                            <constraint firstItem="dB1-4M-PlZ" firstAttribute="height" secondItem="pTC-Az-Fns" secondAttribute="height" multiplier="0.601375" id="nFH-XE-tyZ"/>
+                            <constraint firstItem="dB1-4M-PlZ" firstAttribute="centerX" secondItem="pTC-Az-Fns" secondAttribute="centerX" id="ty9-il-lUm"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -60,9 +57,4 @@
             <point key="canvasLocation" x="41.984732824427482" y="36.971830985915496"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>

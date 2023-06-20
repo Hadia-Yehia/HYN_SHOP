@@ -35,39 +35,40 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
     var viewModel = CategoryViewModel()
     var photoCell : [CollectionStruct] =  Array()
     
-    var object1 = CollectionStruct(id: 448684294429, title: "KID", img:  "kid.jpg")
-    var object2 = CollectionStruct(id: 448684196125, title: " MEN", img:  "men.png")
-    var object3 = CollectionStruct(id: 448684327197, title: "SALE", img:  "sale.jpg")
-    var object4 = CollectionStruct(id: 448684261661, title: "WOMEN", img:  "women.jpg")
+    var object1 = CollectionStruct(id: 448684294429, title: "KIDS", img:  "kids2.jpg")
+    var object2 = CollectionStruct(id: 448684196125, title: " MEN", img:  "man2.png")
+    var object3 = CollectionStruct(id: 448684327197, title: "SALE", img:  "sale2.jpg")
+    var object4 = CollectionStruct(id: 448684261661, title: "WOMEN", img:  "woman2.jpg")
    // var photoCell = [UIImage(named: "media3.jpg"),UIImage(named: "media1.jpg"),UIImage(named: "media2.jpg"),UIImage(named: "media.jpg")]
     override func viewDidLoad() {
         super.viewDidLoad()
+       // self.title = "Category"
         searchBar.delegate = self
         view.addSubview(floatingButton)
         floatingButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         button1.setImage(UIImage(named: "tshirt.png"), for: .normal)
-        button1.backgroundColor = .systemYellow
+        button1.backgroundColor = .white
         button1.isHidden = true
         button1.layer.cornerRadius = 30
         button1.layer.masksToBounds = true
         view.addSubview(button1)
         
-        button2.setImage(UIImage(named: "acc.jpg"), for: .normal)
-        button2.backgroundColor = .systemYellow
+        button2.setImage(UIImage(named: "accessory.jpg"), for: .normal)
+        button2.backgroundColor = .white
         button2.isHidden = true
         button2.layer.cornerRadius = 30
         button2.layer.masksToBounds = true
         view.addSubview(button2)
         
-        button3.setImage(UIImage(named: "shose.png"), for: .normal)
-        button3.backgroundColor = .systemYellow
+        button3.setImage(UIImage(named: "shoes.png"), for: .normal)
+        button3.backgroundColor = .white
         button3.isHidden = true
         button3.layer.cornerRadius = 30
         button3.layer.masksToBounds = true
         view.addSubview(button3)
         
         button4.setImage(UIImage(named: "all.jpg"), for: .normal)
-        button4.backgroundColor = .systemYellow
+        button4.backgroundColor = .white
         button4.isHidden = true
         button4.layer.cornerRadius = 30
         button4.layer.masksToBounds = true
@@ -78,8 +79,9 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
         //self.bindViewModelThree()
         photoCell.append(object1)
         photoCell.append(object2)
-        photoCell.append(object3)
         photoCell.append(object4)
+        photoCell.append(object3)
+      
         productCollection.register(UINib(nibName: "ProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "productCell")
         typeCollection.register(UINib(nibName: "TypeCategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "typeCell")
         productCollection.dataSource = self
@@ -166,6 +168,7 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
                self.present(alert, animated: true, completion: nil)
            }
     }
+
     @objc private func noFilter(){
         print("no filter")
         if (Availability.isConnectedToInternet){
@@ -260,23 +263,29 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width:collectionView.bounds.width/2, height: collectionView.bounds.height/2)
+        switch collectionView
+        {
+        case typeCollection:
+            return CGSize(width: collectionView.frame.size.width/4 - (0.01 * collectionView.frame.size.width), height: 100)
+        default:
+            return CGSize(width:collectionView.bounds.width/2 - collectionView.bounds.width/2 * 0.1, height: collectionView.bounds.height/2 - collectionView.bounds.height/2 * 0.1)
+        }
+      
         }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView{
         case productCollection:
-            if (Availability.isConnectedToInternet){
+         if (Availability.isConnectedToInternet){
                 let detailsVC = ProductInfoViewController(nibName: "ProductInfoViewController", bundle: nil)
                 detailsVC.viewModel = viewModel.navigateToDetails(index: indexPath.row)
                 navigationController?.pushViewController(detailsVC, animated: true)
-             }
-            else{
-                   let alert = UIAlertController(title: "Network issue", message: "No connection", preferredStyle: .alert)
+          }
+         else{
+                  let alert = UIAlertController(title: "Network issue", message: "No connection", preferredStyle: .alert)
                    alert.addAction(UIAlertAction(title: "OK", style: .default))
                    self.present(alert, animated: true, completion: nil)
-               }
+              }
           
-            break
         default:
             if (Availability.isConnectedToInternet){
                 self.viewModel.getProductsForSecData(brandId: photoCell[indexPath.row].id)
@@ -288,8 +297,6 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
                    self.present(alert, animated: true, completion: nil)
                }
         //    self.productCollection.reloadData()
-
-            break
         }
     }
 

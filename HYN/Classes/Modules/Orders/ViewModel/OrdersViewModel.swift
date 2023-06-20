@@ -41,7 +41,7 @@ class OrdersViewModel{
          
     }
     func getCellPrice(index : Int)->String{
-        return (orderArr[index].current_subtotal_price)
+        return (orderArr[index].current_subtotal_price + "USD")
     }
     
     func getCellId(index : Int)->Int{

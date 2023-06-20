@@ -47,7 +47,7 @@ class ShoppingCartViewController: UIViewController {
      //   showMoreDetailsButton()
         setupTableView()
         checkCartTableIfEmpty()
-        self.title = "Shopping Cart"
+      //  self.title = "Shopping Cart"
     
        
     }

@@ -14,7 +14,8 @@ class MadiaCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var photoView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        mediaView.contentMode = .scaleAspectFit
+      // setCellStyle(view: mediaView, color: "grey")
     }
     func configCell(img : String){
         let url = URL(string: img)

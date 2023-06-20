@@ -23,7 +23,7 @@
             <subviews>
                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Khm-hW-uUA">
                     <rect key="frame" x="0.0" y="59" width="393" height="56"/>
-                    <color key="barTintColor" name="yellow"/>
+                    <color key="backgroundColor" name="yellow"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="tyM-1X-gvB"/>

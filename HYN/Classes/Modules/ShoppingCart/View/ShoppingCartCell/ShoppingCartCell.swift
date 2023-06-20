@@ -18,7 +18,7 @@ class ShoppingCartCell: UITableViewCell {
     @IBOutlet weak var productPrice: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-       setCellStyle(view: view)
+        setCellStyle(view: view,color: "grey")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

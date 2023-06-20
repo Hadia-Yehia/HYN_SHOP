@@ -26,7 +26,7 @@ extension ProductInfoViewController: UICollectionViewDelegate,UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = imgsCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductInfoCollectionViewCell", for: indexPath) as! ProductInfoCollectionViewCell
-        cell.configCell(imgSRC: viewModel?.getCellImg(index: indexPath.row) ?? "placeholder")
+        cell.configCell(imgSRC: viewModel?.getCellImg(index: indexPath.section) ?? "placeholder")
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -16,7 +16,7 @@ class AddressTableViewCell: UITableViewCell {
     @IBOutlet weak var view: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        setCellStyle(view: view)
+        setCellStyle(view: view,color: "grey")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -17,6 +17,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+      setCellStyle(view: productView, color: "grey")
     }
     func configCell(img : String,price:String,completionHandler:@escaping ()->Void){
         let url = URL(string: img)
