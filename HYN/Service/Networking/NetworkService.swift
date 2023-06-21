@@ -92,18 +92,6 @@ class NetworkService:NetworkServiceProtocol{
             }.resume()
         }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     func fetchingProductDetails(product_id: Int, completionHandler: @escaping (Result<ProductResponse, NetworkError>) -> Void) {
         let defaults = UserDefaults.standard
         print("from network\(defaults.object(forKey: "userName"))")

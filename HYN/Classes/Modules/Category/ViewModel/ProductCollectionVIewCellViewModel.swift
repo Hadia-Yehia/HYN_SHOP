@@ -22,6 +22,16 @@ class ProductCollectionViewCellViewModel{
         let item = Fav(title: name, price: price, img: img, id: id)
         FavCoreData.saveProductToDataBase(item: item)
     }
+    func deleteItemFromCell(id : Int){
+       FavCoreData.deleteProduct(id: id)
+        for i in 0..<(favDataSource?.count ?? 0){
+            if favDataSource?[i].id == id{
+                favDataSource?.remove(at: i)
+            }
+        }
+        
+    }
+
     
     func changeCurrency(completion: @escaping (Float)-> ())
     {

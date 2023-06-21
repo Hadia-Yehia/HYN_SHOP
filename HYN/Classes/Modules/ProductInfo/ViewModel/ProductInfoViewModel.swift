@@ -13,6 +13,7 @@ class ProductInfoViewModel{
     var productId : Int
     var newCurrency: String?
     var result : Product?
+    var size : Observable<Array<String>> = Observable([""])
     var favDataSource : [Fav]?
     var product  : ProductInfo = ProductInfo(name: "no data", price: "no data", description: "no data", rate: 0.0 , imgs: Array(), size: "no data")
     init(productId: Int) {
@@ -30,8 +31,10 @@ class ProductInfoViewModel{
             self?.isLoading.value = false
             switch result{
             case .success(let data):
-               // self?.result = data.product
-                print("hadia debug " + String(self?.result?.images?.count ?? 0))
+                self?.result = data.product
+                self?.size.value = data.product?.options?.first?.valuesArr
+                print("hadia debug " + String(self?.result?.options?.first?.valuesArr?.count ?? 0))
+                print("hadia debug " + String(self?.result?.options?.first?.valuesArr?.first ?? "empty"))
                 self?.getData(result: data.product)
                 
                 self?.checkCurrency()
@@ -52,6 +55,9 @@ class ProductInfoViewModel{
             print("debuuug" + product.imgs[i] )
         }
 
+    }
+    func getSize()-> [String]{
+        return result?.options?.first?.valuesArr ?? Array()
     }
     func getImgsCount()-> Int{
 
