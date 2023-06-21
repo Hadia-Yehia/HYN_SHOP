@@ -14,7 +14,7 @@ var result:String
 
 }
 struct Rates:Decodable{
-    
+    var USD:Float
     var AED:Float
     var AMD:Float
     var EUR:Float
