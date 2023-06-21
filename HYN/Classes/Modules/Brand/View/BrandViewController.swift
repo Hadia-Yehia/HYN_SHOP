@@ -84,15 +84,11 @@ class BrandViewController: UIViewController,UICollectionViewDataSource,UICollect
         cell.layer.masksToBounds = true
         if ((viewModel?.isFiltering) == true){
             cell.configCell(img: (viewModel?.filterArr[indexPath.row].img)!, price: (viewModel?.filterArr[indexPath.row].price)!,id: (viewModel?.filterArr[indexPath.row].id)!,name: (viewModel?.filterArr[indexPath.row].title)!,viewC: self)
-            {
-                collectionView.reloadData()
-            }
+           
         }
         else{
             cell.configCell(img: viewModel!.getCellImgData(index: indexPath.row), price: viewModel!.getCellPriceData(index: indexPath.row),id: viewModel!.getCellIdData(index: indexPath.row),name: viewModel!.getCellNameData(index: indexPath.row),viewC: self)
-            {
-                collectionView.reloadData()
-            }
+           
         }
        
        // cell.configCell(img: collectionViewData[indexPath.row].img, price: collectionViewData[indexPath.row].price)

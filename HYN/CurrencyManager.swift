@@ -50,6 +50,26 @@ class CurrencyManager
             }
             
         }
+        static func getRequiredCurrency()->Float
+    
+    {
+        let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
         
+        switch currencyCode
+        {
+        case "AED":
+            return UserDefaults.standard.float(forKey: "AED")
+        case "EGP":
+            return UserDefaults.standard.float(forKey: "EGP")
+        case "EUR":
+            return UserDefaults.standard.float(forKey: "EUR")
+        case "AMD":
+           return   UserDefaults.standard.float(forKey: "AMD")
+        default:
+            return 1.0
+            
+        }
+       
+    }
     
 }

@@ -41,7 +41,7 @@ class FavouritesViewModel{
         let productPrice = Float(cartProdct?.price ?? "0") ?? 0
         let productId = cartProdct?.id ?? 0
         let productTitle = cartProdct?.title ?? ""
-        let productImage = cartProdct?.img.first.map(String.init) ?? "placeholder"
+        let productImage = cartProdct?.img ?? "placeholder"
             let cartItem = CartItem(id:Int64( productId),
                                     title: productTitle,
                                     quantity: 1,

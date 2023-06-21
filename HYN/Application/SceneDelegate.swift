@@ -45,6 +45,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
                     window?.makeKeyAndVisible()
                     window?.windowScene = windowScene
+        
+        NetworkService.sharedInstance.getCurrencyExchange()
+        {
+            result in
+            switch result{
+            case .success(let data):
+            
+                UserDefaults.standard.set(data.rates.EUR, forKey: "EUR")
+                UserDefaults.standard.set(data.rates.EGP, forKey: "EGP")
+                UserDefaults.standard.set(data.rates.AMD, forKey: "AMD")
+                UserDefaults.standard.set(data.rates.AED, forKey: "AED")
+                
+                print("Exchange saved successfully")
+                case .failure(let error):
+                    print("error\(error.localizedDescription)")
+                    print("cann't exchange price")
+                    break
+                }
+                
+            }
+            
+        
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

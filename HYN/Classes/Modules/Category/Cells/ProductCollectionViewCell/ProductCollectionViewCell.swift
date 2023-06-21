@@ -27,14 +27,14 @@ class ProductCollectionViewCell: UICollectionViewCell {
         // Initialization code
       setCellStyle(view: productView, color: "grey")
     }
-    func configCell(img : String,price:String,id:Int,name:String,viewC:UIViewController,completionHandler:@escaping ()->Void){
+    func configCell(img : String,price:String,id:Int,name:String,viewC:UIViewController){
         self.img = img
         self.price = price
         self.id = id
         self.name = name
         self.viewC = viewC
         let url = URL(string: img)
-        let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
+      
         productImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"))
         productLabel.text = price
         valid = viewModel.checkValidity(id: id)
@@ -44,14 +44,19 @@ class ProductCollectionViewCell: UICollectionViewCell {
         else {
             favBtnOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         }
-//        CurrencyManager.exchangePrice(to: currencyCode) {
-//            exchangeRate in
-//            let floatValue: Float = (Float(price) ?? 0.0) * exchangeRate
-//            let formattedString = String(format: "%.2f", floatValue)
-//            self.productLabel.text = "\(currencyCode)\(formattedString)"
-//            completionHandler()
-//        }
+            let exchangeRate = CurrencyManager.getRequiredCurrency()
+            let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
+            let floatValue: Float = (Float(price) ?? 0.0) * exchangeRate
+            let formattedString = String(format: "%.2f", floatValue)
+            self.productLabel.text = "\(currencyCode)\(formattedString)"
+         
+        
+
            
+    }
+    func changeCurrencyInCell()
+    {
+        
     }
 
     @IBAction func favBtn(_ sender: Any) {

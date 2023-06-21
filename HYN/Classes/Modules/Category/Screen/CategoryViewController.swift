@@ -224,6 +224,7 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch(collectionView){
         case typeCollection:
@@ -255,9 +256,7 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
              cell.productView.layer.cornerRadius = 40
              cell.layer.masksToBounds = true
             cell.configCell(img: viewModel.getCellImgData(index: indexPath.row), price: viewModel.getCellPriceData(index: indexPath.row), id: viewModel.getCellIdData(index: indexPath.row),name:viewModel.getCellNameData(index: indexPath.row),viewC: self)
-            {
-                collectionView.reloadData()
-            }
+         
              return cell
          }
     }

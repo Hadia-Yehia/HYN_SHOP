@@ -57,8 +57,10 @@ class FavouritesViewController: UIViewController , UITableViewDelegate,UITableVi
             viewModel.insertProductInCoreData(at: sender.tag)
             {
                 result in
+print("  hadooodaaaa \(sender.tag)")
                 if result
                 {
+                    
                     Toast.show(message: "Product added to cart successfully", controller: self)
                 }
                 else
