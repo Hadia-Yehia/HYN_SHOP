@@ -41,7 +41,12 @@ class OrdersViewModel{
          
     }
     func getCellPrice(index : Int)->String{
-        return (orderArr[index].current_subtotal_price + "USD")
+        let exchangeRate = CurrencyManager.getRequiredCurrencyExchange()
+       // let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
+        let floatValue: Float = (Float(orderArr[index].current_subtotal_price) ?? 0.0) * exchangeRate
+        let formattedString = String(format: "%.2f", floatValue)
+     //  self.productLabel.text = "\(currencyCode)\(formattedString)"
+        return (formattedString + (UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"))
     }
     
     func getCellId(index : Int)->Int{

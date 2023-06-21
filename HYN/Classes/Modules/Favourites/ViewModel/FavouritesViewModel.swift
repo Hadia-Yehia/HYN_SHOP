@@ -58,9 +58,15 @@ class FavouritesViewModel{
                    completionHandler(false)
                }
      
-        
-        
- 
+    }
+    func getCurrencyExchange(price:String)-> String
+    {
+        let exchangeRate = CurrencyManager.getRequiredCurrencyExchange()
+       // let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
+        let floatValue: Float = (Float(price) ?? 0.0) * exchangeRate
+        let formattedString = String(format: "%.2f", floatValue)
+        return formattedString
+       // self.productLabel.text = "\(currencyCode)\(formattedString)"
     }
  
 

@@ -6,7 +6,7 @@
 //
 
 import XCTest
-
+@testable import HYN
 final class NetworkServiceTest: XCTestCase {
 
     override func setUpWithError() throws {
@@ -30,6 +30,14 @@ final class NetworkServiceTest: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    
+    func testGetAddresses()
+    {
+        let myExpectation = expectation(description: "waiting for the API")
+        let netwoekService = NetworkService()
+        
     }
 
 }

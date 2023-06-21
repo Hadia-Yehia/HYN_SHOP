@@ -48,16 +48,19 @@ class FavouritesViewController: UIViewController , UITableViewDelegate,UITableVi
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavouritesTableViewCell", for: indexPath) as! FavouritesTableViewCell
         cell.configCell(item: viewModel.getObjectForCell(index: indexPath.row),viewC: self,table: tableView,index: indexPath.row)
+        cell.addToCartButton.tag = indexPath.row
         cell.addToCartButton.addTarget(self, action: #selector(addProductToCart(sender:)), for: .touchUpInside)
 //        cell.removeFromFav.addTarget(self, action: #selector(removeFromFav(sender:)), for: .touchUpInside)
         return cell    }
     
+
+    
+ 
     @objc func addProductToCart(sender:UIButton)
         {
             viewModel.insertProductInCoreData(at: sender.tag)
             {
                 result in
-print("  hadooodaaaa \(sender.tag)")
                 if result
                 {
                     
