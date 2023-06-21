@@ -254,7 +254,7 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productCell", for: indexPath) as! ProductCollectionViewCell
              cell.productView.layer.cornerRadius = 40
              cell.layer.masksToBounds = true
-            cell.configCell(img: viewModel.getCellImgData(index: indexPath.row), price: viewModel.getCellPriceData(index: indexPath.row))
+            cell.configCell(img: viewModel.getCellImgData(index: indexPath.row), price: viewModel.getCellPriceData(index: indexPath.row), id: viewModel.getCellIdData(index: indexPath.row),name:viewModel.getCellNameData(index: indexPath.row),viewC: self)
             {
                 collectionView.reloadData()
             }

@@ -35,6 +35,9 @@
                                 <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system">
                                     <color key="baseForegroundColor" systemColor="systemYellowColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="removeFromFav:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="fC1-Lz-ldc"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="EGP 674,99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9O-2b-z37">
                                 <rect key="frame" x="305" y="46.666666666666664" width="132" height="30.999999999999993"/>

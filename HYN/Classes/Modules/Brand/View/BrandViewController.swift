@@ -83,13 +83,13 @@ class BrandViewController: UIViewController,UICollectionViewDataSource,UICollect
         cell.productView.layer.cornerRadius = 40
         cell.layer.masksToBounds = true
         if ((viewModel?.isFiltering) == true){
-            cell.configCell(img: (viewModel?.filterArr[indexPath.row].img)!, price: (viewModel?.filterArr[indexPath.row].price)!)
+            cell.configCell(img: (viewModel?.filterArr[indexPath.row].img)!, price: (viewModel?.filterArr[indexPath.row].price)!,id: (viewModel?.filterArr[indexPath.row].id)!,name: (viewModel?.filterArr[indexPath.row].title)!,viewC: self)
             {
                 collectionView.reloadData()
             }
         }
         else{
-            cell.configCell(img: viewModel!.getCellImgData(index: indexPath.row), price: viewModel!.getCellPriceData(index: indexPath.row))
+            cell.configCell(img: viewModel!.getCellImgData(index: indexPath.row), price: viewModel!.getCellPriceData(index: indexPath.row),id: viewModel!.getCellIdData(index: indexPath.row),name: viewModel!.getCellNameData(index: indexPath.row),viewC: self)
             {
                 collectionView.reloadData()
             }
@@ -106,5 +106,11 @@ class BrandViewController: UIViewController,UICollectionViewDataSource,UICollect
         viewModel?.search(searchText: searchText)
         brandCollectionItems.reloadData()
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            let detailsVC = ProductInfoViewController(nibName: "ProductInfoViewController", bundle: nil)
+            detailsVC.viewModel = viewModel?.navigateToDetails(index: indexPath.row)
+            navigationController?.pushViewController(detailsVC, animated: true)
+        
+        }
 
 }

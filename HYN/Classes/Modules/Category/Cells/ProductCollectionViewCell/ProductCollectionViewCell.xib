@@ -3,7 +3,6 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -73,6 +72,7 @@
             </constraints>
             <size key="customSize" width="145" height="158"/>
             <connections>
+                <outlet property="favBtnOutlet" destination="ptF-iK-FnZ" id="lhR-AP-eri"/>
                 <outlet property="productImage" destination="8fb-Yv-vIn" id="Z9F-gq-hM2"/>
                 <outlet property="productLabel" destination="WEp-PW-Jin" id="qo3-2H-B4b"/>
                 <outlet property="productView" destination="VYw-db-vfb" id="lAg-BW-lBM"/>

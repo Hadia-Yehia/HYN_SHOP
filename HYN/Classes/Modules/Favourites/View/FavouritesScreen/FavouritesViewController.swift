@@ -47,7 +47,7 @@ class FavouritesViewController: UIViewController , UITableViewDelegate,UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavouritesTableViewCell", for: indexPath) as! FavouritesTableViewCell
-        cell.configCell(item: viewModel.getObjectForCell(index: indexPath.row))
+        cell.configCell(item: viewModel.getObjectForCell(index: indexPath.row),viewC: self,table: tableView,index: indexPath.row)
         cell.addToCartButton.addTarget(self, action: #selector(addProductToCart(sender:)), for: .touchUpInside)
 //        cell.removeFromFav.addTarget(self, action: #selector(removeFromFav(sender:)), for: .touchUpInside)
         return cell    }
@@ -91,6 +91,7 @@ class FavouritesViewController: UIViewController , UITableViewDelegate,UITableVi
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 if self.viewModel.getTableCount() == 0 {
                     self.viewDidAppear(true)
+                
                 }
             }) )
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))

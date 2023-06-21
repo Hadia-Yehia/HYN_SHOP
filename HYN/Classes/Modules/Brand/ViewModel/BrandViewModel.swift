@@ -56,6 +56,12 @@ class BrandViewModel{
     func getCellPriceData(index : Int)->String{
         return searchFilteredArr[index].price
     }
+    func getCellNameData(index : Int)->String{
+        return searchFilteredArr[index].title
+    }
+    func getCellIdData(index : Int)->Int{
+        return searchFilteredArr[index].id
+    }
     func search(searchText : String){
         if searchText.isEmpty == false{
             searchFilteredArr = productArr.filter{$0.title.lowercased().contains(searchText.lowercased())}
@@ -65,6 +71,9 @@ class BrandViewModel{
           searchFilteredArr = productArr
         }
     }
+    func navigateToDetails(index : Int) -> ProductInfoViewModel{
+            return ProductInfoViewModel(productId: searchFilteredArr[index].id)
+        }
 
 }
 

@@ -135,6 +135,12 @@ class CategoryViewModel{
     func getCellPriceData(index : Int)->String{
         return (filteredArr[index].price)
     }
+    func getCellNameData(index : Int)->String{
+        return (filteredArr[index].title)
+    }
+    func getCellIdData(index : Int)->Int{
+        return (filteredArr[index].id)
+    }
    /* func getCellImgTypeData(index : Int)->String{
         return (collectionArr[index].img)
     }

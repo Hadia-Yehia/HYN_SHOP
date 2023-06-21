@@ -124,6 +124,7 @@ class ProductInfoViewController: UIViewController {
             if valid!{
                 viewModel?.saveItemToDatabase()
                 favBtnOutlet.image = UIImage(systemName: "heart.fill")
+                valid = false
             }
             else {
                 let alert = UIAlertController(title: "Sorry!", message: "Already existed in your favourites", preferredStyle: .alert)

@@ -208,7 +208,7 @@ extension ProfileViewController:UITableViewDelegate, UITableViewDataSource
         {
         case wishListTableView:
 let cell = tableView.dequeueReusableCell(withIdentifier:"FavouritesTableViewCell", for: indexPath) as! FavouritesTableViewCell
-cell.configCell(item: viewModel.getCartItem(index: indexPath.row))
+            cell.configCell(item: viewModel.getCartItem(index: indexPath.row),viewC: self,table: tableView,index: indexPath.row)
 cell.addToCartButton.isHidden = true
 cell.removeFromFav.isHidden = true
 
