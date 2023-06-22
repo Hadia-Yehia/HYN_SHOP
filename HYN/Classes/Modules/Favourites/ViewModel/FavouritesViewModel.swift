@@ -29,6 +29,15 @@ class FavouritesViewModel{
            FavCoreData.deleteProduct(id: dataSource?[index].id ?? 0)
             dataSource?.remove(at: index)
         }
+    func deleteItemFromCell(id : Int){
+       FavCoreData.deleteProduct(id: id)
+        for i in 0..<(dataSource?.count ?? 0){
+            if dataSource?[i].id == id{
+                dataSource?.remove(at: i)
+            }
+        }
+        
+    }
         func navigateToDetailsScreen(index : Int) -> ProductInfoViewModel {
             let id = dataSource?[index].id
             return ProductInfoViewModel(productId:id ?? 0)

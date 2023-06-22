@@ -24,6 +24,7 @@
 		0E4739692A3B9973005AC923 /* RevViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4739682A3B9973005AC923 /* RevViewController.swift */; };
 		0E47FD4C2A3BDE3F00A457B6 /* Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47FD4B2A3BDE3F00A457B6 /* Availability.swift */; };
 		0E49F8CC2A3FB534005AC622 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E49F8CB2A3FB534005AC622 /* GoogleService-Info.plist */; };
+		0E4D109F2A4361AE005EF294 /* iOSDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D109E2A4361AE005EF294 /* iOSDropDown.swift */; };
 		0E5471252A38732000FC1DD2 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5471242A38732000FC1DD2 /* Customer.swift */; };
 		0E54779D2A2F98E60048B7AD /* JStarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E54779C2A2F98E60048B7AD /* JStarRatingView.swift */; };
 		0E54779F2A2F98ED0048B7AD /* StarRatingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E54779E2A2F98ED0048B7AD /* StarRatingStackView.swift */; };
@@ -192,6 +193,7 @@
 		0E4739682A3B9973005AC923 /* RevViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevViewController.swift; sourceTree = "<group>"; };
 		0E47FD4B2A3BDE3F00A457B6 /* Availability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Availability.swift; sourceTree = "<group>"; };
 		0E49F8CB2A3FB534005AC622 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0E4D109E2A4361AE005EF294 /* iOSDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSDropDown.swift; sourceTree = "<group>"; };
 		0E5471242A38732000FC1DD2 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		0E54779C2A2F98E60048B7AD /* JStarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JStarRatingView.swift; sourceTree = "<group>"; };
 		0E54779E2A2F98ED0048B7AD /* StarRatingStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingStackView.swift; sourceTree = "<group>"; };
@@ -1258,6 +1260,7 @@
 			isa = PBXGroup;
 			children = (
 				BCBB37032A33064500B32DE1 /* Observable.swift */,
+				0E4D109E2A4361AE005EF294 /* iOSDropDown.swift */,
 				BC7DF3A92A323A1E00408038 /* Alerts.swift */,
 				0E83DA352A362B7F007FE3FF /* Toast.swift */,
 				BCE903462A2F4C2100570672 /* Common.swift */,
@@ -1705,6 +1708,7 @@
 				0E55EE962A2C85BC004A7357 /* SceneDelegate.swift in Sources */,
 				8F7EF5772A37428700504F3E /* BrandViewModel.swift in Sources */,
 				0EEAA9A02A308D4A00913310 /* ReviewTableViewCell.swift in Sources */,
+				0E4D109F2A4361AE005EF294 /* iOSDropDown.swift in Sources */,
 				BCE9033E2A2F407E00570672 /* ShoppingCartCell.swift in Sources */,
 				BC7DF3AC2A326A6000408038 /* AddressesViewModel.swift in Sources */,
 				BCBB370A2A335B9300B32DE1 /* AddAddressViewModel.swift in Sources */,

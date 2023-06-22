@@ -67,8 +67,12 @@ class ProductCollectionViewCell: UICollectionViewCell {
                 valid = false
             }
             else{
-                let alert = UIAlertController(title: "Sorry!", message: "Already existed in your favourites", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                let alert = UIAlertController(title: "Confirmation", message: "Are you sure you want to delete?", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
+                    self.viewModel.deleteItemFromCell(id: self.id)
+                        self.viewC?.viewDidAppear(true)
+                }) )
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
                 viewC?.present(alert, animated: true, completion: nil)
             }
         }else{

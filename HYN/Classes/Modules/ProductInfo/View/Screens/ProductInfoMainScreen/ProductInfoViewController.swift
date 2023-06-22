@@ -147,7 +147,22 @@ class ProductInfoViewController: UIViewController {
         navigationController?.pushViewController(revVC, animated: true)
     }
     
+    @IBOutlet weak var sizeDropDown: DropDown!{
+        didSet{
+            viewModel?.size.bind{[weak self] arr in
+                guard let self = self , let arr = arr
+                else{return}
+                
+                DispatchQueue.main.async {
+                    self.sizeDropDown.optionArray = arr
+                }
+            }
+            
+            self.sizeDropDown.selectedRowColor = UIColor(named:"yellow" )!
+        }
     }
+    
+}
 
 
 extension ProductInfoViewController : UITableViewDelegate,UITableViewDataSource{
