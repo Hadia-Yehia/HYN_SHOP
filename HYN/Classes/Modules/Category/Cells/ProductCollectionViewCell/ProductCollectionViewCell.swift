@@ -44,7 +44,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         else {
             favBtnOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         }
-            let exchangeRate = CurrencyManager.getRequiredCurrency()
+            let exchangeRate = CurrencyManager.getRequiredCurrencyExchange()
             let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
             let floatValue: Float = (Float(price) ?? 0.0) * exchangeRate
             let formattedString = String(format: "%.2f", floatValue)

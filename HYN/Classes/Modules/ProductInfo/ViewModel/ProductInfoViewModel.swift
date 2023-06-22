@@ -102,7 +102,7 @@ class ProductInfoViewModel{
 
     
     func saveItemToDatabase(){
-        let item = Fav(title: product.name, price: newCurrency ?? "no data", img: product.imgs.first ?? "placeholder", id: productId)
+        let item = Fav(title: product.name, price: product.price , img: product.imgs.first ?? "placeholder", id: productId)
         print ("save ? \(item.id) \(item.title)")
         FavCoreData.saveProductToDataBase(item: item)
     }

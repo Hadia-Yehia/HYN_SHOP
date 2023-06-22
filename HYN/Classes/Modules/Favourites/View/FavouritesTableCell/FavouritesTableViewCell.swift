@@ -31,7 +31,7 @@ class FavouritesTableViewCell: UITableViewCell {
     }
     func configCell(item : Fav,viewC:UIViewController,table:UITableView,index: Int){
         favTitle.text = item.title
-        favPrice.text = item.price
+        favPrice.text = viewModel.getCurrencyExchange(price: item.price) + (UserDefaults.standard.string(forKey: "currencyCode") ?? "USD")
         self.viewC =  viewC
         self.index = index
         self.table = table

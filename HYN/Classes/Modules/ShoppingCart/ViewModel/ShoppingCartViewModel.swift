@@ -30,6 +30,7 @@ class ShoppingCartViewModel{
                }
 
         checkCurrency()
+        self.observable.value = true
        
     }
     
@@ -69,18 +70,28 @@ class ShoppingCartViewModel{
 
     }
         
+//    func checkCurrency()
+//    {
+//        let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
+//        CurrencyManager.exchangePrice(to: currencyCode) {
+//            exchangeRate in
+//            let floatValue: Float = self.totalPrice * exchangeRate
+//            let formattedString = String(format: "%.2f", floatValue)
+//            self.newCurrency = "\(currencyCode)\(formattedString)"
+//            self.observable.value = true
+//
+//        }
+//
+//    }
     func checkCurrency()
-    {  
+    {
         let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
-        CurrencyManager.exchangePrice(to: currencyCode) {
-            exchangeRate in
-            let floatValue: Float = self.totalPrice * exchangeRate
-            let formattedString = String(format: "%.2f", floatValue)
-            self.newCurrency = "\(currencyCode)\(formattedString)"
-            self.observable.value = true
-            
-        }
-
+       let exchangeRate =  CurrencyManager.getRequiredCurrencyExchange()
+        let floatValue: Float = self.totalPrice * exchangeRate
+        let formattedString = String(format: "%.2f", floatValue)
+        self.newCurrency = "\(currencyCode)\(formattedString)"
+        self.observable.value = true
+        
     }
     
   

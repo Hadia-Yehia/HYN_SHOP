@@ -9,6 +9,10 @@ target 'HYN' do
   # Pods for HYN
 pod 'SDWebImage'
 pod 'Alamofire'
+pod 'FirebaseAuth'
+pod 'FirebaseDatabase'
+pod 'Firebase'
+pod 'GoogleSignIn'
 
   target 'HYNTests' do
     inherit! :search_paths

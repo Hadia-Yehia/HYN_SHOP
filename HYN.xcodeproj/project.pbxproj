@@ -119,6 +119,10 @@
 		BC38A3DE2A30B26E00492F76 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38A3DC2A30B26E00492F76 /* SettingsViewController.swift */; };
 		BC38A3DF2A30B26E00492F76 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC38A3DD2A30B26E00492F76 /* SettingsViewController.xib */; };
 		BC38A3E12A30C33000492F76 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38A3E02A30C33000492F76 /* TabBar.swift */; };
+		BC425CFD2A436B15006B1E7A /* Mockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC425CFC2A436B15006B1E7A /* Mockable.swift */; };
+		BC425D022A436B3D006B1E7A /* CurrencyResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = BC425D012A436B3D006B1E7A /* CurrencyResponse.json */; };
+		BC425D042A436BE2006B1E7A /* MockNetworkCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC425D032A436BE2006B1E7A /* MockNetworkCaller.swift */; };
+		BC425D062A436C64006B1E7A /* MockNetworkCallerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC425D052A436C64006B1E7A /* MockNetworkCallerTests.swift */; };
 		BC48FCFE2A397F0300828DCE /* Advertisement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC48FCFD2A397F0300828DCE /* Advertisement.swift */; };
 		BC726B8F2A3AD4F30000DD29 /* CartCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC726B8E2A3AD4F30000DD29 /* CartCoreData.swift */; };
 		BC726B912A3AD5CF0000DD29 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC726B902A3AD5CF0000DD29 /* CartItem.swift */; };
@@ -290,6 +294,10 @@
 		BC38A3DC2A30B26E00492F76 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = HYN/Classes/Modules/Profile/View/SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
 		BC38A3DD2A30B26E00492F76 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = HYN/Classes/Modules/Profile/View/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
 		BC38A3E02A30C33000492F76 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		BC425CFC2A436B15006B1E7A /* Mockable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
+		BC425D012A436B3D006B1E7A /* CurrencyResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CurrencyResponse.json; sourceTree = "<group>"; };
+		BC425D032A436BE2006B1E7A /* MockNetworkCaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNetworkCaller.swift; sourceTree = "<group>"; };
+		BC425D052A436C64006B1E7A /* MockNetworkCallerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNetworkCallerTests.swift; sourceTree = "<group>"; };
 		BC48FCFD2A397F0300828DCE /* Advertisement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advertisement.swift; sourceTree = "<group>"; };
 		BC726B8E2A3AD4F30000DD29 /* CartCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCoreData.swift; sourceTree = "<group>"; };
 		BC726B902A3AD5CF0000DD29 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
@@ -540,6 +548,10 @@
 		0E43BFF72A431C810034EF1D /* Mocking */ = {
 			isa = PBXGroup;
 			children = (
+				BC425D052A436C64006B1E7A /* MockNetworkCallerTests.swift */,
+				BC425D032A436BE2006B1E7A /* MockNetworkCaller.swift */,
+				BC425D002A436B31006B1E7A /* Resources */,
+				BC425CFC2A436B15006B1E7A /* Mockable.swift */,
 			);
 			path = Mocking;
 			sourceTree = "<group>";
@@ -1113,6 +1125,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		BC425D002A436B31006B1E7A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BC425D012A436B3D006B1E7A /* CurrencyResponse.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		BC55FE872A2F79EC0082F0D0 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1504,6 +1524,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC425D022A436B3D006B1E7A /* CurrencyResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1734,7 +1755,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC425D062A436C64006B1E7A /* MockNetworkCallerTests.swift in Sources */,
 				0E43BFF92A431CBB0034EF1D /* NetworkServiceTest.swift in Sources */,
+				BC425D042A436BE2006B1E7A /* MockNetworkCaller.swift in Sources */,
+				BC425CFD2A436B15006B1E7A /* Mockable.swift in Sources */,
 				0E55EEAE2A2C85BE004A7357 /* HYNTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1962,6 +1986,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					HEADER_SEARCH_PATHS,
+					"=",
+					"\"${SRCROOT}/Pods/Firebase/CoreOnly/Sources\"",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iti.HYNTests;
@@ -1982,6 +2011,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					HEADER_SEARCH_PATHS,
+					"=",
+					"\"${SRCROOT}/Pods/Firebase/CoreOnly/Sources\"",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iti.HYNTests;

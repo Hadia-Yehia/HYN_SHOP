@@ -50,7 +50,7 @@ class CurrencyManager
             }
             
         }
-        static func getRequiredCurrency()->Float
+        static func getRequiredCurrencyExchange()->Float
     
     {
         let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
