@@ -26,57 +26,7 @@ class LoginViewModel{
                 completionHandler(.failure(e))
             }
             else{
-                
-                //username
-                FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/userName").getData(completion:  { error, snapshot in
-                    guard error == nil else {
-                        print("firebase error\(error!.localizedDescription)")
-                        return
-                    }
-                    let userName = snapshot?.value as? String ?? "Unknown"
-                    self.defaults.setValue(userName, forKey: "userName")
-                })
-                //userid
-                FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/userId").getData(completion:  { error, snapshot in
-                    guard error == nil else {
-                        print("firebase error\(error!.localizedDescription)")
-                        return
-                    }
-                    let userId = snapshot?.value as? Int ?? -1
-                    self.defaults.setValue(userId, forKey: "userId")
-                    
-                    print("looky:\(userId)")
-                    //firebaseuserid
-                    self.defaults.setValue(Auth.auth().currentUser?.uid, forKey: "firUserId")
-                })
-                //favId
-                
-                FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/favId").getData(completion:  { error, snapshot in
-                    guard error == nil else {
-                        print("firebase error\(error!.localizedDescription)")
-                        return
-                    }
-                    let favId = snapshot?.value as? Int ?? -1
-                    self.defaults.setValue(favId, forKey: "favId")
-                    print("looky fav:\(favId)")
-                    self.getDraftFavoriteItems(draftOrderId: UserDefaults.standard.object(forKey: "favId") as! Int)
-                })
-                //cartId
-                
-                FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/cartId").getData(completion:  { error, snapshot in
-                    guard error == nil else {
-                        print("firebase error\(error!.localizedDescription)")
-                        return
-                    }
-                    let cartId = snapshot?.value as? Int ?? -1
-                    self.defaults.setValue(cartId, forKey: "cartId")
-                    print("looky cart:\(cartId)")
-                    self.getDraftCartItems(draftOrderId:UserDefaults.standard.object(forKey: "cartId") as! Int )
-                })
-                
-                
-                self.defaults.setValue(true, forKey: "logged in")
-                print(self.defaults.bool(forKey: "logged in"))
+                gettingDataOnLoggingOn()
                 completionHandler(.success("success"))
                 
                 
@@ -121,6 +71,7 @@ class LoginViewModel{
             })
     }
     func gettingDataOnLoggingOn(){
+        //firstName
         FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/firstName").getData(completion:  { error, snapshot in
             guard error == nil else {
                 print("firebase error\(error!.localizedDescription)")

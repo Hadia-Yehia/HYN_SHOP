@@ -24,6 +24,8 @@ class LoginViewController: UIViewController {
         navigationController?.navigationBar.backItem?.setHidesBackButton(true, animated: true)
         navigationController?.setToolbarHidden(true, animated: true)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        passwordTF.setBoarder()
+        emailTF.setBoarder()
     }
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)

@@ -21,7 +21,7 @@ class SignUpViewModel{
     var res = ""
     var draftOrder = DraftOrder()
     
-    func rigesterNewCustomer(customer : Customer){
+    func rigesterNewCustomer(customer : Customer,completionHandler : @escaping(Result<String, Error>)->Void){
         draftOrder.lineItems = [LineItems(title: "base", price: "0", quantity: 1)]
         if isLoading.value ?? true{
             return
@@ -31,6 +31,7 @@ class SignUpViewModel{
             if let e = error{
                 print(e)
                 self.res = e.localizedDescription
+                completionHandler(.failure(e))
             }else {
 
                         if  ((Auth.auth().currentUser?.isEmailVerified) != nil){
@@ -44,7 +45,6 @@ class SignUpViewModel{
 
                                            return
                                        }
-                                    self.res = "success"
                                     self.isLoading.value = false
                                     FireBaseSingleTone.getInstance().child(Auth.auth().currentUser!.uid).setValue(["userId": self.userId,"firstName":firstName,"lastName":lastName,"favId":0,"cartId":0])
                                     //firstname
@@ -97,9 +97,14 @@ class SignUpViewModel{
                                         let cartId = snapshot?.value as? Int ?? -1
                                         self.defaults.setValue(cartId, forKey: "cartId")
                                     })
+                                    self.res = "success"
+                                    completionHandler(.success(self.res))
                                     break
                                 case .failure(let error):
                                     self.res = error.localizedDescription
+                                    print ("error from model\(self.res)")
+                                    completionHandler(.failure(error))
+                            
                                     break
                                 }
                             }

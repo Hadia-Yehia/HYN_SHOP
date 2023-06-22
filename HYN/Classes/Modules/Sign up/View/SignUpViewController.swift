@@ -20,7 +20,7 @@ class SignUpViewController: UIViewController {
     let viewModel = SignUpViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setFieldsStyle()
         //bindViewModel()
         // Do any additional setup after loading the view.
     }
@@ -48,40 +48,45 @@ class SignUpViewController: UIViewController {
 
     }
     @IBAction func signUpBtn(_ sender: UIButton) {
-        if let firstName = firstNameTF.text, let lastName = lastNameTF.text, let phone = phoneTF.text , let email = emailTF.text , let password = passwordTF.text , let confirmPassword = confirmPassTF.text{
+        guard let firstName = firstNameTF.text, let lastName = lastNameTF.text, let phone = phoneTF.text , let email = emailTF.text , let password = passwordTF.text , let confirmPassword = confirmPassTF.text else{
+            Toast.show(message: "All fields must be filled", controller: self)
+            return
+        }
             if password == confirmPassword{
                 let customer = Customer(first_name: firstName, last_name: lastName, email: email, phone: phone, verified_email: false, password: password, password_confirmation: confirmPassword, send_email_welcome: true)
-                viewModel.rigesterNewCustomer(customer: customer)
-                viewModel.isLoading.bind{[weak self] isLoading in
-                    guard let self = self , let isLoading = isLoading
-                    else{return}
-                    
-                    DispatchQueue.main.async {
-                        if isLoading{
-                            
-                        }else{
-
-                            self.defaults.setValue(true, forKey: "logged in")
-                            self.defaults.removeObject(forKey: "userName")
-                            self.defaults.removeObject(forKey: "userId")
-                            self.defaults.removeObject(forKey: "favId")
-                            self.defaults.removeObject(forKey: "cartId")
-                            print(self.defaults.bool(forKey: "logged in"))
-
-//                            let homeVC = TabBar()
-//                            self.navigationController?.pushViewController(homeVC, animated: true)
-                            let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
-                            self.navigationController?.pushViewController(loginVC, animated: true)
-                        }
+                self.viewModel.rigesterNewCustomer(customer: customer,completionHandler: {
+                    result in
+                    switch result{
+                    case .success(_):
+                        self.defaults.setValue(true, forKey: "logged in")
+                        print(self.defaults.bool(forKey: "logged in"))
+                        let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
+                        self.navigationController?.pushViewController(loginVC, animated: true)
+                        break
+                    case .failure(let error):
+                        print("signup error\(error.localizedDescription)")
+                        Toast.show(message: error.localizedDescription, controller: self)
+                        break
                     }
-                }
+                })
+//                self.viewModel.isLoading.bind{[weak self] isLoading in
+//                    guard let self = self , let isLoading = isLoading
+//                    else{return}
+//
+//                    DispatchQueue.main.async {
+//                        if isLoading{
+//
+//                        }else{
+//
+//
+//                        }
+//                    }
+//                }
             }else{
                 Toast.show(message: "Password doesn't match", controller: self)
             }
            
-        }else {
-            Toast.show(message: "All fields must be filled", controller: self)
-        }
+        
     }
     
     @IBAction func signInBtn(_ sender: UIButton) {
