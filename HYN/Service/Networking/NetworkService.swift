@@ -83,8 +83,11 @@ class NetworkService:NetworkServiceProtocol{
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
             session.dataTask(with: request) { (data,response,error) in
+                guard let data = data else {
+                                return
+                            }
                 do {
-                    let jsonData = try JSONDecoder().decode(OrderRESPONSE.self, from: data!)
+                    let jsonData = try JSONDecoder().decode(OrderRESPONSE.self, from: data)
                     completion(.success(jsonData))
                 } catch {
                     completion(.failure(error))
