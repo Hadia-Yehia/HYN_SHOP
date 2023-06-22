@@ -12,6 +12,10 @@ class BrandViewController: UIViewController,UICollectionViewDataSource,UICollect
     var viewModel : BrandViewModel?
     @IBOutlet weak var brandCollectionItems: UICollectionView!
     @IBOutlet weak var searchBrand: UISearchBar!
+    
+    @IBOutlet weak var sliderLabel: UISlider!
+    @IBOutlet weak var highPrice: UILabel!
+    @IBOutlet weak var lowPrice: UILabel!
     var photoCell = [UIImage(named: "media3.jpg"),UIImage(named: "media1.jpg"),UIImage(named: "media2.jpg"),UIImage(named: "media.jpg")]
    // var brandArr : [ProductsStruct] = Array()
    // var collectionViewData: [ProductsStruct] = []
@@ -39,6 +43,11 @@ class BrandViewController: UIViewController,UICollectionViewDataSource,UICollect
                alert.addAction(UIAlertAction(title: "OK", style: .default))
                self.present(alert, animated: true, completion: nil)
            }
+        let exchangeRate = Int(CurrencyManager.getRequiredCurrencyExchange())
+        let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
+        let floatValue: Int = (Int(300)) * exchangeRate
+        sliderLabel.maximumValue = Float(floatValue)
+                                         
     }
     func bindViewModel(){
         viewModel!.isLoading.bind{[weak self] isLoading in
@@ -61,6 +70,8 @@ class BrandViewController: UIViewController,UICollectionViewDataSource,UICollect
         viewModel?.filterArr = (viewModel?.productArr.filter { Float($0.price)! <= sender.value })!
          // collectionViewData = filteredItems
          // viewModel?.productArr = filteredItems!
+        highPrice.text = String(Int(sender.value))
+        
             brandCollectionItems.reloadData()
         
     }

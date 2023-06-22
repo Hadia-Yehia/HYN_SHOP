@@ -12,7 +12,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BrandViewController" customModule="HYN" customModuleProvider="target">
             <connections>
                 <outlet property="brandCollectionItems" destination="e6e-fk-LQh" id="PYw-9v-2Je"/>
+                <outlet property="highPrice" destination="FQ8-HO-lyG" id="gtj-BT-bUf"/>
+                <outlet property="lowPrice" destination="53Q-ye-iPC" id="2Qy-hG-rfp"/>
                 <outlet property="searchBrand" destination="Khm-hW-uUA" id="fK1-xe-9aV"/>
+                <outlet property="sliderLabel" destination="Gwq-P5-gWu" id="xff-oc-RBB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,8 +32,8 @@
                         <outlet property="delegate" destination="-1" id="tyM-1X-gvB"/>
                     </connections>
                 </searchBar>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="0.0" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="Gwq-P5-gWu">
-                    <rect key="frame" x="13" y="135" width="367" height="31"/>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="300" translatesAutoresizingMaskIntoConstraints="NO" id="Gwq-P5-gWu">
+                    <rect key="frame" x="73" y="135" width="247" height="31"/>
                     <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="maximumTrackTintColor" name="AccentColor"/>
                     <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -48,20 +51,40 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53Q-ye-iPC">
+                    <rect key="frame" x="5" y="140" width="65" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQ8-HO-lyG">
+                    <rect key="frame" x="323" y="140" width="65" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="53Q-ye-iPC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="1yP-TJ-nBR"/>
+                <constraint firstItem="53Q-ye-iPC" firstAttribute="top" secondItem="Khm-hW-uUA" secondAttribute="bottom" constant="25" id="3ah-7W-MtN"/>
                 <constraint firstItem="Khm-hW-uUA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5VL-SB-XiW"/>
                 <constraint firstItem="e6e-fk-LQh" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="8Py-89-qTO"/>
+                <constraint firstItem="FQ8-HO-lyG" firstAttribute="leading" secondItem="Gwq-P5-gWu" secondAttribute="trailing" constant="5" id="Cwg-D1-UQh"/>
                 <constraint firstItem="e6e-fk-LQh" firstAttribute="top" secondItem="Gwq-P5-gWu" secondAttribute="bottom" constant="23" id="DGO-9u-5eB"/>
                 <constraint firstItem="Khm-hW-uUA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="G3o-3k-Guo"/>
                 <constraint firstItem="Khm-hW-uUA" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.0657277" id="IOz-rc-7lQ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Gwq-P5-gWu" secondAttribute="trailing" constant="15" id="WOl-de-svw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Gwq-P5-gWu" secondAttribute="trailing" constant="75" id="WOl-de-svw"/>
+                <constraint firstItem="FQ8-HO-lyG" firstAttribute="top" secondItem="Khm-hW-uUA" secondAttribute="bottom" constant="25" id="XDi-du-zbg"/>
+                <constraint firstItem="Gwq-P5-gWu" firstAttribute="leading" secondItem="53Q-ye-iPC" secondAttribute="trailing" constant="5" id="ZXT-ep-LKz"/>
                 <constraint firstItem="Gwq-P5-gWu" firstAttribute="top" secondItem="Khm-hW-uUA" secondAttribute="bottom" constant="20" id="avf-1g-lBD"/>
-                <constraint firstItem="Gwq-P5-gWu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="bBj-c1-88w"/>
+                <constraint firstItem="Gwq-P5-gWu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="75" id="bBj-c1-88w"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="e6e-fk-LQh" secondAttribute="trailing" constant="5" id="euK-BQ-CpE"/>
+                <constraint firstItem="e6e-fk-LQh" firstAttribute="top" secondItem="FQ8-HO-lyG" secondAttribute="bottom" constant="27" id="f4c-eo-I0h"/>
                 <constraint firstItem="Khm-hW-uUA" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="faL-au-TTP"/>
+                <constraint firstItem="e6e-fk-LQh" firstAttribute="top" secondItem="53Q-ye-iPC" secondAttribute="bottom" constant="27" id="iWJ-4t-8Fd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FQ8-HO-lyG" secondAttribute="trailing" constant="5" id="m0m-14-dB0"/>
                 <constraint firstItem="Gwq-P5-gWu" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.0352113" id="mYQ-Ue-qUo"/>
                 <constraint firstItem="e6e-fk-LQh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="rjV-P9-Cli"/>
             </constraints>
@@ -70,7 +93,7 @@
     </objects>
     <resources>
         <namedColor name="AccentColor">
-            <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="yellow">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
