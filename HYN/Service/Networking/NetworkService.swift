@@ -92,13 +92,8 @@ class NetworkService:NetworkServiceProtocol{
             }.resume()
         }
     
+    //MARK: Product details
     func fetchingProductDetails(product_id: Int, completionHandler: @escaping (Result<ProductResponse, NetworkError>) -> Void) {
-        let defaults = UserDefaults.standard
-        print("from network\(defaults.object(forKey: "userName"))")
-        print("from network\(defaults.object(forKey: "userId"))")
-        print("from network\(defaults.object(forKey: "favId"))")
-        print("from network\(defaults.object(forKey: "cartId"))")
-        print("from network\(defaults.object(forKey: "firUserId"))")
         AF.request("https://d097bbce1fd2720f1d64ced55f0e485b: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@mad43-alex-ios-team4.myshopify.com/admin/api/2023-04/products/\(product_id).json")
             .response{response in
                 switch response.result{
@@ -134,7 +129,6 @@ class NetworkService:NetworkServiceProtocol{
                     case .success(let value): do {
                         print("success")
                         let jsonData = try JSONDecoder().decode(CustomerResponse.self, from: JSONSerialization.data(withJSONObject: value,options: .prettyPrinted))
-                       // print("ya 3zizy\(jsonData.customer.id)")
                         completionHandler(.success(jsonData))
                     }
                         catch{
@@ -144,7 +138,6 @@ class NetworkService:NetworkServiceProtocol{
                         }
                         print(value)
                     case .failure(let error):
-                        // Handle the error
                         print(error)
                     }
                 }
@@ -154,9 +147,6 @@ class NetworkService:NetworkServiceProtocol{
    //MARK: Draft Order
 
     func postingNewDraftOrder(draftOrder : DraftOrder, completionHandler : @escaping(Result<DraftOrderResponse, NetworkError>)->Void){
-      
-    
-       // draftOrder.lineItems?.append(LineItems(title: "base2", price: "0", quantity: 0))
         let draftOrderRequest = DraftOrderRequest(draft_order: draftOrder)
  
             let endpoint = "https://mad43-alex-ios2.myshopify.com/admin/api/2023-04/draft_orders.json"
@@ -171,7 +161,6 @@ class NetworkService:NetworkServiceProtocol{
                     case .success(let value): do {
                         print("success")
                         let jsonData = try JSONDecoder().decode(DraftOrderResponse.self, from: JSONSerialization.data(withJSONObject: value,options: .prettyPrinted))
-                        print("ya 3zizy\(jsonData.draftOrder?.id)")
                         completionHandler(.success(jsonData))
                     }
                         catch{
@@ -186,6 +175,7 @@ class NetworkService:NetworkServiceProtocol{
                     }
                 }
     }
+    
   func getCustomerDraftOrder(draftOrderId:Int,completionHandler: @escaping (Result<DraftOrderResponse, NetworkError>) -> Void)
     {
        

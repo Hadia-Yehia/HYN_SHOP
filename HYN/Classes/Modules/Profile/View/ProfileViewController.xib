@@ -15,7 +15,7 @@
                 <outlet property="noItemsInCartView" destination="SCY-Qm-RC8" id="HAj-1w-ub4"/>
                 <outlet property="ordersBtn" destination="arq-ot-d5R" id="ffv-4M-eBY"/>
                 <outlet property="ordersTableView" destination="nze-qs-wp4" id="fcq-Tc-De1"/>
-                <outlet property="username" destination="VB0-nh-RZp" id="tIG-8B-sbL"/>
+                <outlet property="userName" destination="VB0-nh-RZp" id="DJF-R4-HUQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="welcomeView" destination="BO6-48-bxr" id="4Q5-VA-rKL"/>
                 <outlet property="wishListTableView" destination="vfo-AS-ReV" id="C1J-bA-0HT"/>

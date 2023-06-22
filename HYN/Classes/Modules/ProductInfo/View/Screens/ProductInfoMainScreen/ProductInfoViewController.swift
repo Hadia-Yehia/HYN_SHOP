@@ -8,31 +8,36 @@
 import UIKit
 
 class ProductInfoViewController: UIViewController {
-
+    
     @IBAction func addToCartButton(_ sender: UIButton) {
-        viewModel?.insertProductInCoreData()
-        {
-            result in
-            if result
-            {
-                Toast.show(message: "Product added to cart successfully", controller: self)
-            }
-            else
-            {
-                Toast.show(message: "Product already exists in cart", controller: self)
-            }
-        }
-    }
+       if let size = size , let color = color{
+            viewModel?.insertProductInCoreData(size: size, color: color, completionHandler:{
+                result in
+                if result
+                {
+                    Toast.show(message: "Product added to cart successfully", controller: self)
+                }
+                else
+                {
+                    Toast.show(message: "Product already exists in cart", controller: self)
+                }
+            })
+        }else{
+            let alert = UIAlertController(title: "Missing data", message: "You shoild choose your desired size and color ", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+        }}
     @IBOutlet weak var reviewTable: UITableView!
     @IBOutlet weak var imgsCollectionView: UICollectionView!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productDesc: UILabel!
     @IBOutlet weak var imgsPageControl: UIPageControl!
+    var size: String?
+    var color : String?
     var valid : Bool?
     let starRatingView = JStarRatingView(frame: CGRect(origin: .zero, size: CGSize(width: 250, height: 50)), rating: 3.5, color: UIColor.systemOrange, starRounding: .roundToHalfStar)
-    let reviewArray = [ReviewItem(name: "Hadia Yehia", content: "I had a wonderful experience and I would highly recommend this business to others.", rating: 3.5),ReviewItem(name: "Nada Elshafy", content: "I bought a bag from here. The quality is remarkable. It's well worth the money for their high-quality products, I highly recommended!", rating: 4.5)]
-
+  
     var viewModel : ProductInfoViewModel?
     @IBOutlet weak var favBtnOutlet: UIBarButtonItem!
     var descSeeMoreFlag = false
@@ -50,28 +55,25 @@ class ProductInfoViewController: UIViewController {
         setupTable()
         bindViewModel()
         setupDescLabel()
-
-//        viewModel?.getProductInfo()
-        //viewModel?.checkCurrency()
-
-        
-        
     }
     
- 
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-//        bindViewModel()
+        sizeDropDown.didSelect(completion: { selectedItem, index, id in
+            self.size = selectedItem
+        })
+        colorDropDown.didSelect(completion: { selectedItem, index, id in
+            self.color = selectedItem
+        })
+
         viewModel?.getProductInfo()
         guard let  validity = viewModel?.checkValidity() else{return}
         valid = validity
         if valid ?? false {
             favBtnOutlet.image = UIImage(systemName: "heart")
-            //favBtnOutlet.setImage(UIImage(systemName: "heart"), for: .normal)
         }else{
             favBtnOutlet.image = UIImage(systemName: "heart.fill")
-          //  favBtnOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         }
     }
     func setupDescLabel(){
@@ -97,9 +99,9 @@ class ProductInfoViewController: UIViewController {
                 }
             }
         }
-
+        
     }
-
+    
     @IBOutlet weak var expandDescBtn: UIButton!
     @IBAction func expandDesc(_ sender: UIButton) {
         switch descSeeMoreFlag{
@@ -127,14 +129,18 @@ class ProductInfoViewController: UIViewController {
                 valid = false
             }
             else {
-                let alert = UIAlertController(title: "Sorry!", message: "Already existed in your favourites", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                let alert = UIAlertController(title: "Confirmation", message: "Are you sure you want to delete?", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
+                    self.viewModel?.deleteItemFromFav()
+                        self.viewDidAppear(true)
+                }) )
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
                 self.present(alert, animated: true, completion: nil)
             }
         }else {
             let alert = UIAlertController(title: "Not Authorized", message: "You should login to add to your favorites?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Login", style: .default, handler: {_ in
-               let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
+                let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
                 self.navigationController?.pushViewController(loginVC, animated: true)
             }) )
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
@@ -157,13 +163,24 @@ class ProductInfoViewController: UIViewController {
                     self.sizeDropDown.optionArray = arr
                 }
             }
-            
             self.sizeDropDown.selectedRowColor = UIColor(named:"yellow" )!
         }
     }
     
+    @IBOutlet weak var colorDropDown: DropDown!{
+        didSet{
+            viewModel?.color.bind{[weak self] arr in
+                guard let self = self , let arr = arr
+                else{return}
+                
+                DispatchQueue.main.async {
+                    self.colorDropDown.optionArray = arr
+                }
+            }
+            self.colorDropDown.selectedRowColor = UIColor(named:"yellow" )!
+        }
+    }
 }
-
 
 extension ProductInfoViewController : UITableViewDelegate,UITableViewDataSource{
     
@@ -178,7 +195,7 @@ extension ProductInfoViewController : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReviewTableViewCell", for: indexPath) as! ReviewTableViewCell
-        cell.configCell(review: reviewArray[indexPath.row])
+        cell.configCell(review: viewModel?.getReviews()[indexPath.row] ?? ReviewItem(name: "", content: "", rating: 0.0))
         return cell
     }
  

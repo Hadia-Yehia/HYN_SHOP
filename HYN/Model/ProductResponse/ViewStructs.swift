@@ -31,4 +31,31 @@ struct ReviewItem{
         self.content = content
         self.rating = rating
     }
+    
+}
+struct Fav{
+    var title : String
+    var price : String
+    var img : String
+    var id : Int
+    init(title: String, price: String, img: String, id: Int) {
+        self.title = title
+        self.price = price
+        self.img = img
+        self.id = id
+    }
+}
+struct ProductsStruct{
+    var id : Int
+    var price : String
+    var img : String
+    var title : String
+
+    init(id: Int, price: String, img: String, title: String) {
+        self.id = id
+        self.price = price
+        self.img = img
+        self.title = title
+    }
+  
 }

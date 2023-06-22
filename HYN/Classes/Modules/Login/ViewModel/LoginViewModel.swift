@@ -88,7 +88,7 @@ class LoginViewModel{
         print("sign in with gog")
         FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/userId").getData(completion:  { error, snapshot in
             if snapshot?.value is Int {
-                print("snapa\(snapshot?.value)")
+              
                 self.gettingDataOnLoggingOn()
             }
            
@@ -99,9 +99,13 @@ class LoginViewModel{
                     switch result{
                     case .success(let data):
                         self.userId = data.customer.id
-                        self.userName = "\(String(describing: data.customer.firstName)) \(String(describing: data.customer.lastName))"
+                        guard  let firstName = data.customer.firstName,let lastName = data.customer.lastName
+                           else {
+
+                               return
+                           }
                         self.res = "success"
-                        FireBaseSingleTone.getInstance().child(Auth.auth().currentUser!.uid).setValue(["userId": self.userId,"userName":self.userName,"favId":0,"cartId":0])
+                        FireBaseSingleTone.getInstance().child(Auth.auth().currentUser!.uid).setValue(["userId": self.userId,"firstName":firstName,"lastName":lastName,"favId":0,"cartId":0])
                         self.gettingDataOnLoggingOn()
                         completionHandler(.success("success"))
                         break
@@ -117,14 +121,22 @@ class LoginViewModel{
             })
     }
     func gettingDataOnLoggingOn(){
-        //username
-        FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/userName").getData(completion:  { error, snapshot in
+        FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/firstName").getData(completion:  { error, snapshot in
             guard error == nil else {
                 print("firebase error\(error!.localizedDescription)")
                 return
             }
-            let userName = snapshot?.value as? String ?? "Unknown"
-            self.defaults.setValue(userName, forKey: "userName")
+            let firstName = snapshot?.value as? String ?? "Unknown"
+            self.defaults.setValue(firstName, forKey: "firstName")
+        })
+        //lastname
+        FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/lastName").getData(completion:  { error, snapshot in
+            guard error == nil else {
+                print("firebase error\(error!.localizedDescription)")
+                return
+            }
+            let lastName = snapshot?.value as? String ?? "Unknown"
+            self.defaults.setValue(lastName, forKey: "lastName")
         })
         //userid
         FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/userId").getData(completion:  { error, snapshot in

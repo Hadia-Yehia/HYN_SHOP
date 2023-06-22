@@ -45,5 +45,97 @@ extension MockNetworkCaller
     
         }
     }
+    // MARK: get product details
+    func fetchingProductDetails(product_id: Int, completionHandler: @escaping (Result<ProductResponse, NetworkError>) -> Void)
+    {
+        if shouldReturnError
+        {
+            completionHandler(.failure(.urlError))
+        }else
+        {
+            do {
+                let data:ProductResponse = try loadJSON(filename: "ProductResponse", type: ProductResponse.self)
+                completionHandler(.success(data))
+            }catch
+            {
+                print("Error")
+            }
+    
+        }
+    }
+    // MARK: Customer Request
+    func requestNewCustomer(completionHandler : @escaping(Result<CustomerRequest, NetworkError>)->Void)
+    {
+        if shouldReturnError
+        {
+            completionHandler(.failure(.urlError))
+        }else
+        {
+            do {
+                let data:CustomerRequest = try loadJSON(filename: "CustomerRequest", type: CustomerRequest.self)
+                completionHandler(.success(data))
+            }catch
+            {
+                print("Error")
+            }
+    
+        }
+    }
+    // MARK: Customer Response
+    func postingNewCustomer(completionHandler : @escaping(Result<CustomerResponse, NetworkError>)->Void)
+    {
+        if shouldReturnError
+        {
+            completionHandler(.failure(.urlError))
+        }else
+        {
+            do {
+                let data:CustomerResponse = try loadJSON(filename: "CustomerResponse", type: CustomerResponse.self)
+                completionHandler(.success(data))
+            }catch
+            {
+                print("Error")
+            }
+    
+        }
+    }
+    // MARK: DraftOrder Request
+    func requestNewDraftOrder(completionHandler : @escaping(Result<DraftOrderRequest, NetworkError>)->Void)
+    {
+        if shouldReturnError
+        {
+            completionHandler(.failure(.urlError))
+        }else
+        {
+            do {
+                let data:DraftOrderRequest = try loadJSON(filename: "DraftOrderRequest", type: DraftOrderRequest.self)
+                completionHandler(.success(data))
+            }catch
+            {
+                print("Error")
+            }
+    
+        }
+    }
+    // MARK: DraftOrder Response
+    func postingNewDraftOrder(completionHandler : @escaping(Result<DraftOrderResponse, NetworkError>)->Void)
+    {
+        if shouldReturnError
+        {
+            completionHandler(.failure(.urlError))
+        }else
+        {
+            do {
+                let data:DraftOrderResponse = try loadJSON(filename: "DraftOrderResponse", type: DraftOrderResponse.self)
+                completionHandler(.success(data))
+            }catch
+            {
+                print("Error")
+            }
+    
+        }
+    }
+    
+
 
 }

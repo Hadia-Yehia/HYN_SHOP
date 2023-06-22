@@ -36,5 +36,93 @@ func testgetCurrencyExchanges()
         }
     
     }
+    // MARK: testing product response
+func testgetProductResponse()
+    {
+        let networkManager = MockNetworkCaller(shouldReturnError: false)
+        networkManager.fetchingProductDetails(product_id: 0, completionHandler: {
+            result in
+            switch result{
+            case .failure(let error):
+                print(error)
+                XCTFail()
+                break
+            case .success(let data):
+                XCTAssertGreaterThan(data.product?.images?.count ?? 0, 0)
+                break
+            }
+        })
+    }
+    // MARK: testing customer response
+func testCustomerResponse()
+    {
+        let networkManager = MockNetworkCaller(shouldReturnError: false)
+        networkManager.postingNewCustomer(completionHandler: {
+            result in
+            switch result{
+            case .failure(let error):
+                print(error)
+                XCTFail()
+                break
+            case .success(let data):
+                XCTAssertEqual(data.customer.id, 1073339469)
+                break
+            }
+        })
+    }
+    // MARK: testing customer request
+func testCustomerRequest()
+    {
+        let networkManager = MockNetworkCaller(shouldReturnError: false)
+        networkManager.requestNewCustomer(completionHandler: {
+            result in
+            switch result{
+            case .failure(let error):
+                print(error)
+                XCTFail()
+                break
+            case .success(let data):
+                XCTAssertEqual(data.customer.email, "steve.lastnameson@example.com")
+                break
+            }
+        })
+    }
+    // MARK: testing draft order request
+func testDraftOrderRequest()
+    {
+        let networkManager = MockNetworkCaller(shouldReturnError: false)
+        networkManager.requestNewDraftOrder(completionHandler: {
+            result in
+            switch result{
+            case .failure(let error):
+                print(error)
+                XCTFail()
+                break
+            case .success(let data):
+                XCTAssertGreaterThan(data.draft_order.lineItems?.count ?? 0, 0)
+                break
+            }
+        })
+    }
+    // MARK: testing draft order response
+func testDraftOrderResponse()
+    {
+        let networkManager = MockNetworkCaller(shouldReturnError: false)
+        networkManager.postingNewDraftOrder(completionHandler:{
+            result in
+            switch result{
+            case .failure(let error):
+                print(error)
+                XCTFail()
+                break
+            case .success(let data):
+                XCTAssertNotNil(data.draftOrder?.id)
+                break
+            }
+        })
+    }
+
+
+
 
 }

@@ -14,6 +14,8 @@ class ProductInfoViewModel{
     var newCurrency: String?
     var result : Product?
     var size : Observable<Array<String>> = Observable([""])
+    var color : Observable<Array<String>> = Observable([""])
+    let reviewArray = [ReviewItem(name: "Hadia Yehia", content: "I had a wonderful experience and I would highly recommend this business to others.", rating: 3.5),ReviewItem(name: "Nada Elshafy", content: "I bought a bag from here. The quality is remarkable. It's well worth the money for their high-quality products, I highly recommended!", rating: 4.5)]
     var favDataSource : [Fav]?
     var product  : ProductInfo = ProductInfo(name: "no data", price: "no data", description: "no data", rate: 0.0 , imgs: Array(), size: "no data")
     init(productId: Int) {
@@ -31,10 +33,8 @@ class ProductInfoViewModel{
             self?.isLoading.value = false
             switch result{
             case .success(let data):
-                self?.result = data.product
                 self?.size.value = data.product?.options?.first?.valuesArr
-                print("hadia debug " + String(self?.result?.options?.first?.valuesArr?.count ?? 0))
-                print("hadia debug " + String(self?.result?.options?.first?.valuesArr?.first ?? "empty"))
+                self?.color.value = data.product?.options?[1].valuesArr
                 self?.getData(result: data.product)
                 
                 self?.checkCurrency()
@@ -56,9 +56,6 @@ class ProductInfoViewModel{
         }
 
     }
-    func getSize()-> [String]{
-        return result?.options?.first?.valuesArr ?? Array()
-    }
     func getImgsCount()-> Int{
 
         return product.imgs.count
@@ -79,7 +76,19 @@ class ProductInfoViewModel{
         return product.description
     }
     
-    
+    func getReviews()->[ReviewItem]{
+        return reviewArray
+    }
+    func deleteItemFromFav(){
+        favDataSource = FavCoreData.fetchProductsFromDataBase()
+       FavCoreData.deleteProduct(id: productId)
+        for i in 0..<(favDataSource?.count ?? 0){
+            if favDataSource?[i].id == productId{
+                favDataSource?.remove(at: i)
+            }
+        }
+        
+    }
     func checkCurrency()
     {  isLoading.value = true
         let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
@@ -114,7 +123,7 @@ class ProductInfoViewModel{
     }
     
 //MARK: Cart
-    func insertProductInCoreData(completionHandler:@escaping (Bool)->Void)
+    func insertProductInCoreData(size:String,color:String,completionHandler:@escaping (Bool)->Void)
     {
         let productPrice = Float(product.price) ?? 0
         let cartItem = CartItem(id: Int64(productId), title: product.name, quantity: 1, image: product.imgs.first ?? "placeholder", price:productPrice,defaultPrice: productPrice)

@@ -89,3 +89,7 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+HYNTests/Tests/NetworkServiceTest_BACKUP_3708.swift
+HYNTests/Tests/NetworkServiceTest_BASE_3708.swift
+HYNTests/Tests/NetworkServiceTest_LOCAL_3708.swift
+HYNTests/Tests/NetworkServiceTest_REMOTE_3708.swift

@@ -18,7 +18,6 @@ class SignUpViewModel{
     var cartId : Int?
     var userName : String = ""
     var email = "unregistered_email"
-    //var ref: DatabaseReference = Database.database().reference().child("usersInfo")
     var res = ""
     var draftOrder = DraftOrder()
     
@@ -40,19 +39,31 @@ class SignUpViewModel{
                                 switch result{
                                 case .success(let data):
                                     self.userId = data.customer.id
-                                    self.userName = "\(String(describing: data.customer.firstName)) \(String(describing: data.customer.lastName))"
+                                    guard  let firstName = data.customer.firstName,let lastName = data.customer.lastName
+                                       else {
+
+                                           return
+                                       }
                                     self.res = "success"
-                                    
                                     self.isLoading.value = false
-                                    FireBaseSingleTone.getInstance().child(Auth.auth().currentUser!.uid).setValue(["userId": self.userId,"userName":self.userName,"favId":0,"cartId":0])
-                                    //username
-                                    FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/userName").getData(completion:  { error, snapshot in
+                                    FireBaseSingleTone.getInstance().child(Auth.auth().currentUser!.uid).setValue(["userId": self.userId,"firstName":firstName,"lastName":lastName,"favId":0,"cartId":0])
+                                    //firstname
+                                    FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/firstName").getData(completion:  { error, snapshot in
                                         guard error == nil else {
                                             print("firebase error\(error!.localizedDescription)")
                                             return
                                         }
-                                        let userName = snapshot?.value as? String ?? "Unknown"
-                                        self.defaults.setValue(userName, forKey: "userName")
+                                        let firstName = snapshot?.value as? String ?? "Unknown"
+                                        self.defaults.setValue(firstName, forKey: "firstName")
+                                    })
+                                    //lastname
+                                    FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/lastName").getData(completion:  { error, snapshot in
+                                        guard error == nil else {
+                                            print("firebase error\(error!.localizedDescription)")
+                                            return
+                                        }
+                                        let lastName = snapshot?.value as? String ?? "Unknown"
+                                        self.defaults.setValue(lastName, forKey: "lastName")
                                     })
                                     //userid
                                     FireBaseSingleTone.getInstance().child("\(Auth.auth().currentUser!.uid)/userId").getData(completion:  { error, snapshot in
@@ -86,10 +97,6 @@ class SignUpViewModel{
                                         let cartId = snapshot?.value as? Int ?? -1
                                         self.defaults.setValue(cartId, forKey: "cartId")
                                     })
-                                    
-                                    
-//                                    self.defaults.setValue(true, forKey: "logged in")
-//                                    print(self.defaults.bool(forKey: "logged in"))
                                     break
                                 case .failure(let error):
                                     self.res = error.localizedDescription

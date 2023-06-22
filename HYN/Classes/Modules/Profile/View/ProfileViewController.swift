@@ -11,7 +11,7 @@ class ProfileViewController: UIViewController {
 
 
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var welcomeView: UIView!
     @IBOutlet weak var ordersBtn: UIButton!
     @IBOutlet weak var noItemsInCartView: UIView!
@@ -40,7 +40,8 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        // self.title = "Profile"
-    
+       
+       
         // Do any additional setup after loading the view.
         ordersTableView.register(UINib(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "cellOrder")
         ordersTableView.dataSource = self
@@ -91,7 +92,13 @@ loginButton.setRoundedCorners(radius: 10)
         }
         else
         {
-            username.text = UserDefaults.standard.object(forKey: "username") as? String
+            guard  let firstName = UserDefaults.standard.string(forKey: "firstName") , let lastName = UserDefaults.standard.string(forKey: "lastName")
+               else {
+
+                   return
+               }
+     
+            self.userName.text = firstName + " " + lastName
         }
     }
     func checkIfCartHasItems()
@@ -135,6 +142,7 @@ loginButton.setRoundedCorners(radius: 10)
         cell.dataLabel.text = "8/9/2023"*/
         return cell
     }
+   
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (Availability.isConnectedToInternet){
