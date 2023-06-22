@@ -10,6 +10,9 @@ import UIKit
 class ShoppingCartViewController: UIViewController {
    // var isArrowUp = false
     let viewModel = ShoppingCartViewModel()
+    @IBAction func loginButton(_ sender: UIButton) {
+    }
+    @IBOutlet weak var notAuthView: UIView!
     @IBOutlet weak var noItemsView: UIView!
     @IBOutlet weak var totalPrice: UILabel!
     @IBAction func moreDetailsButton(_ sender: UIButton) {
@@ -43,15 +46,17 @@ class ShoppingCartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        isCustomerAuthorized()
         checkoutButton.setRoundedCorners(radius: 10)
      //   showMoreDetailsButton()
         setupTableView()
-        checkCartTableIfEmpty()
+       isCustomerAuthorized()
       //  self.title = "Shopping Cart"
     
        
     }
     override func viewWillAppear(_ animated: Bool) {
+       
         bindingViewModel()
         viewModel.getCartItemsFromCoreData()
     }
@@ -62,6 +67,22 @@ func setupTableView()
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    func isCustomerAuthorized()
+    {
+      if  !Availability.isLoggedIn
+        {
+          notAuthView.isHidden = false
+          tableView.isHidden = true
+          noItemsView.isHidden = true
+      }
+        else
+        {
+            notAuthView.isHidden = true
+            self.checkCartTableIfEmpty()
+        }
+    }
+    
     func bindingViewModel()
     {
         viewModel.observable.bind {
@@ -76,7 +97,7 @@ func setupTableView()
             DispatchQueue.main.async {
                 if isLoading
                 {
-                    self.checkCartTableIfEmpty()
+                    self.isCustomerAuthorized()
                     self.tableView.reloadData()
                     self.totalPrice.text = self.viewModel.newCurrency
                 }
@@ -93,23 +114,23 @@ func setupTableView()
         }
         else
         {
-            
+
            noItemsView.isHidden = true
             tableView.isHidden = false
         }
     }
 
     
-//    func showMoreDetailsButton()
-//    {
-//        // Create a button to represent the arrow
-//
-//       moreDetailsButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
-//        moreDetailsButton.tintColor = .black
-//      //  moreDetailsButton.addTarget(self, action: #selector(arrowButtonTapped), for: .touchUpInside)
-//        checkoutDetailsView.isHidden = true
-//
-//    }
+    func showMoreDetailsButton()
+    {
+        // Create a button to represent the arrow
+
+       moreDetailsButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+        moreDetailsButton.tintColor = .black
+      //  moreDetailsButton.addTarget(self, action: #selector(arrowButtonTapped), for: .touchUpInside)
+        checkoutDetailsView.isHidden = true
+
+    }
     @objc func arrowButtonTapped() {
         // Toggle the arrow direction and animate the arrow button
 

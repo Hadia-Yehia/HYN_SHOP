@@ -125,6 +125,10 @@
 		BC425D042A436BE2006B1E7A /* MockNetworkCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC425D032A436BE2006B1E7A /* MockNetworkCaller.swift */; };
 		BC425D062A436C64006B1E7A /* MockNetworkCallerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC425D052A436C64006B1E7A /* MockNetworkCallerTests.swift */; };
 		BC48FCFE2A397F0300828DCE /* Advertisement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC48FCFD2A397F0300828DCE /* Advertisement.swift */; };
+		BC7066552A44EA1700F99E23 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7066532A44EA1700F99E23 /* ContactUsViewController.swift */; };
+		BC7066562A44EA1700F99E23 /* ContactUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7066542A44EA1700F99E23 /* ContactUsViewController.xib */; };
+		BC70665A2A44EF8600F99E23 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7066582A44EF8600F99E23 /* AboutUsViewController.swift */; };
+		BC70665B2A44EF8600F99E23 /* AboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC7066592A44EF8600F99E23 /* AboutUsViewController.xib */; };
 		BC726B8F2A3AD4F30000DD29 /* CartCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC726B8E2A3AD4F30000DD29 /* CartCoreData.swift */; };
 		BC726B912A3AD5CF0000DD29 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC726B902A3AD5CF0000DD29 /* CartItem.swift */; };
 		BC726B932A3ADBC20000DD29 /* ShoppingCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC726B922A3ADBC20000DD29 /* ShoppingCartViewModel.swift */; };
@@ -301,6 +305,10 @@
 		BC425D032A436BE2006B1E7A /* MockNetworkCaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNetworkCaller.swift; sourceTree = "<group>"; };
 		BC425D052A436C64006B1E7A /* MockNetworkCallerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNetworkCallerTests.swift; sourceTree = "<group>"; };
 		BC48FCFD2A397F0300828DCE /* Advertisement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advertisement.swift; sourceTree = "<group>"; };
+		BC7066532A44EA1700F99E23 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		BC7066542A44EA1700F99E23 /* ContactUsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactUsViewController.xib; sourceTree = "<group>"; };
+		BC7066582A44EF8600F99E23 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		BC7066592A44EF8600F99E23 /* AboutUsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutUsViewController.xib; sourceTree = "<group>"; };
 		BC726B8E2A3AD4F30000DD29 /* CartCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCoreData.swift; sourceTree = "<group>"; };
 		BC726B902A3AD5CF0000DD29 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		BC726B922A3ADBC20000DD29 /* ShoppingCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewModel.swift; sourceTree = "<group>"; };
@@ -1153,6 +1161,24 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		BC7066522A44E9FB00F99E23 /* ContactUs */ = {
+			isa = PBXGroup;
+			children = (
+				BC7066532A44EA1700F99E23 /* ContactUsViewController.swift */,
+				BC7066542A44EA1700F99E23 /* ContactUsViewController.xib */,
+			);
+			path = ContactUs;
+			sourceTree = "<group>";
+		};
+		BC7066572A44EF7400F99E23 /* AboutUs */ = {
+			isa = PBXGroup;
+			children = (
+				BC7066582A44EF8600F99E23 /* AboutUsViewController.swift */,
+				BC7066592A44EF8600F99E23 /* AboutUsViewController.xib */,
+			);
+			path = AboutUs;
+			sourceTree = "<group>";
+		};
 		BC726B942A3ADBCE0000DD29 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1280,6 +1306,8 @@
 		BCE903392A2F3E1200570672 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BC7066572A44EF7400F99E23 /* AboutUs */,
+				BC7066522A44E9FB00F99E23 /* ContactUs */,
 				8F81E4002A40BD99003649B2 /* OrderDetails */,
 				BC1BA06A2A3CDADF00093F93 /* Purchacing */,
 				0E8C2B6B2A34D023005B092F /* Sign up */,
@@ -1502,6 +1530,7 @@
 				0E55EEA02A2C85BE004A7357 /* Assets.xcassets in Resources */,
 				BC063AB52A34E5C90045DBD6 /* CurrencyViewController.xib in Resources */,
 				0EEAA9A12A308D4A00913310 /* ReviewTableViewCell.xib in Resources */,
+				BC70665B2A44EF8600F99E23 /* AboutUsViewController.xib in Resources */,
 				8F85F20D2A33EFB8000CEE43 /* ProductCollectionViewCell.xib in Resources */,
 				0E49F8CC2A3FB534005AC622 /* GoogleService-Info.plist in Resources */,
 				0EEAA9C02A30BBA800913310 /* FavouritesTableViewCell.xib in Resources */,
@@ -1510,6 +1539,7 @@
 				0E8C2B6F2A34D03F005B092F /* SignUpViewController.xib in Resources */,
 				8F81E4082A40BE28003649B2 /* OrderDetailsViewController.xib in Resources */,
 				8F86B9772A30B86100B1D8C9 /* HomeViewController.xib in Resources */,
+				BC7066562A44EA1700F99E23 /* ContactUsViewController.xib in Resources */,
 				0EEAA9AA2A30A66100913310 /* ReviewsViewController.xib in Resources */,
 				8F3AB9FB2A3650E500B18F95 /* BrandViewController.xib in Resources */,
 				0EFFCDB12A33CCAE0012E3A5 /* ProductInfoViewController.xib in Resources */,
@@ -1650,6 +1680,7 @@
 			files = (
 				0E4676DD2A38C93200ED8DC3 /* DraftOrderResponsed.swift in Sources */,
 				BC1BA06D2A3CDB1D00093F93 /* PurchacingViewController.swift in Sources */,
+				BC7066552A44EA1700F99E23 /* ContactUsViewController.swift in Sources */,
 				8F86B9802A30C70500B1D8C9 /* MadiaCollectionViewCell.swift in Sources */,
 				8F68D8AA2A32AB1400C4AFA7 /* SmartCollections.swift in Sources */,
 				8F86B9762A30B86100B1D8C9 /* HomeViewController.swift in Sources */,
@@ -1657,6 +1688,7 @@
 				BC726B932A3ADBC20000DD29 /* ShoppingCartViewModel.swift in Sources */,
 				0EFFCDB52A33CEDA0012E3A5 /* ProductInfoCollectionViewCell.swift in Sources */,
 				BC04DBB92A387DFB00789A17 /* CountryPickerViewController.swift in Sources */,
+				BC70665A2A44EF8600F99E23 /* AboutUsViewController.swift in Sources */,
 				8F86B9882A30CAE400B1D8C9 /* OrderTableViewCell.swift in Sources */,
 				0E40AB402A3A1B9F002F14E0 /* LoginViewModel.swift in Sources */,
 				8F3AB9FD2A3680C900B18F95 /* ProductsResult.swift in Sources */,
