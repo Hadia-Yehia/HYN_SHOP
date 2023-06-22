@@ -31,6 +31,10 @@ extension UITextField {
         let numericTest = NSPredicate(format: "SELF MATCHES %@", numericRegex)
         return numericTest.evaluate(with: self.text)
     }
+    func containsOnlyLetters() -> Bool {
+            let letters = CharacterSet.letters
+            return self.text?.unicodeScalars.allSatisfy { letters.contains($0) } ?? false
+        }
     func setBoarder()
     {
      layer.borderWidth = 1.0

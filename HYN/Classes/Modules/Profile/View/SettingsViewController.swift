@@ -23,6 +23,12 @@ class SettingsViewController: UIViewController {
         navigationController?.pushViewController(destinationViewController, animated: true)
     }
     
+    @IBAction func aboutButton(_ sender: UIButton) {
+        navigationController?.pushViewController(AboutUsViewController(), animated: true)
+    }
+    @IBAction func contactUsButton(_ sender: UIButton) {
+        navigationController?.pushViewController(ContactUsViewController(), animated: true)
+    }
     @IBAction func currencyButton(_ sender: UIButton) {
         navigationController?.pushViewController(CurrencyViewController(), animated: true)
         

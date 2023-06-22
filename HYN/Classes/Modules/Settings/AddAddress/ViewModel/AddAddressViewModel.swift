@@ -53,10 +53,10 @@ class AddAddressViewModel {
                 result in
                 switch result {
                     case .success(let customerAddress):
-                        completionHandler(("Success","Address added Successfully"))
-                        print("New address created: \(customerAddress)")
+                        completionHandler(("Success","Address updated Successfully"))
+                        print("New address updated: \(customerAddress)")
                     case .failure(let error):
-                    completionHandler(("Failure","\(error.localizedDescription)"))
+                    completionHandler(("Failure","can't update address please try again later"))
                         print("Error creating new address: \(error)")
                     }
             }
@@ -71,7 +71,7 @@ class AddAddressViewModel {
                     completionHandler(("Success","Address added Successfully"))
                         print("New address created: \(customerAddress)")
                     case .failure(let error):
-                    completionHandler(("Failure","\(error.localizedDescription)"))
+                    completionHandler(("Failure","can't create address please try again later"))
                         print("Error creating new address: \(error)")
                     }
             }

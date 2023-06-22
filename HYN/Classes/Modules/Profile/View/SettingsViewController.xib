@@ -116,6 +116,9 @@
                                     <color key="tintColor" systemColor="labelColor"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                                    <connections>
+                                        <action selector="aboutButton:" destination="-1" eventType="touchUpInside" id="mDl-MP-m4g"/>
+                                    </connections>
                                 </button>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="b53-2z-GlN">
                                     <rect key="frame" x="18" y="28.000000000000014" width="30" height="27.666666666666671"/>
@@ -150,6 +153,9 @@
                                     <color key="tintColor" systemColor="labelColor"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system"/>
+                                    <connections>
+                                        <action selector="contactUsButton:" destination="-1" eventType="touchUpInside" id="hFM-Bo-Msa"/>
+                                    </connections>
                                 </button>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XB5-tI-m3K">
                                     <rect key="frame" x="18" y="38.000000000000014" width="30" height="26"/>
