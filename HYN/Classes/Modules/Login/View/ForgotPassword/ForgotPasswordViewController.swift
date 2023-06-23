@@ -35,6 +35,11 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     
- 
+    @IBAction func backBtn(_ sender: UIButton) {
+        let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
+                      self.navigationController?.pushViewController(loginVC, animated: true)
+
+    }
+    
 
 }

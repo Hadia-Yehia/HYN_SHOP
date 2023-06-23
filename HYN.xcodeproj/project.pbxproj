@@ -29,6 +29,7 @@
 		0E4B31642A44ACF8008CCD5C /* DraftOrderResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E4B31632A44ACF8008CCD5C /* DraftOrderResponse.json */; };
 		0E4B31662A44AD0B008CCD5C /* DraftOrderRequest.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E4B31652A44AD0B008CCD5C /* DraftOrderRequest.json */; };
 		0E4D109F2A4361AE005EF294 /* iOSDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D109E2A4361AE005EF294 /* iOSDropDown.swift */; };
+		0E5322842A45BFBE007368D2 /* Loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 0E5322832A45BFBE007368D2 /* Loading.json */; };
 		0E5471252A38732000FC1DD2 /* CustomerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5471242A38732000FC1DD2 /* CustomerResponse.swift */; };
 		0E54779D2A2F98E60048B7AD /* JStarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E54779C2A2F98E60048B7AD /* JStarRatingView.swift */; };
 		0E54779F2A2F98ED0048B7AD /* StarRatingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E54779E2A2F98ED0048B7AD /* StarRatingStackView.swift */; };
@@ -205,6 +206,7 @@
 		0E4B31632A44ACF8008CCD5C /* DraftOrderResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DraftOrderResponse.json; sourceTree = "<group>"; };
 		0E4B31652A44AD0B008CCD5C /* DraftOrderRequest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DraftOrderRequest.json; sourceTree = "<group>"; };
 		0E4D109E2A4361AE005EF294 /* iOSDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSDropDown.swift; sourceTree = "<group>"; };
+		0E5322832A45BFBE007368D2 /* Loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loading.json; sourceTree = "<group>"; };
 		0E5471242A38732000FC1DD2 /* CustomerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerResponse.swift; sourceTree = "<group>"; };
 		0E54779C2A2F98E60048B7AD /* JStarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JStarRatingView.swift; sourceTree = "<group>"; };
 		0E54779E2A2F98ED0048B7AD /* StarRatingStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingStackView.swift; sourceTree = "<group>"; };
@@ -682,6 +684,7 @@
 		0E55EE922A2C85BC004A7357 /* HYN */ = {
 			isa = PBXGroup;
 			children = (
+				0E5322832A45BFBE007368D2 /* Loading.json */,
 				BC79E6872A3CB3A300200A5A /* HYN.entitlements */,
 				0E3B817B2A34893700822540 /* Resources */,
 				0E3B816D2A3485E700822540 /* View */,
@@ -1549,6 +1552,7 @@
 				BCE9033F2A2F407E00570672 /* ShoppingCartCell.xib in Resources */,
 				BC78A60D2A30E5A400AB88A1 /* PaymentOptionsViewController.xib in Resources */,
 				8F85F2092A33EA33000CEE43 /* TypeCategoryCollectionViewCell.xib in Resources */,
+				0E5322842A45BFBE007368D2 /* Loading.json in Resources */,
 				BC38A3DF2A30B26E00492F76 /* SettingsViewController.xib in Resources */,
 				BCE903432A2F409D00570672 /* ShoppingCartViewController.xib in Resources */,
 			);

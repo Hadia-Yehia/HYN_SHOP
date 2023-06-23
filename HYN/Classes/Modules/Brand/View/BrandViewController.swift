@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import Lottie
 
 class BrandViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UISearchBarDelegate {
   
     var viewModel : BrandViewModel?
     @IBOutlet weak var brandCollectionItems: UICollectionView!
     @IBOutlet weak var searchBrand: UISearchBar!
-    
+    private var animationView = LottieAnimationView(name: "Loading")
     @IBOutlet weak var sliderLabel: UISlider!
     @IBOutlet weak var highPrice: UILabel!
     @IBOutlet weak var lowPrice: UILabel!
@@ -22,6 +23,7 @@ class BrandViewController: UIViewController,UICollectionViewDataSource,UICollect
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpAnimation()
        // self.bindViewModel()
         searchBrand.delegate = self
      //   collectionViewData = viewModel!.productArr
@@ -56,10 +58,13 @@ class BrandViewController: UIViewController,UICollectionViewDataSource,UICollect
             
             DispatchQueue.main.async { [self] in
                 if isLoading{
-                    
+                    self.animationView.isHidden = false
+                    self.animationView.play()
                 }else{
                     //self.collectionViewData = self.viewModel!.productArr
                     self.brandCollectionItems.reloadData()
+                    self.animationView.isHidden = true
+                    self.animationView.stop()
                 }
             }
         }
@@ -119,5 +124,13 @@ class BrandViewController: UIViewController,UICollectionViewDataSource,UICollect
             navigationController?.pushViewController(detailsVC, animated: true)
         
         }
+    func setUpAnimation(){
+        animationView.loopMode = .loop
+                animationView.contentMode = .scaleAspectFit
+                animationView.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
+                animationView.center = view.center
+                view.addSubview(animationView)
+        animationView.isHidden = true
+    }
 
 }

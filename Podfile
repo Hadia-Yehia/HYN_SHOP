@@ -13,6 +13,8 @@ pod 'FirebaseAuth'
 pod 'FirebaseDatabase'
 pod 'Firebase'
 pod 'GoogleSignIn'
+pod 'lottie-ios'
+
 
   target 'HYNTests' do
     inherit! :search_paths

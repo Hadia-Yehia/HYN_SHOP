@@ -17,7 +17,7 @@ class ProductInfoViewModel{
     var color : Observable<Array<String>> = Observable([""])
     let reviewArray = [ReviewItem(name: "Hadia Yehia", content: "I had a wonderful experience and I would highly recommend this business to others.", rating: 3.5),ReviewItem(name: "Nada Elshafy", content: "I bought a bag from here. The quality is remarkable. It's well worth the money for their high-quality products, I highly recommended!", rating: 4.5)]
     var favDataSource : [Fav]?
-    var product  : ProductInfo = ProductInfo(name: "no data", price: "no data", description: "no data", rate: 0.0 , imgs: Array(), size: "no data")
+    var product  : ProductInfo = ProductInfo(name: "", price: "", description: "", rate: 0.0 , imgs: Array(), size: "")
     init(productId: Int) {
         self.productId = productId
 
@@ -47,9 +47,9 @@ class ProductInfoViewModel{
         })
     }
     func getData(result : Product?){
-        product.name = result?.title ?? "no data"
-        product.description = result?.bodyHtml ?? "no data"
-        product.price = result?.variants?.first?.price ?? "no data"
+        product.name = result?.title ?? ""
+        product.description = result?.bodyHtml ?? ""
+        product.price = result?.variants?.first?.price ?? ""
         for i in 0..<(result?.images?.count ?? 0){
             product.imgs.append(result?.images?[i].src ?? "placeholder")
             print("debuuug" + product.imgs[i] )

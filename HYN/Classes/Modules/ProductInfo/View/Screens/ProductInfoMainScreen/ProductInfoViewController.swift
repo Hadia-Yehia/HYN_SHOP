@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import Lottie
 
 class ProductInfoViewController: UIViewController {
-    
+    private var animationView = LottieAnimationView(name: "Loading")
     @IBAction func addToCartButton(_ sender: UIButton) {
        if let size = size , let color = color{
             viewModel?.insertProductInCoreData(size: size, color: color, completionHandler:{
@@ -55,6 +56,11 @@ class ProductInfoViewController: UIViewController {
         setupTable()
         bindViewModel()
         setupDescLabel()
+        animationView.loopMode = .loop
+                animationView.contentMode = .scaleAspectFit
+                animationView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+                animationView.center = view.center
+                view.addSubview(animationView)
     }
     
     
@@ -89,13 +95,14 @@ class ProductInfoViewController: UIViewController {
             
             DispatchQueue.main.async {
                 if isLoading{
-                    
+                    self.animationView.play()
                 }else{
                     self.productName.text = self.viewModel?.getProductName()
                     self.productDesc.text = self.viewModel?.getProductDescription()
                     self.productPrice.text = self.viewModel?.getProductPrice()
                     self.imgsPageControl.numberOfPages = self.viewModel?.getImgsCount() ?? 0
                     self.imgsCollectionView.reloadData()
+                    self.animationView.stop()
                 }
             }
         }

@@ -6,15 +6,16 @@
 //
 
 import UIKit
-
+import Lottie
 class AddressesViewController: UIViewController {
 
     @IBOutlet weak var noAddressesView: UIView!
     @IBOutlet weak var tableView: UITableView!
-   
+    private var animationView = LottieAnimationView(name: "Loading")
     var viewModel = AddressesViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpAnimation()
         setupTable()
         addUIBarButtonItem()
         checkAddressesTableIfEmpty()
@@ -51,11 +52,18 @@ class AddressesViewController: UIViewController {
             }
 
             DispatchQueue.main.async {
-                if !isLoading
+                if isLoading{
+                    self.animationView.isHidden = false
+                    self.animationView.play()
+                }
+                else
                 {
                     self.checkAddressesTableIfEmpty()
                     self.tableView.reloadData()
+                    self.animationView.isHidden = true
+                    self.animationView.stop()
                 }
+             
             }
 
         }
@@ -88,6 +96,14 @@ class AddressesViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "AddressTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+    }
+    func setUpAnimation(){
+        animationView.loopMode = .loop
+                animationView.contentMode = .scaleAspectFit
+                animationView.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
+                animationView.center = view.center
+                view.addSubview(animationView)
+        animationView.isHidden = true
     }
 
 }

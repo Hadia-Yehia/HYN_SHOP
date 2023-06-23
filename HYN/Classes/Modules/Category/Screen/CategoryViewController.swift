@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class CategoryViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UISearchBarDelegate {
     let button1 = UIButton()
@@ -13,6 +14,7 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
     let button3 = UIButton()
     let button4 = UIButton()
 
+    private var animationView = LottieAnimationView(name: "Loading")
     @IBOutlet weak var searchBar: UISearchBar!
     private let floatingButton:UIButton = {
        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
@@ -42,6 +44,7 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
    // var photoCell = [UIImage(named: "media3.jpg"),UIImage(named: "media1.jpg"),UIImage(named: "media2.jpg"),UIImage(named: "media.jpg")]
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpAnimation()
        // self.title = "Category"
         searchBar.delegate = self
         view.addSubview(floatingButton)
@@ -186,8 +189,12 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
             else{return}
             DispatchQueue.main.async {
                 if isLoading{
+                    self.animationView.isHidden = false
+                    self.animationView.play()
                 }else{
                     self.productCollection.reloadData()
+                    self.animationView.isHidden = true
+                    self.animationView.stop()
                 }
             }
         }
@@ -302,6 +309,14 @@ class CategoryViewController: UIViewController,UICollectionViewDataSource,UIColl
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.search(searchText: searchText)
         productCollection.reloadData()
+    }
+    func setUpAnimation(){
+        animationView.loopMode = .loop
+                animationView.contentMode = .scaleAspectFit
+                animationView.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
+                animationView.center = view.center
+                view.addSubview(animationView)
+        animationView.isHidden = true
     }
 
 }

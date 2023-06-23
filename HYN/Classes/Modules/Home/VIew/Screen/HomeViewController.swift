@@ -7,13 +7,15 @@
 
 import UIKit
 import SDWebImage
+import Lottie
+
 class HomeViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UISearchBarDelegate {
 
     @IBOutlet weak var brandsView: UIView!
     var timer : Timer?
     var currentAdIndex = 0
    
-    
+    private var animationView = LottieAnimationView(name: "Loading")
     @IBOutlet weak var controlMedia: UIPageControl!
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -24,6 +26,7 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
     var photoCell = [UIImage(named: "media3.jpg"),UIImage(named: "media1.jpg"),UIImage(named: "media2.jpg"),UIImage(named: "media.jpg")]
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpAnimation()
       //  self.bindViewModel()
         //self.title = "Home"
         brandsView.setCellStyle(view: brandsView,color: "yellow")
@@ -80,9 +83,12 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
             
             DispatchQueue.main.async {
                 if isLoading{
-                    
+                    self.animationView.isHidden = false
+                    self.animationView.play()
                 }else{
                     self.brandsCollection.reloadData()
+                    self.animationView.isHidden = true
+                    self.animationView.stop()
                 }
             }
         }
@@ -198,6 +204,14 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.search(searchText: searchText)
         brandsCollection.reloadData()
+    }
+    func setUpAnimation(){
+        animationView.loopMode = .loop
+                animationView.contentMode = .scaleAspectFit
+                animationView.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
+                animationView.center = view.center
+                view.addSubview(animationView)
+        animationView.isHidden = true
     }
 
 

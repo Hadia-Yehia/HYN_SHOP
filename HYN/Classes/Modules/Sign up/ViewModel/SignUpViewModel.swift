@@ -31,6 +31,7 @@ class SignUpViewModel{
             if let e = error{
                 print(e)
                 self.res = e.localizedDescription
+                self.isLoading.value = false
                 completionHandler(.failure(e))
             }else {
 
@@ -101,6 +102,7 @@ class SignUpViewModel{
                                     completionHandler(.success(self.res))
                                     break
                                 case .failure(let error):
+                                    self.isLoading.value = false
                                     self.res = error.localizedDescription
                                     print ("error from model\(self.res)")
                                     completionHandler(.failure(error))
