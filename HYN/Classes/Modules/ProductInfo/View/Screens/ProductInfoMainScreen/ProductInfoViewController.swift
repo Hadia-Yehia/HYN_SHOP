@@ -11,23 +11,32 @@ import Lottie
 class ProductInfoViewController: UIViewController {
     private var animationView = LottieAnimationView(name: "Loading")
     @IBAction func addToCartButton(_ sender: UIButton) {
-       if let size = size , let color = color{
-            viewModel?.insertProductInCoreData(size: size, color: color, completionHandler:{
-                result in
-                if result
-                {
-                    Toast.show(message: "Product added to cart successfully", controller: self)
-                }
-                else
-                {
-                    Toast.show(message: "Product already exists in cart", controller: self)
-                }
-            })
-        }else{
-            let alert = UIAlertController(title: "Missing data", message: "You shoild choose your desired size and color ", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            self.present(alert, animated: true, completion: nil)
-        }}
+        let auth = Availability.isLoggedIn
+        if auth
+        {
+            if let size = size , let color = color{
+                 viewModel?.insertProductInCoreData(size: size, color: color, completionHandler:{
+                     result in
+                     if result
+                     {
+                         Toast.show(message: "Product added to cart successfully", controller: self)
+                     }
+                     else
+                     {
+                         Toast.show(message: "Product already exists in cart", controller: self)
+                     }
+                 })
+             }else{
+                 let alert = UIAlertController(title: "Missing data", message: "You shoild choose your desired size and color ", preferredStyle: .alert)
+                 alert.addAction(UIAlertAction(title: "OK", style: .default))
+                 self.present(alert, animated: true, completion: nil)
+             }
+        }
+        else
+        {
+            Alerts.makeConfirmationDialogue(title: "Not Authorized", message: "Please login so you can add products to cart and buy them!")
+        }
+  }
     @IBOutlet weak var reviewTable: UITableView!
     @IBOutlet weak var imgsCollectionView: UICollectionView!
     @IBOutlet weak var productPrice: UILabel!
