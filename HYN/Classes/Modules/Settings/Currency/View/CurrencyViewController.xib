@@ -34,8 +34,8 @@
                         <action selector="selectCurrenyButton:" destination="-1" eventType="touchUpInside" id="2im-l0-oL4"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxt-oJ-E0p">
-                    <rect key="frame" x="135" y="69" width="123" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Currency    " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxt-oJ-E0p">
+                    <rect key="frame" x="39.333333333333343" y="69" width="314.33333333333326" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -45,14 +45,14 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="1OH-ug-YLn" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="2a4-yZ-EcB"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Cxt-oJ-E0p" secondAttribute="trailing" constant="135" id="9X6-ZK-efj"/>
                 <constraint firstItem="1OH-ug-YLn" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" multiplier="0.7" id="HVE-e6-LNZ"/>
                 <constraint firstItem="1OH-ug-YLn" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.484742" id="Uia-lb-27Q"/>
                 <constraint firstItem="1OH-ug-YLn" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="VBv-W2-bvA"/>
                 <constraint firstItem="DIM-L9-Lgi" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Vay-jp-Vth"/>
+                <constraint firstItem="Cxt-oJ-E0p" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="dl1-fo-1FW"/>
                 <constraint firstItem="Cxt-oJ-E0p" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="fIc-DE-5q4"/>
                 <constraint firstItem="DIM-L9-Lgi" firstAttribute="top" secondItem="1OH-ug-YLn" secondAttribute="bottom" constant="137.66666666666674" id="iga-Xm-tgj"/>
-                <constraint firstItem="Cxt-oJ-E0p" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="135" id="lx4-9C-v8y"/>
+                <constraint firstItem="Cxt-oJ-E0p" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="lIs-pS-NMi"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>

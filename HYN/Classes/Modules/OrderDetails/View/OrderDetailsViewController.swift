@@ -29,13 +29,14 @@ class OrderDetailsViewController: UIViewController ,UITableViewDataSource, UITab
         itemstable.delegate = self
         userEmail.text = viewModel?.orderData.contact_email
         orderId.text = viewModel?.orderData.created_at
-        totalPrice.text = viewModel?.orderData.current_subtotal_price
+        
+        totalPrice.text = viewModel?.calculatePrice(price:viewModel?.orderData.current_subtotal_price ?? "0")
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (viewModel?.orderData.line_items.count)!
+        return (viewModel?.orderData.line_items.count ?? 0)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

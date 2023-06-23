@@ -12,6 +12,7 @@ class OrderTableViewCell: UITableViewCell {
     
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var orderName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -38,6 +38,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="xZf-eR-zh7" firstAttribute="width" secondItem="t0z-vy-j4V" secondAttribute="width" id="3he-MB-UCE"/>
+                            <constraint firstItem="xZf-eR-zh7" firstAttribute="height" secondItem="t0z-vy-j4V" secondAttribute="height" multiplier="0.333333" id="7lu-8f-vjS"/>
+                            <constraint firstItem="2pm-xn-ERb" firstAttribute="width" secondItem="xZf-eR-zh7" secondAttribute="width" id="CeH-hk-frd"/>
+                            <constraint firstItem="0Pm-yA-NHd" firstAttribute="height" secondItem="2pm-xn-ERb" secondAttribute="height" id="Dik-1n-NsI"/>
+                            <constraint firstItem="0Pm-yA-NHd" firstAttribute="width" secondItem="2pm-xn-ERb" secondAttribute="width" id="Vb4-lg-tbm"/>
+                            <constraint firstItem="2pm-xn-ERb" firstAttribute="height" secondItem="xZf-eR-zh7" secondAttribute="height" id="eNT-QY-I5h"/>
+                        </constraints>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7LT-ke-uD3">
                         <rect key="frame" x="68.666666666666671" y="17.333333333333332" width="248.66666666666663" height="62.333333333333343"/>
@@ -61,6 +69,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="yqV-Ac-fZF" firstAttribute="width" secondItem="gwA-90-dTV" secondAttribute="width" id="03z-Bu-cOk"/>
+                            <constraint firstItem="4w5-Lf-u0Z" firstAttribute="width" secondItem="7LT-ke-uD3" secondAttribute="width" id="AOk-bL-vG1"/>
+                            <constraint firstItem="gwA-90-dTV" firstAttribute="width" secondItem="7LT-ke-uD3" secondAttribute="width" id="U6Q-Hj-eEk"/>
+                            <constraint firstItem="yqV-Ac-fZF" firstAttribute="height" secondItem="gwA-90-dTV" secondAttribute="height" id="fB7-6W-1HP"/>
+                            <constraint firstItem="4w5-Lf-u0Z" firstAttribute="height" secondItem="7LT-ke-uD3" secondAttribute="height" multiplier="0.347594" id="hay-H0-gfg"/>
+                            <constraint firstItem="gwA-90-dTV" firstAttribute="height" secondItem="7LT-ke-uD3" secondAttribute="height" multiplier="0.326203" id="w0m-lC-DII"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>

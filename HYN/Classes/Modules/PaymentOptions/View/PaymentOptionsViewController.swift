@@ -41,14 +41,14 @@ class PaymentOptionsViewController: UIViewController, PKPaymentAuthorizationView
         }
         else
         {
-            let alertController =  Alerts.showAlert(title: "Don't miss offer!", message: "Don't miss good offers! do you want to get 50% disscount?", confirmTitle: "Yes", cancelTitle: "No",confirmHandler: {
+            let alertController =  Alerts.showAlert(title: "Don't miss discounts", message: "Are you sure you want to continue without using coupon?", confirmTitle: "Yes", cancelTitle: "No",confirmHandler: {
      
-                self.couponField.text = "498ojf84jw3s"
-            }, cancelHandler:
-                                                        {
                 let paymentViewController = PaymentViewController()
                 paymentViewController.viewModel = self.viewModel.navigateToPayment(coupon: self.couponField.text ?? "1", isCashSelected: self.isCashButtonSelected)
                 self.navigationController?.pushViewController(paymentViewController, animated: true)
+            }, cancelHandler:
+                                                        {
+           return
             })
 
             if let topController = UIApplication.shared.keyWindow?.rootViewController {

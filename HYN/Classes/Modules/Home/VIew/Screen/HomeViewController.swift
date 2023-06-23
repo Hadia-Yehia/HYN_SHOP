@@ -121,21 +121,34 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
             break
             
         case mediaCollection:
-     UIPasteboard.general.string =  viewModel.getAd(index: indexPath.row).coupon
-            switch indexPath.row
+            let authorized = Availability.isLoggedIn
+         if authorized
             {
-            case 0 :
-                Alerts.makeConfirmationDialogue(title: "Congrates 🥳", message: "You got a 30% discount  coupon code copied to clipboard")
-            case 1:
-                Alerts.makeConfirmationDialogue(title: "Congrates 🥳", message: "You got a 20% discount coupon code copied to clipboard")
-            case 2:
-                Alerts.makeConfirmationDialogue(title: "Congrates 🥳", message: "You got a 50% discount coupon code copied to  clipboard")
-            case 3:
-                Alerts.makeConfirmationDialogue(title: "Congrates 🥳", message: "You got a 15% discount coupon code copied to clipboard")
-            default:
-                Alerts.makeConfirmationDialogue(title: "Congrates 🥳", message: "You now have a coupon code copied to clipboard")
-            }
-         
+             UIPasteboard.general.string =  viewModel.getAd(index: indexPath.row).coupon
+                    switch indexPath.row
+                    {
+                    case 0 :
+                        Alerts.makeConfirmationDialogue(title: "Congrates 🥳", message: "You got a 30% discount  coupon code copied to clipboard")
+                    case 1:
+                        Alerts.makeConfirmationDialogue(title: "Congrates 🥳", message: "You got a 20% discount coupon code copied to clipboard")
+                    case 2:
+                        Alerts.makeConfirmationDialogue(title: "Congrates 🥳", message: "You got a 50% discount coupon code copied to  clipboard")
+                    case 3:
+                        Alerts.makeConfirmationDialogue(title: "Congrates 🥳", message: "You got a 15% discount coupon code copied to clipboard")
+                    default:
+                        Alerts.makeConfirmationDialogue(title: "Congrates 🥳", message: "You now have a coupon code copied to clipboard")
+                    }
+             
+         }else
+            {
+             let alert = UIAlertController(title: "Not Authorized", message: "You should login to use our offers ", preferredStyle: .alert)
+                         alert.addAction(UIAlertAction(title: "Login", style: .default, handler: {_ in
+                            let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
+                             self.navigationController?.pushViewController(loginVC, animated: true)
+                         }) )
+                         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+             self.present(alert, animated: true, completion: nil)
+         }
 //            Toast.show(message: "Congrates! Coupon copied to clipboard successfully", controller: self)
             break
         default:
