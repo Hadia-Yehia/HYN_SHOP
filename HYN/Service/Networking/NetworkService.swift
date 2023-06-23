@@ -226,7 +226,7 @@ class NetworkService:NetworkServiceProtocol{
     
     
     
-    func convertOrderRequestToParameter(orderRequest : OrderRequest) -> [String : Any]{
+  /*  func convertOrderRequestToParameter(orderRequest : OrderRequest) -> [String : Any]{
         var parameters : [String : Any] = [:]
         parameters["order"] = convertOrderToParameters(order: orderRequest.order)
         return parameters
@@ -239,7 +239,7 @@ class NetworkService:NetworkServiceProtocol{
         }
         parameters["line_items"] = arr
         return parameters
-    }
+    }*/
     
     
     
@@ -505,7 +505,7 @@ class NetworkService:NetworkServiceProtocol{
         }
     }
     
-    func getProductsType(completionHandler: @escaping (Result<CustomCollectionsResult, NetworkError>) -> Void) {
+   /* func getProductsType(completionHandler: @escaping (Result<CustomCollectionsResult, NetworkError>) -> Void) {
         AF.request("https://3ec4212c45d4957fa3a49ab23d83ff1b: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@mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/custom_collections.json")
         .response{response in
             switch response.result{
@@ -526,7 +526,7 @@ class NetworkService:NetworkServiceProtocol{
             }
             
         }
-    }
+    }*/
     
     func getBrandProductsData(brand_id: Int,completionHandler: @escaping (Result<ProductsResult, NetworkError>) -> Void) {
         print("in items \(brand_id)")

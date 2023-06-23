@@ -65,7 +65,7 @@ class PaymentViewModel
      //   let id = self.defaults.object(forKey: "userId")
         print("orderssssss",linesArr)
         let order = Order(customer:customer, lineItems: linesArr)
-       let myOrder  = OrderRequest(order: order)
+        let myOrder  = OrderRequest(order: order)
         NetworkService.postingOrder(order: myOrder){ data, response, error in
             let response = String(data:data!,encoding: .utf8)
                             print(response!)
