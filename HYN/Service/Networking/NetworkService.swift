@@ -178,7 +178,28 @@ class NetworkService:NetworkServiceProtocol{
                     }
                 }
     }
-    
+    //MARK: Delete Draft Order
+
+    func deletingDraftOrder(id:Int,completionHandler: @escaping (Result<EmptyResponse, NetworkError>) -> Void) {
+        
+        let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/draft_orders/\(id).json"
+        let headers: HTTPHeaders = NetworkConstants.shared.accessToken
+        
+        AF.request(url,
+                   method: .delete,
+                   headers: headers)
+        .validate()
+        .responseDecodable(of: EmptyResponse.self) { response in
+            switch response.result {
+            case .success:
+                print("Data deleted successfully")
+                completionHandler(.success(EmptyResponse()))
+            case .failure(let error):
+                print("Error deleting data: \(error)")
+                completionHandler(.failure(.urlError))
+            }
+        }
+    }
   func getCustomerDraftOrder(draftOrderId:Int,completionHandler: @escaping (Result<DraftOrderResponse, NetworkError>) -> Void)
     {
        

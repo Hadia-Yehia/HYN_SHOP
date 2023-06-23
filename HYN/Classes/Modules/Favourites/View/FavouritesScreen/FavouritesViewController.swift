@@ -126,8 +126,7 @@ class FavouritesViewController: UIViewController , UITableViewDelegate,UITableVi
         let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
         navigationController?.pushViewController(loginVC, animated: true)
     }
-    @IBAction func startExploringBtn(_ sender: UIButton) {
-    }
+    
 }
    
 

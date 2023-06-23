@@ -29,6 +29,21 @@ class SettingsViewModel{
             getCartDataFromDataBase()
             favDraftOrder.lineItems = lineItemsArray
             cartDraftOrder.lineItems = cartLineItemsArray
+            NetworkService.getInstance().deletingDraftOrder(id: self.defaults.object(forKey: "favId") as! Int, completionHandler: {
+                result in
+                switch result{
+                case .success(let response):
+                    if response == EmptyResponse() {
+                        print("fav draft order deleted")
+                    } else {
+                        // Non-empty response
+                    }
+                    break
+                case .failure(let error):
+                    print("draft order deleting\(error.localizedDescription)")
+                    break
+                }
+            })
             NetworkService.getInstance().postingNewDraftOrder(draftOrder:favDraftOrder , completionHandler: {result in
                 switch result{
                 case .success(let data):
@@ -42,6 +57,21 @@ class SettingsViewModel{
                     }
                    
                     FavCoreData.deleteAllFav()
+                    NetworkService.getInstance().deletingDraftOrder(id: self.defaults.object(forKey: "cartId") as! Int, completionHandler: {
+                        result in
+                        switch result{
+                        case .success(let response):
+                            if response == EmptyResponse() {
+                                print("cart draft order deleted")
+                            } else {
+                                // Non-empty response
+                            }
+                            break
+                        case .failure(let error):
+                            print("draft order deleting\(error.localizedDescription)")
+                            break
+                        }
+                    })
                     NetworkService.getInstance().postingNewDraftOrder(draftOrder:self.cartDraftOrder , completionHandler: {result in
                         switch result{
                         case .success(let data):
