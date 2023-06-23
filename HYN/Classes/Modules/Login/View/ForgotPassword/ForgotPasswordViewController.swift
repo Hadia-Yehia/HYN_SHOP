@@ -29,6 +29,7 @@ class ForgotPasswordViewController: UIViewController {
                     return
                 }
                 let alert = UIAlertController(title: "Password reset", message: "A password reset email has been sent", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(alert, animated: true, completion: nil)
             }
         }

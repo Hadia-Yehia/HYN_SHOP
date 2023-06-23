@@ -40,7 +40,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="EGP 674,99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9O-2b-z37">
-                                <rect key="frame" x="305" y="46.666666666666664" width="132" height="30.999999999999993"/>
+                                <rect key="frame" x="295" y="46.666666666666664" width="150" height="30.999999999999993"/>
                                 <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -68,10 +68,10 @@
                             <constraint firstItem="ME2-Gg-O5S" firstAttribute="top" secondItem="ism-jN-XKp" secondAttribute="top" constant="12" id="SbI-ZB-NRN"/>
                             <constraint firstItem="ism-jN-XKp" firstAttribute="width" secondItem="A2k-zX-8AL" secondAttribute="width" multiplier="0.220751" constant="0.29999999999999999" id="U1S-DF-Zpk"/>
                             <constraint firstItem="I9O-2b-z37" firstAttribute="top" secondItem="ME2-Gg-O5S" secondAttribute="top" constant="12" id="bfy-uV-gCG"/>
-                            <constraint firstItem="I9O-2b-z37" firstAttribute="leading" secondItem="ME2-Gg-O5S" secondAttribute="trailing" constant="30" id="h7H-q2-9S0"/>
+                            <constraint firstItem="I9O-2b-z37" firstAttribute="leading" secondItem="ME2-Gg-O5S" secondAttribute="trailing" constant="20" id="h7H-q2-9S0"/>
                             <constraint firstItem="l4a-LL-vbI" firstAttribute="top" secondItem="ME2-Gg-O5S" secondAttribute="bottom" constant="9" id="ldU-ti-Dcc"/>
                             <constraint firstItem="ism-jN-XKp" firstAttribute="height" secondItem="A2k-zX-8AL" secondAttribute="height" multiplier="0.684932" constant="0.80000000000000004" id="nXu-dQ-LyX"/>
-                            <constraint firstAttribute="trailing" secondItem="I9O-2b-z37" secondAttribute="trailing" constant="16" id="p21-Cm-fsJ"/>
+                            <constraint firstAttribute="trailing" secondItem="I9O-2b-z37" secondAttribute="trailing" constant="8" id="p21-Cm-fsJ"/>
                             <constraint firstItem="ism-jN-XKp" firstAttribute="centerY" secondItem="A2k-zX-8AL" secondAttribute="centerY" id="tfS-zp-pf1"/>
                         </constraints>
                     </view>

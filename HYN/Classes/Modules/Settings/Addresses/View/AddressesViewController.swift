@@ -16,6 +16,7 @@ class AddressesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpAnimation()
+        bindingViewModel()
         setupTable()
         addUIBarButtonItem()
         noAddressesView.isHidden = true
@@ -72,7 +73,7 @@ class AddressesViewController: UIViewController {
         }
     }
     override func viewDidAppear(_ animated: Bool) {
-        bindingViewModel()
+        
         viewModel.getAddresses()
     }
 

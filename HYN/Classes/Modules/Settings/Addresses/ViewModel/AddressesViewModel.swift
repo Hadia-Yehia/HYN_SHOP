@@ -26,6 +26,9 @@ class AddressesViewModel {
     
     func getAddresses()
     {
+        if observable.value ?? true{
+            return
+        }
         observable.value = true
         NetworkService.sharedInstance.getCustomerAddresses()
         {
@@ -73,6 +76,7 @@ class AddressesViewModel {
                    }
             case .failure(let error):
                 print(error.localizedDescription)
+                self.observable.value = false
                 completionHandler(("Failure","Can't delete default address"))
                 break
            
