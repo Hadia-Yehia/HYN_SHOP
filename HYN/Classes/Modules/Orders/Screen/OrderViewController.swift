@@ -6,16 +6,17 @@
 //
 
 import UIKit
-
+import Lottie
 class OrderViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate{
   
-    
+    private var animationView = LottieAnimationView(name: "Loading")
 
     @IBOutlet weak var orderTable: UITableView!
     var viewModel = OrdersViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpAnimation()
         orderTable.register(UINib(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "cellOrder")
         orderTable.dataSource = self
         orderTable.delegate = self
@@ -40,9 +41,13 @@ class OrderViewController: UIViewController ,UITableViewDataSource, UITableViewD
             DispatchQueue.main.async {
                 if isLoading{
                     print("loadingggg")
+                    self.animationView.isHidden = false
+                    self.animationView.play()
                 }else{
                     print("no loadinggg")
                     self.orderTable.reloadData()
+                    self.animationView.isHidden = true
+                    self.animationView.stop()
                 }
             }
         }
@@ -77,14 +82,13 @@ class OrderViewController: UIViewController ,UITableViewDataSource, UITableViewD
                self.present(alert, animated: true, completion: nil)
            }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setUpAnimation(){
+        animationView.loopMode = .loop
+                animationView.contentMode = .scaleAspectFit
+                animationView.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
+                animationView.center = view.center
+                view.addSubview(animationView)
+        animationView.isHidden = true
     }
-    */
 
 }

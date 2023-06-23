@@ -7,8 +7,11 @@
 
 import UIKit
 import Firebase
-
-class SignUpViewController: UIViewController {
+import Lottie
+class SignUpViewController: UIViewController,UITextFieldDelegate {
+    @IBOutlet weak var passwordValidation: UILabel!
+    @IBOutlet weak var confirmPasswordValidation: UILabel!
+    private var animationView = LottieAnimationView(name: "Loading")
     let defaults = UserDefaults.standard
     @IBOutlet weak var confirmPassTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
@@ -21,6 +24,14 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setFieldsStyle()
+        passwordTF.delegate = self
+        confirmPassTF.delegate = self
+        animationView.loopMode = .loop
+                animationView.contentMode = .scaleAspectFit
+                animationView.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
+                animationView.center = view.center
+                view.addSubview(animationView)
+        animationView.isHidden = true
         //bindViewModel()
         // Do any additional setup after loading the view.
     }
@@ -47,12 +58,14 @@ class SignUpViewController: UIViewController {
         navigationController?.pushViewController(homeVC, animated: true)
 
     }
+    
     @IBAction func signUpBtn(_ sender: UIButton) {
         guard let firstName = firstNameTF.text, let lastName = lastNameTF.text, let phone = phoneTF.text , let email = emailTF.text , let password = passwordTF.text , let confirmPassword = confirmPassTF.text else{
             Toast.show(message: "All fields must be filled", controller: self)
             return
         }
-            if password == confirmPassword{
+        if password == confirmPassword{
+            if validator(pass: password){
                 let customer = Customer(first_name: firstName, last_name: lastName, email: email, phone: phone, verified_email: false, password: password, password_confirmation: confirmPassword, send_email_welcome: true)
                 self.viewModel.rigesterNewCustomer(customer: customer,completionHandler: {
                     result in
@@ -69,29 +82,95 @@ class SignUpViewController: UIViewController {
                         break
                     }
                 })
-//                self.viewModel.isLoading.bind{[weak self] isLoading in
-//                    guard let self = self , let isLoading = isLoading
-//                    else{return}
-//
-//                    DispatchQueue.main.async {
-//                        if isLoading{
-//
-//                        }else{
-//
-//
-//                        }
-//                    }
-//                }
-            }else{
-                Toast.show(message: "Password doesn't match", controller: self)
+                self.viewModel.isLoading.bind{[weak self] isLoading in
+                    guard let self = self , let isLoading = isLoading
+                    else{return}
+                    
+                    DispatchQueue.main.async {
+                        if isLoading{
+                            self.animationView.isHidden = false
+                            self.animationView.play()
+                        }else{
+                            self.animationView.isHidden = true
+                            self.animationView.stop()
+                        }
+                    }
+                }
             }
-           
-        
+        }
     }
     
     @IBAction func signInBtn(_ sender: UIButton) {
         let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
         navigationController?.pushViewController(loginVC, animated: true)
     }
- 
-}
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+            if textField == passwordTF {
+                validatePassword(passwordTF.text ?? "")
+            }else if textField == confirmPassTF {
+                validateConfirmPassword(pass: passwordTF.text ?? "", confirm: confirmPassTF.text ?? "")
+            }
+        }
+
+    func validateConfirmPassword(pass:String,confirm:String){
+        var errorMessages: [String] = []
+        if pass == confirm{
+            errorMessages.append("Password matches")
+            confirmPasswordValidation.textColor = .green
+        }
+        else{
+            errorMessages.append("Password doesn't match")
+            confirmPasswordValidation.textColor = .red
+        }
+        confirmPasswordValidation.text = errorMessages.joined(separator: "\n")
+    }
+        
+        func validatePassword(_ password: String) {
+            
+            let uppercaseRegex = ".*[A-Z]+.*" // Regex pattern for at least one uppercase letter
+            let lowercaseRegex = ".*[a-z]+.*" // Regex pattern for at least one lowercase letter
+            
+            let uppercasePredicate = NSPredicate(format: "SELF MATCHES %@", uppercaseRegex)
+            let lowercasePredicate = NSPredicate(format: "SELF MATCHES %@", lowercaseRegex)
+            
+            let hasUppercase = uppercasePredicate.evaluate(with: password)
+            let hasLowercase = lowercasePredicate.evaluate(with: password)
+            
+            var errorMessages: [String] = []
+            
+            if password.count < 8 {
+                errorMessages.append("Password must be at least 8 characters long.")
+                passwordValidation.textColor = .red
+            }
+            
+            if !hasUppercase {
+                errorMessages.append("Password must contain uppercase letter.")
+                passwordValidation.textColor = .red
+            }
+            
+            if !hasLowercase {
+                errorMessages.append("Password must contain lowercase letter.")
+                passwordValidation.textColor = .red
+            }
+            if password.count>=8 && hasLowercase && hasUppercase {
+                errorMessages.append("Strong password")
+                passwordValidation.textColor = .green
+            }
+            
+            passwordValidation.text = errorMessages.joined(separator: "\n")
+        }
+    func validator (pass: String)-> Bool{
+        let uppercaseRegex = ".*[A-Z]+.*" // Regex pattern for at least one uppercase letter
+        let lowercaseRegex = ".*[a-z]+.*" // Regex pattern for at least one lowercase letter
+        
+        let uppercasePredicate = NSPredicate(format: "SELF MATCHES %@", uppercaseRegex)
+        let lowercasePredicate = NSPredicate(format: "SELF MATCHES %@", lowercaseRegex)
+        
+        let hasUppercase = uppercasePredicate.evaluate(with: pass)
+        let hasLowercase = lowercasePredicate.evaluate(with: pass)
+        if pass.count>=8 && hasLowercase && hasUppercase{
+            return true
+        }
+        return false
+    }
+    }

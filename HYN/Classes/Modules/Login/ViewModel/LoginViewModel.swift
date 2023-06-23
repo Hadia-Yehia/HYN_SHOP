@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 import FirebaseDatabase
 class LoginViewModel{
+    var isLoading : Observable<Bool> = Observable(false)
     var userId : Int?
     var favId : Int?
     var cartId : Int?
@@ -19,10 +20,14 @@ class LoginViewModel{
     let defaults = UserDefaults.standard
     //  var ref: DatabaseReference = Database.database().reference().child("usersInfo")
     func signIn(email:String,password:String,completionHandler : @escaping(Result<Any, Error>)->Void){
-        
+        if isLoading.value ?? true{
+            return
+        }
+        isLoading.value = true
         Auth.auth().signIn(withEmail: email, password: password){[weak self] authResult , error in
             guard let self = self else {return}
             if let e = error {
+                isLoading.value = false
                 completionHandler(.failure(e))
             }
             else{
@@ -60,6 +65,7 @@ class LoginViewModel{
                         completionHandler(.success("success"))
                         break
                     case .failure(let error):
+                        self.isLoading.value = false
                         self.res = error.localizedDescription
                         completionHandler(.failure(error))
                         break
@@ -126,6 +132,8 @@ class LoginViewModel{
             print("looky cart:\(cartId)")
             self.getDraftCartItems(draftOrderId:UserDefaults.standard.object(forKey: "cartId") as! Int )
         })
+
+        isLoading.value = false
         self.defaults.setValue(true, forKey: "logged in")
         print(self.defaults.bool(forKey: "logged in"))
         

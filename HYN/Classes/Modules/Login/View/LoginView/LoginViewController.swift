@@ -9,9 +9,10 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import GoogleSignIn
+import Lottie
 
 class LoginViewController: UIViewController {
-    
+    private var animationView = LottieAnimationView(name: "Loading")
     
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
@@ -24,6 +25,13 @@ class LoginViewController: UIViewController {
         navigationController?.navigationBar.backItem?.setHidesBackButton(true, animated: true)
         navigationController?.setToolbarHidden(true, animated: true)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        animationView.loopMode = .loop
+                animationView.contentMode = .scaleAspectFit
+                animationView.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
+                animationView.center = view.center
+                view.addSubview(animationView)
+        animationView.isHidden = true
+        bindViewModel()
         passwordTF.setBoarder()
         emailTF.setBoarder()
     }
@@ -120,6 +128,22 @@ class LoginViewController: UIViewController {
                 
             }
                 
+        }
+    }
+    func bindViewModel(){
+        self.viewModel.isLoading.bind{[weak self] isLoading in
+            guard let self = self , let isLoading = isLoading
+            else{return}
+
+            DispatchQueue.main.async {
+                if isLoading{
+                    self.animationView.isHidden = false
+                    self.animationView.play()
+                }else{
+                    self.animationView.isHidden = true
+                    self.animationView.stop()
+                }
+            }
         }
     }
     
