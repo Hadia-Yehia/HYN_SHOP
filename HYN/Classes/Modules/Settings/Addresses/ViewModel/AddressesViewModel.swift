@@ -73,7 +73,7 @@ class AddressesViewModel {
                    }
             case .failure(let error):
                 print(error.localizedDescription)
-                completionHandler(("Failure","Can't delete default address \(error.localizedDescription)"))
+                completionHandler(("Failure","Can't delete default address"))
                 break
            
                }

@@ -18,7 +18,8 @@ class AddressesViewController: UIViewController {
         setUpAnimation()
         setupTable()
         addUIBarButtonItem()
-        checkAddressesTableIfEmpty()
+        noAddressesView.isHidden = true
+        //checkAddressesTableIfEmpty()
         if viewModel.subTotal != 0.0
         {
             self.title = "Choose address for purchasing "
@@ -54,14 +55,16 @@ class AddressesViewController: UIViewController {
             DispatchQueue.main.async {
                 if isLoading{
                     self.animationView.isHidden = false
+                    
                     self.animationView.play()
                 }
                 else
                 {
-                    self.checkAddressesTableIfEmpty()
+        
                     self.tableView.reloadData()
                     self.animationView.isHidden = true
                     self.animationView.stop()
+                    self.checkAddressesTableIfEmpty()
                 }
              
             }
