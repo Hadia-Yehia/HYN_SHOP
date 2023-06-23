@@ -10,12 +10,31 @@ import Firebase
 
 class SettingsViewController: UIViewController {
     
+    @IBOutlet weak var `switch`: UISwitch!
     @IBOutlet weak var logoutButton: UIButton!
     let viewModel = SettingsViewModel()
     @IBAction func logoutButton(_ sender: UIButton) {
         
     }
     
+    @IBAction func darkmodeSwitch(_ sender: UISwitch) {
+        if #available(iOS 13, *)
+        {
+            let appDelegate = UIApplication.shared.windows.first
+            if sender.isOn
+            {
+                appDelegate?.overrideUserInterfaceStyle = .dark
+            }
+            else
+            {
+                appDelegate?.overrideUserInterfaceStyle = .light
+            }
+        }
+        else
+        {
+            
+        }
+    }
     let defaults = UserDefaults.standard
     
     @IBAction func addressesButton(_ sender: UIButton) {
@@ -38,6 +57,8 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         logoutButton.setRoundedCorners(radius: 10)
+       // `switch`.addTarget(self, action: #selector(darkmodeSwitch(_:)), for: .valueChanged)
+ 
         
         
     }

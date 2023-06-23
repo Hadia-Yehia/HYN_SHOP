@@ -304,7 +304,7 @@
 		BC2DBA872A35B73900C2021F /* CustomerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTest.swift; sourceTree = "<group>"; };
 		BC2DBA892A35C38F00C2021F /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		BC38A3DC2A30B26E00492F76 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = HYN/Classes/Modules/Profile/View/SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
-		BC38A3DD2A30B26E00492F76 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = HYN/Classes/Modules/Profile/View/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
+		BC38A3DD2A30B26E00492F76 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = HYN/Classes/Modules/Settings/View/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
 		BC38A3E02A30C33000492F76 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		BC425CFC2A436B15006B1E7A /* Mockable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
 		BC425D012A436B3D006B1E7A /* CurrencyResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CurrencyResponse.json; sourceTree = "<group>"; };
@@ -1125,8 +1125,8 @@
 		BC38A3DB2A30B25900492F76 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BC38A3DC2A30B26E00492F76 /* SettingsViewController.swift */,
 				BC38A3DD2A30B26E00492F76 /* SettingsViewController.xib */,
+				BC38A3DC2A30B26E00492F76 /* SettingsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
