@@ -138,7 +138,7 @@ final class NetworkServiceTest: XCTestCase {
                }
             myExpectation.fulfill()
         }
-        waitForExpectations(timeout: 10, handler: nil)
+      waitForExpectations(timeout: 10, handler: nil)
     }
     
     

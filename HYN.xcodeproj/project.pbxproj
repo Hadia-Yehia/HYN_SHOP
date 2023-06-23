@@ -337,6 +337,8 @@
 		BCBB37032A33064500B32DE1 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		BCBB37052A330A2B00B32DE1 /* AddressesTableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesTableViewExtension.swift; sourceTree = "<group>"; };
 		BCBB37092A335B9300B32DE1 /* AddAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewModel.swift; sourceTree = "<group>"; };
+		BCC4AB5E2A45E738009E9D5F /* AddressRequest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AddressRequest.json; sourceTree = "<group>"; };
+		BCC4AB5F2A45E775009E9D5F /* AddressResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AddressResponse.json; sourceTree = "<group>"; };
 		BCE9033C2A2F407E00570672 /* ShoppingCartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartCell.swift; sourceTree = "<group>"; };
 		BCE9033D2A2F407E00570672 /* ShoppingCartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingCartCell.xib; sourceTree = "<group>"; };
 		BCE903402A2F409D00570672 /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
@@ -1140,6 +1142,8 @@
 				0E4B315F2A44ABEA008CCD5C /* CustomerRequest.json */,
 				0E4B31632A44ACF8008CCD5C /* DraftOrderResponse.json */,
 				0E4B31652A44AD0B008CCD5C /* DraftOrderRequest.json */,
+				BCC4AB5E2A45E738009E9D5F /* AddressRequest.json */,
+				BCC4AB5F2A45E775009E9D5F /* AddressResponse.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
