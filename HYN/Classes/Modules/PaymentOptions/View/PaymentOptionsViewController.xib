@@ -27,21 +27,25 @@
                     <rect key="frame" x="41.666666666666657" y="79" width="310" height="245"/>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="4tj-Dr-lFO">
-                    <rect key="frame" x="29.999999999999993" y="388.33333333333331" width="126.33333333333331" height="100.66666666666669"/>
+                    <rect key="frame" x="29.999999999999986" y="388.33333333333331" width="196.66666666666663" height="100.66666666666669"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Apple pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5A5-2Q-mMg">
-                            <rect key="frame" x="0.0" y="0.0" width="126.33333333333333" height="20.333333333333332"/>
+                            <rect key="frame" x="0.0" y="0.0" width="196.66666666666666" height="20.333333333333332"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cash on delivery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUw-Zl-DVc">
-                            <rect key="frame" x="0.0" y="80.333333333333371" width="126.33333333333333" height="20.333333333333329"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cash on delivery    " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUw-Zl-DVc">
+                            <rect key="frame" x="0.0" y="80.333333333333371" width="196.66666666666666" height="20.333333333333329"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="5A5-2Q-mMg" firstAttribute="width" secondItem="4tj-Dr-lFO" secondAttribute="width" id="U5B-OR-cLr"/>
+                        <constraint firstItem="fUw-Zl-DVc" firstAttribute="width" secondItem="4tj-Dr-lFO" secondAttribute="width" id="uSY-y4-i3h"/>
+                    </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="S0q-zc-VL9">
                     <rect key="frame" x="302" y="389.33333333333331" width="49.666666666666686" height="98.666666666666686"/>
@@ -92,7 +96,7 @@
             <constraints>
                 <constraint firstItem="1Tt-Jd-KjT" firstAttribute="bottom" secondItem="oaf-sc-8xe" secondAttribute="bottom" multiplier="1.1" id="EgP-r4-tck"/>
                 <constraint firstItem="6oo-Lw-TJq" firstAttribute="top" secondItem="1Tt-Jd-KjT" secondAttribute="top" constant="20" id="GHS-Mv-vPj"/>
-                <constraint firstItem="4tj-Dr-lFO" firstAttribute="width" secondItem="PyZ-xt-oR4" secondAttribute="width" multiplier="0.321459" id="Hhy-yY-1R6"/>
+                <constraint firstItem="4tj-Dr-lFO" firstAttribute="width" secondItem="PyZ-xt-oR4" secondAttribute="width" multiplier="0.5" id="Hhy-yY-1R6"/>
                 <constraint firstItem="6oo-Lw-TJq" firstAttribute="height" secondItem="PyZ-xt-oR4" secondAttribute="height" multiplier="0.287559" id="Jim-nA-zrJ"/>
                 <constraint firstItem="oaf-sc-8xe" firstAttribute="centerX" secondItem="1Tt-Jd-KjT" secondAttribute="centerX" id="KWb-0V-8U9"/>
                 <constraint firstItem="1Tt-Jd-KjT" firstAttribute="trailing" secondItem="S0q-zc-VL9" secondAttribute="trailing" constant="41.333333333333314" id="RHM-to-nzx"/>
@@ -113,7 +117,7 @@
     </objects>
     <resources>
         <image name="circle" catalog="system" width="128" height="123"/>
-        <image name="payment" width="564" height="564"/>
+        <image name="payment" width="500" height="500"/>
         <namedColor name="yellow">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

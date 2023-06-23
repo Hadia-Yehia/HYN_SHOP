@@ -43,10 +43,10 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ex8-oV-tZa">
-                    <rect key="frame" x="40" y="362.33333333333331" width="313" height="42.666666666666686"/>
+                    <rect key="frame" x="40" y="377.33333333333331" width="313" height="42.666666666666686"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brands" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4q-91-Q9o">
-                            <rect key="frame" x="118.66666666666666" y="6.3333333333333712" width="76" height="30"/>
+                            <rect key="frame" x="78.333333333333329" y="6.3333333333333712" width="156.33333333333337" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -55,12 +55,12 @@
                     <constraints>
                         <constraint firstItem="J4q-91-Q9o" firstAttribute="height" secondItem="Ex8-oV-tZa" secondAttribute="height" multiplier="0.703125" id="DyG-4s-4NO"/>
                         <constraint firstItem="J4q-91-Q9o" firstAttribute="centerX" secondItem="Ex8-oV-tZa" secondAttribute="centerX" id="HwY-sA-57X"/>
-                        <constraint firstItem="J4q-91-Q9o" firstAttribute="width" secondItem="Ex8-oV-tZa" secondAttribute="width" multiplier="0.242812" id="wT5-d0-EU3"/>
+                        <constraint firstItem="J4q-91-Q9o" firstAttribute="width" secondItem="Ex8-oV-tZa" secondAttribute="width" multiplier="0.5" id="wT5-d0-EU3"/>
                         <constraint firstItem="J4q-91-Q9o" firstAttribute="centerY" secondItem="Ex8-oV-tZa" secondAttribute="centerY" id="zhM-y5-Awd"/>
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="XcW-7N-PBa">
-                    <rect key="frame" x="25" y="445.00000000000006" width="343" height="255.66666666666669"/>
+                    <rect key="frame" x="25" y="435.00000000000006" width="343" height="255.66666666666669"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Y7H-0F-lUd">
                         <size key="itemSize" width="128" height="128"/>
@@ -88,11 +88,11 @@
                 <constraint firstItem="Ex8-oV-tZa" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.05" id="LtC-2M-vpy"/>
                 <constraint firstItem="NEP-16-09Q" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="SBA-qY-ol5"/>
                 <constraint firstItem="NEP-16-09Q" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.065" id="SLS-vT-WOa"/>
-                <constraint firstItem="Ex8-oV-tZa" firstAttribute="top" secondItem="1tT-RG-EvU" secondAttribute="bottom" constant="15" id="c3t-Ln-iX7"/>
+                <constraint firstItem="Ex8-oV-tZa" firstAttribute="top" secondItem="1tT-RG-EvU" secondAttribute="bottom" constant="30" id="c3t-Ln-iX7"/>
                 <constraint firstItem="1tT-RG-EvU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="chK-SX-dJ0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ex8-oV-tZa" secondAttribute="trailing" constant="40" id="cwv-uQ-oPr"/>
                 <constraint firstItem="XcW-7N-PBa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="dIs-md-mBt"/>
-                <constraint firstItem="XcW-7N-PBa" firstAttribute="top" secondItem="Ex8-oV-tZa" secondAttribute="bottom" constant="40" id="ddQ-1z-0FR"/>
+                <constraint firstItem="XcW-7N-PBa" firstAttribute="top" secondItem="Ex8-oV-tZa" secondAttribute="bottom" constant="15" id="ddQ-1z-0FR"/>
                 <constraint firstItem="NEP-16-09Q" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="fRp-Ct-4UD"/>
                 <constraint firstItem="1tT-RG-EvU" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.25" id="gwa-0h-l6Q"/>
                 <constraint firstItem="T0f-eL-J1f" firstAttribute="top" secondItem="NEP-16-09Q" secondAttribute="bottom" constant="200" id="jVl-HQ-gkn"/>

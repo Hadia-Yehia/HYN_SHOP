@@ -10,8 +10,11 @@ import CoreData
 import Firebase
 import GoogleSignIn
 
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    
 
 let defaultCurrency = "USD"
 
@@ -24,6 +27,24 @@ let defaultCurrency = "USD"
                 window.makeKeyAndVisible()
             }
         }*/
+        
+        
+      
+     
+//        let darkModeEnabled = UserDefaults.standard.bool(forKey: "darkModeEnabled")
+//        print("Dark mode enabled: \(darkModeEnabled)")
+//        if darkModeEnabled {
+//            appDelegate?.overrideUserInterfaceStyle = .dark
+//            print("bosy :\(appDelegate?.overrideUserInterfaceStyle.rawValue)")
+//        } else {
+//            appDelegate?.overrideUserInterfaceStyle = .light
+//        }
+       
+                
+    
+     
+        
+        
         FirebaseApp.configure()
         
 

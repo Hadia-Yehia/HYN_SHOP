@@ -9,7 +9,8 @@ import UIKit
 import Firebase
 
 class SettingsViewController: UIViewController {
-    
+    let appDelegate = UIApplication.shared.windows.first
+    let darkModeEnabled = UserDefaults.standard.bool(forKey: "darkModeEnabled")
     @IBOutlet weak var `switch`: UISwitch!
     @IBOutlet weak var logoutButton: UIButton!
     let viewModel = SettingsViewModel()
@@ -18,22 +19,19 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func darkmodeSwitch(_ sender: UISwitch) {
-        if #available(iOS 13, *)
-        {
-            let appDelegate = UIApplication.shared.windows.first
-            if sender.isOn
-            {
-                appDelegate?.overrideUserInterfaceStyle = .dark
+        if #available(iOS 13, *) {
+              
+                if sender.isOn {
+                    appDelegate?.overrideUserInterfaceStyle = .dark
+                } else {
+                    appDelegate?.overrideUserInterfaceStyle = .light
+                }
+                
+                // Save the switch state in user defaults
+              //  UserDefaults.standard.set(sender.isOn, forKey: "darkModeEnabled")
+            } else {
+                // Fallback for earlier versions of iOS
             }
-            else
-            {
-                appDelegate?.overrideUserInterfaceStyle = .light
-            }
-        }
-        else
-        {
-            
-        }
     }
     let defaults = UserDefaults.standard
     
@@ -68,6 +66,9 @@ class SettingsViewController: UIViewController {
             self.viewModel.logout(completionHandler: {result in
                 switch result{
                 case .success(_):
+                 
+                           
+                    self.appDelegate?.overrideUserInterfaceStyle = .light
                     self.tabBarController?.tabBar.isHidden = true
                             self.tabBarController?.hidesBottomBarWhenPushed = true
                     let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)

@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUh-k5-p65">
-                    <rect key="frame" x="265.66666666666669" y="703.66666666666663" width="77.333333333333314" height="34.333333333333371"/>
+                    <rect key="frame" x="265.66666666666669" y="650.33333333333337" width="77.333333333333314" height="34.333333333333371"/>
                     <color key="backgroundColor" name="yellow"/>
                     <color key="tintColor" systemColor="systemBackgroundColor"/>
                     <state key="normal" title="Button"/>
@@ -33,7 +33,7 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="AP6-f9-TxH">
-                    <rect key="frame" x="8" y="108.99999999999997" width="377" height="511.33333333333326"/>
+                    <rect key="frame" x="8" y="88.999999999999972" width="377" height="511.33333333333326"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKp-GO-bwo">
                             <rect key="frame" x="0.0" y="0.0" width="377" height="86"/>
@@ -167,7 +167,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact us" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBq-Fi-5hz">
-                                    <rect key="frame" x="147" y="40.333333333333314" width="83" height="20.333333333333329"/>
+                                    <rect key="frame" x="147" y="40.333333333333314" width="93" height="20.333333333333329"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -181,7 +181,7 @@
                                 <constraint firstAttribute="trailing" secondItem="i8b-0l-WtZ" secondAttribute="trailing" constant="17" id="6kr-Nm-zOh"/>
                                 <constraint firstItem="XB5-tI-m3K" firstAttribute="centerY" secondItem="Ygc-Yb-DcR" secondAttribute="centerY" id="7JE-vg-6wd"/>
                                 <constraint firstItem="XB5-tI-m3K" firstAttribute="leading" secondItem="Ygc-Yb-DcR" secondAttribute="leading" constant="18" id="7VX-d6-qBy"/>
-                                <constraint firstItem="PBq-Fi-5hz" firstAttribute="centerX" secondItem="Ygc-Yb-DcR" secondAttribute="centerX" id="Uef-Za-j4W"/>
+                                <constraint firstItem="PBq-Fi-5hz" firstAttribute="centerX" secondItem="Ygc-Yb-DcR" secondAttribute="centerX" constant="5" id="Uef-Za-j4W"/>
                                 <constraint firstItem="i8b-0l-WtZ" firstAttribute="top" secondItem="Ygc-Yb-DcR" secondAttribute="top" constant="33.333333333333314" id="xRY-QT-buT"/>
                             </constraints>
                         </view>
@@ -194,7 +194,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lff-DN-RPS">
+                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lff-DN-RPS">
                                     <rect key="frame" x="308" y="36" width="51" height="31"/>
                                     <connections>
                                         <action selector="darkmodeSwitch:" destination="-1" eventType="valueChanged" id="edT-yf-mLd"/>
@@ -229,8 +229,8 @@
             <constraints>
                 <constraint firstItem="AP6-f9-TxH" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.959288" id="4wx-qM-8NM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lff-DN-RPS" secondAttribute="trailing" constant="28" id="7Fk-ov-8L9"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lUh-k5-p65" secondAttribute="bottom" constant="80" id="aOL-CS-Nq2"/>
-                <constraint firstItem="AP6-f9-TxH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="fKc-Ka-t1c"/>
+                <constraint firstItem="lUh-k5-p65" firstAttribute="top" secondItem="AP6-f9-TxH" secondAttribute="bottom" constant="50" id="VtT-9p-xuU"/>
+                <constraint firstItem="AP6-f9-TxH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="fKc-Ka-t1c"/>
                 <constraint firstItem="AP6-f9-TxH" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="m6M-GT-V1Z"/>
                 <constraint firstItem="AP6-f9-TxH" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.6" id="swb-sn-Wmt"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lUh-k5-p65" secondAttribute="trailing" constant="50" id="xvb-P5-Ssc"/>
