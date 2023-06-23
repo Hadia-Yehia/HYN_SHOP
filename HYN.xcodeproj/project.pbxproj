@@ -306,7 +306,7 @@
 		BC2DBA872A35B73900C2021F /* CustomerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTest.swift; sourceTree = "<group>"; };
 		BC2DBA892A35C38F00C2021F /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		BC38A3DC2A30B26E00492F76 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = HYN/Classes/Modules/Profile/View/SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
-		BC38A3DD2A30B26E00492F76 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = HYN/Classes/Modules/Profile/View/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
+		BC38A3DD2A30B26E00492F76 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = HYN/Classes/Modules/Settings/View/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
 		BC38A3E02A30C33000492F76 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		BC425CFC2A436B15006B1E7A /* Mockable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mockable.swift; sourceTree = "<group>"; };
 		BC425D012A436B3D006B1E7A /* CurrencyResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CurrencyResponse.json; sourceTree = "<group>"; };
@@ -339,6 +339,8 @@
 		BCBB37032A33064500B32DE1 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		BCBB37052A330A2B00B32DE1 /* AddressesTableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesTableViewExtension.swift; sourceTree = "<group>"; };
 		BCBB37092A335B9300B32DE1 /* AddAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewModel.swift; sourceTree = "<group>"; };
+		BCC4AB5E2A45E738009E9D5F /* AddressRequest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AddressRequest.json; sourceTree = "<group>"; };
+		BCC4AB5F2A45E775009E9D5F /* AddressResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AddressResponse.json; sourceTree = "<group>"; };
 		BCE9033C2A2F407E00570672 /* ShoppingCartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartCell.swift; sourceTree = "<group>"; };
 		BCE9033D2A2F407E00570672 /* ShoppingCartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingCartCell.xib; sourceTree = "<group>"; };
 		BCE903402A2F409D00570672 /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
@@ -1128,8 +1130,8 @@
 		BC38A3DB2A30B25900492F76 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BC38A3DC2A30B26E00492F76 /* SettingsViewController.swift */,
 				BC38A3DD2A30B26E00492F76 /* SettingsViewController.xib */,
+				BC38A3DC2A30B26E00492F76 /* SettingsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1143,6 +1145,8 @@
 				0E4B315F2A44ABEA008CCD5C /* CustomerRequest.json */,
 				0E4B31632A44ACF8008CCD5C /* DraftOrderResponse.json */,
 				0E4B31652A44AD0B008CCD5C /* DraftOrderRequest.json */,
+				BCC4AB5E2A45E738009E9D5F /* AddressRequest.json */,
+				BCC4AB5F2A45E775009E9D5F /* AddressResponse.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

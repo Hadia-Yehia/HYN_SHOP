@@ -9,13 +9,30 @@ import UIKit
 import Firebase
 
 class SettingsViewController: UIViewController {
-    
+    let appDelegate = UIApplication.shared.windows.first
+    let darkModeEnabled = UserDefaults.standard.bool(forKey: "darkModeEnabled")
+    @IBOutlet weak var `switch`: UISwitch!
     @IBOutlet weak var logoutButton: UIButton!
     let viewModel = SettingsViewModel()
     @IBAction func logoutButton(_ sender: UIButton) {
         
     }
     
+    @IBAction func darkmodeSwitch(_ sender: UISwitch) {
+        if #available(iOS 13, *) {
+              
+                if sender.isOn {
+                    appDelegate?.overrideUserInterfaceStyle = .dark
+                } else {
+                    appDelegate?.overrideUserInterfaceStyle = .light
+                }
+                
+                // Save the switch state in user defaults
+              //  UserDefaults.standard.set(sender.isOn, forKey: "darkModeEnabled")
+            } else {
+                // Fallback for earlier versions of iOS
+            }
+    }
     let defaults = UserDefaults.standard
     
     @IBAction func addressesButton(_ sender: UIButton) {
@@ -38,6 +55,8 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         logoutButton.setRoundedCorners(radius: 10)
+       // `switch`.addTarget(self, action: #selector(darkmodeSwitch(_:)), for: .valueChanged)
+ 
         
         
     }
@@ -47,6 +66,9 @@ class SettingsViewController: UIViewController {
             self.viewModel.logout(completionHandler: {result in
                 switch result{
                 case .success(_):
+                 
+                           
+                    self.appDelegate?.overrideUserInterfaceStyle = .light
                     self.tabBarController?.tabBar.isHidden = true
                             self.tabBarController?.hidesBottomBarWhenPushed = true
                     let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)

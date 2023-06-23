@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="checkoutButton" destination="LTF-qD-4cM" id="lsK-VB-Obs"/>
                 <outlet property="checkoutDetailsView" destination="Hyj-s4-QDy" id="7B4-Gj-7P2"/>
+                <outlet property="checkoutView" destination="eka-MW-eIj" id="5xc-GC-9XD"/>
                 <outlet property="moreDetailsButton" destination="bEA-zq-Hm3" id="TPQ-XN-txS"/>
                 <outlet property="noItemsView" destination="8xk-3K-qRM" id="1k6-Nw-UOk"/>
                 <outlet property="notAuthView" destination="HNT-9m-G4I" id="8dY-Kf-AS6"/>
@@ -30,7 +31,7 @@
                     <rect key="frame" x="0.0" y="142.66666666666669" width="393" height="591.66666666666652"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HNT-9m-G4I">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HNT-9m-G4I">
                     <rect key="frame" x="0.0" y="12.666666666666686" width="393" height="852"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Fvn-CN-QjR">

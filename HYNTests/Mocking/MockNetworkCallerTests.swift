@@ -87,6 +87,46 @@ func testCustomerRequest()
             }
         })
     }
+    
+    //MARK: testing creating new address
+    func testAddressRequest()
+        {
+            let networkManager = MockNetworkCaller(shouldReturnError: false)
+            networkManager.createNewAddress(completionHandler: {
+                result in
+                switch result{
+                case .failure(let error):
+                    print(error)
+                    XCTFail()
+                    break
+                case .success(let data):
+                    XCTAssertEqual(data.customer_address.address1, "1 Rue des Carrieres")
+                    break
+                }
+            })
+        }
+    
+    //MARK: testing getting customer addresses
+    
+    func testAddressResponse()
+        {
+            let networkManager = MockNetworkCaller(shouldReturnError: false)
+            networkManager.getCustomerAddresses(completionHandler: {
+                result in
+                switch result{
+                case .failure(let error):
+                    print(error)
+                    XCTFail()
+                    break
+                case .success(let data):
+                    XCTAssertEqual(data.addresses.first?.company, "Fancy Co.")
+                    XCTAssertEqual(data.addresses.first?.country, "Canada")
+                    XCTAssertEqual(data.addresses.first?.first_name, "Samuel")
+                    XCTAssertEqual(data.addresses.count, 1)
+                    break
+                }
+            })
+        }
     // MARK: testing draft order request
 func testDraftOrderRequest()
     {

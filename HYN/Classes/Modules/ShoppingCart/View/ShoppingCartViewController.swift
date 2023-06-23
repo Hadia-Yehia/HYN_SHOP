@@ -11,7 +11,9 @@ class ShoppingCartViewController: UIViewController {
    // var isArrowUp = false
     let viewModel = ShoppingCartViewModel()
     @IBAction func loginButton(_ sender: UIButton) {
+        navigationController?.pushViewController(LoginViewController(), animated: true)
     }
+    @IBOutlet weak var checkoutView: UIView!
     @IBOutlet weak var notAuthView: UIView!
     @IBOutlet weak var noItemsView: UIView!
     @IBOutlet weak var totalPrice: UILabel!
@@ -74,6 +76,7 @@ func setupTableView()
         {
           notAuthView.isHidden = false
           tableView.isHidden = true
+          checkoutView.isHidden = true
           noItemsView.isHidden = true
       }
         else
@@ -111,12 +114,14 @@ func setupTableView()
         {
             noItemsView.isHidden = false
             tableView.isHidden = true
+            checkoutView.isHidden  = true
         }
         else
         {
 
            noItemsView.isHidden = true
             tableView.isHidden = false
+            checkoutView.isHidden = false
         }
     }
 

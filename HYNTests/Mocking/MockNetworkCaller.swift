@@ -63,6 +63,45 @@ extension MockNetworkCaller
     
         }
     }
+    
+    //MARK: Create new address
+    
+    func createNewAddress(completionHandler : @escaping(Result<CustomerAddress, NetworkError>)->Void)
+    {
+        if shouldReturnError
+        {
+            completionHandler(.failure(.urlError))
+        }else
+        {
+            do {
+                let data:CustomerAddress = try loadJSON(filename: "AddressRequest", type: CustomerAddress.self)
+                completionHandler(.success(data))
+            }catch
+            {
+                print("Error")
+            }
+    
+        }
+    }
+    //MARK: Getting addresses of customer
+    
+    func getCustomerAddresses(completionHandler : @escaping(Result<CustomerAddresses, NetworkError>)->Void)
+    {
+        if shouldReturnError
+        {
+            completionHandler(.failure(.urlError))
+        }else
+        {
+            do {
+                let data:CustomerAddresses = try loadJSON(filename: "AddressResponse", type: CustomerAddresses.self)
+                completionHandler(.success(data))
+            }catch
+            {
+                print("Error")
+            }
+    
+        }
+    }
     // MARK: Customer Request
     func requestNewCustomer(completionHandler : @escaping(Result<CustomerRequest, NetworkError>)->Void)
     {
