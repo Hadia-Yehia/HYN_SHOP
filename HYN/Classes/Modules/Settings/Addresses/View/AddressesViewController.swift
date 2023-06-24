@@ -56,7 +56,7 @@ class AddressesViewController: UIViewController {
             DispatchQueue.main.async {
                 if isLoading{
                     self.animationView.isHidden = false
-                    
+    
                     self.animationView.play()
                 }
                 else

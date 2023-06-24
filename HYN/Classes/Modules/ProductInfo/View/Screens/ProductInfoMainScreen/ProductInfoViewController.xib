@@ -46,7 +46,7 @@
                                     </collectionViewFlowLayout>
                                 </collectionView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6X-gx-lRv">
-                                    <rect key="frame" x="53" y="353.33333333333331" width="277" height="23"/>
+                                    <rect key="frame" x="53" y="353.33333333333331" width="277" height="15"/>
                                     <subviews>
                                         <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cpv-jr-G8E" customClass="JStarRatingView" customModule="HYN" customModuleProvider="target">
                                             <rect key="frame" x="8" y="6" width="160" height="44"/>
@@ -169,7 +169,7 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="tYx-uU-anE" firstAttribute="leading" secondItem="bbT-0n-ufe" secondAttribute="trailing" constant="30" id="0yU-4z-wZ5"/>
-                                <constraint firstItem="Inx-O8-D9j" firstAttribute="top" secondItem="h6X-gx-lRv" secondAttribute="bottom" constant="8" id="1PK-u2-gyh"/>
+                                <constraint firstItem="Inx-O8-D9j" firstAttribute="top" secondItem="h6X-gx-lRv" secondAttribute="bottom" constant="16" id="1PK-u2-gyh"/>
                                 <constraint firstItem="3at-U9-HrR" firstAttribute="top" secondItem="bbT-0n-ufe" secondAttribute="top" id="4SS-xJ-Eh6"/>
                                 <constraint firstItem="nA9-e3-mzB" firstAttribute="leading" secondItem="cTh-dg-1lH" secondAttribute="leading" id="4e7-Kp-wIZ"/>
                                 <constraint firstItem="NhH-jW-lxT" firstAttribute="leading" secondItem="3at-U9-HrR" secondAttribute="trailing" constant="14" id="7Xg-tK-37R"/>

@@ -76,6 +76,7 @@ class SettingsViewController: UIViewController {
                     break
                 case .failure(let error):
                     print(error.localizedDescription)
+                    Alerts.makeConfirmationDialogue(title: "Network issue", message: "Check your network connection and try agian")
                     break
                 }
             })

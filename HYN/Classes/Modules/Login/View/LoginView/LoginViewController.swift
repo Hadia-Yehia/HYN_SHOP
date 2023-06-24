@@ -61,26 +61,30 @@ class LoginViewController: UIViewController {
         
     }
     @IBAction func signinBtn(_ sender: UIButton) {
-        if let email = emailTF.text , let password = passwordTF.text{
-            viewModel.signIn(email: email, password: password, completionHandler: {result in
-                switch result{
-                case .success(_):
-                    //MARK: mo2akatan 
-                  
-                    
-                    print("fav id \(UserDefaults.standard.object(forKey: "favId") as! Int)")
-                    print("cart id \(UserDefaults.standard.object(forKey: "cartId") as! Int)")
-                     let homeVC = TabBar()
-                     self.navigationController?.pushViewController(homeVC, animated: true)
-                    
-                    break
-                case .failure(let error):
-                    Toast.show(message: error.localizedDescription, controller: self)
-                    break
-                }
-            })
+        if Availability.isConnectedToInternet{
+            if let email = emailTF.text , let password = passwordTF.text{
+                viewModel.signIn(email: email, password: password, completionHandler: {result in
+                    switch result{
+                    case .success(_):
+                        //MARK: mo2akatan
+                        
+                        
+                        print("fav id \(UserDefaults.standard.object(forKey: "favId") as! Int)")
+                        print("cart id \(UserDefaults.standard.object(forKey: "cartId") as! Int)")
+                        let homeVC = TabBar()
+                        self.navigationController?.pushViewController(homeVC, animated: true)
+                        
+                        break
+                    case .failure(let error):
+                        Toast.show(message: error.localizedDescription, controller: self)
+                        break
+                    }
+                })
+            }
         }
-     
+        else{
+            Alerts.makeConfirmationDialogue(title: "Network issue", message: "Check your network connection and try again")
+        }
     }
     func signInWithGoogle(){
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
