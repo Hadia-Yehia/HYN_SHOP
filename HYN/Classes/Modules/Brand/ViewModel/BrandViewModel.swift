@@ -45,7 +45,7 @@ class BrandViewModel{
     func getData(data : [Product]){
         productArr.removeAll()
         for i in 0..<data.count{
-            let products = ProductsStruct(id: data[i].id!, price: (data[i].variants?.first?.price)!, img: (data[i].image?.src!)!,title: data[i].title!)
+            let products = ProductsStruct(id: data[i].id!, price: (data[i].variants?.first?.price)!, img: (data[i].image?.src!)!,title: data[i].title!,inventoryQuantity: (data[i].variants?.first?.inventoryQuantity)!)
             productArr.append(products)
         }
         searchFilteredArr = productArr
@@ -61,6 +61,9 @@ class BrandViewModel{
     }
     func getCellIdData(index : Int)->Int{
         return searchFilteredArr[index].id
+    }
+    func getCellInventoryQuantity (index : Int)->Int{
+        return (searchFilteredArr[index].inventoryQuantity)
     }
     func search(searchText : String){
         if searchText.isEmpty == false{

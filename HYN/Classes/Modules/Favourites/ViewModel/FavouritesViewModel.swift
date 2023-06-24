@@ -10,7 +10,7 @@ import Foundation
 class FavouritesViewModel{
         var dataSource : [Fav]?
         var isLoading : Observable<Bool> = Observable(false)
-        var favCell = Fav(title: "no data", price: "no data", img: "placeholder", id: 0)
+        var favCell = Fav(title: "no data", price: "no data", img: "placeholder", id: 0,inventoryQuantity: 0)
         func getFav(){
             dataSource = FavCoreData.fetchProductsFromDataBase()
         }
@@ -51,12 +51,13 @@ class FavouritesViewModel{
         let productId = cartProdct?.id ?? 0
         let productTitle = cartProdct?.title ?? ""
         let productImage = cartProdct?.img ?? "placeholder"
+        let inventoryQuantity = cartProdct?.inventoryQuantity ?? 0
             let cartItem = CartItem(id:Int64( productId),
                                     title: productTitle,
                                     quantity: 1,
                                     image: productImage ,
                                     price:productPrice,
-                                    defaultPrice:productPrice)
+                                    defaultPrice:productPrice,inventoryQuantity: inventoryQuantity)
             
             if   CartCoreData.shared.InsertCartItem(cartItem)
                {

@@ -66,11 +66,23 @@ class PaymentViewModel
         print("orderssssss",linesArr)
         let order = Order(customer:customer, lineItems: linesArr)
        let myOrder  = OrderRequest(order: order)
-        NetworkService.postingOrder(order: myOrder){ data, response, error in
-            let response = String(data:data!,encoding: .utf8)
-                            print(response!)
-            CartCoreData.shared.deleteAllCartItems()
+        NetworkService.postingOrder(order: myOrder) { data, response, error in
+            if let error = error {
+                // Handle the error when saving the context
+                print("Error saving Core Data context: \(error)")
+                return
+            }
+
+            // If there is no error, proceed with deleting the items in Core Data
+            DispatchQueue.main.async {
+                CartCoreData.shared.deleteAllCartItems()
+            }
+
+            if let data = data, let responseString = String(data: data, encoding: .utf8) {
+                print("Response: \(responseString)")
+            }
         }
+
            
         
     

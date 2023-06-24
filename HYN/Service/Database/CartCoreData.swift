@@ -66,7 +66,8 @@ class CartCoreData{
             let id = item.value(forKey: "id") as! Int64
             let quantity = item.value(forKey: "quantity") as! Int
             let defaultPrice = item.value(forKey: "defaultPrice") as! Float
-            let cartItem = CartItem(id: id, title: title, quantity: quantity, image: image, price: price,defaultPrice: defaultPrice)
+            let inventoryQuantity = item.value(forKey: "inventoryQuantity") as! Int
+            let cartItem = CartItem(id: id, title: title, quantity: quantity, image: image, price: price,defaultPrice: defaultPrice,inventoryQuantity: inventoryQuantity)
             cartItemsArray.append(cartItem)
  
 
@@ -96,6 +97,7 @@ class CartCoreData{
             newCartItem.setValue(cartItem.quantity, forKey: "quantity")
             newCartItem.setValue(cartItem.image, forKey: "image")
             newCartItem.setValue(cartItem.defaultPrice, forKey: "defaultPrice")
+            newCartItem.setValue(cartItem.inventoryQuantity, forKey: "inventoryQuantity")
             print("Product added successfully")
          saveContext()
         } catch let error as NSError {

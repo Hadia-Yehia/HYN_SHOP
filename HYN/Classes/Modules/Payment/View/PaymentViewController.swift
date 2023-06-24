@@ -35,7 +35,8 @@ class PaymentViewController: UIViewController {
             else
             {
                 
-               checkMaximumPrice()
+              // checkMaximumPrice()
+                navigationController?.pushViewController(PurchacingViewController(), animated: true)
                 
             }
             //my code

@@ -123,7 +123,7 @@ class CategoryViewModel{
     func getData(data : [Product]){
         productArr = [ProductsStruct]()
         for i in 0..<data.count{
-            let products = ProductsStruct(id: data[i].id!, price: (data[i].variants?.first?.price)!, img: (data[i].image?.src!)!,title: data[i].title!)
+            let products = ProductsStruct(id: data[i].id!, price: (data[i].variants?.first?.price)!, img: (data[i].image?.src!)!,title: data[i].title!,inventoryQuantity: (data[i].variants?.first?.inventoryQuantity)!)
             
             productArr.append(products)
         }
@@ -140,6 +140,9 @@ class CategoryViewModel{
     }
     func getCellIdData(index : Int)->Int{
         return (filteredArr[index].id)
+    }
+    func getCellInventoryQuantity (index : Int)->Int{
+        return (filteredArr[index].inventoryQuantity)
     }
    /* func getCellImgTypeData(index : Int)->String{
         return (collectionArr[index].img)

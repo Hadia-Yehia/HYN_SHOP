@@ -18,8 +18,9 @@ class ProductCollectionViewCellViewModel{
         return true
         
     }
-    func addToFav(name : String,price:String,img:String,id:Int){
-        let item = Fav(title: name, price: price, img: img, id: id)
+    func addToFav(name : String,price:String,img:String,id:Int,inventoryQuantity : Int){
+
+        let item = Fav(title: name, price: price, img: img, id: id, inventoryQuantity:inventoryQuantity)
         FavCoreData.saveProductToDataBase(item: item)
     }
     func deleteItemFromCell(id : Int){

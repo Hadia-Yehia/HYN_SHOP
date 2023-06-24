@@ -17,6 +17,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     var img = ""
     var id = 0
     var name = ""
+    var inventoryQuantity = 0
     var viewC : UIViewController?
     var valid = true
     @IBOutlet weak var favBtnOutlet: UIButton!
@@ -27,12 +28,13 @@ class ProductCollectionViewCell: UICollectionViewCell {
         // Initialization code
       setCellStyle(view: productView, color: "grey")
     }
-    func configCell(img : String,price:String,id:Int,name:String,viewC:UIViewController){
+    func configCell(img : String,price:String,id:Int,name:String,inventoryQuantity: Int,viewC:UIViewController){
         self.img = img
         self.price = price
         self.id = id
         self.name = name
         self.viewC = viewC
+        self.inventoryQuantity = inventoryQuantity
         let url = URL(string: img)
       
         productImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"))
@@ -62,7 +64,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBAction func favBtn(_ sender: Any) {
         if Availability.isLoggedIn{
             if  valid {
-                viewModel.addToFav(name: name, price: price, img: img, id: id)
+                viewModel.addToFav(name: name, price: price, img: img, id: id,inventoryQuantity:inventoryQuantity)
                 favBtnOutlet.setImage(UIImage(systemName: "heart.fill"), for: .normal)
                 valid = false
             }

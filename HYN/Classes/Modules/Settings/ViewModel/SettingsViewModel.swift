@@ -114,14 +114,16 @@ class SettingsViewModel{
     func getDataFromDataBase(){
         dataSource = FavCoreData.fetchProductsFromDataBase()
         for i in 0..<(dataSource.count) {
-            var lineItem = LineItems(title: String(dataSource[i].id) + "*" + dataSource[i].title + "*" + dataSource[i].img, price: dataSource[i].price, quantity: 1)
+            let tilte = String(dataSource[i].id) + "*" + dataSource[i].title + "*" + dataSource[i].img + "*" + String(dataSource[i].inventoryQuantity)
+            let lineItem = LineItems(title: tilte, price: dataSource[i].price, quantity: 1)
             lineItemsArray.append(lineItem)
         }
     }
     func getCartDataFromDataBase(){
         cartDataSource = CartCoreData.shared.getCartItems()
         for i in 0..<(cartDataSource.count) {
-            var lineItem = LineItems(title: String(cartDataSource[i].id) + "*" + cartDataSource[i].title + "*" + cartDataSource[i].image, price: String(cartDataSource[i].price), quantity: cartDataSource[i].quantity)
+            let title = String(cartDataSource[i].id) + "*" + cartDataSource[i].title + "*" + cartDataSource[i].image + "*" + String(cartDataSource[i].inventoryQuantity)
+            let lineItem = LineItems(title: title, price: String(cartDataSource[i].price), quantity: cartDataSource[i].quantity)
            cartLineItemsArray.append(lineItem)
         }
     }

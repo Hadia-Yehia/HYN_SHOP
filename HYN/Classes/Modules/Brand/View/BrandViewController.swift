@@ -99,11 +99,11 @@ class BrandViewController: UIViewController,UICollectionViewDataSource,UICollect
         cell.productView.layer.cornerRadius = 40
         cell.layer.masksToBounds = true
         if ((viewModel?.isFiltering) == true){
-            cell.configCell(img: (viewModel?.filterArr[indexPath.row].img)!, price: (viewModel?.filterArr[indexPath.row].price)!,id: (viewModel?.filterArr[indexPath.row].id)!,name: (viewModel?.filterArr[indexPath.row].title)!,viewC: self)
+            cell.configCell(img: (viewModel?.filterArr[indexPath.row].img)!, price: (viewModel?.filterArr[indexPath.row].price)!,id: (viewModel?.filterArr[indexPath.row].id)!,name: (viewModel?.filterArr[indexPath.row].title)!,inventoryQuantity: (viewModel?.filterArr[indexPath.row].inventoryQuantity)!,viewC: self)
            
         }
         else{
-            cell.configCell(img: viewModel!.getCellImgData(index: indexPath.row), price: viewModel!.getCellPriceData(index: indexPath.row),id: viewModel!.getCellIdData(index: indexPath.row),name: viewModel!.getCellNameData(index: indexPath.row),viewC: self)
+            cell.configCell(img: viewModel!.getCellImgData(index: indexPath.row), price: viewModel!.getCellPriceData(index: indexPath.row),id: viewModel!.getCellIdData(index: indexPath.row),name: viewModel!.getCellNameData(index: indexPath.row),inventoryQuantity: (viewModel!.getCellInventoryQuantity(index: indexPath.row)),viewC: self)
            
         }
        

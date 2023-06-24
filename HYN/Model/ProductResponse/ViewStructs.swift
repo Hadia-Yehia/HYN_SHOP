@@ -13,13 +13,15 @@ struct ProductInfo{
     var rate : Float
     var imgs : [String]
     var size : String
-    init(name: String, price: String, description: String, rate: Float, imgs: [String], size: String) {
+    var inventoryQuantity : Int
+    init(name: String, price: String, description: String, rate: Float, imgs: [String], size: String, inventoryQuantity: Int) {
         self.name = name
         self.price = price
         self.description = description
         self.rate = rate
         self.imgs = imgs
         self.size = size
+        self.inventoryQuantity = inventoryQuantity
     }
 }
 struct ReviewItem{
@@ -38,11 +40,14 @@ struct Fav{
     var price : String
     var img : String
     var id : Int
-    init(title: String, price: String, img: String, id: Int) {
+    var inventoryQuantity : Int
+ 
+    init(title: String, price: String, img: String, id: Int, inventoryQuantity: Int) {
         self.title = title
         self.price = price
         self.img = img
         self.id = id
+        self.inventoryQuantity = inventoryQuantity
     }
 }
 struct ProductsStruct{
@@ -50,12 +55,14 @@ struct ProductsStruct{
     var price : String
     var img : String
     var title : String
+    var inventoryQuantity : Int
 
-    init(id: Int, price: String, img: String, title: String) {
+    init(id: Int, price: String, img: String, title: String, inventoryQuantity: Int) {
         self.id = id
         self.price = price
         self.img = img
         self.title = title
+        self.inventoryQuantity = inventoryQuantity
     }
   
 }

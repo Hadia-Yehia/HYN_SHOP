@@ -153,8 +153,9 @@ class LoginViewModel{
                     let dataComponents:[String] = data.split(separator: "*").map { String($0) }
                     let price = Float(item.price)
                     let defaultPrice = (price ?? 0.0) / Float(item.quantity)
-                    let cartItem =   CartItem(id: Int64(dataComponents[0]) ?? 0, title: dataComponents[1], quantity: item.quantity, image: dataComponents[2], price: price ?? 0.0, defaultPrice: defaultPrice)
-                    CartCoreData.shared.InsertCartItem(cartItem)
+                    let cartItem =   CartItem(id: Int64(dataComponents[0]) ?? 0, title: dataComponents[1], quantity: item.quantity, image: dataComponents[2], price: price ?? 0.0, defaultPrice: defaultPrice,inventoryQuantity: Int(dataComponents[3]) ?? 0)
+                    
+                       CartCoreData.shared.InsertCartItem(cartItem)
 
                 }
             }
@@ -177,7 +178,7 @@ class LoginViewModel{
                 {
                     let data = item.title
                     let dataComponents:[String] = data.split(separator: "*").map { String($0) }
-                    let favoriteItem  = Fav(title: dataComponents[1], price:item.price, img:  dataComponents[2], id: Int(dataComponents[0]) ?? 0)
+                    let favoriteItem  = Fav(title: dataComponents[1], price:item.price, img:  dataComponents[2], id: Int(dataComponents[0]) ?? 0,inventoryQuantity: Int(dataComponents[3]) ?? 0)
                     FavCoreData.saveProductToDataBase(item: favoriteItem)
               
                 }

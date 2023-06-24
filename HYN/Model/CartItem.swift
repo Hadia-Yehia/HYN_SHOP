@@ -14,13 +14,15 @@ struct CartItem
     var image:String
     var price:Float
     var defaultPrice:Float
-    init(id: Int64, title: String, quantity: Int, image: String, price: Float,defaultPrice:Float) {
-            self.id = id
-            self.title = title
-            self.quantity = quantity
-            self.image = image
-            self.price = price
+    var inventoryQuantity : Int
+    init(id: Int64, title: String, quantity: Int, image: String, price: Float, defaultPrice: Float, inventoryQuantity: Int) {
+        self.id = id
+        self.title = title
+        self.quantity = quantity
+        self.image = image
+        self.price = price
         self.defaultPrice = defaultPrice
-        }
+        self.inventoryQuantity = inventoryQuantity
+    }
    
 }

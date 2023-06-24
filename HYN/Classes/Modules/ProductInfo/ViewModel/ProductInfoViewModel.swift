@@ -17,7 +17,7 @@ class ProductInfoViewModel{
     var color : Observable<Array<String>> = Observable([""])
     let reviewArray = [ReviewItem(name: "Hadia Yehia", content: "I had a wonderful experience and I would highly recommend this business to others.", rating: 3.5),ReviewItem(name: "Nada Elshafy", content: "I bought a bag from here. The quality is remarkable. It's well worth the money for their high-quality products, I highly recommended!", rating: 4.5)]
     var favDataSource : [Fav]?
-    var product  : ProductInfo = ProductInfo(name: "", price: "", description: "", rate: 0.0 , imgs: Array(), size: "")
+    var product  : ProductInfo = ProductInfo(name: "", price: "", description: "", rate: 0.0 , imgs: Array(), size: "",inventoryQuantity:0)
     init(productId: Int) {
         self.productId = productId
 
@@ -50,6 +50,7 @@ class ProductInfoViewModel{
         product.name = result?.title ?? ""
         product.description = result?.bodyHtml ?? ""
         product.price = result?.variants?.first?.price ?? ""
+        product.inventoryQuantity = result?.variants?.first?.inventoryQuantity ?? 0
         for i in 0..<(result?.images?.count ?? 0){
             product.imgs.append(result?.images?[i].src ?? "placeholder")
             print("debuuug" + product.imgs[i] )
@@ -117,7 +118,7 @@ class ProductInfoViewModel{
 
     
     func saveItemToDatabase(){
-        let item = Fav(title: product.name, price: product.price , img: product.imgs.first ?? "placeholder", id: productId)
+        let item = Fav(title: product.name, price: product.price , img: product.imgs.first ?? "placeholder", id: productId,inventoryQuantity: product.inventoryQuantity)
         print ("save ? \(item.id) \(item.title)")
         FavCoreData.saveProductToDataBase(item: item)
     }
@@ -126,7 +127,8 @@ class ProductInfoViewModel{
     func insertProductInCoreData(size:String,color:String,completionHandler:@escaping (Bool)->Void)
     {
         let productPrice = Float(product.price) ?? 0
-        let cartItem = CartItem(id: Int64(productId), title: product.name, quantity: 1, image: product.imgs.first ?? "placeholder", price:productPrice,defaultPrice: productPrice)
+        let inventoryQuantity = product.inventoryQuantity
+        let cartItem = CartItem(id: Int64(productId), title: product.name, quantity: 1, image: product.imgs.first ?? "placeholder", price:productPrice,defaultPrice: productPrice,inventoryQuantity: inventoryQuantity)
      if   CartCoreData.shared.InsertCartItem(cartItem)
         {
          completionHandler(true)

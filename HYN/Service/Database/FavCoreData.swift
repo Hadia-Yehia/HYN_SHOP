@@ -19,6 +19,7 @@ class FavCoreData {
         product.setValue(item.img, forKey: "image")
         product.setValue(item.price, forKey: "price")
         product.setValue(item.title, forKey: "title")
+        product.setValue(item.inventoryQuantity, forKey: "inventoryQuantity")
         do{
             try context.save()
             print("data added successfully")
@@ -37,11 +38,12 @@ class FavCoreData {
         do{
              products = try context.fetch(fetchReq)
             for i in 0..<products.count{
-                var obj = Fav(title: "", price: "", img: "", id: 0)
+                var obj = Fav(title: "", price: "", img: "", id: 0,inventoryQuantity: 0)
                 obj.id =  products[i].value(forKey: "id") as! Int
                 obj.img = products[i].value(forKey: "image") as! String
                 obj.title = products[i].value(forKey: "title") as! String
                 obj.price = products[i].value(forKey: "price") as! String
+                obj.inventoryQuantity = products[i].value(forKey: "inventoryQuantity") as! Int
                 print("saved? \(obj.id)  \(obj.title)")
                 array.append(obj)
             }
