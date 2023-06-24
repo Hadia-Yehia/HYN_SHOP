@@ -45,6 +45,25 @@ extension MockNetworkCaller
     
         }
     }
+    // MARK: get Brand Data
+
+    func getBrandData(completionHandler: @escaping (Result<SmartCollectionsResult, NetworkError>) -> Void) {
+        if shouldReturnError
+        {
+            completionHandler(.failure(.urlError))
+        }else
+        {
+            do {
+                let data:SmartCollectionsResult = try loadJSON(filename: "SmartCollections", type: SmartCollectionsResult.self)
+                completionHandler(.success(data))
+            }catch
+            {
+                print("Error")
+            }
+    
+        }
+    }
+    
     // MARK: get product details
     func fetchingProductDetails(product_id: Int, completionHandler: @escaping (Result<ProductResponse, NetworkError>) -> Void)
     {

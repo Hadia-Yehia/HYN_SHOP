@@ -53,6 +53,24 @@ func testgetProductResponse()
             }
         })
     }
+    
+    func testGetBrandDataResponse()
+        {
+            let networkManager = MockNetworkCaller(shouldReturnError: false)
+            networkManager.getBrandData(completionHandler: {
+                result in
+                switch result{
+                case .failure(let error):
+                    print(error)
+                    XCTFail()
+                    break
+                case .success(let data):
+                    XCTAssertGreaterThan(data.smart_collections?.count ?? 0, 0)
+                    break
+                }
+            })
+       
+        }
     // MARK: testing customer response
 func testCustomerResponse()
     {
