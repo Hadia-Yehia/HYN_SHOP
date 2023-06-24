@@ -14,6 +14,9 @@ class PaymentViewController: UIViewController {
     var viewModel = PaymentViewModel()
     @IBAction func placeOrderButton(_ sender: UIButton) {
         if (Availability.isConnectedToInternet){
+            
+            
+            
             if !(viewModel.isCashSelected ?? false)
             {
                 viewModel.purchasesingApplePay()
@@ -31,10 +34,16 @@ class PaymentViewController: UIViewController {
             
             else
             {
-                navigationController?.pushViewController(PurchacingViewController(), animated: true)
+                
+               checkMaximumPrice()
+                
             }
             //my code
             self.viewModel.saveOrder()
+            
+            
+            
+            
 
            }
      else{
@@ -56,7 +65,10 @@ class PaymentViewController: UIViewController {
      
         // Do any additional setup after loading the view.
     }
-
+func confirmCheckout()
+    {
+        
+    }
     override func viewWillAppear(_ animated: Bool) {
         bindingViewModel()
         viewModel.checkCurrency()
@@ -95,6 +107,42 @@ func setFinalCheckout()
                 }
             }
 
+        }
+    }
+    func checkMaximumPrice()
+    {
+        let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
+        switch currencyCode
+        {
+        case "EGP":
+            if viewModel.calculateTotalPrice() > 30000
+            {
+                
+            }
+            else
+            {
+                navigationController?.pushViewController(PurchacingViewController(), animated: true)
+            }
+        case "EUR" , "USD":
+            if viewModel.calculateTotalPrice() > 3000
+            {
+                
+            }
+            else
+            {
+                navigationController?.pushViewController(PurchacingViewController(), animated: true)
+            }
+        case "AMD", "AED":
+            if viewModel.calculateTotalPrice() > 20000
+            {
+                
+            }
+            else
+            {
+                navigationController?.pushViewController(PurchacingViewController(), animated: true)
+            }
+        default:
+            return
         }
     }
 

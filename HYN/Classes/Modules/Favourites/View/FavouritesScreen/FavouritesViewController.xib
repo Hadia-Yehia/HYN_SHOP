@@ -31,23 +31,23 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cMj-Td-tGK">
-                            <rect key="frame" x="8" y="21" width="375.66666666666669" height="379.66666666666669"/>
+                            <rect key="frame" x="78.666666666666671" y="194" width="235.66666666666663" height="193.66666666666663"/>
                             <color key="tintColor" name="grey"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not authorized" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmn-5D-3ce">
-                            <rect key="frame" x="86.333333333333329" y="409.66666666666669" width="220.33333333333337" height="36"/>
+                            <rect key="frame" x="86.333333333333329" y="396.66666666666669" width="220.33333333333337" height="36"/>
                             <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="25"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YnK-nJ-HsT">
-                            <rect key="frame" x="-0.33333333333334281" y="460.33333333333337" width="393.66666666666674" height="0.0"/>
+                            <rect key="frame" x="-0.33333333333334281" y="447.33333333333337" width="393.66666666666674" height="0.0"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1B5-8f-tKL">
-                            <rect key="frame" x="102.66666666666667" y="539.33333333333337" width="187.66666666666663" height="35"/>
+                            <rect key="frame" x="102.66666666666667" y="526.33333333333337" width="187.66666666666663" height="35"/>
                             <color key="backgroundColor" name="yellow"/>
                             <color key="tintColor" systemColor="systemYellowColor"/>
                             <state key="normal" title="Button"/>
@@ -59,7 +59,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You should login to enjoy adding items to your favorites" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RwH-Rg-4OV">
-                            <rect key="frame" x="50.666666666666657" y="460.33333333333337" width="291.66666666666674" height="40.666666666666686"/>
+                            <rect key="frame" x="50.666666666666657" y="447.33333333333337" width="291.66666666666674" height="40.666666666666686"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" systemColor="systemGrayColor"/>
                             <nil key="highlightedColor"/>
@@ -68,20 +68,20 @@
                     <viewLayoutGuide key="safeArea" id="kQy-28-DyX"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstItem="cMj-Td-tGK" firstAttribute="centerX" secondItem="kQy-28-DyX" secondAttribute="centerX" id="6sh-IZ-3AB"/>
                         <constraint firstItem="jmn-5D-3ce" firstAttribute="centerX" secondItem="dUu-f0-OdC" secondAttribute="centerX" id="Dv5-O0-d11"/>
-                        <constraint firstItem="cMj-Td-tGK" firstAttribute="top" secondItem="dUu-f0-OdC" secondAttribute="top" constant="20" id="G6P-0T-qAm"/>
                         <constraint firstItem="RwH-Rg-4OV" firstAttribute="top" secondItem="jmn-5D-3ce" secondAttribute="bottom" constant="14.666666666666686" id="HkI-De-Z4I"/>
                         <constraint firstItem="RwH-Rg-4OV" firstAttribute="width" secondItem="dUu-f0-OdC" secondAttribute="width" multiplier="0.739612" constant="0.69999999999999996" id="IYb-bM-RwK"/>
                         <constraint firstItem="jmn-5D-3ce" firstAttribute="width" secondItem="dUu-f0-OdC" secondAttribute="width" multiplier="0.559557" constant="0.59999999999999998" id="L9p-ge-esT"/>
+                        <constraint firstItem="cMj-Td-tGK" firstAttribute="centerY" secondItem="kQy-28-DyX" secondAttribute="centerY" multiplier="0.8" id="LLS-zf-NDt"/>
                         <constraint firstItem="YnK-nJ-HsT" firstAttribute="centerX" secondItem="dUu-f0-OdC" secondAttribute="centerX" id="O0A-9h-9GZ"/>
                         <constraint firstItem="1B5-8f-tKL" firstAttribute="top" secondItem="RwH-Rg-4OV" secondAttribute="bottom" constant="38.333333333333371" id="RDv-F2-6uh"/>
-                        <constraint firstItem="cMj-Td-tGK" firstAttribute="height" secondItem="dUu-f0-OdC" secondAttribute="height" multiplier="0.494189" constant="5.4360762436076016" id="Rdt-VJ-xDC"/>
+                        <constraint firstItem="cMj-Td-tGK" firstAttribute="height" secondItem="dUu-f0-OdC" secondAttribute="height" multiplier="0.25" constant="5.4360762436076016" id="Rdt-VJ-xDC"/>
                         <constraint firstItem="1B5-8f-tKL" firstAttribute="width" secondItem="dUu-f0-OdC" secondAttribute="width" multiplier="0.476454" constant="0.40000000000000002" id="Spq-Gn-9MG"/>
                         <constraint firstItem="jmn-5D-3ce" firstAttribute="top" secondItem="cMj-Td-tGK" secondAttribute="bottom" constant="8" id="UFr-lT-AUq"/>
                         <constraint firstItem="YnK-nJ-HsT" firstAttribute="width" secondItem="dUu-f0-OdC" secondAttribute="width" constant="0.80000000000000004" id="ULB-RQ-UFJ"/>
                         <constraint firstItem="RwH-Rg-4OV" firstAttribute="centerX" secondItem="dUu-f0-OdC" secondAttribute="centerX" id="Vrc-B4-xZ6"/>
-                        <constraint firstItem="cMj-Td-tGK" firstAttribute="width" secondItem="dUu-f0-OdC" secondAttribute="width" multiplier="0.955679" id="ZqH-Ip-6iG"/>
-                        <constraint firstItem="cMj-Td-tGK" firstAttribute="leading" secondItem="dUu-f0-OdC" secondAttribute="leading" constant="8" id="m11-r8-Yj2"/>
+                        <constraint firstItem="cMj-Td-tGK" firstAttribute="width" secondItem="dUu-f0-OdC" secondAttribute="width" multiplier="0.6" id="ZqH-Ip-6iG"/>
                         <constraint firstItem="1B5-8f-tKL" firstAttribute="centerX" secondItem="dUu-f0-OdC" secondAttribute="centerX" id="oWZ-I8-h3U"/>
                         <constraint firstItem="YnK-nJ-HsT" firstAttribute="top" secondItem="jmn-5D-3ce" secondAttribute="bottom" constant="14.666666666666686" id="sZk-o9-IZO"/>
                     </constraints>
