@@ -21,34 +21,7 @@ final class NetworkServiceTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-   /* func testPostingOrderShouldFail(){
-        let expectation = expectation(description: "waiting api")
-        let defaults = UserDefaults.standard
-        var linesArr = [LineItems]()
-        var obj1 = LineItems(title: "adidas", price: "200", quantity: 1)
-        linesArr.append(obj1)
-        let id = (UserDefaults.standard.object(forKey: "userId") as? Int)!
-        var customer = PostCustoer(id: 6971932573988)
-        let order = Order(customer:customer, lineItems: linesArr)
-        let myOrder  = OrderRequest(order: order)
-        NetworkService.postingOrder(order: myOrder){
-            (data, response, error) in
-                if let error = error {
-                    print("Error: \(error.localizedDescription)")
-                    XCTAssertNotNil(error)
-                    expectation.fulfill()
-                } else if let httpResponse = response as? HTTPURLResponse {
-                   
-                    if let data = data {
-                    
-                            
-                        }
-                    
-                }
-        }
-    
-        waitForExpectations(timeout: 10,handler: nil)
-    }*/
+
 
     func testPostingOrderShouldPass(){
         let expectation = expectation(description: "waiting api")
@@ -282,7 +255,7 @@ final class NetworkServiceTest: XCTestCase {
     }
     func testPostNewCustomerShouldPass(){
         let expectation = expectation(description: "waiting api")
-        networkService .postingNewCustomer(customer: CustomerRequest(customer: Customer(first_name: "hadia", last_name: "test", email: "hadiaa@gmail.com", verified_email: true, password: "123456", password_confirmation: "123456", send_email_welcome: true)), completionHandler:{result in
+        networkService .postingNewCustomer(customer: CustomerRequest(customer: Customer(first_name: "hadiaa", last_name: "test", email: "hadiaaa@gmail.com", verified_email: true, password: "123456", password_confirmation: "123456", send_email_welcome: true)), completionHandler:{result in
             switch result{
             case .success(let data):
                 XCTAssertNotNil(data.customer.id)
