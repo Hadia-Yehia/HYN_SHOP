@@ -63,6 +63,12 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGl-oT-6n7">
+                    <rect key="frame" x="175" y="159" width="42" height="21.666666666666657"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -73,8 +79,11 @@
                 <constraint firstItem="e6e-fk-LQh" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="8Py-89-qTO"/>
                 <constraint firstItem="FQ8-HO-lyG" firstAttribute="leading" secondItem="Gwq-P5-gWu" secondAttribute="trailing" constant="5" id="Cwg-D1-UQh"/>
                 <constraint firstItem="e6e-fk-LQh" firstAttribute="top" secondItem="Gwq-P5-gWu" secondAttribute="bottom" constant="23" id="DGO-9u-5eB"/>
+                <constraint firstItem="tGl-oT-6n7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="175" id="ECs-k4-132"/>
                 <constraint firstItem="Khm-hW-uUA" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="G3o-3k-Guo"/>
+                <constraint firstItem="tGl-oT-6n7" firstAttribute="top" secondItem="Khm-hW-uUA" secondAttribute="bottom" constant="44" id="HvY-m1-BmX"/>
                 <constraint firstItem="Khm-hW-uUA" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.0657277" id="IOz-rc-7lQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tGl-oT-6n7" secondAttribute="trailing" constant="176" id="Uhf-01-Gby"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Gwq-P5-gWu" secondAttribute="trailing" constant="75" id="WOl-de-svw"/>
                 <constraint firstItem="FQ8-HO-lyG" firstAttribute="top" secondItem="Khm-hW-uUA" secondAttribute="bottom" constant="25" id="XDi-du-zbg"/>
                 <constraint firstItem="Gwq-P5-gWu" firstAttribute="leading" secondItem="53Q-ye-iPC" secondAttribute="trailing" constant="5" id="ZXT-ep-LKz"/>
