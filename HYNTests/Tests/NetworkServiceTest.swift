@@ -21,47 +21,60 @@ final class NetworkServiceTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-   /* func testPostingOrderShouldPass(){
+   /* func testPostingOrderShouldFail(){
         let expectation = expectation(description: "waiting api")
         let defaults = UserDefaults.standard
         var linesArr = [LineItems]()
         var obj1 = LineItems(title: "adidas", price: "200", quantity: 1)
         linesArr.append(obj1)
         let id = (UserDefaults.standard.object(forKey: "userId") as? Int)!
-        var customer = PostCustoer(id: id)
+        var customer = PostCustoer(id: 6971932573988)
         let order = Order(customer:customer, lineItems: linesArr)
         let myOrder  = OrderRequest(order: order)
         NetworkService.postingOrder(order: myOrder){
             (data, response, error) in
                 if let error = error {
                     print("Error: \(error.localizedDescription)")
+                    XCTAssertNotNil(error)
+                    expectation.fulfill()
                 } else if let httpResponse = response as? HTTPURLResponse {
-                    print("Response status code: \(httpResponse.statusCode)")
+                   
                     if let data = data {
-                        // Parse the response data if necessary
-                        // ...
-                    }
+                    
+                            
+                        }
+                    
                 }
         }
     
+        waitForExpectations(timeout: 10,handler: nil)
+    }*/
+
+    func testPostingOrderShouldPass(){
+        let expectation = expectation(description: "waiting api")
+        let defaults = UserDefaults.standard
+        var linesArr = [LineItems]()
+        var obj1 = LineItems(title: "adidas", price: "200", quantity: 1)
+        linesArr.append(obj1)
+        let id = (UserDefaults.standard.object(forKey: "userId") as? Int)!
+        var customer = PostCustoer(id: 6971932573988)
+        let order = Order(customer:customer, lineItems: linesArr)
+        let myOrder  = OrderRequest(order: order)
+        NetworkService.postingOrder(order: myOrder){
+            (data, response, error) in
+                if let error = error {
+                
+                } else if let httpResponse = response as? HTTPURLResponse {
+                   
+                    if let data = data {
+                        XCTAssertNotNil(data)
+                        expectation.fulfill()
+                        }
+                    
+                }
+        }
         waitForExpectations(timeout: 7,handler: nil)
     }
-
-    func testPostingOrderShouldFail(){
-        let expectation = expectation(description: "waiting api")
-        NetworkService.gettingOrder(customerID: 988, completion: {
-            result in
-            switch result{
-            case .success(_):
-                expectation.fulfill()
-            case .failure(let error):
-                print(error.localizedDescription)
-                XCTAssertNotNil(error)
-                expectation.fulfill()
-            }
-        })
-        waitForExpectations(timeout: 7,handler: nil)
-    }*/
     
     
     func testGettingOrderShouldPass(){
