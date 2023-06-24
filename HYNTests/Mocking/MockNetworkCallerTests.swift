@@ -53,6 +53,125 @@ func testgetProductResponse()
             }
         })
     }
+    // MARK: testing Brand Data
+    func testGetBrandDataResponse()
+        {
+            let networkManager = MockNetworkCaller(shouldReturnError: false)
+            networkManager.getBrandData(completionHandler: {
+                result in
+                switch result{
+                case .failure(let error):
+                    print(error)
+                    XCTFail()
+                    break
+                case .success(let data):
+                    XCTAssertGreaterThan(data.smart_collections?.count ?? 0, 0)
+                    break
+                }
+            })
+       
+        }
+    
+    // MARK: testing Brand Data
+    func testGetProductsDataResponse()
+        {
+            let networkManager = MockNetworkCaller(shouldReturnError: false)
+            networkManager.getProductsData(completionHandler: {
+                result in
+                switch result{
+                case .failure(let error):
+                    print(error)
+                    XCTFail()
+                    break
+                case .success(let data):
+                    XCTAssertGreaterThan(data.products?.count ?? 0, 0)
+                    break
+                }
+            })
+           
+       
+        }
+    // MARK: testing post order
+    func testpostingOrder()
+        {
+            let networkManager = MockNetworkCaller(shouldReturnError: false)
+            networkManager.postingOrder(completionHandler: {
+                result in
+                switch result{
+                case .failure(let error):
+                    print(error)
+                    XCTFail()
+                    break
+                case .success(let data):
+                    XCTAssertGreaterThan(data.order.line_items.count ?? 0, 0)
+                    break
+                }
+            })
+           
+       
+        }
+    // MARK: testing get order
+    func testgettingOrder()
+        {
+            let networkManager = MockNetworkCaller(shouldReturnError: false)
+            networkManager.gettingOrder(completionHandler: {
+                result in
+                switch result{
+                case .failure(let error):
+                    print(error)
+                    XCTFail()
+                    break
+                case .success(let data):
+                    XCTAssertGreaterThan(data.orders.count ?? 0, 0)
+                    break
+                }
+            })
+      
+        }
+    
+    
+    
+    
+    
+    
+    
+    
+    // MARK: testing Brand Product
+    func testGetBrandProductDataResponse()
+        {
+            let networkManager = MockNetworkCaller(shouldReturnError: false)
+            networkManager.getBrandProductsData(brand_id: 448683835677, completionHandler: {
+                result in
+                switch result{
+                case .failure(let error):
+                    print(error)
+                    XCTFail()
+                    break
+                case .success(let data):
+                    XCTAssertGreaterThan(data.products?.count ?? 0, 0)
+                    break
+                }
+            })
+        }
+    
+    // MARK: testing Brand Product
+    func testGetCategoryTypeDataResponse()
+        {
+            let networkManager = MockNetworkCaller(shouldReturnError: false)
+            networkManager.getCategoryTypeData(type: "SHOSE", completionHandler: {
+                result in
+                switch result{
+                case .failure(let error):
+                    print(error)
+                    XCTFail()
+                    break
+                case .success(let data):
+                    XCTAssertGreaterThan(data.products?.count ?? 0, 0)
+                    break
+                }
+            })
+         
+        }
     // MARK: testing customer response
 func testCustomerResponse()
     {

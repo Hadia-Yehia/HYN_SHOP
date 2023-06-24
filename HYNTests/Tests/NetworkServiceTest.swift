@@ -20,7 +20,209 @@ final class NetworkServiceTest: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
 
+
+    func testPostingOrderShouldPass(){
+        let expectation = expectation(description: "waiting api")
+        let defaults = UserDefaults.standard
+        var linesArr = [LineItems]()
+        var obj1 = LineItems(title: "adidas", price: "200", quantity: 1)
+        linesArr.append(obj1)
+        let id = (UserDefaults.standard.object(forKey: "userId") as? Int)!
+        var customer = PostCustoer(id: 6971932573988)
+        let order = Order(customer:customer, lineItems: linesArr)
+        let myOrder  = OrderRequest(order: order)
+        NetworkService.postingOrder(order: myOrder){
+            (data, response, error) in
+                if let error = error {
+                
+                } else if let httpResponse = response as? HTTPURLResponse {
+                   
+                    if let data = data {
+                        XCTAssertNotNil(data)
+                        expectation.fulfill()
+                        }
+                    
+                }
+        }
+        waitForExpectations(timeout: 7,handler: nil)
+    }
+    
+    
+    func testGettingOrderShouldPass(){
+        let expectation = expectation(description: "waiting api")
+        let defaults = UserDefaults.standard
+        let id = (UserDefaults.standard.object(forKey: "userId") as? Int)!
+        NetworkService.gettingOrder(customerID: id, completion: {
+            result in
+                switch result{
+                case .success(let data):
+                    XCTAssertNotNil(data.orders.count,"no data")
+                    expectation.fulfill()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    XCTFail()
+                    expectation.fulfill()
+                }
+        })
+        waitForExpectations(timeout: 7,handler: nil)
+    }
+
+    func testGettingOrderShouldFail(){
+        let expectation = expectation(description: "waiting api")
+        NetworkService.gettingOrder(customerID: 988, completion: {
+            result in
+            switch result{
+            case .success(_):
+                expectation.fulfill()
+            case .failure(let error):
+                print(error.localizedDescription)
+                XCTAssertNotNil(error)
+                expectation.fulfill()
+            }
+        })
+        waitForExpectations(timeout: 7,handler: nil)
+    }
+    
+    func testGetCategoryTypeDataShouldPass(){
+        let expectation = expectation(description: "waiting api")
+        networkService.getCategoryTypeData(type: "SHOSE", completionHandler: { result in
+            switch result{
+            case .success(let data):
+                XCTAssertNotNil(data.products?.count,"no data")
+                expectation.fulfill()
+            case .failure(let error):
+                print(error.localizedDescription)
+                XCTFail()
+                expectation.fulfill()
+            }
+            
+        })
+    
+        waitForExpectations(timeout: 7,handler: nil)
+    }
+
+    func testGetCategoryTypeDataShouldFail(){
+        let expectation = expectation(description: "waiting api")
+        networkService.getCategoryTypeData(type: "shose", completionHandler: {
+            result in
+            switch result{
+            case .success(_):
+                expectation.fulfill()
+            case .failure(let error):
+                print(error.localizedDescription)
+                XCTAssertNotNil(error)
+                expectation.fulfill()
+            }
+        })
+        waitForExpectations(timeout: 7,handler: nil)
+    }
+    
+    
+    func testGetBrandDataShouldPass(){
+        let expectation = expectation(description: "waiting api")
+        networkService.getBrandData(completionHandler: { result in
+            switch result{
+            case .success(let data):
+                XCTAssertNotNil(data.smart_collections?.count,"no data")
+                expectation.fulfill()
+            case .failure(let error):
+                print(error.localizedDescription)
+                XCTFail()
+                expectation.fulfill()
+            }
+            
+        })
+     
+       
+        waitForExpectations(timeout: 7,handler: nil)
+    }
+
+    func testGetBrandDataShouldFail(){
+        let expectation = expectation(description: "waiting api")
+        networkService.getBrandData(completionHandler: {
+                result in
+                switch result{
+                case .success(_):
+                    expectation.fulfill()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    XCTAssertNotNil(error)
+                    expectation.fulfill()
+                }
+        })
+       
+        waitForExpectations(timeout: 7,handler: nil)
+    }
+    
+    func testGetProductsDataShouldPass(){
+        let expectation = expectation(description: "waiting api")
+        networkService.getProductsData(completionHandler: { result in
+            switch result{
+            case .success(let data):
+                XCTAssertNotNil(data.products?.count,"no data")
+                expectation.fulfill()
+            case .failure(let error):
+                print(error.localizedDescription)
+                XCTFail()
+                expectation.fulfill()
+            }
+            
+            
+        })
+       
+        waitForExpectations(timeout: 7,handler: nil)
+    }
+
+    func testGetProductsDataShouldFail(){
+        let expectation = expectation(description: "waiting api")
+        networkService.getProductsData(completionHandler: {
+            result in
+                switch result{
+                case .success(_):
+                    expectation.fulfill()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    XCTAssertNotNil(error)
+                    expectation.fulfill()
+                }
+        })
+       
+        waitForExpectations(timeout: 7,handler: nil)
+    }
+    func testGetBrandProductsDataShouldPass(){
+        let expectation = expectation(description: "waiting api")
+        networkService.getBrandProductsData(brand_id: 448683835677, completionHandler: { result in
+            switch result{
+            case .success(let data):
+                XCTAssertNotNil(data.products?.count,"no data")
+                expectation.fulfill()
+            case .failure(let error):
+                print(error.localizedDescription)
+                XCTFail()
+                expectation.fulfill()
+            }
+            
+        })
+       
+        waitForExpectations(timeout: 7,handler: nil)
+    }
+
+    func testGetBrandProductsDataShouldFail(){
+        let expectation = expectation(description: "waiting api")
+        networkService.getBrandProductsData(brand_id: 2, completionHandler: { result in
+            switch result{
+            case .success(_):
+                expectation.fulfill()
+            case .failure(let error):
+                print(error.localizedDescription)
+                XCTAssertNotNil(error)
+                expectation.fulfill()
+            }
+        })
+        waitForExpectations(timeout: 7,handler: nil)
+    }
     func testGetProductInfoShouldPass(){
         let expectation = expectation(description: "waiting api")
         networkService.fetchingProductDetails(product_id: 8348491710749, completionHandler: {result in
@@ -53,7 +255,7 @@ final class NetworkServiceTest: XCTestCase {
     }
     func testPostNewCustomerShouldPass(){
         let expectation = expectation(description: "waiting api")
-        networkService .postingNewCustomer(customer: CustomerRequest(customer: Customer(first_name: "hadia", last_name: "test", email: "hadiaa@gmail.com", verified_email: true, password: "123456", password_confirmation: "123456", send_email_welcome: true)), completionHandler:{result in
+        networkService .postingNewCustomer(customer: CustomerRequest(customer: Customer(first_name: "hadiaa", last_name: "test", email: "hadiaaa@gmail.com", verified_email: true, password: "123456", password_confirmation: "123456", send_email_welcome: true)), completionHandler:{result in
             switch result{
             case .success(let data):
                 XCTAssertNotNil(data.customer.id)

@@ -45,6 +45,117 @@ extension MockNetworkCaller
     
         }
     }
+    // MARK: get Brand Data
+
+    func getBrandData(completionHandler: @escaping (Result<SmartCollectionsResult, NetworkError>) -> Void) {
+        if shouldReturnError
+        {
+            completionHandler(.failure(.urlError))
+        }else
+        {
+            do {
+                let data:SmartCollectionsResult = try loadJSON(filename: "SmartCollections", type: SmartCollectionsResult.self)
+                completionHandler(.success(data))
+            }catch
+            {
+                print("Error")
+            }
+    
+        }
+    }
+    
+    func getProductsData(completionHandler: @escaping (Result<ProductsResult, NetworkError>) -> Void) {
+        if shouldReturnError
+        {
+            completionHandler(.failure(.urlError))
+        }else
+        {
+            do {
+                let data:ProductsResult = try loadJSON(filename: "Products", type: ProductsResult.self)
+                completionHandler(.success(data))
+            }catch
+            {
+                print("Error")
+            }
+    
+        }
+         
+    }
+    
+    func getCategoryTypeData(type: String,completionHandler: @escaping (Result<ProductsResult, NetworkError>) -> Void) {
+        if shouldReturnError
+        {
+            completionHandler(.failure(.urlError))
+        }else
+        {
+            do {
+                let data:ProductsResult = try loadJSON(filename: "Products", type: ProductsResult.self)
+                completionHandler(.success(data))
+            }catch
+            {
+                print("Error")
+            }
+    
+        }
+    
+    }
+    
+    // MARK: get order
+    func postingOrder(completionHandler: @escaping (Result<OrderRequest, NetworkError>) -> Void)
+    {
+        if shouldReturnError
+        {
+            completionHandler(.failure(.urlError))
+        }else
+        {
+            do {
+                let data:OrderRequest = try loadJSON(filename: "Orders", type: OrderRequest.self)
+                completionHandler(.success(data))
+            }catch
+            {
+                print("Error")
+            }
+    
+        }
+    }
+    // MARK: get order
+    func gettingOrder(completionHandler: @escaping (Result<OrderRESPONSE, NetworkError>) -> Void)
+    {
+        if shouldReturnError
+        {
+            completionHandler(.failure(.urlError))
+        }else
+        {
+            do {
+                let data:OrderRESPONSE = try loadJSON(filename: "Orders", type: OrderRESPONSE.self)
+                completionHandler(.success(data))
+            }catch
+            {
+                print("Error")
+            }
+    
+        }
+    }
+    
+    // MARK: get Brand Product
+    func getBrandProductsData(brand_id: Int,completionHandler: @escaping (Result<ProductsResult, NetworkError>) -> Void) {
+        if shouldReturnError
+        {
+            completionHandler(.failure(.urlError))
+        }else
+        {
+            do {
+                let data:ProductsResult = try loadJSON(filename: "Products", type: ProductsResult.self)
+                completionHandler(.success(data))
+            }catch
+            {
+                print("Error")
+            }
+    
+        }
+    }
+
+    
     // MARK: get product details
     func fetchingProductDetails(product_id: Int, completionHandler: @escaping (Result<ProductResponse, NetworkError>) -> Void)
     {
