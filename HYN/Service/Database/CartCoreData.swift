@@ -146,8 +146,10 @@ class CartCoreData{
                 switch operation
                 {
                 case "inc":
-                    managedObject.setValue(cartItem.quantity+1, forKey: "quantity")
-                    managedObject.setValue(cartItem.defaultPrice*Float(cartItem.quantity+1), forKey: "price")
+                  
+                        managedObject.setValue(cartItem.quantity+1, forKey: "quantity")
+                        managedObject.setValue(cartItem.defaultPrice*Float(cartItem.quantity+1), forKey: "price")
+                    
                     
                 case "dec":
                     if cartItem.quantity > 1
@@ -183,6 +185,7 @@ class CartCoreData{
             print("Error deleting cart items: \(error.localizedDescription)")
         }
     }
+    
     
 }
 

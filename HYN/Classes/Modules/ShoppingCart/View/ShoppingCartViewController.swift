@@ -162,7 +162,11 @@ extension ShoppingCartViewController:UITableViewDelegate, UITableViewDataSource
     }
     @objc func inrementProductQuantity(sender:UIButton)
         {
-            viewModel.incrementCartItemQuantity(at: sender.tag)
+          if
+            !viewModel.incrementCartItemQuantity(at: sender.tag)
+            {
+              Alerts.makeConfirmationDialogue(title: "out of stock", message: "No more items of this product present in our stock")
+          }
        
         }
         

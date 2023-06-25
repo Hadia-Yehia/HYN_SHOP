@@ -59,9 +59,19 @@ class ShoppingCartViewModel{
     
     
 
-    func incrementCartItemQuantity(at index: Int) {
-        CartCoreData.shared.updateCartItem(cartItemsArray[index],operation: "inc")
-        self.getCartItemsFromCoreData()
+    func incrementCartItemQuantity(at index: Int)->Bool {
+        if cartItemsArray[index].inventoryQuantity > cartItemsArray[index].quantity
+        {
+            print ("el motaaa7i: \(cartItemsArray[index].inventoryQuantity)")
+            CartCoreData.shared.updateCartItem(cartItemsArray[index],operation: "inc")
+            self.getCartItemsFromCoreData()
+            return true
+        }
+        else
+        {
+       return false
+        }
+     
     }
     
     func decrementCartItemQuantity(at index: Int) {

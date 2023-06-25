@@ -14,9 +14,6 @@ class PaymentViewController: UIViewController {
     var viewModel = PaymentViewModel()
     @IBAction func placeOrderButton(_ sender: UIButton) {
         if (Availability.isConnectedToInternet){
-            
-            
-            
             if !(viewModel.isCashSelected ?? false)
             {
                 viewModel.purchasesingApplePay()
@@ -29,23 +26,20 @@ class PaymentViewController: UIViewController {
                     }
                 }
                 
-             
+                self.viewModel.saveOrder()
             }
             
             else
             {
                 
-              // checkMaximumPrice()
-                navigationController?.pushViewController(PurchacingViewController(), animated: true)
+             checkMaximumPrice()
+             //   navigationController?.pushViewController(PurchacingViewController(), animated: true)
                 
             }
             //my code
-            self.viewModel.saveOrder()
+           
             
             
-            
-            
-
            }
      else{
                let alert = UIAlertController(title: "Network issue", message: "No connection", preferredStyle: .alert)
@@ -113,36 +107,47 @@ func setFinalCheckout()
     func checkMaximumPrice()
     {
         let currencyCode = UserDefaults.standard.string(forKey: "currencyCode") ?? "USD"
+        let exchangeRate = CurrencyManager.getRequiredCurrencyExchange()
         switch currencyCode
         {
         case "EGP":
-            if viewModel.calculateTotalPrice() > 30000
+            print("el 7a2: \(viewModel.calculateTotalPrice())")
+            if viewModel.calculateTotalPrice()*exchangeRate > 20000
             {
                 
+                
+                Alerts.makeConfirmationDialogue(title: "Total price of your purchase is too high", message: " You can't buy with more than 20000 EGP cash ,You can change your payment method to apple pay instead  ")
+                
+                
+                print("large price ")
             }
             else
             {
+                self.viewModel.saveOrder()
                 navigationController?.pushViewController(PurchacingViewController(), animated: true)
             }
         case "EUR" , "USD":
-            if viewModel.calculateTotalPrice() > 3000
+            if viewModel.calculateTotalPrice()*exchangeRate > 3000
             {
-                
+                Alerts.makeConfirmationDialogue(title: "Total price of your purchase is too high", message: " You can't buy with more than 3000 cash ,You can change your payment method to apple pay instead  ")
             }
             else
             {
+                self.viewModel.saveOrder()
                 navigationController?.pushViewController(PurchacingViewController(), animated: true)
             }
         case "AMD", "AED":
-            if viewModel.calculateTotalPrice() > 20000
+            if viewModel.calculateTotalPrice()*exchangeRate > 10000
             {
-                
+                Alerts.makeConfirmationDialogue(title: "Total price of your purchase is too high", message: " You can't buy with more than 10000 cash ,You can change your payment method to apple pay instead  ")
             }
             else
             {
+                self.viewModel.saveOrder()
                 navigationController?.pushViewController(PurchacingViewController(), animated: true)
             }
         default:
+            self.viewModel.saveOrder()
             return
         }
     }
