@@ -14,49 +14,12 @@ class NetworkService:NetworkServiceProtocol{
     static func getInstance() -> NetworkService{
         return sharedInstance
     }
-    
-    
-    //POST ORDER
-   /* func postingOrder(order : Order, completionHandler : @escaping(Result<OrderResponse, NetworkError>)->Void){
-      
-    
-       // draftOrder.lineItems?.append(LineItems(title: "base2", price: "0", quantity: 0))
-        let orderRequest = OrderRequest(order: order)
- 
-            let endpoint = "https://mad43-alex-ios2.myshopify.com/admin/api/2023-04/orders.json"
-            let headers: HTTPHeaders = [
-                "Content-Type": "application/json",
-                "X-Shopify-Access-Token": "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"
-            ]
-        print ("aywaaa order nody\(convertOrderRequestToParameter(orderRequest: orderRequest))")
-            AF.request(endpoint, method: .post, parameters: convertOrderRequestToParameter(orderRequest: orderRequest), encoding: JSONEncoding.default, headers: headers)
-                .responseJSON { response in
-                    switch response.result {
-                    case .success(let value): do {
-                        print("success")
-                        let jsonData = try JSONDecoder().decode(OrderResponse.self, from: JSONSerialization.data(withJSONObject: value,options: .prettyPrinted))
-                        print("ya 3zizy\(jsonData.order?.id)")
-                        completionHandler(.success(jsonData))
-                    }
-                        catch{
-                            print("fail parse")
-                            print(error.localizedDescription)
-                            completionHandler(.failure(.canNotParseData))
-                        }
-                        print(value)
-                    case .failure(let error):
-                        // Handle the error
-                        print("aywa shkk fe m7lo\(error)")
-                    }
-                }
-    }*/
     static func postingOrder(order:OrderRequest,completion: @escaping (Data?,URLResponse?,Error?)->Void){
             let url = URL(string: "https://2a25907a86ee4c7a031ff62885c81a0b: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@mad43-alex-ios2.myshopify.com/admin/api/2023-04/orders.json")!
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
             let session = URLSession.shared
             request.httpShouldHandleCookies = false
-            
             do {
                 let data = try JSONEncoder().encode(order)
                 let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any]
@@ -71,9 +34,6 @@ class NetworkService:NetworkServiceProtocol{
                 completion(data, response, error)
             }.resume()
         }
-    
-    
-    
     static func gettingOrder(customerID:Int,completion: @escaping (Result<OrderRESPONSE,Error>)->Void){
             let url = URL(string: "https://2a25907a86ee4c7a031ff62885c81a0b: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@mad43-alex-ios2.myshopify.com/admin/api/2023-04/customers/\(customerID)/orders.json")!
             var request = URLRequest(url: url)
@@ -84,8 +44,7 @@ class NetworkService:NetworkServiceProtocol{
             request.addValue("application/json", forHTTPHeaderField: "Accept")
             session.dataTask(with: request) { (data,response,error) in
                 guard let data = data else {
-                                return
-                            }
+                                return}
                 do {
                     let jsonData = try JSONDecoder().decode(OrderRESPONSE.self, from: data)
                     completion(.success(jsonData))
@@ -94,7 +53,6 @@ class NetworkService:NetworkServiceProtocol{
                 }
             }.resume()
         }
-    
     //MARK: Product details
     func fetchingProductDetails(product_id: Int, completionHandler: @escaping (Result<ProductResponse, NetworkError>) -> Void) {
         AF.request("https://d097bbce1fd2720f1d64ced55f0e485b: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@mad43-alex-ios-team4.myshopify.com/admin/api/2023-04/products/\(product_id).json")
@@ -104,7 +62,6 @@ class NetworkService:NetworkServiceProtocol{
                     print("success")
                     let jsonData = try JSONDecoder().decode(ProductResponse.self, from: data!)
                     completionHandler(.success(jsonData))
-
                 }
                     catch{
                         print("fail parse")
@@ -123,9 +80,7 @@ class NetworkService:NetworkServiceProtocol{
             let endpoint = "https://mad43-alex-ios2.myshopify.com/admin/api/2023-04/customers.json"
             let headers: HTTPHeaders = [
                 "Content-Type": "application/json",
-                "X-Shopify-Access-Token": "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"
-            ]
-       
+                "X-Shopify-Access-Token": "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"]
             AF.request(endpoint, method: .post, parameters: convertToParameters(customer: customer), encoding: JSONEncoding.default, headers: headers)
                 .responseJSON { response in
                     switch response.result {
@@ -146,17 +101,13 @@ class NetworkService:NetworkServiceProtocol{
                 }
     }
     
-    
    //MARK: Draft Order
-
     func postingNewDraftOrder(draftOrder : DraftOrder, completionHandler : @escaping(Result<DraftOrderResponse, NetworkError>)->Void){
         let draftOrderRequest = DraftOrderRequest(draft_order: draftOrder)
- 
             let endpoint = "https://mad43-alex-ios2.myshopify.com/admin/api/2023-04/draft_orders.json"
             let headers: HTTPHeaders = [
                 "Content-Type": "application/json",
-                "X-Shopify-Access-Token": "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"
-            ]
+            "X-Shopify-Access-Token": "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"]
         print ("aywaaa\(convertDraftOrderRequestToParameter(draftOrderRequest: draftOrderRequest))")
             AF.request(endpoint, method: .post, parameters: convertDraftOrderRequestToParameter(draftOrderRequest: draftOrderRequest), encoding: JSONEncoding.default, headers: headers)
                 .responseJSON { response in
@@ -179,12 +130,9 @@ class NetworkService:NetworkServiceProtocol{
                 }
     }
     //MARK: Delete Draft Order
-
     func deletingDraftOrder(id:Int,completionHandler: @escaping (Result<EmptyResponse, NetworkError>) -> Void) {
-        
         let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/draft_orders/\(id).json"
         let headers: HTTPHeaders = NetworkConstants.shared.accessToken
-        
         AF.request(url,
                    method: .delete,
                    headers: headers)
@@ -202,15 +150,11 @@ class NetworkService:NetworkServiceProtocol{
     }
   func getCustomerDraftOrder(draftOrderId:Int,completionHandler: @escaping (Result<DraftOrderResponse, NetworkError>) -> Void)
     {
-       
         let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/draft_orders/\(draftOrderId).json"
-        
-        
         AF.request(url,headers: NetworkConstants.shared.accessToken)
             .response{response in
                 switch response.result{
                 case .success(let data): do {
-                   
                     let jsonData = try JSONDecoder().decode(DraftOrderResponse.self, from: data!)
                     print("m3aya data ya yousra: \(jsonData.draftOrder?.lineItems?.count)")
                     completionHandler(.success(jsonData))
@@ -225,7 +169,6 @@ class NetworkService:NetworkServiceProtocol{
                     print(error.localizedDescription)
                     completionHandler(.failure(.urlError))
                 }
-                
             }
     }
     
@@ -244,30 +187,6 @@ class NetworkService:NetworkServiceProtocol{
         parameters["line_items"] = arr
         return parameters
     }
-    
-    
-    
-  /*  func convertOrderRequestToParameter(orderRequest : OrderRequest) -> [String : Any]{
-        var parameters : [String : Any] = [:]
-        parameters["order"] = convertOrderToParameters(order: orderRequest.order)
-        return parameters
-    }
-    func convertOrderToParameters(order : Order)->[String:Any]{
-        var parameters : [String:Any] = [:]
-        var arr = Array<[String:Any]>()
-        for i in 0..<(order.line_items.count ?? 0){
-            arr.append(convertLineItemsToParameters(lineItems: order.line_items[i] ?? LineItems(title: "base", price: "0", quantity: 0)))
-        }
-        parameters["line_items"] = arr
-        return parameters
-    }*/
-    
-    
-    
-    
-    
-    
-    
     func convertLineItemsToParameters(lineItems:LineItems)->[String:Any]{
         var parameters : [String:Any] = [:]
     
@@ -276,8 +195,6 @@ class NetworkService:NetworkServiceProtocol{
         parameters["quantity"] = lineItems.quantity
         return parameters
     }
-    
-    
     //MARK: Currency Exchange
     func getCurrencyExchange( completionHandler: @escaping (Result<Currency, NetworkError>) -> Void)
     {
@@ -308,19 +225,13 @@ class NetworkService:NetworkServiceProtocol{
      guard  let userId = UserDefaults.standard.object(forKey: "userId")
         else {
 
-            return
-        }
-        
+            return}
       print(userId)
         let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/\(userId)/addresses.json"
             
             let headers: HTTPHeaders = [
                 "X-Shopify-Access-Token": "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",
-                "Content-Type": "application/json"
-            ]
-            
-            
-            
+                "Content-Type": "application/json"]
             let customerAddress = CustomerAddress(address: address)
             let encoder = JSONEncoder()
             encoder.keyEncodingStrategy = .convertToSnakeCase
@@ -348,9 +259,6 @@ class NetworkService:NetworkServiceProtocol{
                 }
             }
         }
-        
-
-    
     func getCustomerAddresses(completionHandler: @escaping (Result<CustomerAddresses, NetworkError>) -> Void)
        {
            guard  let userId = UserDefaults.standard.object(forKey: "userId")
@@ -359,8 +267,6 @@ class NetworkService:NetworkServiceProtocol{
                   return
               }
            let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/\(userId)/addresses.json"
-           
-           
            AF.request(url,headers: NetworkConstants.shared.accessToken)
                .response{response in
                    switch response.result{
@@ -383,13 +289,11 @@ class NetworkService:NetworkServiceProtocol{
                    
                }
        }
-    
     func convertToParameters(customer : CustomerRequest) -> [String: Any] {
                 var parameters: [String: Any] = [:]
                 parameters["customer"] = convertCustomerTOParameters(customer: customer.customer)
                 return parameters
             }
-    
     func convertCustomerTOParameters(customer:Customer)->[String:Any]{
                 var parameters : [String:Any] = [:]
                 parameters["first_name"] = customer.first_name
@@ -403,9 +307,6 @@ class NetworkService:NetworkServiceProtocol{
 
                 return parameters
             }
-    
-
-    
     func deleteAddressFromServer(addressId:Int,completionHandler: @escaping (Result<EmptyResponse, NetworkError>) -> Void) {
         guard  let userId = UserDefaults.standard.object(forKey: "userId")
            else {
@@ -431,7 +332,6 @@ class NetworkService:NetworkServiceProtocol{
         }
     }
     
-    
     func updateCustomerAddress(addressId: Int, address: Address, completionHandler: @escaping (Result<CustomerAddress, NetworkError>) -> Void) {
         guard  let userId = UserDefaults.standard.object(forKey: "userId")
            else {
@@ -439,9 +339,6 @@ class NetworkService:NetworkServiceProtocol{
                return
            }
         let url = "\(NetworkConstants.shared.baseUrl)admin/api/2023-04/customers/\(userId)/addresses/\(addressId).json"
-           //  let customerId = 7123084443958
-           
-     
            let headers: HTTPHeaders = [
                "X-Shopify-Access-Token": "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",
                "Content-Type": "application/json"
@@ -473,15 +370,10 @@ class NetworkService:NetworkServiceProtocol{
                    completionHandler(.failure(.urlError))
                }
            }
-           
        }
-   
-
-   
     //MARK: Home data
     func getBrandData(completionHandler: @escaping (Result<SmartCollectionsResult, NetworkError>) -> Void) {
         AF.request("https://d097bbce1fd2720f1d64ced55f0e485b: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@mad43-alex-ios-team4.myshopify.com/admin/api/2023-04/smart_collections.json")
-   
         .response{response in
             switch response.result{
             case .success(let data): do {
@@ -525,58 +417,30 @@ class NetworkService:NetworkServiceProtocol{
             
         }
     }
-    
-   /* func getProductsType(completionHandler: @escaping (Result<CustomCollectionsResult, NetworkError>) -> Void) {
-        AF.request("https://3ec4212c45d4957fa3a49ab23d83ff1b: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@mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/custom_collections.json")
-        .response{response in
-            switch response.result{
-            case .success(let data): do {
-                print("success")
-                let jsonData = try JSONDecoder().decode(CustomCollectionsResult.self, from: data!)
-                completionHandler(.success(jsonData))
-            }
-                catch{
-                    print("fail parse")
-                    print(error.localizedDescription)
-                    completionHandler(.failure(.canNotParseData))
-                }
-            case .failure(let error):
-                print("fail url")
-                print(error.localizedDescription)
-                completionHandler(.failure(.urlError))
-            }
-            
-        }
-    }*/
-    
     func getBrandProductsData(brand_id: Int,completionHandler: @escaping (Result<ProductsResult, NetworkError>) -> Void) {
-        print("in items \(brand_id)")
-        AF.request("https://d097bbce1fd2720f1d64ced55f0e485b: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@mad43-alex-ios-team4.myshopify.com/admin/api/2023-04/products.json?collection_id=\(brand_id)")
-        .response{response in
-            switch response.result{
-            case .success(let data): do {
-                print(data)
-                print("success in brand product data method")
-                let jsonData = try JSONDecoder().decode(ProductsResult.self, from: data!)
-                print("data after hiting\(jsonData.products?.count)")
-                completionHandler(.success(jsonData))
-            }
-                catch{
-                    print("fail parse")
-                    print(error.localizedDescription)
-                    completionHandler(.failure(.canNotParseData))
-                }
-            case .failure(let error):
-                print("fail url")
-                print(error.localizedDescription)
-                completionHandler(.failure(.urlError))
-            }
-            
-        }
-    }
-
-    
-    
+                        print("in items \(brand_id)")
+                        AF.request("https://d097bbce1fd2720f1d64ced55f0e485b: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@mad43-alex-ios-team4.myshopify.com/admin/api/2023-04/products.json?collection_id=\(brand_id)")
+                            .response{response in
+                                switch response.result{
+                                case .success(let data): do {
+                                    print(data)
+                                    print("success in brand product data method")
+                                    let jsonData = try JSONDecoder().decode(ProductsResult.self, from: data!)
+                                    print("data after hiting\(jsonData.products?.count)")
+                                    completionHandler(.success(jsonData))
+                                }
+                                    catch{
+                                        print("fail parse")
+                                        print(error.localizedDescription)
+                                        completionHandler(.failure(.canNotParseData))
+                                    }
+                                case .failure(let error):
+                                    print("fail url")
+                                    print(error.localizedDescription)
+                                    completionHandler(.failure(.urlError))
+                                }
+                            }
+                    }
     func getCategoryTypeData(type: String,completionHandler: @escaping (Result<ProductsResult, NetworkError>) -> Void) {
         print("in items \(type)")
         AF.request("https://d097bbce1fd2720f1d64ced55f0e485b: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@mad43-alex-ios-team4.myshopify.com/admin/api/2023-04/products.json?collection_id=448684196125&product_type=\(type)")
@@ -607,59 +471,4 @@ enum NetworkError : Error{
     case urlError
     case canNotParseData
 }
-
-    
-    
-//    func getBrandData(){
-//                var urlTeam =
-//                    "https://3ec4212c45d4957fa3a49ab23d83ff1b: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@mad34-alex-ios-team2.myshopify.com/admin/api/2023-04/smart_collections.json"
-//                      var url = URL(string: urlTeam)
-//                      let request = URLRequest(url: url!)
-//                      let session = URLSession(configuration: .default)
-//                let task = session.dataTask(with: request) { data, response, error in
-//                    guard error == nil else {
-//                        // handle error
-//                        print("error")
-//                        return
-//                    }
-//                    guard let data = data else {
-//                        // handle empty response
-//                        print("empty data")
-//                        return
-//                    }
-//                    do {
-//                       // decode the response data using your model
-//                       let result = try JSONDecoder().decode(SmartCollectionsResult.self, from: data)
-//                        print(data.count)
-//                        var brandObj = String()
-//                        if let collections = result.smart_collections {
-//                            var i = 0
-//                            for collection in collections {
-//                                //print(collection.image?.src)
-//                                brandObj = (collection.image?.src)!
-//                                i = i+1
-//                                self.brandArray.append(brandObj)
-//                            }
-//                             DispatchQueue.main.async {
-//                                 self.mediaCollection.reloadData()
-//                                 self.brandsCollection.reloadData()
-//
-//                             }
-//                        }
-//                      } catch {
-//                          // handle decoding error
-//                          print("no dataaaaa")
-//                          print("Error decoding response data: \(error)")
-//                      }
-//
-//                    // handle response data here
-//                    // for example, you can decode the JSON data using Codable
-//
-//                }
-//
-//                task.resume()
-//    }
-
-
-
 
