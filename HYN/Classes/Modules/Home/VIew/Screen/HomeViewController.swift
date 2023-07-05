@@ -93,10 +93,10 @@ class HomeViewController: UIViewController,UICollectionViewDataSource,UICollecti
             }
         }
     }
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-       
-        return 2
-    }
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//       
+//        return 2
+//    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch(collectionView){
